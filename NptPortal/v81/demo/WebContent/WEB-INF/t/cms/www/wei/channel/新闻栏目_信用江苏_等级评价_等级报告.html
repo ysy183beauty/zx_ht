@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+    <title>信用等级报告</title>
+    [#include "../include/页头顶栏_LINK.html"/]
+    <link rel="stylesheet" href="${resSys}/www/red/css/iec.css"/>
+</head>
+<body>
+<div class="wrap">
+    [#include "../include/页头顶栏.html"/]
+    <div id="container" class="">
+        <div class="sit height_auto m-t-md">
+            <ul>
+                <li>
+                    <a id="sy" href="/">首页</a>
+                </li>
+                <li>&gt;</li>
+                <li>
+                    <a >等级评价</a>
+                </li>
+            </ul>
+        </div>
+        <div class="content">
+            <div class="i-btn">
+                <button class="btn btn-success"><i class="glyphicon glyphicon-download-alt"></i>下载</button>
+                <button class="btn btn-warning" onclick="javascript:window.location='/credit/srv/index.do?word=1'"><i class="glyphicon glyphicon-pencil"></i>异议</button>
+                <button class="btn btn-info" onclick="closePager()"><i class="glyphicon glyphicon-remove"></i>关闭</button>
+            </div>
+            <div class="report">
+                <img src="${resSys}/www/red/img/iec/u6.png" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+[#include "../include/页脚信息栏.html"/]
+</body>
+<script>
+    function closePager(){
+        window.location="/hypjbg/index.jhtml";
+    }
+</script>
+</html>

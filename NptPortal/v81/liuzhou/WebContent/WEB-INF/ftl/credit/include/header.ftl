@@ -1,0 +1,269 @@
+[#--<script type="text/javascript" src="${resSys}/www/red/js/jquery-2.1.0.js" ></script>--]
+[#--<script type="text/javascript" src="${resSys}/www/red/js/bootstrap.js" ></script>--]
+<script type="text/javascript" src="${resSys}/www/red/js/dLogin.js" ></script>
+<script>
+    $(function() {
+        //初始化一号通DIV登录
+        EHAOTONG({
+            render:"eHaoTongLoginDiv", //统一用户DIV登录框ID
+            shade:true,
+            source:"lzxypt",
+            submitTarget:"_parent",
+            toUrl:window.location.href,
+            loginType:0,
+            passLoginFunc:"passLogin"
+        });
+    });
+</script>
+<div class="header">
+    <header>
+        <a href="/"><img src="${ctx}/r/cms/www/red/img/lz/index/logo.png" alt=""></a>
+        <div class="fix-top">
+            <div class="head-login">
+                <div class="welcome">
+                    <span>您好，欢迎来到信用柳州！</span>
+                    <span id="date"></span>
+                </div>
+                <div class="login pull-right">
+                    <ul>
+                    [#if user??]
+                        <div id="ydl">
+                            <li>
+                                <div style="float: left;margin-top: 2px;">欢迎:</div>
+                                <a id="showName" href="/member/userInfo.jspx"
+                                   style="float: right;margin-left: 3px;color:blue;">${user.username!}
+                                </a>
+                            </li>
+                            [#if user.flag??]
+                                [#if user.flag=='3']
+                                    <li><span class="glyphicon glyphicon-ok-sign" title="已认证"
+                                              style="margin-left: 2px;color: #02a831;margin-top: 3px;"></span>|
+                                    </li>
+                                [#elseif user.flag=='4']
+                                    <li><span class="glyphicon glyphicon-ok-sign" title="认证失败"
+                                              style="margin-left: 2px;color: red;margin-top: 3px;"></span>|
+                                    </li>
+                                [#elseif user.flag=='2']
+                                    <li><span class="glyphicon glyphicon-ok-sign" title="认证中"
+                                              style="margin-left: 2px;margin-top: 3px;"></span>|
+                                    </li>
+                                [#else]
+                                    <li><span class="glyphicon glyphicon-ok-sign" title="其他"
+                                              style="margin-left: 2px;margin-top: 3px;"></span>|
+                                    </li>
+                                [/#if]
+                            [#else]
+                                <li><span class="glyphicon glyphicon-ok-sign" title="未认证"
+                                          style="margin-left: 2px;margin-top: 3px;"></span>|
+                                </li>
+                            [/#if]
+                            <li>
+                                <a onClick="userLogout()" style="cursor: pointer">退出</a>
+                            </li>
+                        </div>
+                    [#else]
+                        <div id="wdl">
+                            <li>
+                                <a href="javascript:showEHAOTONGLogin();" style="cursor: pointer">登录</a>
+                                <!--<a href="/login.jspx" style="cursor: pointer">登录</a>-->
+                            </li>
+                            <li>|</li>
+                            <li>
+                                <a href="https://e.liuzhou.gov.cn/visit/registPage/toNewPReg" style="cursor: pointer">注册</a>
+                            </li>
+                        </div>
+                    [/#if]
+                    </ul>
+                </div>
+                <div class="head-search-top">
+
+                    <input id="site" type="text" class="ipt-text" placeholder="站内搜索" onclick="clearMsg(this)">
+                    <div id="site-tip" class="info-tip index-search-tip" >
+                        <p class="search-count " id="">搜索关键词不得少于２个字符</p>
+                        <span class="corner-main">◆</span>
+                        <span class="corner-bottom">◆</span>
+                    </div>
+                    <button class="btn btn-primary search-btn" onclick="siteSearch()"></button>
+                </div>
+            </div>
+        </div>
+
+    </header>
+</div>
+
+<div class="head-nav">
+    <div class="hover-back"></div>
+    <ul id="navList">
+        <div id="first-page"><a href="/">首页</a></div>
+        <li></li>
+
+        <li data-id="zx">
+            <a href="/lzxyzx/index.jhtml">信用资讯</a>
+        </li>
+        <li data-id="gs">
+            <a href="/credit/pub/index.do">信用公示</a>
+        </li>
+        <li data-id="yj">
+            <a href="/lzxyyj/index.jhtml">信用研究</a>
+        </li>
+        <li data-id="cx">
+            <a href="/credit/query/index.do">信用查询</a>
+        </li>
+        <li data-id="fw">
+            <a href="[#if user??]/credit/srv/index.do[#else]javascript:showEHAOTONGLogin();[/#if]">信用服务</a>
+        </li>
+        [#--<li data-id="mp">--]
+            [#--<a href="/credit/card/plaza.do">信用名片</a>--]
+        [#--</li>--]
+        <li data-id="zt">
+            <a href="/xyzt/index.jhtml">信用专题</a>
+        </li>
+        <li id="last-page">
+            <a href="[#if user??]/member/userInfo.jspx[#else]javascript:showEHAOTONGLogin();[/#if]">用户中心</a>
+        </li>
+    </ul>
+    <div class="nav-content">
+    </div>
+</div>
+
+<div id="eHaoTongLoginDiv"></div>
+<!--站内搜索-->
+<script>
+    function siteSearch() {
+        var keyWord = $("#site").val();
+        if (keyWord && keyWord.length > 1) {
+            window.open(encodeURI("/znss/index.jhtml?keyword=" + keyWord));
+        }
+        else {
+            $("#site-tip").css("display", "block");
+        }
+    }
+</script>
+
+<script type="text/javascript">
+    //            判断浏览器，提示升级
+    $(function (w) {
+        if (!("WebSocket" in w && 2 === w.WebSocket.CLOSING)) {
+            var d = document.createElement("div");
+            d.className = "browsehappy";
+            d.innerHTML = '<div style="width:100%;height:100px;font-size:20px;line-height:100px;text-align:center;background-color:#E90D24;color:#fff;margin-bottom:40px;">\u4f60\u7684\u6d4f\u89c8\u5668\u5b9e\u5728<strong>\u592a\u592a\u65e7\u4e86</strong>\uff0c会影响您使用本网站。请点击 <a target="_blank" href="http://browsehappy.osfipin.com/" style="background-color:#31b0d5;border-color: #269abc;text-decoration: none;padding: 6px 12px;background-image: none;border: 1px solid transparent;border-radius: 4px;color:#FFEB3B;">\u7acb\u5373\u5347\u7ea7</a></div>';
+            var f = function () {
+                var s = document.getElementsByTagName("body")[0];
+                if ("undefined" == typeof(s)) {
+                    setTimeout(f, 10)
+                }
+                else {
+                    s.insertBefore(d, s.firstChild)
+                }
+            };
+            f()
+        }
+    }(window));
+
+
+    var loginName;
+    var userName;
+    var type;
+    var flag;
+    $(function () {
+        initUser();
+    });
+
+    function userLogout() {
+        window.location.href="https://e.liuzhou.gov.cn/cas/logout?service=http://"+window.location.host+"/logout.jspx";
+    }
+
+
+    function initUser() {
+    [#if user??]
+        loginName = '${user.loginName!}';
+        userName = '${user.userName!}';
+        type = '${user.type!}';
+        flag = '${user.flag!}';
+    [/#if]
+    }
+
+
+    $(function () {
+        showTime();
+    });
+    function checkTime(i) {
+        if (i < 10) {
+            i = "0" + i;
+        }
+        return i;
+    }
+    function showTime() {
+        var now = new Date();
+        var year = now.getFullYear();
+        var month = now.getMonth() + 1;
+        var day = now.getDate();
+        var h = now.getHours();
+        var m = now.getMinutes();
+        var s = now.getSeconds();
+        h = checkTime(h);
+        m = checkTime(m);
+        s = checkTime(s);
+        var weekday = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
+        // var t=year+"年"+month+"月"+day+"日"+""+h+":"+m+":"+s+"&nbsp;"+weekday[now.getDay()];
+        var t = year + "年" + month + "月" + day + "日" + "&nbsp;" + weekday[now.getDay()];
+        $("#date").html(t);
+        var timer = setTimeout('showTime()', 1000);
+    }
+    //    导航栏查询
+    function cxsearchShow(d) {
+        $("#nav-" + d).addClass("cx-active").siblings().removeClass("cx-active");
+        $("#nav-" + d + "-input").css("display", "block").siblings().css("display", "none");
+    }
+    //    悬浮框
+    $("#navList li").hover(function(e){
+
+        var index=$(this).index();
+//        console.log(index);
+        if(index>1 && index<8){
+            var left= (2-index)*1000+"px";
+            $(".nav-content-box").css("left",left);
+            $(".nav-content").stop().css("height","360px");
+        }
+        if(index>1 && index<8){
+            $(this).siblings().find("a").css("color","#fff");
+            var hoverLeft=(index-1)*125+"px";
+            $(".hover-back").stop().css("left",hoverLeft);
+            $(this).find("a").css("color","#034489");
+        }
+    });
+
+    $(".head-nav").hover(function(e){},function(){
+        $(".nav-content").stop().css("height","0");
+        $(".hover-back").stop().css("left","0");
+        $("#navList>li>a").css("color","#fff");
+    });
+    $(function () {
+        $.ajax({
+            url: "/xfk/index.jhtml",
+            data: {},
+            timeout: 30000,
+            success: function (data) {
+                $(".nav-content").html(data);
+            }
+        });
+    });
+
+    $('.guojia').hide();
+    $('.s-le-span span').eq(1).click(function () {
+        $(this).addClass('xuanzhong')
+        $(this).prev().removeClass('xuanzhong');
+        $('.news').hide();
+        $('.guojia').show();
+    });
+    $('.s-le-span span').eq(0).click(function () {
+        $(this).addClass('xuanzhong')
+        $(this).next().removeClass('xuanzhong');
+        $('.news').show();
+        $('.guojia').hide();
+    });
+//    热搜词
+    $(".searchWord").click(function(){
+        $("#site").val($(this).text());
+    });
+</script>

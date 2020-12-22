@@ -1,0 +1,45 @@
+<assembly xmlns="http://maven.apache.org/ASSEMBLY/2.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/ASSEMBLY/2.0.0 http://maven.apache.org/xsd/assembly-2.0.0.xsd">
+    <id>distribution</id>
+    <includeBaseDirectory>false</includeBaseDirectory>
+    <formats>
+        <format>war</format>
+    </formats>
+    <fileSets>
+        <fileSet>
+            <directory>${project.basedir}/src/main/webapp</directory>
+            <outputDirectory>/</outputDirectory>
+            <excludes>
+                <exclude>WEB-INF/resources/datasource.xml</exclude>
+            </excludes>
+        </fileSet>
+        <fileSet>
+            <directory>${project.basedir}/src/main/config</directory>
+            <outputDirectory>WEB-INF/classes</outputDirectory>
+            <excludes>
+                <exclude>db.config.properties</exclude>
+            </excludes>
+        </fileSet>
+        <fileSet>
+            <directory>${project.build.outputDirectory}</directory> <!-- target/classes -->
+            <outputDirectory>WEB-INF/classes</outputDirectory>
+        </fileSet>
+        <fileSet>
+            <directory>${project.basedir}/env/prod/config</directory>
+            <outputDirectory>WEB-INF/classes</outputDirectory>
+        </fileSet>
+        <fileSet>
+            <directory>${project.basedir}/env/prod/webapp/WEB-INF/resources</directory>
+            <outputDirectory>WEB-INF/resources</outputDirectory>
+        </fileSet>
+    </fileSets>
+    <dependencySets>
+        <dependencySet>
+            <outputDirectory>WEB-INF/lib</outputDirectory>
+            <excludes>
+                <exclude>org.summer:NPTWebApp:war:1.0.0-SNAPSHOT</exclude>
+            </excludes>
+        </dependencySet>
+    </dependencySets>
+</assembly>

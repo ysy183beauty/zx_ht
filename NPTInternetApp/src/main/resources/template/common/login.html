@@ -1,0 +1,129 @@
+<#include "/template/Credit_Common/common.ftl">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>${platformName}}</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="${wctx}/pub/CreditStyle/bootstrap/common/css/bootstrap.min.css" />
+<link rel="stylesheet" href="${wctx}/pub/CreditStyle/bootstrap/common/css/bootstrap-responsive.min.css" />
+<link rel="stylesheet" href="${wctx}/pub/CreditStyle/module/login/login.css" />
+
+</head>
+<body>
+	<h1>神州数码信用服务与管理平台</h1>
+	<div id="loginbox">
+		<!-- <form id="loginform" class="form-vertical" action="http://themedesigner.in/demo/matrix-admin/index.html"> -->
+		<form id="login_form" class="form-vertical" name="login_form" action="j_spring_security_check" method="post">
+			<input type="hidden" id="key_module"
+				value="${_loginSecurityPubKeyModule?default(" ")}"/> 
+			<input
+				type="hidden" id="key_exponent"
+				value="${_loginSecurityPubKeyExponent?default(" ")}"/> 
+			<input
+				type="hidden" id="j_password" name="j_password" value="" />
+
+			<div class="control-group normal_text">
+				<h3>
+					<img src="${platformLogo}" alt="Logo" />
+				</h3>
+			</div>
+			<div class="control-group">
+				<div class="controls">
+					<div class="main_input_box">
+						<span class="add-on bg_lg"><i class="icon-user"></i></span> 
+						<input id="j_username" name="j_username" placeholder="请输入用户名"
+							value="" type="text">
+					</div>
+				</div>
+			</div>
+			<div class="control-group">
+				<div class="controls">
+					<div class="main_input_box">
+						<span class="add-on bg_ly"><i class="icon-lock"></i></span> 
+						<input id="t_password" placeholder="请输入密码" type="password"
+							value="">
+					</div>
+				</div>
+			</div>
+			<#if useJcaptcha>
+				<div class="control-group">
+					<div class="controls">
+						<div class="main_input_box">
+							<span class="add-on bg_ly"><i class="icon-lock"></i></span> 
+							<input type="text" id="j_captcha" name="j_captcha" class="form-control"
+								placeholder="请输入验证码" /> 
+							<img id="captchaImg" src="${ctx}/jcaptcha.${urlExt}" onclick='resetCaptcha();' />
+						</div>
+					</div>
+				</div>
+			</#if>
+			<#if message??>
+				<div class="control-group" style="padding: 5px 0;">
+					<div class="controls">
+						<div class="main_input_box">
+							<div style="color: white;">${message!}</div>
+						</div>
+					</div>
+				</div>
+			</#if>
+			<div class="form-actions text-center">
+				<span class="pull-left hidden">
+					<a href="#" class="flip-link btn btn-info" id="to-recover">Lost password?</a></span> 
+				<label class="hidden"><input name="remember" type="checkbox" value="Remember Me">Remember Me</label> 
+				<span class=""><a type="submit" href="javascript:void(0);" class="btn btn-success" onclick="onLogin();" />登录</a></span>
+			</div>
+		</form>
+	</div>
+
+	<script src="${wctx}/pub/matrix/js/jquery.min.js"></script>
+	<script src="${wctx}/pub/matrix/js/matrix.login.js"></script>
+	<script src="${wctx}/pub/script/security/coder/security.js"></script>
+	<script>
+		if (window != top)top.location.href = "${ctx}/";
+		function showForgotPasswordForm(){window.alert('系统暂不支持密码找回功能！');}
+		function onLogin(){
+			var login_form = document.getElementById('login_form');
+			var username = login_form.j_username.value;
+			if(username == null || username == ''){window.alert("请输入登录名！");login_form.j_username.focus();return false;}
+			var password = login_form.t_password.value;
+			if(password == null || password == ''){window.alert("请输入登录密码！");login_form.t_password.focus();return false;}
+			<#if useJcaptcha>
+			var captcha = login_form.j_captcha.value;
+			if(captcha == null || captcha == ''){window.alert("请输入验证码！");login_form.j_captcha.focus();return false;}
+			</#if>
+			//window.open("about:blank","mainWindow");
+			//login_form.target="mainWindow";
+			
+			var password = document.getElementById('t_password').value;
+			var key_module = document.getElementById('key_module').value;
+			var key_exponent = document.getElementById('key_exponent').value;
+			if(key_module != null && key_module.length != ''){
+				var key = RSAUtils.getKeyPair(key_exponent, '', key_module);
+				password = RSAUtils.encryptedString(key, password);
+			}
+			document.getElementById('j_password').value = password;
+			login_form.submit();
+		}
+		function enterDown(e) {
+			if(window.event){
+				e = window.event;
+			}
+			if (e.keyCode == 13){
+		    	e.returnValue=false; 
+	        e.cancel = true; 
+	        onLogin();
+	    }
+		}
+		
+		document.onkeydown = function (e){
+			enterDown(e);
+		};
+		function resetCaptcha(){
+			var captchaImg = document.getElementById('captchaImg');
+			captchaImg.setAttribute('src','${ctx}/jcaptcha.${urlExt}?'+new Date());
+		}
+	</script>
+</body>
+
+</html>

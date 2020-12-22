@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:v="http://www.summer.org/schema/config"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.summer.org/schema/config http://www.summer.org/schema/config/summer-core.xsd">
+
+    <v:package name="/npt/ces/cwbs" action-ref="npt.ces.cwbs">
+        <v:menu name="cwbs-manager" title="企业信用预警" admin="true">
+            <v:action name="index" result-success="ces/cw/bs/index.ftl"/>
+            <v:action name="detail" result-success="ces/cw/bs/detail.ftl"/>
+            <v:action name="topIndex" result-success="ces/cw/bs/topIndex.ftl"/>
+            <v:action name="topList" result-success="ces/cw/bs/topList.ftl"/>
+            <v:action name="star"/>
+            <v:action name="unStar"/>
+            <v:action name="listRiskIndex"/>
+            <v:action name="analyzeTendency"/>
+            <v:action name="searchIndex" result-success="ces/cw/bs/searchIndex.ftl"/>
+            <v:action name="searchList" result-success="ces/cw/bs/topList.ftl"/>
+            <v:action name="starIndex" result-success="ces/cw/bs/starIndex.ftl"/>
+            <v:action name="starList" result-success="ces/cw/bs/topList.ftl"/>
+            <v:action name="poolDetail" result-success="ces/cw/grs_group_info_list.ftl"/>
+        </v:menu>
+    </v:package>
+    <v:package name="/npt/ces/cwps" action-ref="npt.ces.cwps">
+        <v:menu name="cwps-manager" title="个人信用预警" admin="true">
+            <v:action name="index" result-success="ces/cw/bs/index.ftl"/>
+            <v:action name="detail" result-success="ces/cw/bs/detail.ftl"/>
+            <v:action name="topIndex" result-success="ces/cw/bs/topIndex.ftl"/>
+            <v:action name="topList" result-success="ces/cw/bs/topList.ftl"/>
+            <v:action name="star"/>
+            <v:action name="unStar"/>
+            <v:action name="listRiskIndex"/>
+            <v:action name="analyzeTendency"/>
+            <v:action name="searchIndex" result-success="ces/cw/bs/searchIndex.ftl"/>
+            <v:action name="searchList" result-success="ces/cw/bs/topList.ftl"/>
+            <v:action name="starIndex" result-success="ces/cw/bs/starIndex.ftl"/>
+            <v:action name="starList" result-success="ces/cw/bs/topList.ftl"/>
+            <v:action name="poolDetail" result-success="ces/cw/grs_group_info_list.ftl"/>
+        </v:menu>
+    </v:package>
+
+
+</beans>

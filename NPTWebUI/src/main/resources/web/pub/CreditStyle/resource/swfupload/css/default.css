@@ -1,0 +1,81 @@
+.fileName {
+	font-size: 10pt;
+	font-weight: 700;
+	color: #555;
+	height: 20px;
+	line-height: 20px;
+	text-align: left;
+	white-space: nowrap;
+	overflow: hidden;
+	float:left;
+	width: 150px;
+}
+
+.processBarContainer {
+	width: 100%;
+	height: 12px;
+	border-left: solid 1px #777;
+	border-top: solid 1px #777;
+	border-right: solid 1px #ccc;
+	border-bottom: solid 1px #ccc;
+}
+
+.progressBarInProgress,
+.progressBarComplete,
+.progressBarError {
+	font-size: 0;
+	width: 0%;
+	height: 10px;
+	background-color: blue;
+	margin-top: 2px;
+}
+
+.progressBarComplete {
+	width: 100%;
+	background-color: green;
+	visibility: hidden;
+}
+
+.progressBarError {
+	width: 100%;
+	background-color: red;
+	visibility: hidden;
+}
+
+.progressBarStatus {
+	margin-top: 2px;
+	font-size: 9pt;
+	font-family: Arial;
+	text-align: left;
+	white-space: nowrap;
+	float: left;
+	padding: 0 5px;
+}
+
+.attachmentBtn {
+	border: 0;
+	width: 13px;
+	height: 11px;
+	float: left;
+	background-image: url(../images/fujian.gif);
+	background-repeat: no-repeat;
+}
+
+a.progressCancel {
+	font-size: 0;
+	display: block;
+	height: 14px;
+	width: 14px;
+	background-image: url(../images/cancelbutton.gif);
+	background-repeat: no-repeat;
+}
+
+a.progressCancel:hover {
+	background-position: 0px 0px;
+}
+
+
+/* -- SWFUpload Object Styles ------------------------------- */
+.swfupload {
+	vertical-align: top;
+}

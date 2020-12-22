@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=10"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+<title>${channel.title!channel.name} - ${site.name}</title>
+
+
+
+<style type="text/css">
+.c1-bline{border-bottom:#999 1px dashed;border-top:1px; margin:auto 20px;height: 15px;}
+.f-left{float:left;}
+.f-right{float:right;}
+.img-vm{vertical-align:middle}
+.pagination{height:30px; line-height:30px; text-align:center; clear:both; margin-top:10px;}
+.orange{color:#FF9900;}
+.code{
+
+font-family:Arial,宋体;
+font-style:italic;
+color:green;
+border:0;
+padding:2px 0px;
+letter-spacing:3px;
+
+
+}
+#checkCode:hover{cursor:pointer;}
+</style>
+
+<script type="text/javascript">
+	
+	$(function() {
+		Cms.siteFlow("${base}", location.href, document.referrer);
+		createCode();
+	});
+	
+</script>
+
+
+
+</head>
+<body onload="createCode()">
+		 
+<div class="wrap head_bg">	
+	[#include "../include/页头顶栏.html"/]
+	
+
+	<!--内容开始-->
+	<div id="main">
+    <div class="main_left fl">
+    	<div class="list_menu">
+        	<h3>
+				${channel.nodeList[0].name}
+			</h3>
+        	<ul>
+            	[@cms_channel_list parentId=channel.parent.id] [#list tag_list as sub]
+				<li>
+					[#if sub.name==channel.name]
+					<a class="current" href='${sub.url}'> ${sub.name} </a>
+				[#else]
+					<a  href='${sub.url}'> ${sub.name} </a>
+				[/#if]
+				</li>
+				[/#list] [/@cms_channel_list]
+            </ul>
+        </div>
+    </div><!--main_left end-->
+    <div class="main_right fr">
+        <div class="list_article">
+        	<div class="location_box"><label class="fl">当前位置</label><span class="fl"> 
+	        	<a href="${base}/">首页
+			[#if channel.nodeList[0].name=channel.nodeList[1].name]
+				</a><span>></span>${channel.nodeList[0].name}
+			[#else]
+				[#list channel.nodeList as n]
+				</a><span>></span>${n.name}
+				[#if n_has_next] 
+				[/#if]
+				[/#list]
+			[/#if]
+			</span></div>
+        	<div class="Content scroll">
+        	
+				<p class="MsoNormal"><span style="mso-spacerun:'yes';font-family:微软雅黑;font-weight:bold;font-size:10.5000pt;mso-font-kerning:1.0000pt;">企业用户无账号线下实名认证流程图</span></p>
+				<p class="MsoNormal"><span><img src="/${res}/img/newEdition/tp23.png"></span></p>
+				<p class="MsoNormal"><span style="mso-spacerun:'yes';font-family:微软雅黑;font-weight:bold;font-size:10.5000pt;mso-font-kerning:1.0000pt;">企业用户线上实名认证流程图</span></p>
+				<p class="MsoNormal"><span style="mso-spacerun:'yes';font-family:微软雅黑;font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp;</span></p>
+				<p class="MsoNormal"><span><img src="/${res}/img/newEdition/tp24.png"></span></p>
+				<p class="MsoNormal"><span style="mso-spacerun:'yes';font-family:微软雅黑;font-weight:bold;font-size:10.5000pt;mso-font-kerning:1.0000pt;">企业用户线下实名认证流程图</span></p>
+				<p class="MsoNormal"><span><img src="/${res}/img/newEdition/tp25.png"></span></p>
+				<p>&nbsp;</p>
+           </div>
+      </div>
+    </div><!--main_right end-->
+    <div class="clear"></div>
+</div><!--main end-->
+
+	[#include "../include/页脚信息栏.html"/]
+</div>
+	
+</body>
+</html>

@@ -1,0 +1,5 @@
+[#if user??]
+欢迎您: ${user.username} &nbsp; ${user.group.name} &nbsp; &nbsp; <a href="${base}/logout.jspx?returnUrl=/">退出登录</a>
+[#else]
+您还没有登录！ <a href="${base}/rdplogin.jspx?returnUrl=/">登录</a>
+[/#if]

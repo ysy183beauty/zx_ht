@@ -1,0 +1,162 @@
+
+*{padding:0;margin:0;font-size:14px;}
+ul,li{list-style: none;margin:0;padding:0;}
+.main-content{
+    width:90%;
+    margin:0 auto;
+    padding-top:50px;
+}
+.top-search{
+    text-align: center;
+    margin-bottom:40px;
+}
+.search-img{
+    width:10%;
+    margin-top:-15px;
+
+}
+.search-input{
+    width:50%;
+    padding:10px!important;
+    margin-bottom:0!important;
+}
+.search-btn{
+    width:13%;
+    margin-left: -10px;
+    font-size:16px;
+    height:42px;
+}
+.radar{
+    border:1px solid #000000;
+    padding:10px 0;
+    overflow: hidden;
+}
+.radar-left{
+    float:left;
+    width:48%;
+    padding-left:1%;
+    padding-right:1%;
+}
+.radar-right{
+    float:left;
+    width:48%;
+    padding-left:1%;
+    padding-right:1%;
+}
+.topList-left{
+    float:left;
+    width:65%;
+    padding-left:1%;
+    padding-right:1%;
+    margin-bottom:20px;
+}
+.topList-right{
+    float:left;
+    width:31%;
+    padding-left:1%;
+    padding-right:1%;
+    margin-bottom:20px;
+}
+.radar-title{
+    background-color: #ccc;
+    padding:10px;
+    width:32%;
+}
+.radar-canvas{
+    width:100%;
+    height:400px;
+    background:#f3f3f3!important;
+}
+td,th{
+    text-align: center;;
+}
+th{
+    background-color: #ccc;;
+}
+.topList,.bottomList,.riskTrend{
+    border:1px solid #000000;
+    overflow: hidden;
+    margin-top:20px;
+    margin-bottom:20px;
+}
+.topList table tbody tr,.bottomList table tbody tr{
+    cursor:pointer;
+}
+.bottomList{
+    position:relative;
+    /*height:450px;*/
+}
+.topList-title{
+    float:left;
+    background-color: #ccc;
+    padding: 10px;;
+}
+.title-more{
+    float:right;
+    margin-top:30px;
+}
+
+.bottomList-left{
+    /*width:220px;*/
+    /*padding-left:1%;*/
+    /*padding-right:1%;*/
+    float:left;
+    margin-bottom:20px;
+}
+.bottom-table tr td:last-child{
+    display: none;;
+}
+.bottomList-title{
+    background-color: #ccc;
+    padding: 10px;
+    text-align: center;
+}
+.riskTrend-title{
+    background-color: #ccc;
+    width:14%;
+    margin-left:15px;
+    padding:10px;
+}
+.riskTrend-canvas{
+    height:400px;
+    /*width:100%;*/
+    margin-left:15px;
+    margin-right:15px;
+    background-color: #f3f3f3!important;;
+}
+.showBox{
+    position:absolute;
+    top:0;
+    left:0;
+    transition: all 0.5s;
+    -ms-transition:left 0.5s;
+    -moz-transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -o-transition: all 0.5s;
+}
+.showDiv{
+    float:left;
+    min-width: 1000px;
+    /*height:450px;*/
+}
+
+.prev,.next {
+    /*display: block;*/
+    position: absolute;
+    top: 50%;
+    width: 40px;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 24px;
+    margin-top: -50px;
+    color: white;
+    background: rgba(100,100,100,.5);
+}
+.prev{
+    left:0;
+}
+.next{
+    right:0;
+}

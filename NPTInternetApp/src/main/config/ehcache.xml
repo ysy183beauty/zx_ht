@@ -1,0 +1,225 @@
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="ehcache.xsd">
+	<diskStore path="java.io.tmpdir" />
+	
+	<defaultCache maxElementsInMemory="10000" eternal="false"
+		timeToIdleSeconds="120" timeToLiveSeconds="120" overflowToDisk="true"
+		diskSpoolBufferSizeMB="30" maxElementsOnDisk="10000000"
+		diskPersistent="false" diskExpiryThreadIntervalSeconds="120"
+		memoryStoreEvictionPolicy="LRU" />
+
+	<cache name="nptLogCache"
+		   maxElementsInMemory="100"
+		   maxElementsOnDisk="0"
+		   eternal="false"
+		   overflowToDisk="false"
+		   diskSpoolBufferSizeMB="0"
+		   timeToIdleSeconds="3600"
+		   timeToLiveSeconds="3600"
+		   memoryStoreEvictionPolicy="LFU"/>
+
+	<cache name="nptBusinessCodeCache"
+		   maxElementsInMemory="1000"
+		   maxElementsOnDisk="0"
+		   eternal="false"
+		   overflowToDisk="false"
+		   diskSpoolBufferSizeMB="0"
+		   timeToIdleSeconds="3600"
+		   timeToLiveSeconds="3600"
+		   memoryStoreEvictionPolicy="LFU"/>
+
+	<cache name="nptSimpleUserCache"
+		   maxElementsInMemory="100"
+		   maxElementsOnDisk="0"
+		   eternal="false"
+		   overflowToDisk="false"
+		   diskSpoolBufferSizeMB="0"
+		   timeToIdleSeconds="3600"
+		   timeToLiveSeconds="3600"
+		   memoryStoreEvictionPolicy="LFU"/>
+
+
+	<cache name="nptDataRoleCache"
+		   maxElementsInMemory="100"
+		   maxElementsOnDisk="0"
+		   eternal="false"
+		   overflowToDisk="false"
+		   diskSpoolBufferSizeMB="0"
+		   timeToIdleSeconds="3600"
+		   timeToLiveSeconds="3600"
+		   memoryStoreEvictionPolicy="LFU"/>
+
+	<cache name="nptDataPermissionCache"
+		   maxElementsInMemory="300"
+		   maxElementsOnDisk="0"
+		   eternal="false"
+		   overflowToDisk="false"
+		   diskSpoolBufferSizeMB="0"
+		   timeToIdleSeconds="3600"
+		   timeToLiveSeconds="3600"
+		   memoryStoreEvictionPolicy="LFU"/>
+
+	<cache name="nptOrganizationCache"
+		   maxElementsInMemory="500"
+		   maxElementsOnDisk="0"
+		   eternal="false"
+		   overflowToDisk="false"
+		   diskSpoolBufferSizeMB="0"
+		   timeToIdleSeconds="3600"
+		   timeToLiveSeconds="3600"
+		   memoryStoreEvictionPolicy="LFU"/>
+
+	<cache name="nptDataTypeCache"
+		   maxElementsInMemory="1000"
+		   maxElementsOnDisk="0"
+		   eternal="false"
+		   overflowToDisk="false"
+		   diskSpoolBufferSizeMB="0"
+		   timeToIdleSeconds="3600"
+		   timeToLiveSeconds="3600"
+		   memoryStoreEvictionPolicy="LFU"/>
+
+	<cache name="nptDataFieldCache"
+		   maxElementsInMemory="10000"
+		   maxElementsOnDisk="0"
+		   eternal="false"
+		   overflowToDisk="false"
+		   diskSpoolBufferSizeMB="0"
+		   timeToIdleSeconds="3600"
+		   timeToLiveSeconds="3600"
+		   memoryStoreEvictionPolicy="LFU"/>
+
+	<cache name="nptBaseModelCache"
+		   maxElementsInMemory="100"
+		   maxElementsOnDisk="0"
+		   eternal="false"
+		   overflowToDisk="false"
+		   diskSpoolBufferSizeMB="0"
+		   timeToIdleSeconds="3600"
+		   timeToLiveSeconds="3600"
+		   memoryStoreEvictionPolicy="LFU"/>
+
+	<cache name="nptBMGroupCache"
+		   maxElementsInMemory="100"
+		   maxElementsOnDisk="0"
+		   eternal="false"
+		   overflowToDisk="false"
+		   diskSpoolBufferSizeMB="0"
+		   timeToIdleSeconds="3600"
+		   timeToLiveSeconds="3600"
+		   memoryStoreEvictionPolicy="LFU"/>
+
+	<cache name="nptBMGroupMFieldCache"
+		   maxElementsInMemory="1000"
+		   maxElementsOnDisk="0"
+		   eternal="false"
+		   overflowToDisk="false"
+		   diskSpoolBufferSizeMB="0"
+		   timeToIdleSeconds="3600"
+		   timeToLiveSeconds="3600"
+		   memoryStoreEvictionPolicy="LFU"/>
+
+	<cache name="nptBMGroupoolCache"
+		   maxElementsInMemory="1000"
+		   maxElementsOnDisk="0"
+		   eternal="false"
+		   overflowToDisk="false"
+		   diskSpoolBufferSizeMB="0"
+		   timeToIdleSeconds="3600"
+		   timeToLiveSeconds="3600"
+		   memoryStoreEvictionPolicy="LFU"/>
+
+	<cache name="nptBMPool2PoolCache"
+		   maxElementsInMemory="1000"
+		   maxElementsOnDisk="0"
+		   eternal="false"
+		   overflowToDisk="false"
+		   diskSpoolBufferSizeMB="0"
+		   timeToIdleSeconds="3600"
+		   timeToLiveSeconds="3600"
+		   memoryStoreEvictionPolicy="LFU"/>
+
+	
+	<cache name="userDetailsCache"
+           maxElementsInMemory="10000"
+           maxElementsOnDisk="0"
+           eternal="false"
+           overflowToDisk="false"
+           diskSpoolBufferSizeMB="0"
+           timeToIdleSeconds="3600"
+           timeToLiveSeconds="3600"
+           memoryStoreEvictionPolicy="LFU"/>
+	
+	<cache name="dictCache"
+           maxElementsInMemory="10000"
+           maxElementsOnDisk="1000"
+           eternal="true"
+           overflowToDisk="true"
+           diskSpoolBufferSizeMB="20"
+           timeToIdleSeconds="300"
+           timeToLiveSeconds="600"
+           memoryStoreEvictionPolicy="LFU"/>
+	
+	<cache name="orgCache"
+           maxElementsInMemory="10000"
+           maxElementsOnDisk="1000"
+           eternal="true"
+           overflowToDisk="true"
+           diskSpoolBufferSizeMB="20"
+           timeToIdleSeconds="300"
+           timeToLiveSeconds="600"
+           memoryStoreEvictionPolicy="LFU"/>
+
+<!-- 微信端关键数据缓存有效期
+1、主页，有效期5分钟：300秒
+2、内容列表页，有效期5分钟：300秒
+3、分类列表页，最长有效期5分钟：300秒
+4、分类产品页，最长有效期5分钟：300秒，编辑分类信息触发缓存清理
+5、产品详情页，最长有效期10分钟：600秒，编辑产品信息触发缓存清理
+6、活动详情页，不做缓存
+ -->
+	<cache name="shopIndexDataCache"
+           maxElementsInMemory="1000"
+           maxElementsOnDisk="0"
+           eternal="false"
+           overflowToDisk="true"
+           diskSpoolBufferSizeMB="20"
+           timeToLiveSeconds="300"
+           memoryStoreEvictionPolicy="LFU"/>
+           
+	<cache name="shopContentListDataCache"
+           maxElementsInMemory="1000"
+           maxElementsOnDisk="0"
+           eternal="false"
+           overflowToDisk="true"
+           diskSpoolBufferSizeMB="20"
+           timeToLiveSeconds="300"
+           memoryStoreEvictionPolicy="LFU"/>
+           
+	<cache name="shopClassifyListDataCache"
+           maxElementsInMemory="1000"
+           maxElementsOnDisk="0"
+           eternal="false"
+           overflowToDisk="true"
+           diskSpoolBufferSizeMB="20"
+           timeToLiveSeconds="300"
+           memoryStoreEvictionPolicy="LFU"/>
+           
+	<cache name="shopProductListDataCache"
+           maxElementsInMemory="1000"
+           maxElementsOnDisk="0"
+           eternal="false"
+           overflowToDisk="true"
+           diskSpoolBufferSizeMB="20"
+           timeToLiveSeconds="300"
+           memoryStoreEvictionPolicy="LFU"/>
+           
+	<cache name="shopProductDataCache"
+           maxElementsInMemory="1000"
+           maxElementsOnDisk="1000"
+           eternal="false"
+           overflowToDisk="true"
+           diskSpoolBufferSizeMB="20"
+           timeToLiveSeconds="600"
+           memoryStoreEvictionPolicy="LFU"/>
+	
+</ehcache>

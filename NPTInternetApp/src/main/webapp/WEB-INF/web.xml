@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd" version="2.4">
+  <display-name>Summer 1.0.0</display-name>
+  <listener><listener-class>org.springframework.security.web.session.HttpSessionEventPublisher</listener-class></listener>
+  <listener><listener-class>org.summer.core.web.servlet.PlatformContextLoaderListener</listener-class></listener>
+  <filter>
+    <filter-name>springSecurityFilterChain</filter-name>
+    <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>springSecurityFilterChain</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+	<!-- sitemesh页面组装 -->
+	<filter>
+		<filter-name>sitemeshFilter</filter-name>
+		<filter-class>cn.com.ikdo.style.sitemesh3.CustomConfigurableSiteMeshFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>sitemeshFilter</filter-name>
+		<url-pattern>*.action</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>FORWARD</dispatcher>
+	</filter-mapping>
+  <filter>
+    <filter-name>struts2</filter-name>
+    <filter-class>org.summer.extend.suport.struts2.PlatformStrutsPrepareAndExecuteFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>struts2</filter-name>
+    <url-pattern>*.action</url-pattern>
+  </filter-mapping>
+  
+  <servlet>
+    <servlet-name>WebSourceServlet</servlet-name>
+    <servlet-class>org.summer.core.web.servlet.WebSourceServlet</servlet-class>
+    <load-on-startup>1</load-on-startup> 
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>WebSourceServlet</servlet-name>
+    <url-pattern>/r/*</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>WechatServlet</servlet-name>
+    <servlet-class>com.npt.internet.wechat.NptWechatServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>WechatServlet</servlet-name>
+    <url-pattern>/wechat.do</url-pattern>
+  </servlet-mapping>
+  <error-page>
+    <error-code>404</error-code>
+    <location>/common/404.jsp</location>
+  </error-page>
+  <error-page>
+    <error-code>500</error-code>
+    <location>/common/error.jsp</location>
+  </error-page>
+  <error-page>
+    <error-code>400</error-code>
+    <location>/common/400.jsp</location>
+  </error-page>
+  <error-page>
+    <error-code>403</error-code>
+    <location>/common/403.jsp</location>
+  </error-page>
+  <session-config>
+    <session-timeout>10</session-timeout>
+  </session-config>
+  <welcome-file-list>
+    <welcome-file>/index.html</welcome-file>
+  </welcome-file-list>
+</web-app>
+

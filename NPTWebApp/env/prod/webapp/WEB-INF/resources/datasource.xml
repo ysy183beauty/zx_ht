@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DatasourceManager xmlVersion="20151125" releaseVersion="8.0.0">
+<ConnectionMap>
+<Connection name="Credeit" class="com.fr.data.impl.JDBCDatabaseConnection">
+<DatabaseAttr/>
+<JDBCDatabaseAttr url="jdbc:oracle:thin:@localhost:1521:assetstd" driver="oracle.jdbc.driver.OracleDriver" user="credit_alpha" password="___0070003c006f006b000d00a1" encryptPassword="true">
+<DBCPAttr/>
+</JDBCDatabaseAttr>
+</Connection>
+</ConnectionMap>
+<TableDataMap>
+<TableData name="SEC_USER" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[Credeit]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select * from SEC_USER where ENABLE_='T']]></Query>
+</TableData>
+</TableDataMap>
+</DatasourceManager>

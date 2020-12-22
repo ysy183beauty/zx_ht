@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>${channel.title!channel.name} - ${site.name}</title>
+<meta http-equiv="keywords" content="${channel.keywords!}" />
+<meta http-equiv="description" content="${channel.description!}" />
+<!--[if gte IE 9]>
+  <style type="text/css">
+    .gradient {
+       filter: none;
+    }
+  </style>
+<![endif]-->
+
+
+</head>
+<body style="background: white">
+	<!--top_begin-->
+	<link rel="stylesheet" href="/${res}/css/base.css"  type="text/css" />
+<link rel="stylesheet" href="/${res}/css/modal.css"  type="text/css" />
+<style type="text/css">
+.head
+{
+  border-bottom: 1px solid #e3e3e3;
+  background: white;
+  margin: 0 auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
+}
+.head .w150
+{
+	line-height: 100px;
+}
+</style>
+<script type="text/javascript" src="${resSys}/Js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="/${res}/js/common.js" ></script>
+<script type="text/javascript" src="/${res}/js/user.js" ></script>  
+<script type="text/javascript" src="/${res}/js/rules.js" ></script>
+<script type="text/javascript" src="/${res}/js/jquery.validate.js" ></script>
+<script type="text/javascript" src="/${res}/js/formValidatorClass.js" ></script>
+<script type="text/javascript" src="${resSys}/Js/jquery.tabso_yeso.js"></script>
+<script type="text/javascript" src="/${res}/js/login.js"></script>
+<script type="text/javascript" src="/${res}/js/jquery.leanModal.min.js"></script>
+
+<div class="head w h100 fl">
+	<div class="w1000 h">
+		<div class="fl"><a href="/index.jhtml"><img src="/${res}/img/newEdition/logo.png" class="mt20"></a></div>
+	</div>
+</div>
+	<!--top_end-->
+	
+	<!--container-->
+	<div class="container">
+	<div class=" mt100"> 
+		<div class="header w">找回密码</div>
+		<div class="step mt20 ml30">
+			<a href="javascript:void(0)" class="first current w180" id="step1">
+				<i></i>填写登录名<b></b>
+			</a>
+			<a href="javascript:void(0)" class="w180" id="step2">
+				<i></i>验证身份<b></b>
+			</a>
+			<a href="javascript:void(0)" class="w180" id="step3">
+				<i></i>修改密码<b></b>
+			</a>
+			<a href="javascript:void(0)" class="last w180" id="step4">
+				<i></i>完成<b></b>
+			</a>
+		</div>
+
+		<form  id="findpwdone" name="findpwdone" novalidate="novalidate"  method="post" action="" class="block fl">
+			<div class="step1 mt20 w600 fl ml150 ">
+	
+				<div class="w fl mt20" id="loginfindpw">
+					<p>登录名</p>
+					<input type="text" value="用户名/手机号码/邮箱账号/市民卡号" onfocus="if(this.value=='用户名/手机号码/邮箱账号/市民卡号')this.value=''" onblur="if(this.value=='')this.value='用户名/手机号码/邮箱账号/市民卡号'" id="loginname" name="loginname" />
+					<b>*</b>
+				</div >
+				<div class="w fl mt20" id="showcode">
+					<p>验证码</p> 
+					<input type="text" id="safecode" maxlength="6" name="safecode" />
+					<b>*</b>
+					<input type="button" id="checkCode" class="code" onClick="createCode()" />
+					<span onClick="createCode()">点击更换</span>				
+					</div >	
+				<div class="w fl mt30">
+					<button  type="sumbit"  class="nextbtn ml170" >下一步</button>
+				</div>	
+			</div>		
+			
+		</form>
+		</div>
+		<div class="step2 mt20 w600 fl ml200 none">
+			<div class="w fl">
+				<p>请您选择找回密码的方式</p>
+				<select class="myselect">
+					<option value="手机" selected="selected">手机</option>
+				</select>
+			</div>
+			<div class="w fl mt20" id="msgfindpw">
+				<p>已绑定手机号码</p>
+
+				<input type="text" disabled="disabled"  id="phonenum" />
+				<b>*</b>
+				<input type="button" value="发送验证码" class="sendbtn" onclick="sendmsg2(this)"/>
+			</div>
+			<div class="w fl mt20" id="showmsgerror">
+				<p>验证码</p>
+				<input type="text" class="pcode" id="msgcode"/>
+				<b>*</b>
+				<p></p>
+			</div>
+			<div class="w fl mt20">
+				<button  class="prebtn ml150">上一步</button>
+				<button  class="ml20 nextbtn2" id="msgsubmit" onclick="msgfindpwsumbit()">下一步</button>
+			</div>
+		</div>
+		<form  id="resetpw" name="resetpw" novalidate="novalidate"  method="post" action="">
+		<div class="step3 mt20 w600 fl ml200  none">
+			<div class="w fl">
+				<p>新密码</p>
+				<input type="password" id="repassword" name="repassword"/>
+				<b>*</b>
+				
+			</div>
+			<div class="w fl mt20" id="showreseterror">
+				<p>确认密码</p>
+				<input type="password" id="checkpassword" name="checkpassword"/>
+				<b>*</b>	
+			</div>	
+			
+			<div class="w fl mt30">				
+				<button  type="sumbit" class="okbtn ml170">确定</button>
+			</div>	
+			</div>
+
+		</form>
+		<div class="step4 mt20 w600 fl ml200 none">
+
+			<div class="w fl txt">恭喜，您的密码已成功修改。</div>
+			<div class="w fl">
+				
+				<a href="/index.jhtml"  style="margin-left:245px;">返回首页</a>
+			</div>
+		</div>
+	</div>
+
+</body>
+<script type="text/javascript">
+$(document).ready(function(){
+	createCode();
+})
+</script>
+</html>

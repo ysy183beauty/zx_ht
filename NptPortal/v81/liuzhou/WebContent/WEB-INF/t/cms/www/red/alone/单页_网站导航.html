@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=8;"/>
+<title>${channel.title!channel.name} - ${site.name}</title>
+<meta http-equiv="keywords" content="${channel.keywords!}" />
+<meta http-equiv="description" content="${channel.description!}" />
+
+
+	<style type="text/css">
+		.webMap{border-bottom:3px solid #ccc;padding-bottom:10px;height:20px; line-height:20px;font-weight:bold;font-size: 14px;}
+		.webMap:before{content:" ";background:#1270D0;width:7px;height:20px;display:block;float:left;margin-right:10px}
+		.webList{width:100%;height:400px;margin-top:10px;}
+		.webList table{width:100%;border-collapse:collapse; border-spacing:0;border-bottom:1px solid #ccc;}
+		.webList table tr td{border-top:1px solid #ccc;padding:10px 0;}
+		.webList table tr td:first-child {text-align:center;background:#F4F4F4}
+		.webList table tr td:first-child a{font-weight:bold;}
+		.webList table tr td ul{margin-left:10px;}
+		.webList table tr td ul li{float:left; list-style:none; margin-right:20px; background: url("/r/cms/head-mark3.gif") left no-repeat;padding-left: 15px;}
+		.webList table tr td a:hover{color:#385DA3}
+
+	</style>
+
+
+</head>
+<body >
+	<div class="wrap head_bg">
+	[#include "../include/页头顶栏.html"/]
+
+		<div id="main">
+			<!--main_left end-->
+			<div class="main">
+				<div class="list_article">
+					<div class="location_box"><label class="fl">当前位置</label><span class="fl">
+	        	<a href="${base}/">首页
+			[#if channel.nodeList[0].name=channel.nodeList[1].name]
+				</a><span>></span>${channel.nodeList[0].name}
+			[#else]
+				[#list channel.nodeList as n]
+						</a><span>></span>${n.name}
+				[#if n_has_next]
+				[/#if]
+				[/#list]
+			[/#if]
+			</span></div>
+					<div class="Content">
+						<div class="webMap">网站地图</div>
+						<div class="webList">
+							<table >
+								<tr>
+									<td width="15%"><a href="/bsdt/index.jhtml">信用资讯</a></td>
+									<td>
+										<ul>
+											<li><a href="/bsdt/index.jhtml">本市动态</a></li>
+											<li><a href="/gndt/index.jhtml">国内动态</a></li>
+											<li><a href="/tzgg/index.jhtml">通知公告</a></li>
+										</ul>
+									</td>
+								</tr>
+								<tr>
+									<td><a href="/credit/credit_publity/creditPublityList?start=0&limit=10">信用公示</a></td>
+									<td>
+										<ul>
+											<li><a href="/credit/credit_publity/creditPublityList?start=0&limit=10">公示信息</a></li>
+											<li><a href="/credit/credit_publity/creditRedList?start=0&limit=10">红榜信息</a></li>
+											<li><a href="/credit/credit_publity/creditBlackList?start=0&limit=10">黑榜信息</a></li>
+										</ul>
+									</td>
+								</tr>
+								<tr>
+									<td><a href="/credit/credit_company/creditCompanyList?start=0&limit=10">信用查询</a></td>
+									<td>
+										<ul>
+											<li><a href="/credit/credit_company/creditCompanyList?start=0&limit=10">企业基础查询</a></li>
+											<li><a href="/credit/credit_company/creditQyxyxxDetail?type=2">企业信用查询</a></li>
+											<li><a href="/credit/credit_company/creditQyxyxxDetail?type=1">个人信用查询</a></li>
+										</ul>
+									</td>
+								</tr>
+								<tr>
+									<td><a href="/country/index.jhtml">政策法规</a></td>
+									<td>
+										<ul>
+											<li><a href="/country/index.jhtml">国家级</a></li>
+											<li><a href="/province/index.jhtml">省级</a></li>
+											<li><a href="/city/index.jhtml">市级</a></li>
+										</ul>
+									</td>
+								</tr>
+								<tr>
+									<td><a href="/xyzs/index.jhtml">信用知识</a></td>
+									<td>
+										<ul>
+											<li><a href="/xyzs/index.jhtml">信用知识</a></li>
+										</ul>
+									</td>
+								</tr>
+								<tr>
+									<td><a href="/fwjg/index.jhtml">服务机构</a></td>
+									<td>
+										<ul>
+											<li><a href="/fwjg/index.jhtml">服务机构</a></li>
+										</ul>
+									</td>
+								</tr>
+								<tr>
+									<td><a href="/sxr/index.jhtml">专项内容</a></td>
+									<td>
+										<ul>
+											<li><a href="/sxr/index.jhtml">被执行人</a></li>
+											<li><a href="/sxqy/index.jhtml">被执行企业</a></li>
+											<li><a href="/gbqy/index.jhtml">贯标企业</a></li>
+											<li><a href="/gsgz/index.jhtml">双公示工作</a></li>
+											<li><a href="http://221.224.122.165/xxgk/">工程建设</a></li>
+										</ul>
+									</td>
+								</tr>
+
+								<tr>
+									<td><a href="/yhxy/index.jhtml" >帮助中心</a></td>
+									<td>
+										<ul>
+											<li><a href="/yhxy/index.jhtml">用户协议</a></li>
+											<li><a href="/zclc/index.jhtml">用户注册流程</a></li>
+											<li><a href="/grsmlc/index.jhtml">个人实名流程</a></li>
+											<li><a href="/qysmlc/index.jhtml">企业实名流程</a></li>
+											<li><a href="/sysc/index.jhtml">使用手册</a></li>
+										</ul>
+									</td>
+								</tr>
+								<tr>
+									<td><a href="/cxsj/index.jhtml">诚信事迹</a></td>
+									<td>
+										<ul>
+											<li><a href="/cxsj/index.jhtml">诚信事迹</a></li>
+
+										</ul>
+									</td>
+								</tr>
+								<tr>
+									<td><a href="/sgsxx.jhtml">双公式专栏</a></td>
+									<td>
+										<ul>
+											<li><a href="/sgsxx.jhtml">双公示专栏</a></li>
+										</ul>
+									</td>
+								</tr>
+							</table>
+						</div>
+
+					</div>
+				</div>
+			</div><!--main_right end-->
+			<div class="clear"></div>
+		</div><!--main end-->
+
+		[#include "../include/页脚信息栏.html"/]
+	</div>
+</body>
+  
+</html>

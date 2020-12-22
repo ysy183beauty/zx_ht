@@ -1,0 +1,93 @@
+
+*{padding:0;margin:0;list-style:none}
+html, body {
+    height: 100%!important;
+}
+.wrap {
+    min-height: 100%;
+    padding-bottom: 149px;
+}
+/*.foot {*/
+    /*position: relative;*/
+    /*clear: both;*/
+    /*height: 186px;*/
+    /*margin-top: -186px!important;*/
+/*}*/
+#container{
+    width:1000px;
+    margin:0 auto;
+    font-size:14px;
+    color:#333;
+}
+.title{
+    width:100%;
+    height:30px;
+    line-height: 30px;
+    background-color: #f2f2f2;
+}
+.title a{
+    color:#333;
+    text-decoration: none;
+}
+.content{
+    width:100%;
+    background-color:#e3ecff;
+    padding-bottom: 50px;
+    margin-bottom: 50px;
+}
+.con_top{
+    width:90%;
+    margin:0 auto;
+    padding:20px 0;
+}
+.con_top_all{
+    width:100%;
+}
+.btn{
+    width:100%;
+    text-align: center;
+}
+.btn input{
+    width:75px;
+    margin:50px 0;
+    height:25px;
+    color:#666;
+}
+/*数据详情*/
+.con_top_shu{
+    padding-bottom:50px;
+    width:80%;
+    margin:0 auto;
+    background-color: #f7f7f7;
+}
+.con_top_shu h2{
+    text-align: center;
+    padding-top:30px
+}
+.error img{
+    height:12px;
+    margin-right:5px;
+}
+.error{
+    width: 80%;
+    margin: 20px auto;
+    text-align: right;
+    display:none;
+}
+.con_top table tr{
+   border-bottom:1px dashed #ccc;
+}
+.con_top table tr:last-child{
+    border-bottom:none;
+}
+.td_left{
+    font-weight: bold;
+    padding:10px 0;
+    text-align:right;
+    vertical-align: middle;
+}
+.td_right {
+    color: #9c846b;
+    text-indent: 1em;
+}
+/*职权详情*/

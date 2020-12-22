@@ -1,0 +1,234 @@
+<#include "/template/Credit_Common/common.ftl">
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <title>${platformName}</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="${wctx}/pub/CreditStyle/bootstrap/common/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="${wctx}/pub/CreditStyle/bootstrap/common/css/bootstrap-responsive.min.css"/>
+        <link rel="stylesheet" href="${wctx}/pub/CreditStyle/module/login/login.css"/>
+
+    </head>
+    <body>
+    <img src="${wctx}/pub/CreditStyle/resource/img/login_bk.png" style="filter: alpha(opacity=50);opacity: 0.5;" alt="">
+    <div id="backImg"></div>
+    <div class="logo-img">
+        <img src="${wctx}/pub/CreditStyle/module/login/logo.png" alt="">
+    </div>
+    <div id="login-box">
+        <div class="left-info">
+            <p>大理州</p>
+            <p>信用信息管理平台</p>
+        </div>
+        <div class="login">
+            <div id="logo">
+                <!--<img src="${platformLogo}" style="height:65px;" alt="Logo"/>-->
+            </div>
+            <div class="message">用户登录</div>
+            <div id="darkbannerwrap"></div>
+
+            <form id="login_form" class="form-vertical" name="login_form" action="j_spring_security_check" method="post">
+                <input type="hidden" id="key_module"
+                       value="${_loginSecurityPubKeyModule?default(" ")}"/>
+                <input
+                        type="hidden" id="key_exponent"
+                        value="${_loginSecurityPubKeyExponent?default(" ")}"/>
+                <input
+                        type="hidden" id="j_password" name="j_password" value=""/>
+                <input id="j_username" name="j_username" placeholder="请输入用户名" type="text">
+                <hr class="hr15">
+                <input id="t_password" placeholder="请输入密码" type="password" type="password">
+                <hr class="hr15">
+                <#if useJcaptcha>
+                    <div class="control-group">
+                        <div class="controls">
+                            <div class="main_input_box">
+                                <input type="text" id="j_captcha" name="j_captcha" class="form-control" style="width:150px;margin-right: 20px;"
+                                       placeholder="请输入验证码"/>
+                                <img id="captchaImg" src="${ctx}/jcaptcha.${urlExt}" onclick='resetCaptcha();'/>
+                            </div>
+                        </div>
+                    </div>
+                </#if>
+                <#if message??>
+                    <div class="control-group" style="padding: 5px 0;">
+                        <div class="controls">
+                            <div class="main_input_box">
+                                <div style="color: red;">${message!}${errorCount!}</div>
+                            </div>
+                        </div>
+                    </div>
+                </#if>
+                <hr class="hr15">
+                <input value="登录" style="width:100%;" type="submit" onclick="return onLogin();">
+            </form>
+
+
+        </div>
+    </div>
+    <div id="login-footer">
+       <p> Copyright (c) 2017 大理信用信息平台 All Rights Reserved.</p>
+    </div>
+    <!--<div id="loginbox">-->
+    <!--&lt;!&ndash; <form id="loginform" class="form-vertical" action="http://themedesigner.in/demo/matrix-admin/index.html"> &ndash;&gt;-->
+    <!--<form id="login_form" class="form-vertical" name="login_form" action="j_spring_security_check" method="post">-->
+    <!--<input type="hidden" id="key_module"-->
+    <!--value="${_loginSecurityPubKeyModule?default(" ")}"/>-->
+    <!--<input-->
+    <!--type="hidden" id="key_exponent"-->
+    <!--value="${_loginSecurityPubKeyExponent?default(" ")}"/>-->
+    <!--<input-->
+    <!--type="hidden" id="j_password" name="j_password" value=""/>-->
+    <!--<div class="control-group normal_text">-->
+    <!--<img src="${platformLogo}" style="height:65px;" alt="Logo"/>-->
+    <!--</div>-->
+    <!--<div class="control-group">-->
+    <!--<div class="controls">-->
+    <!--<div class="main_input_box">-->
+    <!--<span class="add-on bg_lg"><i class="icon-user"></i></span>-->
+    <!--<input id="j_username" name="j_username" placeholder="请输入用户名"-->
+    <!--value="" type="text">-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<div class="control-group">-->
+    <!--<div class="controls">-->
+    <!--<div class="main_input_box">-->
+    <!--<span class="add-on bg_ly"><i class="icon-lock"></i></span>-->
+    <!--<input id="t_password" placeholder="请输入密码" type="password"-->
+    <!--value="">-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<#if useJcaptcha>-->
+    <!--<div class="control-group">-->
+    <!--<div class="controls">-->
+    <!--<div class="main_input_box">-->
+    <!--<span class="add-on bg_ly"><i class="icon-lock"></i></span>-->
+    <!--<input type="text" id="j_captcha" name="j_captcha" class="form-control"-->
+    <!--placeholder="请输入验证码"/>-->
+    <!--<img id="captchaImg" src="${ctx}/jcaptcha.${urlExt}" onclick='resetCaptcha();'/>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</#if>-->
+    <!--<#if message??>-->
+    <!--<div class="control-group" style="padding: 5px 0;">-->
+    <!--<div class="controls">-->
+    <!--<div class="main_input_box">-->
+    <!--<div style="color: white;">${message!}</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</#if>-->
+    <!--<div class="form-actions text-center">-->
+    <!--<span class="pull-left hidden">-->
+    <!--<a href="#" class="flip-link btn btn-info" id="to-recover">Lost password?</a></span>-->
+    <!--<label class="hidden"><input name="remember" type="checkbox" value="Remember Me">Remember Me</label>-->
+    <!--<span class=""><a type="submit" href="javascript:void(0);" class="btn btn-success"-->
+    <!--onclick="onLogin();"/>登录</a></span>-->
+    <!--</div>-->
+    <!--</form>-->
+    <!--</div>-->
+
+    <script src="${wctx}/pub/matrix/js/jquery.min.js"></script>
+    <script src="${wctx}/pub/matrix/js/matrix.login.js"></script>
+    <script src="${wctx}/pub/script/security/coder/security.js"></script>
+    <script>
+        $(function(){
+           $("#login-box").height($(".login").height()+40);
+        });
+    </script>
+    <!--<script src="/ReportServer?op=emb&resource=finereport.js"></script>-->
+    <script>
+        if (window != top)top.location.href = "${ctx}/";
+        function showForgotPasswordForm() {
+            window.alert('系统暂不支持密码找回功能！');
+        }
+        function onLogin() {
+            var login_form = document.getElementById('login_form');
+            var username = login_form.j_username.value;
+            if (username == null || username == '') {
+                window.alert("请输入登录名！");
+                login_form.j_username.focus();
+                return false;
+            }
+            var password = login_form.t_password.value;
+            if (password == null || password == '') {
+                window.alert("请输入登录密码！");
+                login_form.t_password.focus();
+                return false;
+            }
+        <#if useJcaptcha >
+                var captcha = login_form.j_captcha.value;
+            if (captcha == null || captcha == '') {
+                window.alert("请输入验证码！");
+                login_form.j_captcha.focus();
+                return false;
+            }
+        </#if>
+            //window.open("about:blank","mainWindow");
+            //login_form.target="mainWindow";
+
+            var password = document.getElementById('t_password').value;
+            var key_module = document.getElementById('key_module').value;
+            var key_exponent = document.getElementById('key_exponent').value;
+            if (key_module != null && key_module.length != '') {
+                var key = RSAUtils.getKeyPair(key_exponent, '', key_module);
+                password = RSAUtils.encryptedString(key, password);
+            }
+            document.getElementById('j_password').value = password;
+            return true;
+//            login_form.submit();
+//            doSubmit();
+        }
+        function enterDown(e) {
+            if (window.event) {
+                e = window.event;
+            }
+            if (e.keyCode == 13) {
+                e.returnValue = false;
+                e.cancel = true;
+                onLogin();
+            }
+        }
+
+        document.onkeydown = function (e) {
+            enterDown(e);
+        };
+        function resetCaptcha() {
+            var captchaImg = document.getElementById('captchaImg');
+            captchaImg.setAttribute('src', '${ctx}/jcaptcha.${urlExt}?' + new Date());
+        }
+
+        /**
+         * 作者: 张磊
+         * 日期: 16/11/18 上午11:21
+         * 备注: 登录报表服务器
+         */
+/*        function doSubmit() {
+            var username = FR.cjkEncode(document.getElementById('login_form').j_username.value); //获取输入的用户名
+            var password = FR.cjkEncode(document.getElementById('j_password').value);  //获取输入的参数
+            $.ajax({
+                url: "/ReportServer?op=fs_load&cmd=sso",//单点登录的管理平台报表服务器
+                dataType: "jsonp",//跨域采用jsonp方式
+                data: {"fr_username": username, "fr_password": password},//获取用户名密码
+                jsonp: "callback",
+                timeout: 5000,//超时时间（单位：毫秒）
+                success: function (data) {
+                    if (data.status === "success") {
+                        console.log("登录成功");//登录成功
+                    } else if (data.status === "fail") {
+                        console.log("用户名或密码错误");//登录失败（用户名或密码错误）
+                    }
+                },
+                error: function () {
+                    console.log("超时或服务器其他错误");// 登录失败（超时或服务器其他错误）
+                }
+            });
+        }*/
+    </script>
+    </body>
+
+    </html>

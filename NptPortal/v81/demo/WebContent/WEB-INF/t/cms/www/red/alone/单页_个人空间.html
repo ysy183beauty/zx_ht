@@ -1,0 +1,292 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>${channel.title!channel.name} - ${site.name}</title>
+<meta http-equiv="keywords" content="${channel.keywords!}" />
+<meta http-equiv="description" content="${channel.description!}" />
+
+</head>
+<body style="background: white">
+	<!--top_begin-->
+	[#include "../include/页头导航栏.html"/]
+	<!--top_end-->
+	
+	<!--container-->
+	<div class="container"> 
+		<div class="perlist">
+			<ul >
+				<li>
+				<div class="myhead">
+					<img src="/r/cms/www/red/img/newEdition/default.jpg" id="headpic" class="block fl w" />
+					<!--  <a href="javascript:void(0)">编辑个人头像</a>--> 
+				</div>
+				</li>
+				</ul>
+			<ul id="myspace" class="mt20">
+				<li  >
+					<div >
+						<p>个人资料</p>
+						<span>Personal Date</span>
+					</div>
+				</li>
+				<li >
+					<div >
+						<p>安全设置</p>
+						<span>Security Settings</span>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="listcontent">
+			<div class="myinfo w fl " id="myinfo">
+				<h4>修改和完善个人资料</h4>
+				<div class="mianinfo">
+					<div class="remind">亲爱的<span id="loginname"></span>，填写真实的资料，有助于我们更好地为您提供个性化服务</div>
+					<div>
+						<h3>基本信息</h3>
+						<div class="infodetils">
+							<div>
+								<label>实名认证</label>
+								<span id="rztype">普通实名认证</span>
+							</div>
+							<div>
+								<label>真实姓名</label>
+								<input type="text" disabled="disabled" id="myrelname" value=""/>
+							</div>
+							<div>
+								<label>性别</label>
+								<span id="sex"></span>
+							</div>
+							<div>
+								<label>生日</label>
+								<input type="text" disabled="disabled" id="birthday" value=""/>
+							</div>
+							<div>
+								<label>婚姻</label>
+								<input type="text" disabled="disabled" id="marry" />
+							</div>
+							<div>
+								<label>所在地</label>
+								<input type="text" disabled="disabled" id="local" value=""/>
+							</div>
+							<div>
+								<label>手机号码</label>
+								<input type="text" disabled="disabled" id="myphone" value=""/>
+							</div>
+							<div>
+								<button id="savebtn">保存</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="securityinfo w fl none" id="securityinfo">
+				<h4>提升账户的安全级别</h4>
+				<div class="mianinfo">
+					<div>
+						<h3>账号信息</h3>
+						<div class="infodetils">
+							<div>
+								<label>用户名称</label>
+								<span id="nc"></span>
+							</div>
+							<div>
+								<label>手机号码</label>
+								<span id="iphone"></span>
+							</div>
+							<div>
+								<label>邮箱</label>
+								<span id="e-mail">---</span>
+							</div>
+							<div>
+								<label>实名认证</label>
+								<span id="issm">普通实名认证</span>
+								<a href="/smrz/index.jhtml" target="_blank" class="btn">高级实名认证</a>
+							</div>
+							<div>
+								<label>手机绑定</label>
+								<span id="isphone">已绑定</span>
+								<a href="#phonemodal" class="btn" id="modaltrigger_phone">更改绑定号码</a>
+							</div>
+							<div>
+								<label>邮箱绑定</label>
+								<span id="isemail">未绑定</span>
+								<a href="#emailmodal" class="btn" id="modaltrigger_email">立即绑定邮箱</a>
+							</div>
+							<div>
+								<label>登录密码强度</label>
+								<span id="pwdlevel"><b class="ruo block fl">弱</b></span>
+								<a href="#pwdmodal" class="btn" id="modaltrigger_pwd">更改登陆密码</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="enterpriseinfo w fl " id="enterpriseinfo">
+				
+			</div>
+		</div>
+	</div>
+	
+<!-- ------------更改手机号模态窗--------------- -->
+ <div id="phonemodal" class="none">
+    <div class="header">
+    	<button class="fr">×</button>
+    	 <h3>更改绑定手机号码</h3>
+    </div>
+   <div class="phone-body fl">
+	    <form id="changephoneform" method="post" action="" class="block fl">
+	      <div class="ml10 mb20 fl">
+		      <p >输入新手机号码：</p>
+		      <input type="text" id="phonenum"  name="phonenum" maxlength="200" />
+	      	  <span class="red">*</span>
+	      	  <a href="javascript:void(0)" class="btn" onclick="sendmsg5(this)" id="sendmsgcode">发送验证码</a>
+	      </div>
+	     <div class="ml10 mb20 fl">
+		      <p >短信验证码：</p>
+		      <input type="text" id="dxcode" name="dxcode"/>
+		      <span class="red">*</span>
+	     </div>
+	      <div class="ml10 mb20 fl">
+	      	<button  type="submit" class=" fl ml100" id="okphone" >确认更改</button>
+	      </div>
+	    </form>
+    </div>
+  </div>
+  <!-- ------------绑定邮箱模态窗--------------- -->
+ <div id="emailmodal" class="none">
+    <div class="header">
+    	<button class="fr">×</button>
+    	 <h3>请确保您输入的邮箱能够正常接收激活邮件</h3>
+    </div>
+   <div class="email-body fl">
+	    <form  method="post" action="" class="block fl">
+	      <div class="ml10 mb20 fl">
+		      <p >邮箱帐号：</p>
+		      <input type="text" id="emailtxt" />
+	      	  <span class="red">*</span>
+	      </div>
+	      <div class="ml10 mb20 fl">
+	      	<button type="button" class="fl ml100" id="loginbtn" onclick="userlogin()">确定</button>
+	      </div>
+	    </form>
+    </div>
+  </div>
+  
+  <!-- ------------更改密码模态窗--------------- -->
+ <div id="pwdmodal" class="none">
+    <div class="header">
+    	<button class="fr">×</button>
+    	 <h3>请输入您目前的登录密码，然后设置新密码并再次输入新密码确认</h3>
+    </div>
+   <div class="pwd-body fl">
+	    <form  method="post" action="" class="block fl">
+	      <div class="ml10 mb20 fl">
+		      <p >旧密码：</p>
+		      <input type="password" />
+	      	  <span class="red">*</span>
+	      </div>
+	     <div class="ml10 mb20 fl">
+		      <p >新密码：</p>
+		      <input type="password" />
+		      <span class="red">*</span>
+	     </div>
+	     <div class="ml10 mb20 fl">
+		      <p >确认新密码：</p>
+		      <input type="password" />
+		      <span class="red">*</span>
+	     </div>
+	      <div class="ml10 mb20 fl">
+	      	<button  class="fl ml100" >确认更改</button>
+	      </div>
+	    </form>
+    </div>
+  </div>
+</body>
+  <script type="text/javascript">
+[#if user??]
+$(document).ready(function(){
+	//个人信息页面填充	
+	$("#myrelname").val(name);
+	$("#sex").html(sex);
+	$("#birthday").val(birthday);
+	$("#marry").val(marry);
+	$("#myphone").val(mobilenum);
+	
+	
+
+
+	//判断是否为企业用户
+	 [#if user.level=='01']
+		[#if user.exist=='000000']
+			$("#myspace").append("<li >	<div ><p >我的企业</p><span>Enterprise Information</span></div></li>")
+			$("#enterpriseinfo").append('<div class="qy_rzzt"><h3></h3>	<h2></h2></div><div class="mianinfo"><div><h3>企业信息</h3><div class="infodetils ">	<div><label>单位名称</label><b id="qy_mc"></b></div><div><label>组织机构代码编号</label><b id="qy_jgdm"></b></div><div><label>工商注册号</label><b id="qy_zch"></b></div><div>	<label>组织机构代码证机构类型</label><b id="qy_lx"></b></div><div>	<label>组织机构代码证有效期</label><b id="qy_yxq"></b>	</div><div><label>联系电话</label><b id="qy_tel"></b></div><div><label>联系Email</label><b id="qy_email"></b></div><div><label>法人姓名</label><b id="qy_fr"></b></div><div><label>身份证号码</label><b id="qy_sfz"></b></div></div>	</div></div>');
+		
+	//企业信息页面填充
+		$("#qy_mc").html("${user.ENT_NAME}");
+		$("#qy_jgdm").html("${user.ORGANIZATION_CODE}");
+		$("#qy_zch").html("${user.YYZZH}");
+		$("#qy_lx").html("${user.entType}");
+		if('${user.startTime}'!=null&&'${user.startTime}'!=''){
+		var starttime = new Date('${user.startTime}');
+		starttime = starttime.getFullYear()+"年"+(starttime.getMonth()+1)+"月"+starttime.getDate()+"日";
+		var endtime = new Date('${user.endTime}');
+		endtime = endtime.getFullYear()+"年"+(endtime.getMonth()+1)+"月"+endtime.getDate()+"日";
+		$("#qy_yxq").html(starttime+"——"+endtime);
+		}
+		$("#qy_tel").html("${user.qy_phone}");
+		$("#qy_email").html("${user.qy_email}");
+		$("#qy_fr").html("${user.corporationName}");
+		$("#qy_sfz").html("${user.corporationId}");
+		
+		//认证状态
+		[#if user.IS_AUTHENTICATE=='0']
+		$(".qy_rzzt h3").html("单位还未认证");
+		$(".qy_rzzt").css("background-color","#FFF5BC");
+
+		[/#if]
+		 [#if user.IS_AUTHENTICATE=='1']
+		$(".qy_rzzt h3").html("认证成功");
+		 $(".qy_rzzt").css("background-color","#DEF3D6");
+		 $(".qy_rzzt h3").html("恭喜，您已经在"++"日通过常熟市公共信息企业服务平台的个人实名认证！");
+		[/#if]
+
+		 [#if user.IS_AUTHENTICATE=='2']
+
+		$(".qy_rzzt h3").html("认证审核中");
+		 $(".qy_rzzt").css("background-color","#FFF5BC");
+		[/#if]
+		[/#if]
+	[/#if]
+
+})
+
+[/#if]
+</script>
+<script type="text/javascript">
+
+$(function(){
+
+$(".header button").click(function(){
+	$("#phonemodal").css("display","none");
+	$("#emailmodal").css("display","none");
+	$("#pwdmodal").css("display","none");
+	$("#lean_overlay").css("display","none");
+	
+});
+	//淡隐淡现选项卡切换
+	$("#myspace").tabso({
+		cntSelect:".listcontent",
+		tabEvent:"click",
+		tabStyle:"fade"
+	});
+	
+	$("#modaltrigger_phone").leanModal({ top: 100, overlay: 0.45, closeButton: ".hidemodal" });
+	$("#modaltrigger_email").leanModal({ top: 100, overlay: 0.45, closeButton: ".hidemodal" });
+	$("#modaltrigger_pwd").leanModal({ top: 100, overlay: 0.45, closeButton: ".hidemodal" });
+  });
+
+
+</script>
+</html>

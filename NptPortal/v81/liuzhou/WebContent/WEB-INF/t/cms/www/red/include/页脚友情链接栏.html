@@ -1,0 +1,10 @@
+
+<div class="youqinglianjie hide">
+	<ul>
+		[@cms_friendlink_list] [#list tag_list as link]
+		<li><a href="${link.domain}"
+			onclick="$.get('${base}/friendlink_view.jspx?id=${link.id}')"
+			target="_blank">【${link.name}】</a>
+		</li> [/#list] [/@cms_friendlink_list]
+	</ul>
+</div>

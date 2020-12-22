@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:v="http://www.summer.org/schema/config"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.summer.org/schema/config http://www.summer.org/schema/config/summer-core.xsd">
+
+    <v:package name="/npt/rms/org" action-ref="npt.rms.org">
+        <v:menu name="org-manager" title="组织机构管理" admin="true">
+            <v:action name="index" result-success="organization/rms_org_index.ftl"/>
+            <v:action name="showOrgTreeByParentId"/>
+            <v:action name="selectUnitInfoForSelect"/>
+            <v:action name="initRootOrg"/>
+            <v:group name="add" title="新增">
+                <v:action name="addPage" result-success="organization/rms_org_add.ftl"/>
+                <v:action name="add"/>
+            </v:group>
+            <v:group name="edit" title="修改">
+                <v:action name="editPage" result-success="organization/rms_org_edit.ftl"/>
+                <v:action name="edit"/>
+            </v:group>
+            <v:group name="enabled" title="启用">
+                <v:action name="enabled"/>
+            </v:group>
+            <v:group name="disabled" title="禁用">
+                <v:action name="disabled"/>
+            </v:group>
+            <v:group name="delete" title="删除">
+                <v:action name="delete"/>
+            </v:group>
+        </v:menu>
+    </v:package>
+    <v:package name="/npt/rms/datatype" action-ref="npt.rms.datatype">
+        <v:menu name="datatype-manager" title="数据类别管理" admin="true">
+            <v:action name="index" result-success="organization/rms_datatype_index.ftl"/>
+            <v:action name="list" result-success="organization/rms_datatype_list.ftl"/>
+            <v:group name="add" title="新增">
+                <v:action name="addPage" result-success="organization/rms_datatype_add.ftl"/>
+                <v:action name="add"/>
+            </v:group>
+            <v:group name="edit" title="修改">
+                <v:action name="editPage" result-success="organization/rms_datatype_edit.ftl"/>
+                <v:action name="edit"/>
+            </v:group>
+            <v:group name="delete" title="删除">
+                <v:action name="delete"/>
+            </v:group>
+        </v:menu>
+    </v:package>
+    <v:package name="/npt/rms/datafield" action-ref="npt.rms.datafield">
+        <v:menu name="datafield-manager" title="数据字段管理" admin="true">
+            <v:action name="index" result-success="organization/rms_datafield_index.ftl"/>
+            <v:action name="list" result-success="organization/rms_datafield_list.ftl"/>
+            <v:action name="setDataTypeUField"/>
+            <v:action name="updateSelectCondition"/>
+            <v:group name="add" title="新增">
+                <v:action name="addPage" result-success="organization/rms_datafield_add.ftl"/>
+                <v:action name="add"/>
+                <v:action name="sortField"/>
+            </v:group>
+            <v:group name="edit" title="修改">
+                <v:action name="editPage" result-success="organization/rms_datafield_edit.ftl"/>
+                <v:action name="edit"/>
+                <v:action name="batchUpdatePage" result-success="organization/rms_datafield_batchUpdate.ftl"/>
+                <v:action name="batchUpdate"/>
+            </v:group>
+            <v:group name="delete" title="删除">
+                <v:action name="delete"/>
+            </v:group>
+
+        </v:menu>
+    </v:package>
+</beans>

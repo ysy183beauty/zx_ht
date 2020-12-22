@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>${title} - ${site.name}</title>
+
+
+<link href="${resSys}/app/Css/style.css" rel="stylesheet" type="text/css" />
+<link href="${resSys}/app/Css/base.css" rel="stylesheet" type="text/css"/>
+
+<script type="text/javascript" src="${resSys}/Js/jquery-1.9.1.min.js"></script>
+
+
+
+<script type="text/javascript">
+$(function() {
+	
+  Cms.attachment("${base}","${content.id}","${content.attachments?size}","attach");
+  Cms.viewCount("${base}","${content.id}");
+  Cms.siteFlow("${base}", location.href, document.referrer);
+  $(".content p").removeAttr('style');
+  $(".content p span").removeAttr('style');
+});
+
+</script>
+
+<style>
+.pre-next-page{margin-left:300px;margin-bottom: 10px; }
+.pre-next-page li{padding: 5px;}
+
+.f-left,.f-right{text-align: right;}
+</style>
+</head>
+<body xmlns="">
+	 
+<div class="wrap head_bg">	
+	[#include "../include/页头顶栏.html"/]
+	
+<div id="main">
+    <!--main_left end-->
+    <div class="main">
+        <div class="list_article">
+        	<div class="location_box"><label class="fl">当前位置</label><span class="fl"> 
+	        	<a href="${base}/">首页
+			[#if channel.nodeList[0].name=channel.nodeList[1].name]
+				</a><span>></span>${channel.nodeList[0].name}
+			[#else]
+				[#list channel.nodeList as n]
+				</a><span>></span>${n.name}
+				[#if n_has_next] 
+				[/#if]
+				[/#list]
+			[/#if]
+			</span></div>
+        	<div class="Content">
+                <div class="tit">
+					<h3>${content.title}</h3>
+				   <span>发布时间： ${content.releaseDate?string('yyyy-MM-dd')} &nbsp; 来源：${content.origin!'本站'}
+									
+									&nbsp; 浏览次数：${content.views!0}次 
+					</span>
+				</div>
+                <div class="content">
+					${txt!}
+					<br/>
+					<ul class="pre-next-page">
+						<li class="f-left"><strong>上一篇：</strong>[@cms_content id=content.id releaseDate=content.releaseDate
+							next='1' channelId=channel.id][#if tag_bean??]<a
+							href="${tag_bean.url}">${tag_bean.title}</a>[#else]无[/#if][/@cms_content]</li>
+						<li class="f-right"><strong>下一篇：</strong>[@cms_content id=content.id releaseDate=content.releaseDate
+							next='0' channelId=channel.id][#if tag_bean??]<a
+							href="${tag_bean.url}">${tag_bean.title}</a>[#else]无[/#if][/@cms_content]</li>
+					 </ul>
+				</div>
+				
+            </div>
+        </div>
+    </div><!--main_right end-->
+    <div class="clear"></div>
+</div><!--main end-->
+
+	[#include "../include/页脚信息栏.html"/]
+	</div>
+</body>
+</html>

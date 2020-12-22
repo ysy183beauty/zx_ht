@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=10"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+        <title id="title">${channel.title!channel.name} - ${site.name}</title>
+		[#include "../include/页头顶栏_LINK.html"/]
+		<style>
+			.dt-box{
+				border:1px solid #ccc;
+			}
+			.dt-title{
+				border-bottom:1px solid #ccc;
+				color:#006699;
+				padding: 10px;
+				font-size: 20px;
+				font-weight: bold;
+			}
+			.page {
+				padding:10px 0;
+			}
+			.on{
+				background:#2e71b8;
+			}
+			.on a{
+				color:#fff!important;
+			}
+			.news_list{
+				padding:0 10px;
+			}
+		</style>
+	</head>
+	<body>
+	<div class="wrap">
+
+		<div class="body">
+			[#include "../include/页头顶栏.html"/]
+			<div class="main">
+				<div class="w">
+					<!--<div class="sit height_auto m-t-md">-->
+						<!--<ul>-->
+							<!--<li>-->
+								<!--<a href="/">首页</a>-->
+							<!--</li>-->
+							<!--<li>></li>-->
+							<!--<li>-->
+								<!--<a href="">政策法规</a>-->
+							<!--</li>-->
+						<!--</ul>-->
+					<!--</div>-->
+					<div class="content">
+						<div class=" col-sm-3">
+							<div class="height_auto nav-md">
+								<div class="left_nav">
+									<ul>
+										<li class="on"><a  id="bsdt" href="/country/index.jhtml">政策法规</a></li>
+										<li ><a href="/xyzs/index.jhtml">信用知识</a></li>
+										<li ><a id="tzgg" href="/zjsj/index.jhtml">专家视角</a></li>
+									</ul>
+								</div>
+
+							</div>
+						</div>
+						<div class="zx_tab m-t-md height_auto">
+							<div class="dt-box">
+								<div class="dt-title">
+									<i class="glyphicon glyphicon-th"></i>
+									信息列表
+								</div>
+								[@cms_content_page channelId=channel.id count=channel.pageSize titLen='23'
+								sysPage='1' pageClass='page text-center m-t-lg' styleList='zx-1' ctgForm='1'
+								ctgClass='orange' bottomLine='1' showTitleStyle='2'
+								dateFormat='yyyy-MM-dd' count='10' datePosition='2' dateClass='gray'
+								channelOption='2' tpl='2'  orderBy='2' /]
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+    [#include "../include/页脚信息栏.html"/]
+	</body>
+</html>

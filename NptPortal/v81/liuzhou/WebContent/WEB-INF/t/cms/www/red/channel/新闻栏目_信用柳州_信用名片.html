@@ -1,0 +1,330 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+    <title>名片广场</title>
+    [#include "../include/页头顶栏_LINK.html"/]
+    <link rel="stylesheet" href="${resSys}/www/red/css/card.css">
+</head>
+<body>
+<div class="wrap">
+    <div class="body">
+        [#include "../include/页头顶栏.html"/]
+        <!--内容开始-->
+        <div class="w">
+            <div class="sit height_auto m-t-md">
+                <ul>
+                    <li>
+                        <a id="sy" href="/">首页</a>
+                    </li>
+                    <li>&gt;</li>
+                    <li>
+                        <a href="/xymp/index.jhtml">信用名片</a>
+                    </li>
+                    <li>&gt;</li>
+                    <li>
+                        ${channel.title!channel.name}
+                    </li>
+                </ul>
+            </div>
+            <div class="content">
+
+                [#include "../include/second_nav.html"/]
+                <div class="col-sm-9">
+                    <div class="find">
+                        <div class="find-title">
+                            <h3>发现</h3>
+                        </div>
+                        <div>
+                            <div class="card-search">
+                                <div class="banner-input">
+                                    <span class="box-input">
+                                        <input id="queryInput" type="text" placeholder="请输入企业名称或人名">
+                                    </span>
+                                    <button class="btn" onClick="searchInfo();"></button>
+                                    <div class="index-search-tip">
+                                        <p class="search-count " id="indexTip">搜索关键词不得少于２个字符</p>
+                                        <span class="corner-main">◆</span>
+                                        <span class="corner-bottom">◆</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="hotSearch">
+                                <div class="col-xs-3">热搜词：</div>
+                                <div class="col-xs-9">
+                                    <div class="col-xs-4">大理信息有限公司</div>
+                                    <div class="col-xs-4">张三</div>
+                                    <div class="col-xs-4">污水厂</div>
+                                    <div class="col-xs-4">李四</div>
+                                    <div class="col-xs-4">xx集成服务有限公司</div>
+                                    <div class="col-xs-4">煤炭厂</div>
+                                    <div class="col-xs-4">李强</div>
+                                    <div class="col-xs-4">公安局</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="follow">
+                        <div class="find-title">
+                            <h3>热门关注</h3>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="follow-title">企业</div>
+                            <ul>
+                                <li>
+                                    <div class="col-xs-3 img-per">
+                                        <img src="${resSys}/www/red/img/lz/xymp/u1140.png" alt="">
+                                        <span>头像</span>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <h4>快洁汽车维护美容中心</h4>
+                                        <p>文本标签</p>
+                                        <span>关注度：153</span>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <img src="${resSys}/www/red/img/lz/xymp/plus.png" alt="">
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="col-xs-3 img-per">
+                                        <img src="${resSys}/www/red/img/lz/xymp/u1140.png" alt="">
+                                        <span>头像</span>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <h4>快洁汽车维护美容中心</h4>
+                                        <p>文本标签</p>
+                                        <span>关注度：153</span>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <img src="${resSys}/www/red/img/lz/xymp/plus.png" alt="">
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="col-xs-3 img-per">
+                                        <img src="${resSys}/www/red/img/lz/xymp/u1140.png" alt="">
+                                        <span>头像</span>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <h4>快洁汽车维护美容中心</h4>
+                                        <p>文本标签</p>
+                                        <span>关注度：153</span>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <img src="${resSys}/www/red/img/lz/xymp/plus.png" alt="">
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="col-xs-3 img-per">
+                                        <img src="${resSys}/www/red/img/lz/xymp/u1140.png" alt="">
+                                        <span>头像</span>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <h4>快洁汽车维护美容中心</h4>
+                                        <p>文本标签</p>
+                                        <span>关注度：153</span>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <img src="${resSys}/www/red/img/lz/xymp/plus.png" alt="">
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="col-xs-3 img-per">
+                                        <img src="${resSys}/www/red/img/lz/xymp/u1140.png" alt="">
+                                        <span>头像</span>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <h4>快洁汽车维护美容中心</h4>
+                                        <p>文本标签</p>
+                                        <span>关注度：153</span>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <img src="${resSys}/www/red/img/lz/xymp/plus.png" alt="">
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="follow-title">个人</div>
+                            <ul>
+                                <li>
+                                    <div class="col-xs-3 img-per">
+                                        <img src="${resSys}/www/red/img/lz/xymp/u1264.jpg" alt="">
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <h4>王健林</h4>
+                                        <p>大连万达集团股份有限公司董事长</p>
+                                        <span>关注度：153</span>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <img src="${resSys}/www/red/img/lz/xymp/plus.png" alt="">
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="col-xs-3 img-per">
+                                        <img src="${resSys}/www/red/img/lz/xymp/u1262.jpg" alt="">
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <h4>王思聪</h4>
+                                        <p>北京普思投资董事长、万达集团董事</p>
+                                        <span>关注度：153</span>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <img src="${resSys}/www/red/img/lz/xymp/plus.png" alt="">
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="col-xs-3 img-per">
+                                        <img src="${resSys}/www/red/img/lz/xymp/u1260.jpg" alt="">
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <h4>刘强东</h4>
+                                        <p>京东集团首席执行官</p>
+                                        <span>关注度：153</span>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <img src="${resSys}/www/red/img/lz/xymp/plus.png" alt="">
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="col-xs-3 img-per">
+                                        <img src="${resSys}/www/red/img/lz/xymp/u1256.png" alt="">
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <h4>陶华碧</h4>
+                                        <p>老干妈麻辣酱创始人</p>
+                                        <span>关注度：153</span>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <img src="${resSys}/www/red/img/lz/xymp/plus.png" alt="">
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="col-xs-3 img-per">
+                                        <img src="${resSys}/www/red/img/lz/xymp/u1258.png" alt="">
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <h4>董明珠</h4>
+                                        <p>珠海格力电器股份有限公司董事长</p>
+                                        <span>关注度：153</span>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <img src="${resSys}/www/red/img/lz/xymp/plus.png" alt="">
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--
+                    -->
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+[#include "../include/页脚信息栏.html"/]
+<script type="text/javascript" src="${resSys}/www/red/js/echarts.min.js"></script>
+<script type="application/javascript">
+
+        function setSelect(url) {
+            if(url.indexOf('card')>-1){
+                $("#card").addClass("active");
+            }else if(url.indexOf('mycard')>-1){
+                $("#mycard").addClass("active");
+            }else if(url.indexOf('grsmlc')>-1){
+                $("#grsmlc").addClass("active");
+            }else if(url.indexOf('qysmlc')>-1){
+                $("#qysmlc").addClass("active");
+            }else if(url.indexOf('sysc')>-1){
+                $("#sysc").addClass("active");
+            }
+        }
+        $(function(){
+
+            setSelect(window.location.pathname);
+            //window.location.hash="#sy";
+        });
+//        map
+        var chart = echarts.init(document.getElementById('map'));
+        var option = {
+            backgroundColor: '#fff',
+            tooltip: {
+                trigger: 'axis'
+            },
+//        toolbox: {
+//            feature: {
+//                dataView: {show: true, readOnly: false},
+//                magicType: {show: true, type: [ 'bar']},
+//                restore: {show: true},
+//                saveAsImage: {show: true}
+//            }
+//        },
+            legend: {
+                show:true,
+                orient: 'horizontal', // 'vertical'
+                //
+                data:['总使用人次','新增使用人次']
+            },
+            xAxis: [
+                {
+                    type: 'category',
+                    boundaryGap : true,
+                    data: ['2017年6月','7月','8月','9月','10月','11月','12月']
+                }
+            ],
+            yAxis: [
+                {
+                    type: 'value',
+                    name: '总使用人次（条）',
+                    min: 0,
+                    max: 1400,
+                    interval:200
+//                axisLabel: {
+//                    formatter: '{value} ml'
+//                }
+                },
+                {
+                    type: 'value',
+                    name: '新增使用人次（条）',
+                    min: 0,
+                    max:  300,
+                    interval:50
+//                axisLabel: {
+//                    formatter: '{value} °C'
+//                }
+                }
+            ],
+            series: [
+                {
+                    name:'总使用人次',
+                    type:'bar',
+                    data:[180,290, 450,570,700,900,1150],
+                    itemStyle: {
+                        normal: {
+                            color: '#7fcff5'
+                        }
+                    }
+                },
+                {
+                    name:'新增使用人次',
+                    type:'line',
+//                    yAxisIndex: 1,
+                    data:[620, 700,780,490,700,900,1180 ],
+                    itemStyle: {
+                        normal: {
+                            color: '#fe8634'
+                        }
+                    }
+                }
+
+            ]
+        };
+
+        chart.setOption(option);
+</script>
+</body>
+</html>

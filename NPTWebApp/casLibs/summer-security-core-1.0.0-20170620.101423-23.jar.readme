@@ -1,0 +1,9 @@
+修改ticketValidator为
+<b:bean class="com.npt.sso.NptCasTicketValidator">
+  <b:constructor-arg index="0" value="${cas.server.ticketValidatorUrl}" />
+  <b:constructor-arg index="1" value="${cas.server.sysCode}" />
+  <b:constructor-arg index="2" value="${cas.server.excludeStrings}" />
+  <b:constructor-arg index="3" value="${cas.server.loginIp}" />
+  <b:property name="encoding" value="utf-8"/>
+  <b:property name="createSsoUserUrl" value="${cas.client.createSsoUserUrl}"/>
+</b:bean>

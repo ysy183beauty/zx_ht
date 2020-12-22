@@ -1,0 +1,649 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8;"/>
+<title>${channel.title!channel.name} - ${site.name}</title>
+<meta http-equiv="keywords" content="${channel.keywords!}" />
+<meta http-equiv="description" content="${channel.description!}" />
+<script type="text/javascript" src="/r/cms/pager/js/kkpager.min.js"></script>
+	<link rel="stylesheet" type="text/css"
+		href="/r/cms/pager/css/kkpager.css" />
+
+<style type="text/css">
+body{background: #385da3;}
+.white{background: white;}
+.w960{width: 960px}
+.per5{width: 5%;}
+.per10{width: 10%;}
+.per15{width: 15%;}
+.per30{width: 30%;}
+.per35{width: 35%;}
+#fadecon.tabcon,#allsgs.tabcon{height:auto;}
+.head div{font-weight: bold;line-height: 35px;font-size: 15px;background-color: #dedede;text-align: center;}
+.tabbtn ul li a{font-size: 16px;}	
+.content{max-height: 320px;}
+.content ul li:hover, .content2 ul li:hover{cursor: pointer;}
+.content ul li, .content2 ul li{text-align: center;padding:10px 5px; font-size: 14px;}
+.oddcss{ background-color: #ECF4F7;}
+.search2 span{color: #2c62b8;margin-right: 10px;font-size: 14px;}
+.search2 input{width: 142px;height: 25px;padding: 0px 5px; border: 1px solid #B7B7B7;}
+.search2 button{width: 75px;height: 28px;margin: 0px 5px;color: #fff;font-size: 14px;font-weight: bold;border: 0px;background: #2c62b8;cursor: pointer;}
+.option label{height:100%;font-size: 13px;cursor: pointer;}
+.fadetab2{height: 25px;}
+.fadetab2 li{float: left; }
+
+.fadetab2:AFTER {clear: both; content: ""; }
+#fy,#fy2{width: 350px;margin-top:20px;text-align: center;}
+#sgsTable{border:1px solid #CCC;border-bottom:0px}
+#sgsTable td{padding: 10px;border-bottom: 1px solid #CCC }
+#sgsTable td:nth-child(2) {display: none}
+#sgsTable td:FIRST-CHILD, #sgsTable td:nth-child(2) {font-weight: bold;border-right:1px solid #CCC}
+</style>
+
+</head>
+<body >
+<div class="wrap head_bg">
+	[#include "../include/页头顶栏.html"/]
+	
+	<div class="main " >
+		<div class="w960 p10">
+			<div class="w fl">
+				<ul class="tabbtn" id="fadetab">
+					<li class="current"><a href="#sgsmodal" >行政许可公示</a></li>
+					<li><a href="javascript:void(0)">行政处罚公示</a></li>
+				</ul>	
+			</div>
+			<div id="fadecon" class="tabcon">
+				<div class="p10">
+					<div class="head">
+						
+						<div class="fl per15" >项目名称</div>
+						<div class="fl per35"  >行政相对人名称</div>
+						<div class="fl per15"  >许可决定日期</div>
+						<div class="fl per35"  >许可机关</div>
+						<div class="clear"></div>
+					</div>
+					<div class="content">
+						<ul class="xkxx">
+						</ul>
+					</div>
+				</div>
+				<div class="p10">
+					<div class="head">
+						
+						<div class="fl per15" >行政相对人名称</div>
+						<div class="fl per35"  >处罚结果</div>
+						<div class="fl per15"  >处罚决定日期</div>
+						<div class="fl per35"  >处罚机关</div>
+						<div class="clear"></div>
+					</div>
+					<div class="content">
+						<ul class="cfxx">
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="clear"></div>
+	  </div>
+	  <div class="w960 p10">
+	  		<ul class="tabbtn">
+	  			<li class="current"><a href="javascript:void(0)">双公示查询</a></li>
+	  		</ul>
+	  		<div class="tabcon p20" id="allsgs">
+	  			<div class="search2 p10 w400">
+	  				<span >行政相对人名称</span>
+	  				<input id="xzxdrm" type="text"/>
+	  				<button onclick="query();">查询</button>
+	  			</div>
+	  			<div class="w200 mt10 option">
+	  				<ul class="fadetab2" id="fadetab2">
+	  					<li class="current"><label><input type="radio" name="sgs" checked="checked" value="1" />行政许可公示</label></li>
+	  					<li><label class="ml10"><input type="radio" name="sgs"  value="2" />行政处罚公示</label></li>
+	  				</ul>
+	  				
+	  			</div>
+	  			<div id="fadecon2" class="mt10">
+	  				<div id="xzxkxx">
+		  				<div class="head mt10">
+		  					<div class="fl per5">序号</div>
+							<div class="fl per15" >项目名称</div>
+							<div class="fl per30"  >行政相对人名称</div>
+							<div class="fl per15"  >许可决定日期</div>
+							<div class="fl per35"  >许可机关</div>
+							<div class="clear"></div>
+						</div>
+						<div class="content2">
+							<ul id="xkall">
+							</ul>
+						</div>
+						<div id="xzxkfy" class="mt10"><div id="fy"></div></div>
+					</div>
+					<div id="xzcfxx">
+						<div class="head mt10">
+							<div class="fl per5">序号</div>
+							<div class="fl per15" >行政相对人名称</div>
+							<div class="fl per30"  >处罚结果</div>
+							<div class="fl per15"  >处罚决定日期</div>
+							<div class="fl per35"  >处罚机关</div>
+							<div class="clear"></div>
+						</div>
+						<div class="content2">
+							<ul id="cfall">
+							</ul>
+						</div>
+						<div id="xzxkfy" class="mt10"><div id="fy2"></div></div>
+					</div>
+	  			</div>
+	  		</div>
+	  </div>
+	</div>
+	[#include "../include/页脚信息栏.html"/]
+	<a href="#sgsmodal" id="modaltrigger"></a>
+<div id="sgsmodal" class="none">
+    <div class="header">
+    	<button class="fr hidemodal" >×</button>
+    	 <h3>公示详情</h3>
+    </div>
+   <div class="xg-body"> 
+        <div class="modal-body">
+       		<table class="w" id="sgsTable" cellpadding="0" cellspacing="0">
+       			<tr>
+       				<td >许可文书号</td>
+       				<td >处罚文书号</td>
+       				<td id="td1" width="70%"></td>
+       			</tr>
+       			<tr>
+       				<td>项目名称</td>
+       				<td>处罚名称</td>
+       				<td id="td2"></td>
+       			</tr>
+       			<tr>
+       				<td>许可内容</td>
+       				<td>行政相对人名称</td>
+       				<td id="td3"></td>
+       			</tr>
+       			<tr>
+       				<td>行政相对人名称</td>
+       				<td>处罚结果</td>
+       				<td id="td4"></td>
+       			</tr>
+       			<tr>
+       				<td>许可决定日期</td>
+       				<td>处罚决定日期</td>
+       				<td id="td5"></td>
+       			</tr>
+       			<tr>
+       				<td>许可截止日期</td>
+       				<td>处罚有效期</td>
+       				<td id="td6"></td>
+       			</tr>
+       			<tr>
+       				<td>许可机关</td>
+       				<td>处罚机关</td>
+       				<td id="td7"></td>
+       				
+       			</tr>
+       		</table>
+       	</div>
+       
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+ param1 ={
+		"start":0,
+		"limit":50,
+		"queryday":10,
+		"type":1
+},
+ param2 ={
+		"start":0,
+		"limit":50,
+		"queryday":10,
+		"type":2
+},
+param3 ={
+		"start":0,
+		"limit":8,
+		"type":1
+},
+ param4 ={
+		"start":0,
+		"limit":8,
+		"type":2
+}
+var  index =0;
+ var  index2 =0;
+var count1=0;
+var count2=0;
+$(function(){
+	   $.ajax({
+			url : "/credit/credit_publity/creditSGS",
+			type : "GET",
+			async: false,
+			data: param1,
+			success : function(data) {
+				$(".cfxx").empty();		
+		var data1 = data.list;
+				var html='';
+			for(var i=0;i<data1.length;i++){
+				var time ='';
+				var etime='';
+				if(data1[i].cf_jdrq!=null){				
+				var starttime = new Date(data1[i].cf_jdrq);
+			
+				time = starttime.getFullYear()+"年"+(starttime.getMonth()+1)+"月"+starttime.getDate()+"日";
+				
+			}else{ time='无数据'; }
+				if(data1[i].cf_gsjzq!=null){
+					var endtime = new Date(data1[i].cf_gsjzq);
+				
+					etime = endtime.getFullYear()+"年"+(endtime.getMonth()+1)+"月"+endtime.getDate()+"日";
+			}else{ etime='无数据'; }
+		html= html+'  <li onclick=showModal(1,"'+data1[i].cf_wsh+'","'+data1[i].cf_cfmc+'","'+data1[i].cf_xdr_mc+'","'+data1[i].cf_jg+'","'+time+'","'+etime+'","'+data1[i].cf_xzjg+'") ><a href="javascript:void(0)" class="fl per15">'+data1[i].cf_xdr_mc+'</a><a href="javascript:void(0)" class="fl per35">'+data1[i].cf_jg+'</a><span class="fl per15">'+time+'</span><span class="fl per35">'+data1[i].cf_xzjg+'</span><i class="clear"></i></li>';
+			}
+			$(".cfxx").html(html);
+			},
+			
+			timeout : 6000
+		});
+	   
+	   $.ajax({
+			url : "/credit/credit_publity/creditSGS",
+			type : "GET",
+			async: false,
+			data: param2,
+			success : function(data) {
+				$(".xkxx").empty();		
+		var data1 = data.list;
+				var html='';
+			
+			for(var i=0;i<data1.length;i++){
+				var array=new Array();
+				var time ='';
+				var etime='';
+				if(data1[i].xk_jdrq!=null){
+					var starttime = new Date(data1[i].xk_jdrq);
+					time = starttime.getFullYear()+"年"+(starttime.getMonth()+1)+"月"+starttime.getDate()+"日";
+				}else{ time='无数据'; }
+				
+				if(data1[i].xk_jzq!=null){
+					var endtime = new Date(data1[i].xk_jzq);
+				
+					etime = endtime.getFullYear()+"年"+(endtime.getMonth()+1)+"月"+endtime.getDate()+"日";
+			}else{ etime='无数据'; }
+				if(data1[i].xk_wsh=="无数据"){
+					data1[i].xk_wsh=='';
+				}
+
+		html= html+'  <li onclick=showModal(2,"'+data1[i].xk_wsh+'","'+data1[i].xk_xmmc+'","'+data1[i].xk_nr+'","'+data1[i].xk_xdr+'","'+time+'","'+etime+'","'+data1[i].xk_xzjg+'")><a  href="javascript:void(0)" class="fl per15">'+data1[i].xk_xmmc+'</a><a href="javascript:void(0)" class="fl per35">'+data1[i].xk_xdr+'</a><span class="fl per15">'+time+'</span><span class="fl per35">'+data1[i].xk_xzjg+'</span><i class="clear"></i></li>';
+			}
+			$(".xkxx").html(html);
+			},
+			
+			timeout : 6000
+		});
+	   
+	   $.ajax({
+			url : "/credit/credit_publity/creditSGS",
+			type : "GET",
+			async: false,
+			data: param3,
+			success : function(data) {
+				count2 =data.count;
+				$("#cfall").empty();		
+		var data1 = data.list;
+				var html='';
+			for(var i=0;i<data1.length;i++){
+				var time ='';
+				var etime='';
+				if(data1[i].cf_jdrq!=null){
+				var starttime = new Date(data1[i].cf_jdrq);
+			
+				time = starttime.getFullYear()+"年"+(starttime.getMonth()+1)+"月"+starttime.getDate()+"日";
+				
+			}else{ time='无数据'; }
+				if(data1[i].cf_gsjzq!=null){
+					var endtime = new Date(data1[i].cf_gsjzq);
+				
+					etime = endtime.getFullYear()+"年"+(endtime.getMonth()+1)+"月"+endtime.getDate()+"日";
+			}else{ etime='无数据'; }
+		html= html+'  <li onclick=showModal(1,"'+data1[i].cf_wsh+'","'+data1[i].cf_cfmc+'","'+data1[i].cf_xdr_mc+'","'+data1[i].cf_jg+'","'+time+'","'+etime+'","'+data1[i].cf_xzjg+'") ><span class="fl per5">'+(i+1)+'</span><a href="javascript:void(0)" class="fl per15">'+data1[i].cf_xdr_mc+'</a><a href="javascript:void(0)" class="fl per30">'+data1[i].cf_jg+'</a><span class="fl per15">'+time+'</span><span class="fl per35">'+data1[i].cf_xzjg+'</span><i class="clear"></i></li>';
+			}
+			$("#cfall").html(html);
+			},
+			
+			timeout : 6000
+		});
+	   
+
+	   
+	   $.ajax({
+			url : "/credit/credit_publity/creditSGS",
+			type : "GET",
+			async: false,
+			data: param4,
+			success : function(data) {
+				count1 =data.count;
+				$("#xkall").empty();		
+		var data1 = data.list;
+				var html='';
+			for(var i=0;i<data1.length;i++){
+				var time ='';
+				var etime='';
+			if(data1[i].xk_jdrq!=null){
+				var starttime = new Date(data1[i].xk_jdrq);
+				time = starttime.getFullYear()+"年"+(starttime.getMonth()+1)+"月"+starttime.getDate()+"日";	
+			}else{ time='无数据'; }
+			
+				if(data1[i].xk_jzq!=null){
+					var endtime = new Date(data1[i].xk_jzq);
+				
+					etime = endtime.getFullYear()+"年"+(endtime.getMonth()+1)+"月"+endtime.getDate()+"日";
+			}else{ etime='无数据'; }
+				if(data1[i].xk_wsh=="无数据"){
+					data1[i].xk_wsh=='';
+				}
+		html= html+'  <li onclick=showModal(2,"'+data1[i].xk_wsh+'","'+data1[i].xk_xmmc+'","'+data1[i].xk_nr+'","'+data1[i].xk_xdr+'","'+time+'","'+etime+'","'+data1[i].xk_xzjg+'")><span class="fl per5">'+(i+1)+'</span><a href="javascript:void(0)" class="fl per15">'+data1[i].xk_xmmc+'</a><a href="javascript:void(0)" class="fl per30">'+data1[i].xk_xdr+'</a><span class="fl per15">'+time+'</span><span class="fl per35">'+data1[i].xk_xzjg+'</span><i class="clear"></i></li>';
+			}
+			$("#xkall").html(html);
+			},
+			
+			timeout : 6000
+		});
+	   
+	
+})
+</script>
+
+	<script type="text/javascript">
+	
+	var xzxdrm='';
+	var xzxdrm2='';
+		//生成分页
+		$(function() {
+			fyzs(0,count1,'fy');
+			fyzs2(0,count2,'fy2');
+			
+		});
+
+		function fyzs(s1,c1,id){
+			var size = 8; //每页显示记录条数
+			var start = s1
+			; //起始记录索引
+			var count = c1
+			; //记录总条数
+			var total = parseInt((count - 1) / size) + 1; //总页数
+			var pageIndex = (start / size) + 1; //当前页
+		
+			var str;
+			$("#"+id).empty();
+			$("#"+id).append(
+					"共" + count + "记录 " + pageIndex + "/" + total
+							+ "页&nbsp;&nbsp;");
+			if (count == 0) {
+				$("#"+id).append(
+						"<span style='font-size: 16px;'>没有查询到相关信息!</span>");
+			}
+			if (count > 0 && start == 0) {
+				$("#"+id)
+						.append(
+								"<a disabled='disabled'>首页</a> <a disabled='disabled'>上一页</a>&nbsp;&nbsp;");
+			}
+			if (count > 0 && start > 0) {
+				$("#"+id).append(
+						"<a href='javascript:fyclick(0);'>首页</a> <a href='javascript:fyclick("+(index-1)+");'>上一页</a>");
+			}
+			if (count > 0 && pageIndex == total) {
+				$("#"+id)
+						.append(
+								"<a disabled='disabled'> 下一页</a> <a disabled='disabled'>尾页</a>");
+			}
+			if (count > 0 && pageIndex < total) {
+				$("#"+id).append(
+						"<a href='javascript:fyclick("+(index+1)+");'> 下一页</a> <a href='javascript:fyclick("+(total-1)+");'>尾页</a>");
+			}
+
+			if (count > 0) {
+				str = "&nbsp;&nbsp;第<select onchange='fyclick(this.value);'>";
+				for (var i = 1; i <= total; i++) {
+					if (i == pageIndex) {
+						str += "<option selected='selected' value =" + (i-1) + ">"
+								+ i + "</option>";
+					} else {
+						str += "<option value ="+(i-1)+">" + i + "</option>";
+					}
+				}
+				str = str + "</select>页";
+				$("#"+id).append(str);
+				$(".content2 ul li:odd").addClass("oddcss"); 
+			}
+		}
+		
+		function fyzs2(s1,c1,id){
+			var size = 8; //每页显示记录条数
+			var start = s1
+			; //起始记录索引
+			var count = c1
+			; //记录总条数
+			var total = parseInt((count - 1) / size) + 1; //总页数
+			var pageIndex = (start / size) + 1; //当前页
+			
+			var str;
+			$("#"+id).empty();
+			$("#"+id).append(
+					"共" + count + "记录 " + pageIndex + "/" + total
+							+ "页&nbsp;&nbsp;");
+			if (count == 0) {
+				$("#"+id).append(
+						"<span style='font-size: 16px;'>没有查询到相关信息!</span>");
+			}
+			if (count > 0 && start == 0) {
+				$("#"+id)
+						.append(
+								"<a disabled='disabled'>首页</a> <a disabled='disabled'>上一页</a>&nbsp;&nbsp;");
+			}
+			if (count > 0 && start > 0) {
+				$("#"+id).append(
+						"<a href='javascript:fyclick(0);'>首页</a> <a href='javascript:fyclick2("+(index2-1)+");'>上一页</a>");
+			}
+			if (count > 0 && pageIndex == total) {
+				$("#"+id)
+						.append(
+								"<a disabled='disabled'> 下一页</a> <a disabled='disabled'>尾页</a>");
+			}
+			if (count > 0 && pageIndex < total) {
+				$("#"+id).append(
+						"<a href='javascript:fyclick2("+(index2+1)+");'> 下一页</a> <a href='javascript:fyclick2("+(total-1)+");'>尾页</a>");
+			}
+
+			if (count > 0) {
+				str = "&nbsp;&nbsp;第<select onchange='fyclick2(this.value);'>";
+				for (var i = 1; i <= total; i++) {
+					if (i == pageIndex) {
+						str += "<option selected='selected' value =" + (i-1) + ">"
+								+ i + "</option>";
+					} else {
+						str += "<option value ="+(i-1)+">" + i + "</option>";
+					}
+				}
+				str = str + "</select>页";
+				$("#"+id).append(str);
+				$(".content2 ul li:odd").addClass("oddcss"); 
+			}
+		}
+	
+		
+		function fyclick(i){
+			index = i;
+			 param41 ={
+						"start":8*i,
+						"limit":8,
+						"type":2,
+						"xzxdrm":xzxdrm
+				},
+			
+			   $.ajax({
+					url : "/credit/credit_publity/creditSGS",
+					type : "GET",
+					async: false,
+					data: param41,
+					success : function(data) {
+						$("#xkall").empty();	
+						count1=data.count;
+				var data1 = data.list;
+						var html='';
+					for(var i=0;i<data1.length;i++){
+						var time ='';
+						var etime='';
+					if(data1[i].xk_jdrq!=null){
+						var starttime = new Date(data1[i].xk_jdrq);
+						time = starttime.getFullYear()+"年"+(starttime.getMonth()+1)+"月"+starttime.getDate()+"日";
+						
+					}else{ time='无数据'; }
+					
+						if(data1[i].xk_jzq!=null){
+							var endtime = new Date(data1[i].xk_jzq);
+						
+							etime = endtime.getFullYear()+"年"+(endtime.getMonth()+1)+"月"+endtime.getDate()+"日";
+					}else{ etime='无数据'; }
+					if(data1[i].xk_wsh=="空"){
+					data1[i].xk_wsh=='';
+				}
+				html= html+'  <li onclick=showModal(2,"'+data1[i].xk_wsh+'","'+data1[i].xk_xmmc+'","'+data1[i].xk_nr+'","'+data1[i].xk_xdr+'","'+time+'","'+etime+'","'+data1[i].xk_xzjg+'")><span class="fl per5">'+(index*8+i+1)+'</span><a href="javascript:void(0)" class="fl per15">'+data1[i].xk_xmmc+'</a><a href="javascript:void(0)" class="fl per30">'+data1[i].xk_xdr+'</a><span class="fl per15">'+time+'</span><span class="fl per35">'+data1[i].xk_xzjg+'</span><i class="clear"></i></li>';
+					}
+					$("#xkall").html(html);
+					$("#xzxdrm").val(xzxdrm);
+					},
+					
+					timeout : 6000
+				});
+			 fyzs(i*8,count1,'fy');
+		}
+		
+		function fyclick2(i){
+			index2 = i;
+			 param41 ={
+						"start":8*i,
+						"limit":8,
+						"type":1,
+						"xzxdrm":xzxdrm2
+				},
+			
+			   $.ajax({
+					url : "/credit/credit_publity/creditSGS",
+					type : "GET",
+					async: false,
+					data: param41,
+					success : function(data) {
+						count2=data.count;
+						$("#cfall").empty();		
+				var data1 = data.list;
+						var html='';
+					for(var i=0;i<data1.length;i++){
+						var time ='';
+						var etime='';
+						if(data1[i].cf_jdrq!=null){
+						var starttime = new Date(data1[i].cf_jdrq);
+					
+						time = starttime.getFullYear()+"年"+(starttime.getMonth()+1)+"月"+starttime.getDate()+"日";
+						
+					}else{ time='无数据'; }
+						if(data1[i].cf_gsjzq!=null){
+							var endtime = new Date(data1[i].cf_gsjzq);
+						
+							etime = endtime.getFullYear()+"年"+(etime.getMonth()+1)+"月"+etime.getDate()+"日";
+					}else{ etime='无数据'; }
+				html= html+'  <li onclick=showModal(1,"'+data1[i].cf_wsh+'","'+data1[i].cf_cfmc+'","'+data1[i].cf_xdr_mc+'","'+data1[i].cf_jg+'","'+time+'","'+etime+'","'+data1[i].cf_xzjg+'") ><span class="fl per5">'+(index2*8+i+1)+'</span><a href="javascript:void(0)" class="fl per15">'+data1[i].cf_xdr_mc+'</a><a href="javascript:void(0)" class="fl per30">'+data1[i].cf_jg+'</a><span class="fl per15">'+time+'</span><span class="fl per35">'+data1[i].cf_xzjg+'</span><i class="clear"></i></li>';
+					}
+					$("#cfall").html(html);
+					$("#xzxdrm").val(xzxdrm2);
+					},
+					
+					timeout : 6000
+				});
+			 fyzs2(i*8,count2,'fy2');
+		}
+		
+		function query(){
+			if($("#fadetab2 li:first-child").attr("class")=="current"){
+			xzxdrm = $("#xzxdrm").val();
+			fyclick(0);
+			}else{
+			xzxdrm2	=$("#xzxdrm").val();
+			fyclick2(0);
+			}
+		}
+		
+		
+		
+	</script>
+	<script type="text/javascript">
+$(function(){
+	$("#fadetab,#fadetab2").tabso({
+		cntSelect:"#fadecon,#fadecon2",
+		tabEvent:"click",
+		tabStyle:"fade"
+	});
+	$(".content").imgscroll({
+		speed: 80,    //图片滚动速度
+		amount: 0,    //图片滚动过渡时间
+		width: 1,     //图片滚动步数
+		dir: "up"   // "left" 或 "up" 向左或向上滚动
+	});
+	$(".content ul li:odd").addClass("oddcss"); 
+
+	$("#modaltrigger").leanModal({ top: 110, overlay: 0.45, closeButton: ".hidemodal" });
+
+	
+})
+function showModal(type,td1,td2,td3,td4,td5,td6,td7){
+	
+	if(td1=="undefined"||$.trim(td1)=="空"){
+		td1="";
+	}
+	if(td2=="undefined"){
+		td2="";
+	}
+	if(td3=="undefined"){
+		td3="";
+	}
+	if(td4=="undefined"){
+		td4="";
+	}
+	if(td5=="undefined"){
+		td5="";
+	}
+	if(td6=="undefined"){
+		td6="";
+	}
+	if(td7=="undefined"){
+		td7="";
+	}
+	$("#td1").html(td1);
+	$("#td2").html(td2);
+	$("#td3").html(td3);
+	$("#td4").html(td4);
+	$("#td5").html(td5);
+	$("#td6").html(td6);
+	$("#td7").html(td7);
+	
+	if(type==1){
+		$("#sgsTable td:first-child").css("display","none");
+		$("#sgsTable td:nth-child(2)").css("display","table-cell");
+		$("#sgsTable tr:nth-child(6)").css("display","none");
+	}
+	else{
+		$("#sgsTable td:nth-child(2)").css("display","none");
+		$("#sgsTable td:first-child").css("display","table-cell");
+		$("#sgsTable tr:nth-child(6)").css("display","table-row");
+	}
+	
+	$("#modaltrigger").trigger("click");
+	$("#sgsTable td:nth-child(2)").height($("#sgsTable td:last-child").height());
+}
+</script>
+</body>
+</html>

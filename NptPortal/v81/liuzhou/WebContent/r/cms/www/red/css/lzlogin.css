@@ -1,0 +1,156 @@
+
+
+/*hcy baseCss*/
+.cy-lzlogin div,
+.cy-lzlogin dl,
+.cy-lzlogin dt,
+.cy-lzlogin dd,
+.cy-lzlogin ul,
+.cy-lzlogin ol,
+.cy-lzlogin li,
+.cy-lzlogin h1,
+.cy-lzlogin h2,
+.cy-lzlogin h3,
+.cy-lzlogin h4,
+.cy-lzlogin h5,
+.cy-lzlogin h6,
+.cy-lzlogin input,
+.cy-lzlogin textarea,
+.cy-lzlogin p,
+.cy-lzlogin span,
+.cy-lzlogin a
+{
+     -moz-box-sizing: border-box;  /*Firefox3.5+*/
+     -webkit-box-sizing: border-box; /*Safari3.2+*/
+     -o-box-sizing: border-box; /*Opera9.6*/
+     -ms-box-sizing: border-box; /*IE8*/
+     box-sizing: border-box; /*IE9+，Safari5.1+,Chrome10.0+,Opera10.6*/
+}
+
+body, 
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6, 
+hr, 
+p, 
+blockquote, 
+dl, 
+dt, 
+dd, 
+ul, 
+ol, 
+li,
+pre,
+form, 
+fieldset, 
+legend, 
+button, 
+input,
+textarea,
+th, 
+td,
+a
+{margin: 0;padding: 0;}
+
+
+
+.cy-lzlogin ol,
+.cy-lzlogin ul,
+.cy-lzlogin li{list-style:none;}
+
+.cy-lzlogin img { border:none;}
+
+.cy-lzlogin a { text-decoration:none;}
+.cy-lzlogin a:hover { text-decoration:none;}
+
+
+/*button*/
+.cy-button22,
+.cy-button30,
+.cy-button34,
+.cy-button38,
+.cy-button40,
+.cy-button45,
+.cy-button56,
+.cy-button80 { border-radius:4px; overflow:hidden; padding:0px 10px; border:none; background:none; background:#ccc; color:#fff; text-align:center; cursor:pointer; font-weight: bold; outline:none;}
+
+
+.cy-button22 { height:22px; font-size:12px;}
+.cy-button30 { height:30px; font-size:14px;}
+.cy-button34 { height:34px; font-size:14px;}
+.cy-button38 { height:38px; font-size:14px;}
+.cy-button40 { height:40px; font-size:14px;}
+.cy-button45 { height:45px; font-size:16px;}
+.cy-button56 { height:56px; font-size:18px;}
+.cy-button80 { height:80px; font-size:18px;}
+
+
+/*trigl*/
+.triglL,.triglR,.triglT,.triglB { display:inline-block; border:8px solid #000; cursor:pointer; overflow:hidden; width:0px; height:0px; position:relative;}
+.triglL { border-color:transparent #000 transparent transparent;_border-style:dashed solid dashed dashed;}
+.triglR { border-color:transparent transparent transparent #000;_border-style:dashed dashed dashed solid;}
+.triglT { border-color:transparent transparent #000 transparent;_border-style:dashed dashed solid dashed;}
+.triglB { border-color:#000 transparent transparent transparent;_border-style:solid dashed dashed dashed;}
+
+
+/*dbtrigl*/
+.dbtriglL,.dbtriglR,.dbtriglT,.dbtriglB { display:inline-block; position:relative; width:16px; height:16px; overflow:hidden;}
+.dbtriglL i,.dbtriglL em,.dbtriglR i,.dbtriglR em,.dbtriglT i,.dbtriglT em,.dbtriglB i,.dbtriglB em { position:absolute; left:0px; top:0px;}
+.dbtriglL em { border-color:transparent #fff transparent transparent; left:1px;}
+.dbtriglR em { border-color:transparent transparent transparent #fff; left:auto; right:1px;}
+.dbtriglT em { border-color:transparent transparent #fff transparent; top:1px;}
+.dbtriglB em { border-color:#fff transparent transparent transparent; top:auto; bottom:1px;}
+
+
+/*contentstyle*/
+
+.cy-lzlogin {width:900px; overflow:hidden; display:none; position:absolute; left:50%; top:50px; margin:0px 0 0 -450px; z-index:100; }
+
+.cy-lzloginBg { display:block; position:fixed; left:0px; top:0px; width:100%; height:100%; opacity:0.6; filter:alpha(opacity:60); background:#fff; z-index:90;}
+.cy-closelogin { display:block; width:16px; height:16px; background:url(../../images/divLogin/closepic.png) no-repeat; position:absolute; right:10px; top:14px; z-index:5;}
+
+
+
+
+.cy-lzlogintipmsn { width:410px; height:42px; border:1px solid #f9ebcb; background:#fbf7dd; font-size:14px; font-family:"Microsoft YaHei"; line-height:42px; color:#b3873e; margin:28px auto 10px; text-indent:20px;}
+
+.cy-loginContent { position:relative;}
+.cy-loginContent .ieShadow{ display:block; background:#999; position:absolute; left:-5px; top:-5px; right:-1px; bottom:-1px; _width:182px; _height:137px; filter:progid:dXImageTransform.Microsoft.blur(pixelradius=2); -ms-filter:"progid:DXImageTransform.Microsoft.Blur(pixelradius=2)";}
+
+.cy-loginshashow { width:456px; min-height:360px; background:#f7f7f7; padding:14px 0px; position:relative; box-shadow:0px 0px 5px #545454;}
+.cy-loginContent-title { width:238px;  height:70px; font-family:"Microsoft YaHei"; font-size:20px; color:#464646; line-height:70px; margin:0px auto 4px; font-weight:bold; background:url(../../images/divLogin/cy-loginContent-titlebg.png) no-repeat 46px 18px;}
+.cy-logform { width:236px; margin:0 auto;}
+
+.cy-logform li { height:30px; width:236px; margin-bottom:12px; position:relative;}
+.cy-selecttxt { display:inline-block; width:100%; height:100%; border:1px solid #c9c9c9; background:#fff; outline:none; font-size:14px; line-height:30px;font-family:"Microsoft YaHei";}
+.cy-inputxt { display:inline-block; width:100%; height:100%; border:1px solid #c9c9c9; background:#fff; outline:none; padding-left:4px; font-size:14px; line-height:30px;font-family:"Microsoft YaHei"; color:#666;}
+.cy-yzInp { display:inline-block; width:126px; height:30px; float:left;font-family:"Microsoft YaHei";font-size:14px; color:#666;}
+.cy-yzImg { display:inline-block; width:90px; height:30px; float:right;}
+.cy-lzloginsubmit { background:#2ca84c; width:100%; letter-spacing:5px; border-radius:0px; font-size:18px; font-family:"Microsoft YaHei"; color:#fff;}
+
+.cy-logingo {}
+.cy-logingo a { font-size:14px; font-family:"Microsoft YaHei"; color:#545454;}
+.cy-logingo a:hover { text-decoration:underline;}
+
+
+.cy-logintip { position:absolute; left:50%; /*background: #fff url(../../images/divLogin/logintipBg.png) no-repeat;*/background: #fff; min-width:136px; max-width:220px; height:900px; overflow:-hidden; margin-left:-110px; border:1px solid #ff0000;}
+.cy-logintip-div { text-align:left; padding:6px;}
+.cy-logintip-icon { display:inline-block; width:16px; height:16px; background:url(../../images/divLogin/logintip-icon.png) no-repeat; position:absolute; top:8px; left:8px;}
+.cy-logintip-content { display:block; font-size:12px; font-family:"Microsoft YaHei"; color:#545454; line-height:20px; font-family:"宋体"; text-indent:20px; }
+.cy-logintip-close { display:block; text-align:center; height:24px; position:relative; font-size:12px; font-family:"Microsoft YaHei"; color:#ff0000; line-height:28px; font-family:"宋体";}
+.cy-logintip-close:hover { color:red;}
+
+.cy-logintip .dbtriglB { position:absolute; left:50%; bottom:-16px; margin-left:-8px;}
+.cy-logintip .dbtriglB i { border-color:#ff0000 transparent transparent transparent;}
+.cy-logintip .dbtriglB em { border-color:#fff transparent transparent transparent;}
+
+
+
+
+/* 迷你版 */
+.cy-minilzlogin { width:456px; margin-left:-234px; padding:4px;}
+
+

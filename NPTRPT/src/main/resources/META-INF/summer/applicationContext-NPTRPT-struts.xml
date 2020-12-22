@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:v="http://www.summer.org/schema/config"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.summer.org/schema/config http://www.summer.org/schema/config/summer-core.xsd">
+
+
+    <v:package name="/npt/sts/statistics/index" action-ref="npt.sts.statistics.index">
+        <v:menu name="statistics-index-Manager" title="统计分析首页" admin="true">
+            <v:action name="index" result-success="statistics/sts_index.ftl"/>
+            <v:action name="list" result-success="statistics/sts_list.ftl"/>
+        </v:menu>
+    </v:package>
+    <v:package name="/npt/sts/statistics" action-ref="npt.sts.statistics">
+        <v:menu name="sts-01" title="统计分析" admin="true">
+            <v:action name="index" result-success="statistics/sts_data_index.ftl"/>
+            <v:action name="list" result-success="statistics/sts_data_list.ftl"/>
+            <v:action name="detail" result-success="statistics/sts_data_detail.ftl"/>
+        </v:menu>
+        <v:menu name="sts-02" title="荣誉失信统计" admin="true">
+            <v:action name="method2" result-success="statistics/失信信息统计.ftl"/>
+            <v:action name="list2"/>
+        </v:menu>
+        <v:menu name="sts-03" title="各区域企业占比统计" admin="true">
+            <v:action name="method3" result-success="统计分析/企业数据统计/区域划分统计/各区域企业占比统计.ftl"/>
+            <v:action name="list3"/>
+        </v:menu>
+        <v:menu name="sts-04" title="各地区荣誉失信信息占比统计" admin="true">
+            <v:action name="method4" result-success="统计分析/企业数据统计/区域划分统计/各地区荣誉信息、失信信息占比统计.ftl"/>
+            <v:action name="list4"/>
+        </v:menu>
+        <v:menu name="sts-05" title="各类型企业占比统计" admin="true">
+            <v:action name="method5" result-success="统计分析/企业数据统计/性质分类统计/各类型企业占比统计.ftl"/>
+            <v:action name="list5"/>
+        </v:menu>
+        <v:menu name="sts-06" title="各行业企业占比统计" admin="true">
+            <v:action name="method6" result-success="统计分析/企业数据统计/行业分类统计/各行业企业占比统计.ftl"/>
+            <v:action name="list6"/>
+        </v:menu>
+        <v:menu name="sts-07" title="各规模企业占比统计" admin="true">
+            <v:action name="method7" result-success="统计分析/企业数据统计/规模分类统计/各规模企业占比统计.ftl"/>
+            <v:action name="list7"/>
+        </v:menu>
+        <v:menu name="sts-08" title="信息量排行统计" admin="true">
+            <v:action name="method8" result-success="统计分析/企业数据统计/信息量排行统计.ftl"/>
+            <v:action name="list8"/>
+            <v:action name="detail8"/>
+        </v:menu>
+        <v:menu name="sts-09" title="人民群众反映部门意见情况统计" admin="true">
+           <v:action name="method9" result-success="statistics/personOpinionsStatic.ftl"/>
+            <v:action name="list9"/>
+        </v:menu>
+        <v:menu name="sts-10" title="单位行政效能考评结果详情" admin="true">
+            <v:action name="method10" result-success="statistics/unitResultStatic.ftl"/>
+            <v:action name="list10"/>
+        </v:menu>
+        <v:menu name="sts-11" title="政府部门行政效能考评详情排名" admin="true">
+            <v:action name="method11" result-success="统计分析/政府数据统计/政府部门行政效能考评详情排名.ftl"/>
+            <v:action name="list11"/>
+        </v:menu>
+
+        <v:action name="nptIndex"/>
+        <v:action name="countData"/>
+        <v:action name="nptOrgIndex"/>
+    </v:package>
+
+</beans>

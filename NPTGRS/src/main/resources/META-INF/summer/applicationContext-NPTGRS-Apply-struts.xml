@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:v="http://www.summer.org/schema/config"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.summer.org/schema/config http://www.summer.org/schema/config/summer-core.xsd">
+
+
+
+    <v:package name="/npt/grs/apply" action-ref="npt.grs.apply">
+        <v:action name="addFieldApply"/>
+        <v:action name="showDetail" result-success="dataControl/apply/submitApply.ftl"/>
+        <v:menu name="myAllApply" title="我的资源申请" admin="true">
+            <v:action name="listPage" result-success="dataControl/apply/index.ftl"/>
+            <v:action name="listByCondition" result-success="dataControl/apply/list.ftl"/>
+            <v:action name="listAcceptedPage" result-success="dataControl/apply/acceptApply.ftl"/>
+            <v:action name="listRefusedPage" result-success="dataControl/apply/refusedApply.ftl"/>
+        </v:menu>
+    </v:package>
+
+    <v:package name="/npt/grs/approval" action-ref="npt.grs.approval">
+        <v:menu name="cdcApproval" title="中心申请审批" admin="true">
+            <v:action name="cdcIndex" result-success="dataControl/approval/cdc/index.ftl"/>
+            <v:action name="listCDCByCondition" result-success="dataControl/approval/cdc/list.ftl"/>
+            <v:action name="approvalByCDC"/>
+            <v:action name="showCDCApproval" result-success="dataControl/approval/cdc/waitApproval.ftl"/>
+        </v:menu>
+        <v:menu name="prdApproval" title="提供方申请审批" admin="true">
+            <v:action name="prdIndex" result-success="dataControl/approval/prd/index.ftl"/>
+            <v:action name="listPRDByCondition" result-success="dataControl/approval/prd/list.ftl"/>
+            <v:action name="approvalByPRD"/>
+            <v:action name="showPRDApproval" result-success="dataControl/approval/prd/waitApproval.ftl"/>
+        </v:menu>
+    </v:package>
+
+</beans>

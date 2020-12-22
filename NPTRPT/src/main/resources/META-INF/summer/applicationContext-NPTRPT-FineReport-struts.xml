@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:v="http://www.summer.org/schema/config"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.summer.org/schema/config http://www.summer.org/schema/config/summer-core.xsd">
+
+
+    <v:package name="/npt/web/finereport/log" action-ref="npt.web.fineReport.log">
+        <v:action name="index" result-success="thirdPart/fineReport/npt_web_fineReport_log_index.ftl"/>
+        <v:action name="list" result-success="thirdPart/fineReport/npt_web_fineReport_log_list.ftl"/>
+        <v:action name="detail"/>
+        <v:action name="exportReportToPDF"/>
+    </v:package>
+
+    <v:package name="/findreport" action-ref="summer.findReportAction">
+        <v:menu name="report-manager" title="报表管理" admin="true">
+            <v:action name="index" result-success="findreport/index.ftl"/>
+            <v:action name="list" result-success="findreport/list.ftl"/>
+            <v:group name="add" title="新增">
+                <v:action name="addPage" result-success="findreport/add.ftl"/>
+                <v:action name="add"/>
+            </v:group>
+            <v:group name="edit" title="修改">
+                <v:action name="editPage" result-success="findreport/edit.ftl"/>
+                <v:action name="edit"/>
+            </v:group>
+            <v:group name="enabled" title="启用">
+                <v:action name="enabled" />
+            </v:group>
+            <v:group name="disabled" title="禁用">
+                <v:action name="disabled" />
+            </v:group>
+            <v:group name="delete" title="删除">
+                <v:action name="delete" />
+            </v:group>
+        </v:menu>
+
+        <v:menu name="report-list" title="报表查看" admin="true">
+            <v:action name="reports" result-success="findreport/reports.ftl"/>
+        </v:menu>
+
+        <v:menu name="report-list10" title="信用报表0" admin="true">
+            <v:action name="report10" result-success="findreport/menu/report.ftl"/>
+        </v:menu>
+        <v:menu name="report-list11" title="信用报表1" admin="true">
+            <v:action name="report11" result-success="findreport/menu/report.ftl"/>
+        </v:menu>
+        <v:menu name="report-list12" title="信用报表2" admin="true">
+            <v:action name="report12" result-success="findreport/menu/report.ftl"/>
+        </v:menu>
+        <v:menu name="report-list13" title="信用报表3" admin="true">
+            <v:action name="report13" result-success="findreport/menu/report.ftl"/>
+        </v:menu>
+
+        <v:menu name="report-list20" title="信用申报0" admin="true">
+            <v:action name="report20" result-success="findreport/menu/report.ftl"/>
+        </v:menu>
+        <v:menu name="report-list21" title="信用申报1" admin="true">
+            <v:action name="report21" result-success="findreport/menu/report.ftl"/>
+        </v:menu>
+        <v:menu name="report-list22" title="信用申报2" admin="true">
+            <v:action name="report22" result-success="findreport/menu/report.ftl"/>
+        </v:menu>
+        <v:menu name="report-list23" title="信用申报3" admin="true">
+            <v:action name="report23" result-success="findreport/menu/report.ftl"/>
+        </v:menu>
+        <v:menu name="studentInfo" title="学生报表" admin="true">
+            <v:action name="studentReport" result-success="findreport/studentReport.ftl" />
+        </v:menu>
+        <v:menu name="wbjReportInfo" title="委办局数据采集情况报表" admin="true">
+            <v:action name="wbjReport" result-success="findreport/wbjReport.ftl" />
+        </v:menu>
+        <v:menu name="qyxyReportInfo" title="企业信用报告" admin="true">
+            <v:action name="qyxyReport" result-success="findreport/qyxyReport.ftl" />
+        </v:menu>
+        <v:menu name="grxyReportInfo" title="个人信用报告" admin="true">
+            <v:action name="grxyReport" result-success="findreport/grxyReport.ftl" />
+        </v:menu>
+        <v:menu name="bycfReportInfo" title="自然人表彰与处罚情况分析" admin="true">
+            <v:action name="bycfReport" result-success="findreport/bycfReport.ftl" />
+        </v:menu>
+        <v:menu name="nlxyReportInfo" title="自然人年龄段信用情况分析" admin="true">
+            <v:action name="nlxyReport" result-success="findreport/nlxyReport.ftl" />
+        </v:menu>
+        <v:menu name="sjzxReportInfo" title="数据展现" admin="true">
+            <v:action name="sjzxReport" result-success="findreport/sjzxReport.ftl" />
+        </v:menu>
+
+        <v:menu name="unitReportInfo" title="各单位失信情况" admin="true">
+            <v:action name="unitReport" result-success="findreport/unitReport.ftl" />
+        </v:menu>
+        <v:menu name="qygmReportInfo" title="企业规模信用统计分析" admin="true">
+            <v:action name="qygmReport" result-success="findreport/qygmReport.ftl" />
+        </v:menu>
+        <v:menu name="qyxypgReportInfo" title="企业信用评估情况" admin="true">
+            <v:action name="qyxypgReport" result-success="findreport/qyxypgReport.ftl" />
+        </v:menu>
+
+        <v:action name="getReportList"/>
+        <v:action name="getReportById"/>
+    </v:package>
+    <v:package name="/findreport/history" action-ref="summer.findReportHistoryAction">
+        <v:menu name="reportHistory-manager" title="报表历史管理" admin="true">
+            <v:action name="index" result-success="findreport/history/index.ftl"/>
+            <v:action name="list" result-success="findreport/history/list.ftl"/>
+            <v:action name="download"/>
+            <v:group name="delete" title="删除">
+                <v:action name="delete" />
+            </v:group>
+        </v:menu>
+    </v:package>
+</beans>

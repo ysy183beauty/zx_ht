@@ -1,0 +1,91 @@
+.research-content{
+    margin-left:15px;
+    margin-right:15px;
+    margin-bottom:100px;
+}
+.research_banner{
+    width:100%;
+    overflow: hidden;
+    min-height:200px;
+    position:relative;
+    margin-bottom:20px;
+    border:1px solid #ccc;
+}
+.bd{
+    padding-top: 0 !important;
+}
+.banner-inner{
+    overflow: hidden;
+    width:4000px;
+    position:absolute;
+    top:0;
+    left:0;
+    height:200px;
+}
+.banner-inner img{
+    float:left;
+    display:block;
+    width:1000px;
+    height:100%;
+}
+.research-info{
+    border-top:1px solid #ccc;
+    width:100%;
+    overflow:hidden;
+    position:relative;
+}
+.info-top{
+    overflow: hidden;
+    margin-top:20px;
+    margin-bottom:30px;
+}
+.info-img{
+    border:1px solid #ccc;
+    text-align: center;
+    height:200px;
+}
+.info-span{
+    font-size:30px;
+    text-align: center;
+    color:#333;
+}
+.info-img img{
+    width:50%;
+    margin-top: 20px;
+}
+.info-ul{
+    height:200px;
+}
+.research-more{
+    position:absolute;
+    right:10px;
+    bottom:10px;
+}
+.research-more a{
+    color:#999;
+    text-decoration: none;
+}
+/*信用资讯*/
+.zx-banner-img,.zx-banner-dd{
+    width:50%;
+    height:220px;
+}
+.zx-banner-img img{
+    width:100%;
+    height:100%;
+}
+.cms-title{
+    font-size:18px;
+}
+.cms-time{
+    text-align: right;
+}
+.info-li{
+    margin-bottom:10px;
+    border-bottom:1px dashed #ccc;
+}
+.info-li p{
+    margin-top:10px;
+    margin-bottom:0!important;
+    text-indent: 2em;
+}

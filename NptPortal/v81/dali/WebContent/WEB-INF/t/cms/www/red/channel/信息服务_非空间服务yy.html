@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8;"/>
+<title>信息资源 - ${site.name} - Powered by cd</title>
+<meta http-equiv="keywords" content="非空间服务目录" />
+<meta http-equiv="description" content="非空间服务目录" />
+<link href="/${res}/css/global.css" type="text/css" rel="stylesheet" />
+<link href="/${res}/css/style.css" rel="stylesheet" type="text/css" />
+<link href="/${res}/css/layout.css" rel="stylesheet" type="text/css" />
+<script src="${resSys}/jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="${resSys}/front.js" type="text/javascript"></script>
+<script src="/${res}/js/common.js" type="text/javascript"></script>
+<style type="text/css">
+#leftMenu dl {
+	margin-top: 15px;
+}
+
+#leftMenu dl dt {
+	width: 200px;
+	height: 25px;
+	text-align: center;
+	display: inline-block;
+	cursor: pointer;
+	background-color: #D9E8FB;
+	line-height: 25px;
+	font-weight: bold;
+}
+
+#leftMenu dl dt a {
+	display: inline-block;
+	text-align: center;
+	width: 200px;
+	height: 24px;
+}
+
+#leftMenu dl dt a:hover,.dropdown ul li a:hover {
+	font-weight: bold;
+	text-decoration: none
+}
+
+#leftMenu dl dd ul li {
+	width: 160px;
+	text-align: center;
+	margin-left: 20px;
+	padding: 6px 0;
+	border-bottom:1px dotted gray;
+}
+</style>
+<script type="text/javascript">
+	$(function() {
+		// 在线信息服务左侧树生成栏目。没有下级菜单参数设置：只有name和url参数；有下级菜单参数设置:name、nav(name、url)。
+		var sites = ([ {
+			name : "人口",
+			nav : [ {
+				name : "按身份证查询",
+				url : "../ap/servol/findbynum.html"
+			}, {
+				name : "公民身份信息验证",
+				url : "../ap/servol/checkbynn.html"
+			}]
+		}, {
+			name : "法人",
+			nav : [ {
+				name : "按注册号查询",
+				url : "../ap/servol/fareninfo.html"
+			}]
+		}]);
+
+		var nav;
+		nav = sites;
+		init_navi();
+		var ck = $("#leftMenu dl");// 左侧菜单
+		setdt_bg();
+		// 点击左侧菜单增加新标签
+		for (i = 0; i < ck.length; i++) {
+			ck[i].getElementsByTagName("dt")[0].onclick = function(e) {
+				/* 查找$('li.button a')的下一个同辈元素(即<li class="dropdown"></li>) */
+				var dropDown = $(this).next();
+
+				/*
+				 * 找到所有的$('.dropdown')对象，除开当前这一个对象，其它的所有都slideUp()
+				 * 收起
+				 * $('.dropdown').not(dropDown).slideUp('fast');
+				 */
+				/* dropDown撑开或者收起 */
+				dropDown.slideToggle('fast', function setdt_bg2() {
+					// 当动作之后执行该 函数，以使dt的背景图片换掉。
+					// 判断dd的display
+					if (this.style.display == "none") {
+						// 取得本dd元素的的前一个元素dt元素
+						$(this).prev('dt').css("background",
+								"url(/${res}/img/tabbg01.png) no-repeat");
+					} else {
+						$(this).prev('dt').css("background",
+								"url(/${res}/img/tabbg02.png) no-repeat");
+					}
+				});
+			};
+		}
+		var dd_a = $("dd a");
+		for ( var i = 0; i < dd_a.length; i++) {
+			dd_a[i].onclick = function() {
+				clearA(dd_a);
+				this.style.fontWeight = 'bold';
+				this.style.color = '#B52725';
+			};
+		}
+		// 清除所有二级菜单下的a的样式
+		function clearA(dd_a) {
+			for ( var i = 0; i < dd_a.length; i++) {
+				dd_a[i].style.fontWeight = "";
+				dd_a[i].style.color = "";
+			};
+		}
+		function setdt_bg() {
+			for (i = 0; i < ck.length; i++) {
+				ck[i].getElementsByTagName("dt")[0].style.background = 'url(/${res}/img/tabbg02.png) no-repeat';
+			}
+		};
+		function init_navi() {
+			var leftMenu = document.getElementById("leftMenu");
+			for (i = 0; i < nav.length; i++) {
+				var dl = document.createElement("dl");
+				// 没有二级菜单
+				if (!nav[i].nav) {
+					var dt = document.createElement("dt");
+					dt.innerHTML = "<a href='" + nav[i].url + "' target='querybox'>"
+							+ nav[i].name + "</a>";
+					dl.appendChild(dt);
+				} else {// 有二级菜单
+					var dt = document.createElement("dt");
+					dt.innerHTML = nav[i].name;
+					dt.className = "nav_button";
+					dl.appendChild(dt);
+					var dd = document.createElement("dd");
+					var ul = document.createElement("ul");
+					for ( var j = 0; j < nav[i].nav.length; j++) {
+						var li = document.createElement("li");
+						li.innerHTML = "<a href='" + nav[i].nav[j].url
+						+ "' target='querybox'>"
+								+ nav[i].nav[j].name + "</a>";
+						//将第一个标题下的第一个子标题在打开时颜色就显示为红色加粗
+						if(i == 0 && j==0){
+							li.innerHTML = "<a href='" + nav[i].nav[j].url
+						+ "' target='querybox' style='color:#B52725; font-weight:bold;'>"
+								+ nav[i].nav[j].name + "</a>";
+						}
+						ul.appendChild(li);
+					}
+					dd.appendChild(ul);
+					dd.className = "dropdown";
+					dl.appendChild(dd);
+				}
+				leftMenu.appendChild(dl);
+			}
+		};
+	});
+</script>
+</head>
+<body>
+	<!--header_begin-->
+	<!--header_end-->
+	<div id="main">
+		<div class="page2 box">
+			[#include "../include/position_tip_channel.html"/]
+			<div class="f-left w200 h520 indexborder1">
+				<div id="leftMenu" class="w200">
+					<!--导航菜菜内容-->
+				</div>
+			</div>
+			<div class="f-right w770 h520 indexborder1">
+				<iframe name="querybox" width=770 height=520 frameborder=0 noresize="noresize" style="overflow-x:hidden;" src="../ap/servol/findbynum.html"></iframe>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,217 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--		<object classid="clsid:707C7D52-85A8-4584-8954-573EFCE77488"-->
+<!--			id="JITDSignOcx" width="0"-->
+<!--			codebase="./JITDSign.cab#version=2,0,24,19" height="0"></object>-->
+		<style type="text/css">
+
+
+
+.login_bg {
+	width: 350px;
+	height: 250px;
+	background-color: #fff;
+}
+
+.top_bg {
+	background: url(../../../ap/images/top_bg.jpg) repeat-x;
+	width: 100%;
+	height: 32px;
+}
+
+.top_tab01 {
+	width: 50%;
+	height: 32px;
+	background: url(../../../ap/images/top_bg_select.jpg) repeat-x;
+	color: #4179b6;
+	text-align: center;
+	line-height: 32px;
+	float: left;
+}
+
+.top_tab02 {
+	width: 50%;
+	height: 32px;
+	color: #fff;
+	text-align: center;
+	line-height: 32px;
+	float: left;
+}
+
+.denglu_tab {
+	margin: 0px auto;
+	margin-top: 36px;
+}
+
+.denglu_tab td {
+	height: 35px;
+	line-height: 32px;
+}
+
+.denglu_anniu {
+	margin-top: 12px;
+}
+
+.user_bg { /*background:url(../images/user_bg.jpg) no-repeat  left; */
+	height: 22px;
+	width: 150px;
+	border: solid #ccc 1px;
+	padding-left: 30px;
+	line-height: 22px;
+}
+
+.psw_bg { /*background: url(../images/psw_bg.jpg) no-repeat  left;*/
+	height: 22px;
+	width: 150px;
+	border: solid #ccc 1px;
+	padding-left: 30px;
+	line-height: 22px;
+}
+
+.yanzheng_bg {
+	width: 80px;
+	border: solid #ccc 1px;
+}
+</style>
+
+<script type="text/javascript">
+//当前选择的登陆tab页
+var tab_denglu = "1";
+
+document.onkeydown = function(event_e){          
+	if(window.event) {              
+		event_e = window.event;          
+	}            
+	var int_keycode = event_e.charCode||event_e.keyCode;         
+ 	if( int_keycode == '13' ) {  
+ 		if(window.parent.dialog == "true")
+ 		{
+ 			//if(tab_denglu == "1")document.getElementById("login_submit_ca").click();
+ 			if(tab_denglu == "2")document.getElementById("login_submit").click();
+ 		}
+ 	return false;          
+ 	}     
+}
+
+
+
+function refreshCaptcha() {
+	var o = document.getElementById("imgcaptcha").src = "${base}/captcha.svl?d="+ new Date() * 1 + "";
+}
+
+
+var loginType = 0;
+var original_jsp = "";
+var signed_data = "";
+
+function selectedDiv(tag) {
+	if (tag == "CA") {
+		loginType = 0;
+		document.getElementById("div1").className = "top_tab02";
+		document.getElementById("div2").className = "top_tab01";
+		document.getElementById("loginform_inner").style.display= "none";
+		document.getElementById("d_denglu_tab").style.display= "block";
+
+		tab_denglu	 = "1";
+	} else {
+		loginType = 1;
+		refreshCaptcha();
+		document.getElementById("div2").className = "top_tab02";
+		document.getElementById("div1").className = "top_tab01";
+		document.getElementById("loginform_inner").style.display= "block";
+		document.getElementById("d_denglu_tab").style.display= "none";
+		document.getElementById("username").focus();
+		
+		tab_denglu	 = "2";
+	}
+	return false;
+}
+
+</script>
+</head>
+<body>
+
+<!-- 以下为弹出登陆窗口 -->
+<div id="fade" class="black_overlay" style="display:none; "></div>
+<div  class="loginform" id="loginform" style="display:none;">
+	<div class="lginform_title">
+		<div class="lginform_title_close">
+			<a class="close-btn" href="javascript:void(0)" onclick="loginDialog_close()" ></a>
+		</div>
+		<span>登录</span>
+	</div>
+	<div class="loginform_con_par">
+		<div class="loginform_con">
+		<div class="top_bg" id="top_bg">
+				<a href="#" onclick="return selectedDiv('CA');">
+					<div class="top_tab02" id="div1">
+						CA认证登录
+					</div> </a>
+				<a href="#" onclick="return selectedDiv('');">
+					<div class="top_tab01" id="div2">
+						普通登录
+					</div> </a>
+			</div>
+			<div id="loginform_inner" class="loginform_inner" style="display:none; >
+			
+			<table width="90%" border="0" cellspacing="0" cellpadding="0"
+					class="denglu_tab">
+				<form onsubmit="return ligin_submit(this);">
+					<p>
+						<span class="login_tip" id="login_tip"></span>
+					</p>
+					<p class="username_p formp">
+						<label class="username_lab">用户名</label> <input type="text"
+							class="username_input" name="username" id="username" />
+					</p>
+					<p class="password_p formp">
+						<label class="username_lab">密&nbsp;&nbsp;码</label> <input
+							type="password" class="username_input" name="password" id="password" />
+					</p>
+					
+					<p class="password_p formp">
+						<label class="username_lab">验证码</label> 
+						<input
+							type="text" class="username_input" name="captcha" id="checkCode" />
+						
+					</p>
+					
+					<p class="password_p formp">
+						<label class="username_lab">&nbsp;&nbsp;&nbsp;&nbsp;</label>  
+						<img src="${base}/captcha.svl?d=1397543655499"
+								onclick="refreshCaptcha();"
+								style="width: 65px; height: 30px; vertical-align: middle;"
+								id="imgcaptcha" />
+					</p>
+					
+					<p class="submit_p formp" style="margin-top:20px;">
+						<input type="submit" class="login_submit" value="登录"
+							id="login_submit" /> <input type="reset" class="login_submit"
+							value="重置" onclick="clear_tip();" id="login_reset" />
+					</p>
+				</form>
+				</table>
+				
+			</div>
+				
+				<div id="d_denglu_tab" ">
+				
+				<span id="fid_box">请插入UKEY且成功安装驱动程序，再进行CA登录！<br/>
+1、如果没有UKEY，请联系政务信息资源管理中心进行相关申请或者请使用普通登录。<br/>
+2、插入UKEY后请关闭浏览器重新打开页面。</span>
+
+				<p class="submit_p formp" style="margin-top:20px;margin-left:100px;">
+				<form  action="/rdplogin2.jspx" method="post">
+						<input type="submit" class="login_submit" value="CA登录"
+							id="login_submit_ca"  /> 
+							</form>
+					</p>
+					
+					<input type="hidden" id="signed_data" name="signed_data" />
+				<input type="hidden" id="original_jsp" name="original_jsp" />
+				</div>
+		</div>
+	</div>
+</div>
+</body>

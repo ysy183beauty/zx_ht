@@ -1,0 +1,29 @@
+.bd{
+    overflow: hidden;
+    padding-top:5px;
+}
+.bd_ul{
+    height: 175px;
+    overflow: hidden;
+    float:left;
+    margin-left:10px;
+}
+.png{
+    float:left;
+    border:1px solid #ccc;
+}
+.bd_ul li{
+    padding:5px 0;
+}
+.bd_ul li dt{
+    width:200px;
+    text-overflow: ellipsis!important;
+    white-space: nowrap;
+    overflow:hidden;
+}
+/*.bd_ul div{*/
+    /*display:none;*/
+/*}*/
+.on_rbl{
+    border-bottom:2px solid #0063BA;
+}

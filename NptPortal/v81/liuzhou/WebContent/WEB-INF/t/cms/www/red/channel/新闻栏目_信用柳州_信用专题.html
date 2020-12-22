@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+    <title>信用专题</title>
+    [#include "../include/页头顶栏_LINK.html"/]
+    <link rel="stylesheet" href="${resSys}/www/red/css/travel.css"/>
+    <link rel="stylesheet" href="${resSys}/www/red/css/qyxycx.css"/>
+    <link rel="stylesheet" href="${resSys}/www/red/css/dissertation.css"/>
+    <style>
+        .long-title{
+            padding-left:0!important;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    [#include "../include/页头顶栏.html"]
+    <div class="container">
+        <!--<div class="sit height_auto m-t-md">-->
+            <!--<ul>-->
+                <!--<li>-->
+                    <!--<a id="sy" href="/">首页</a>-->
+                <!--</li>-->
+                <!--<li>></li>-->
+                <!--<li>-->
+                    <!--<span>信用专题</span>-->
+                <!--</li>-->
+            <!--</ul>-->
+        <!--</div>-->
+        <div class="content">
+            <div class="title-top">
+                <img src="/r/cms/www/red/img/xyfw/titleLine-left.png" alt="">
+                信用专题
+                <img src="/r/cms/www/red/img/xyfw/titleLine-right.png" alt="">
+            </div>
+            <div class="travel-content">
+                <div class="dissertation">
+                    <div class="dissertation-type">
+                        <div id="foodSafe-title" class="zt-box zt-box-hover" onclick="infoShow('foodSafe')">
+                            <a >
+                                <img class="" src="/r/cms/www/red/img/lz/xyzt/信用专题-3_10.png" alt="">
+                                <span>食品安全</span>
+                            </a>
+
+                        </div>
+                        <div id="construction-title" class="zt-box" onclick="infoShow('construction')">
+                            <a >
+                                <img src="/r/cms/www/red/img/lz/xyzt/信用专题-3_12.png" alt="">
+                                <span>工程建设</span>
+                            </a>
+
+                        </div>
+                        <div id="xyjg-title" class="zt-box" onclick="infoShow('xyjg')">
+                            <a >
+                                <img src="/r/cms/www/red/img/lz/xyzt/信用专题-3_14.png" alt="">
+                                <span>被执行人信用监管</span>
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+                <div id="dissertation-content">
+                    <div id="foodSafe">
+                        <div class="dissertation-saerch">
+                            <div class="search-title">
+                                <!--<div class="search-title-left col-sm-4">信息查询</div>-->
+                                <div class="search-title-right foodSaft-title">
+                                    <span name="foodSafe-safe" class="title-on ">安全等级
+                                        <img class="title-on-img" src="/r/cms/www/red/img/lz/index/信用查询-2_03.png" alt="">
+                                    </span>
+                                    <span name="foodSafe-black" >企业黑名单
+                                        <img class="title-on-img" src="/r/cms/www/red/img/lz/index/信用查询-2_03.png" alt="">
+                                    </span>
+                                    <span name="foodSafe-al" >准入许可证
+                                        <img class="title-on-img" src="/r/cms/www/red/img/lz/index/信用查询-2_03.png" alt="">
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="search-content" id="foodSafe-search-content">
+                                <div class="searchBar">
+                                    <div id="foodSafe-safe" >
+
+                                    </div>
+                                    <div id="foodSafe-black" style="display:none;">
+                                        <div class="col-sm-6">
+                                            <span class="col-sm-5">姓名：</span>
+                                            <input class="col-sm-5" type="text">
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <span class="col-sm-5">导游／领队证号：</span>
+                                            <input class="col-sm-5" type="text">
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <span class="col-sm-5">所属旅行社/导游服务公司：</span>
+                                            <input class="col-sm-5" type="text">
+                                        </div>
+                                    </div>
+                                    <div id="foodSafe-al" style="display:none;">
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="xyzt-background">
+                                <img src="/r/cms/www/red/img/lz/index/信用查询-3_07.png" class="xyzt-background-left" alt="">
+                                <img src="/r/cms/www/red/img/lz/index/信用查询-3_10.png" class="xyzt-background-right" alt="">
+                            </div>
+                        </div>
+                        <div class="honorList">
+                            <div class="search-title">
+                                <div class="search-title-left col-sm-4">食品安全</div>
+                            </div>
+                            <div class="search-content">
+                                <div class="col-sm-6">
+                                    <div class="content-box">
+                                        <div class="box-title">
+                                            <div class="box-title-left">黑名单</div>
+                                            <div class="box-title-right"><a href="/hmd/index.jhtml" target="_blank">更多+</a></div>
+                                        </div>
+                                        <div class="box-con ">
+                                            <div class="info-img col-xs-4">
+                                                <img src="${resSys}/www/red/img/lz/xyzt/food_1.jpg" alt="">
+                                            </div>
+                                            <div class="info col-xs-8">
+                                                <ul>
+                                                    [@cms_content_list channelId='775' count='7' titLen='12' orderBy='2' channelOption='2'
+                                                    dateFormat='yyyy-MM-dd']
+                                                    [#list tag_list as a]
+                                                    [#if a_index<7]
+                                                    <li>
+                                                        <a class="guide" href="${a.url}" title="${a.title}" target="_blank">
+                                                            <div class="fang"></div>
+                                                            [@text_cut s=a.title len=titLen append='...'/]</a>
+                                                        <span>[${a.date?string(dateFormat)}]</span>
+                                                    </li>
+                                                    [/#if]
+                                                    [/#list]
+                                                    [/@cms_content_list]
+                                                </ul>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="content-box">
+                                        <div class="box-title">
+                                            <div class="box-title-left">监督检查</div>
+                                            <div class="box-title-right"><a href="/jdjc/index.jhtml" target="_blank">更多+</a></div>
+                                        </div>
+                                        <div class="box-con ">
+                                            <div class="info-img col-xs-4">
+                                                <img src="${resSys}/www/red/img/lz/xyzt/food_2.jpg" alt="">
+                                            </div>
+                                            <div class="info col-xs-8">
+                                                <ul>
+                                                    [@cms_content_list channelId='776' count='7' titLen='12' orderBy='2' channelOption='2'
+                                                    dateFormat='yyyy-MM-dd']
+                                                    [#list tag_list as a]
+                                                    [#if a_index<7]
+                                                    <li>
+                                                        <a class="guide" href="${a.url}" title="${a.title}" target="_blank">
+                                                            <div class="fang"></div>
+                                                            [@text_cut s=a.title len=titLen append='...'/]</a>
+                                                        <span>[${a.date?string(dateFormat)}]</span>
+                                                    </li>
+                                                    [/#if]
+                                                    [/#list]
+                                                    [/@cms_content_list]
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="exposure">
+                            <!--<div class="search-title">-->
+                                <!--<div class="search-title-left col-sm-4">曝光台</div>-->
+                            <!--</div>-->
+                            <div class="search-content">
+                                <div class="col-sm-6">
+                                    <div class="content-box">
+                                        <div class="box-title">
+                                            <div class="box-title-left">召回信息</div>
+                                            <div class="box-title-right"><a href="/zhxx/index.jhtml" target="_blank">更多+</a></div>
+                                        </div>
+                                        <div class="box-con ">
+                                            <div class="info-img col-xs-4">
+                                                <img src="${resSys}/www/red/img/lz/xyzt/food_3.jpg" alt="">
+                                            </div>
+                                            <div class="info col-xs-8">
+                                                <ul>
+                                                    [@cms_content_list channelId='777' count='7' titLen='12' orderBy='2' channelOption='2'
+                                                    dateFormat='yyyy-MM-dd']
+                                                    [#list tag_list as a]
+                                                    [#if a_index<7]
+                                                    <li>
+                                                        <a class="guide" href="${a.url}" title="${a.title}" target="_blank">
+                                                            <div class="fang"></div>
+                                                            [@text_cut s=a.title len=titLen append='...'/]</a>
+                                                        <span>[${a.date?string(dateFormat)}]</span>
+                                                    </li>
+                                                    [/#if]
+                                                    [/#list]
+                                                    [/@cms_content_list]
+                                                </ul>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="content-box">
+                                        <div class="box-title">
+                                            <div class="box-title-left">抽检信息</div>
+                                            <div class="box-title-right"><a href="/cjxx/index.jhtml" target="_blank">更多+</a></div>
+                                        </div>
+                                        <div class="box-con ">
+                                            <div class="info-img col-xs-4">
+                                                <img src="${resSys}/www/red/img/lz/xyzt/food_4.jpg" alt="">
+                                            </div>
+                                            <div class="info col-xs-8">
+                                                <ul>
+                                                    [@cms_content_list channelId='778' count='7' titLen='12' orderBy='2' channelOption='2'
+                                                    dateFormat='yyyy-MM-dd']
+                                                    [#list tag_list as a]
+                                                    [#if a_index<7]
+                                                    <li>
+                                                        <a class="guide" href="${a.url}" title="${a.title}" target="_blank">
+                                                            <div class="fang"></div>
+                                                            [@text_cut s=a.title len=titLen append='...'/]</a>
+                                                        <span>[${a.date?string(dateFormat)}]</span>
+                                                    </li>
+                                                    [/#if]
+                                                    [/#list]
+                                                    [/@cms_content_list]
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="construction">
+                        <div class="dissertation-saerch">
+                            <div class="search-title">
+
+                            </div>
+                            <div class="search-content" id="construction-search-content">
+                                <div class="searchBar">
+                                    <div id="construction-engineer">
+                                        <input class="construction-saerch-input" type="text">
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="xyzt-background">
+                                <img src="/r/cms/www/red/img/lz/index/信用查询-3_07.png" class="xyzt-background-left" alt="">
+                                <img src="/r/cms/www/red/img/lz/index/信用查询-3_10.png" class="xyzt-background-right" alt="">
+                            </div>
+                        </div>
+                        <div class="honorList">
+                            <div class="search-title">
+                                <div class="search-title-left col-sm-4">工程建设</div>
+                            </div>
+                            <div class="search-content">
+                                <div class="col-sm-6">
+                                    <div class="content-box">
+                                        <div class="box-title">
+                                            <div class="box-title-left">项目审批</div>
+                                            <div class="box-title-right"><a href="/xmsp/index.jhtml" target="_blank">更多+</a></div>
+                                        </div>
+                                        <div class="box-con ">
+                                            <div class="info-img col-xs-4">
+                                                <img src="${resSys}/www/red/img/lz/xyzt/xm_2.jpg" alt="">
+                                            </div>
+                                            <div class="info col-xs-8">
+                                                <ul>
+                                                    [@cms_content_list channelId='779' count='7' titLen='12' orderBy='2' channelOption='2'
+                                                    dateFormat='yyyy-MM-dd']
+                                                    [#list tag_list as a]
+
+                                                    [#if a_index<7]
+                                                    <li>
+                                                        <a class="guide" href="${a.url}" title="${a.title}" target="_blank">
+                                                            <div class="fang"></div>
+                                                            [@text_cut s=a.title len=titLen append='...'/]</a>
+                                                        <span>[${a.date?string(dateFormat)}]</span>
+                                                    </li>
+                                                    [/#if]
+                                                    [/#list]
+                                                    [/@cms_content_list]
+                                                </ul>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="content-box">
+                                        <div class="box-title">
+                                            <div class="box-title-left">项目建设管理</div>
+                                            <div class="box-title-right"><a href="/xmjsgl/index.jhtml" target="_blank">更多+</a></div>
+                                        </div>
+                                        <div class="box-con ">
+                                            <div class="info-img col-xs-4">
+                                                <img src="${resSys}/www/red/img/lz/xyzt/tdsyq_1.jpg" alt="">
+                                            </div>
+                                            <div class="info col-xs-8">
+                                                <ul>
+                                                    [@cms_content_list channelId='780' count='7' titLen='12' orderBy='2' channelOption='2'
+                                                    dateFormat='yyyy-MM-dd']
+                                                    [#list tag_list as a]
+                                                    [#if a_index<7]
+                                                    <li>
+                                                        <a class="guide" href="${a.url}" title="${a.title}" target="_blank">
+                                                            <div class="fang"></div>
+                                                            [@text_cut s=a.title len=titLen append='...'/]</a>
+                                                        <span>[${a.date?string(dateFormat)}]</span>
+                                                    </li>
+                                                    [/#if]
+                                                    [/#list]
+                                                    [/@cms_content_list]
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="exposure">
+                            <!--<div class="search-title">-->
+                                <!--<div class="search-title-left col-sm-4">曝光台</div>-->
+                            <!--</div>-->
+                            <div class="search-content">
+                                <div class="col-sm-6">
+                                    <div class="content-box">
+                                        <div class="box-title">
+                                            <div class="box-title-left">土地使用权</div>
+                                            <div class="box-title-right"><a href="/tdsyq/index.jhtml" target="_blank">更多+</a></div>
+                                        </div>
+                                        <div class="box-con ">
+                                            <div class="info-img col-xs-4">
+                                                <img src="${resSys}/www/red/img/lz/xyzt/tdsyq_2.jpg" alt="">
+                                            </div>
+                                            <div class="info col-xs-8">
+                                                <ul>
+                                                    [@cms_content_list channelId='781' count='7' titLen='12' orderBy='2' channelOption='2'
+                                                    dateFormat='yyyy-MM-dd']
+                                                    [#list tag_list as a]
+                                                    [#if a_index<7]
+                                                    <li>
+                                                        <a class="guide" href="${a.url}" title="${a.title}" target="_blank">
+                                                            <div class="fang"></div>
+                                                            [@text_cut s=a.title len=titLen append='...'/]</a>
+                                                        <span>[${a.date?string(dateFormat)}]</span>
+                                                    </li>
+                                                    [/#if]
+                                                    [/#list]
+                                                    [/@cms_content_list]
+                                                </ul>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="content-box">
+                                        <div class="box-title">
+                                            <div class="box-title-left">矿业权审批和出让</div>
+                                            <div class="box-title-right"><a href="/kyqsphcr/index.jhtml" target="_blank">更多+</a></div>
+                                        </div>
+                                        <div class="box-con ">
+                                            <div class="info-img col-xs-4">
+                                                <img src="${resSys}/www/red/img/lz/xyzt/kyqzr_1.jpg" alt="">
+                                            </div>
+                                            <div class="info col-xs-8">
+                                                <ul>
+                                                    [@cms_content_list channelId='782' count='7' titLen='12' orderBy='2' channelOption='2'
+                                                    dateFormat='yyyy-MM-dd']
+                                                    [#list tag_list as a]
+                                                    [#if a_index<7]
+                                                    <li>
+                                                        <a class="guide" href="${a.url}" title="${a.title}" target="_blank">
+                                                            <div class="fang"></div>
+                                                            [@text_cut s=a.title len=titLen append='...'/]</a>
+                                                        <span>[${a.date?string(dateFormat)}]</span>
+                                                    </li>
+                                                    [/#if]
+                                                    [/#list]
+                                                    [/@cms_content_list]
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="xyjg">
+                        <div class="dissertation-saerch">
+                            <div class="search-title">
+                                <!--<div class="search-title-left col-sm-4">信息查询</div>-->
+                                <div class="search-title-right xyjg-title">
+                                    <span name="xyjg-bzx" class="title-on ">被执行人
+                                        <img class="title-on-img" src="/r/cms/www/red/img/lz/index/信用查询-2_03.png" alt="">
+                                    </span>
+                                    <span name="xyjg-sxbzx">失信被执行人
+                                        <img class="title-on-img" src="/r/cms/www/red/img/lz/index/信用查询-2_03.png" alt="">
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="search-content" id="xyjg-search-content">
+                                <div class="searchBar">
+                                    <div id="xyjg-bzx">
+                                        <div class="xyjg-search-title">
+                                            <span class="col-sm-5">被执行人姓名/名称：</span>
+                                            <input type="text" class="col-sm-5">
+                                        </div>
+                                        <div class="xyjg-search-title">
+                                            <span class="col-sm-5">身份证号码/统一信用代码：</span>
+                                            <input class="col-sm-5" type="text">
+                                        </div>
+                                    </div>
+                                    <div id="xyjg-sxbzx" style="display:none;">
+                                        <div class="col-sm-6">
+                                            <span class="col-sm-5">姓名：</span>
+                                            <input class="col-sm-5" type="text">
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <span class="col-sm-5">导游／领队证号：</span>
+                                            <input class="col-sm-5" type="text">
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <span class="col-sm-5">所属旅行社/导游服务公司：</span>
+                                            <input class="col-sm-5" type="text">
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <div class="xyzt-background">
+                                <img src="/r/cms/www/red/img/lz/index/信用查询-3_07.png" class="xyzt-background-left" alt="">
+                                <img src="/r/cms/www/red/img/lz/index/信用查询-3_10.png" class="xyzt-background-right" alt="">
+                            </div>
+                        </div>
+                        <div class="honorList">
+                            <div class="search-title">
+                                <div class="search-title-left col-sm-4 long-title">被执行人信用监管</div>
+                            </div>
+                            <div class="search-content">
+                                <div class="col-sm-6">
+                                    <div class="content-box">
+                                        <div class="box-title">
+                                            <div class="box-title-left">自然人</div>
+                                            <div class="box-title-right"><a href="/zrr/index.jhtml" target="_blank">更多+</a></div>
+                                        </div>
+                                        <div class="box-con ">
+                                            <div class="info-img col-xs-4">
+                                                <img src="${resSys}/www/red/img/lz/xyzt/zrr_01.jpg" alt="">
+                                            </div>
+                                            <div class="info col-xs-8">
+                                                <ul>
+                                                    [@cms_content_list channelId='783' count='7' titLen='12' orderBy='2' channelOption='2'
+                                                    dateFormat='yyyy-MM-dd']
+                                                    [#list tag_list as a]
+                                                    [#if a_index<7]
+                                                    <li>
+                                                        <a class="guide" href="${a.url}" title="${a.title}" target="_blank">
+                                                            <div class="fang"></div>
+                                                            [@text_cut s=a.title len=titLen append='...'/]</a>
+                                                        <span>[${a.date?string(dateFormat)}]</span>
+                                                    </li>
+                                                    [/#if]
+                                                    [/#list]
+                                                    [/@cms_content_list]
+                                                </ul>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="content-box">
+                                        <div class="box-title">
+                                            <div class="box-title-left">法人或其他组织</div>
+                                            <div class="box-title-right"><a href="/frhqtzz/index.jhtml" target="_blank">更多+</a></div>
+                                        </div>
+                                        <div class="box-con ">
+                                            <div class="info-img col-xs-4">
+                                                <img src="${resSys}/www/red/img/lz/xyzt/fr_01.jpg" alt="">
+                                            </div>
+                                            <div class="info col-xs-8">
+                                                <ul>
+                                                    [@cms_content_list channelId='784' count='7' titLen='12' orderBy='2' channelOption='2'
+                                                    dateFormat='yyyy-MM-dd']
+                                                    [#list tag_list as a]
+                                                    [#if a_index<7]
+                                                    <li>
+                                                        <a class="guide" href="${a.url}" title="${a.title}" target="_blank">
+                                                            <div class="fang"></div>
+                                                            [@text_cut s=a.title len=titLen append='...'/]</a>
+                                                        <span>[${a.date?string(dateFormat)}]</span>
+                                                    </li>
+                                                    [/#if]
+                                                    [/#list]
+                                                    [/@cms_content_list]
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+[#include "../include/页脚信息栏.html"/]
+</body>
+<script type="application/javascript">
+    $(function(){
+       loadFoodSafe_safe();
+        loadFoodSafe_black();
+        loadFoodSafe_al();
+        loadConstruction();
+        loadXyjg_bzx();
+        loadXyjg_sxbzx();
+       $("#guideInfo li").each(function () {
+          if($(this).index() >4){
+              $("#guide-info").append($(this));
+          }
+       });
+        $(".title-on>.title-on-img").css("display","block");
+    });
+    $(".search-title-right span").bind("click", function () {
+        $(this).stop().addClass("title-on").siblings().removeClass("title-on");
+        var id=$(this).attr("name");
+        console.log(id);
+        $("#"+id).stop().css("display","block").siblings().hide();
+        $(this).find(".title-on-img").css("display","block");
+        $(this).siblings().find(".title-on-img").hide();
+    });
+//    清空后台传输数据
+    function boxEmpty(){
+        $("#foodSafe-search-content").empty();
+        $("#construction-search-content").empty();
+        $("#xyjg-search-content").empty();
+    }
+    function loadFoodSafe_safe(){
+//        boxEmpty();
+        $.ajax({
+            url:"/credit/pub/spaq/index.do?flag=1091",
+            success:function(data){
+                $("#foodSafe-safe").html(data);
+            },
+            error:function(data){
+                console.log(data);
+            }
+        });
+    }
+    function loadFoodSafe_black(){
+//        boxEmpty();
+        $.ajax({
+            url:"/credit/pub/spaq/index.do?flag=1092",
+            success:function(data){
+                $("#foodSafe-black").html(data);
+            },
+            error:function(data){
+                console.log(data);
+            }
+        });
+    }
+    function loadFoodSafe_al(){
+//        boxEmpty();
+        $.ajax({
+            url:"/credit/pub/spaq/index.do?flag=1093",
+            success:function(data){
+                $("#foodSafe-al").html(data);
+            },
+            error:function(data){
+                console.log(data);
+            }
+        });
+    }
+    function loadXyjg_bzx(){
+//        boxEmpty();
+        $.ajax({
+            url:"/credit/pub/bzxrxyjg/index.do?flag=10101",
+            success:function(data){
+                $("#xyjg-bzx").html(data);
+            }
+        });
+    }
+    function loadXyjg_sxbzx(){
+//        boxEmpty();
+        $.ajax({
+            url:"/credit/pub/bzxrxyjg/index.do?flag=10102",
+            success:function(data){
+                $("#xyjg-sxbzx").html(data);
+            }
+        });
+    }
+    function loadConstruction(){
+        $.ajax({
+            url:"/credit/pub/gcjs/index.do?flag=10111",
+            success:function(data){
+                $("#construction-engineer").html(data);
+            }
+        });
+    }
+
+
+    function queryNavi(url,param,domId){
+        $(".load_main").show();
+        $.ajax({
+            url: url,
+            data: param,
+            timeout: 30000,
+            success: function (data) {
+                $(domId).html(data);
+                load();
+            },
+            error:function () {
+                $(domId).html("数据请求失败！");
+                load();
+            },
+            timeout:function(){
+                $(domId).html("数据请求超时！");
+                load();
+            }
+        });
+    }
+
+    function load(){
+        window.setTimeout("$('.load_main').hide()",100);
+    }
+
+</script>
+<!--内容切换-->
+<script>
+    function infoShow(id){
+        $("#"+id).css("display","block").siblings().hide();
+        $("#"+id+"-title").stop().addClass("zt-box-hover").siblings().removeClass("zt-box-hover");
+    }
+    $(function(){
+        var word=getUrlParameter("word");
+        console.log(word);
+        if(word && word==1){
+            $("#construction-title>a").click();
+        }
+        else if(word==2){
+            $("#xyjg-title>a").click();
+        }
+    });
+</script>
+</html>

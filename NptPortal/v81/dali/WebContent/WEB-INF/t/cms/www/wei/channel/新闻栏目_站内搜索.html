@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+    <!--<link rel="stylesheet" href="${resSys}/www/red/css/qyxycx.css"/>-->
+    <title>站内搜索</title>
+    [#include "../include/页头顶栏_LINK.html"/]
+    <style type="text/css">
+        html,body{
+            height:100%!important;
+        }
+        .wrap {
+            min-height: 100%;
+            padding-bottom: 149px;
+        }
+        footer {
+            position: relative;
+            clear: both;
+            margin-top: -149px!important;
+        }
+        #content{
+            width:80%;
+            margin:30px auto;
+        }
+        .info{
+            margin-bottom:50px;
+        }
+        #con-top{
+            color:#2965a3;
+            font-size:20px;
+            font-weight:bold;
+            padding:10px;
+        }
+        .title{
+            padding:30px 0 10px 50px;
+            border-top:1px solid #ccc;
+            /*border-bottom:1px solid #ccc;*/
+        }
+        #tit{
+            color:#444;
+            font-size:16px;
+        }
+        #tit:hover{
+            color:#2e71be;
+        }
+        #time{
+            text-align: right;
+            color:#ccc;
+        }
+        .load_main{
+            width:100%;
+            height:100%;
+            background-color:rgba(255,255,255,0.5);
+            text-align: center;
+            position:fixed;
+            top:300px;
+            left:10px;
+        }
+        #container{
+            width: 1000px;
+            margin: 0 auto;
+            font-size: 14px;
+            color: #333;
+            position: relative;
+            overflow: hidden;
+        }
+        #container h2{
+            padding:50px 0;
+            border-bottom: 1px solid #ccc;
+            color: rgb(58, 114, 174);
+        }
+        .no-found{
+            font-weight:bold;
+            text-align: center;
+            font-size:20px;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+[#include "../include/页头顶栏.html"/]
+    <div id="main">
+        <div class="load_main">
+            <img src="/r/cms/www/red/img/load.gif">
+        </div>
+
+        <div id="container">
+            <!--<h2>查询详情</h2>-->
+            <div id="content">
+                <div class="info" id="message">
+                    <div id="con-top">
+                    </div>
+                    <div class="con-bottom">
+                        <div class="title row">
+                            <div class="col-md-6" >
+                                <a href="" id="tit" target="_blank"></a>
+                            </div>
+                            <div class="col-md-5" id="time">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+[#include "../include/页脚信息栏.html"/]
+</body>
+<script>
+//    获取页面参数
+    var URLParams = new Array();
+    var aParams = document.location.search.substr(1).split('&');
+    for (i=0; i < aParams.length ; i++){
+        var aParam = aParams[i].split('=');
+        URLParams[aParam[0]] = aParam[1];
+    }
+    var key=URLParams["keyword"];
+
+    $(function () {
+        $("title").text("搜索："+decodeURIComponent(key));
+        $.ajax({
+            type:"post",
+            url:'/api/content/search.jspx?q='+key,
+            dataType:"json",
+            success: function (Json) {
+                var obj = eval(Json);
+                console.log(obj);
+                for (var i = 0; i < obj.length; i++) {
+                    var row = $("#message").clone();
+                    row.find("#con-top").text(obj[i].channel);
+                    row.find("#tit").text(obj[i].title).attr("href",obj[i].url);
+                    row.find("#time").text(obj[i].releaseDate);
+                    row.appendTo("#content");
+                }
+                $("#content .info:eq(0)").remove();
+                if (obj.length<=0) {
+                    $("#content").html(" <div class='no-found'>本平台暂未收录！</div>")
+                }
+                $(".load_main").hide();
+            },
+            error:function () {
+                $("#content").html(" <div class='no-found'>暂无数据！</div>");
+                $(".load_main").hide();
+            }
+        })
+    })
+</script>
+</html>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:v="http://www.summer.org/schema/config"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.summer.org/schema/config http://www.summer.org/schema/config/summer-core.xsd">
+
+
+    <v:package name="/npt/rms/user" action-ref="npt.rms.user">
+        <v:menu name="user-manager" title="用户管理" admin="true">
+            <v:action name="index" result-success="authority/user/rms_user_index.ftl"/>
+            <v:action name="list" result-success="authority/user/rms_user_list.ftl" />
+            <v:action name="listByOrg" result-success="organization/rms_org_userList.ftl"/>
+            <v:action name="checkUserName" />
+            <v:action name="checkLoginErrorCount" />
+            <v:group name="adduser" title="新增">
+                <v:action name="addPage" result-success="authority/user/rms_user_add.ftl" />
+                <v:action name="add" />
+            </v:group>
+            <v:group name="edituser" title="修改">
+                <v:action name="modifyPage" result-success="authority/user/rms_user_edit.ftl" />
+                <v:action name="edit" />
+            </v:group>
+            <v:group name="enableduser" title="启用">
+                <v:action name="enabled" />
+            </v:group>
+            <v:group name="disableduser" title="禁用">
+                <v:action name="disabled" />
+            </v:group>
+            <v:group name="setRole" title="分配角色">
+                <v:action name="setRolePage" result-success="authority/user/rms_user_set_role.ftl"/>
+                <v:action name="setRole"/>
+            </v:group>
+        </v:menu>
+        <v:action name="createSsoUser"/>
+    </v:package>
+
+    <v:package name="/npt/rms/datarole" action-ref="npt.rms.datarole">
+        <v:menu name="role-manager" title="角色管理" admin="true">
+            <v:action name="index" result-success="authority/role/rms_role_index.ftl"/>
+            <v:action name="list" result-success="authority/role/rms_role_list.ftl" />
+            <v:group name="addrole" title="新增">
+                <v:action name="addPage" result-success="authority/role/rms_role_add.ftl" />
+                <v:action name="addRole" />
+            </v:group>
+            <v:group name="editrole" title="修改">
+                <v:action name="editPage" result-success="authority/role/rms_role_edit.ftl" />
+                <v:action name="editRole" />
+            </v:group>
+            <v:group name="enabledrole" title="启用">
+                <v:action name="enabled" />
+            </v:group>
+            <v:group name="disabledrole" title="禁用">
+                <v:action name="disabled" />
+            </v:group>
+        </v:menu>
+    </v:package>
+
+    <v:package name="/npt/rms/datapermission" action-ref="npt.rms.datapermission">
+        <v:menu name="permssion-manager" title="权限管理" admin="true">
+            <v:action name="index" result-success="authority/permission/rms_permission_index.ftl"/>
+            <v:action name="list" result-success="authority/permission/rms_permission_list.ftl"/>
+            <v:group name="addPermission" title="新增">
+                <v:action name="addPage" result-success="authority/permission/rms_permission_add.ftl"/>
+                <v:action name="add"/>
+            </v:group>
+            <v:group name="changePermissionStatus" title="修改状态">
+                <v:action name="setPermissionStatus"/>
+            </v:group>
+        </v:menu>
+    </v:package>
+</beans>

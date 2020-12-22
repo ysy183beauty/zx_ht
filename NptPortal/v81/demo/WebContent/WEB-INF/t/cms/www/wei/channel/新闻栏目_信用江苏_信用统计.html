@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+    <title>信用统计</title>
+    [#include "../include/页头顶栏_LINK.html"/]
+    <link rel="stylesheet" href="${resSys}/www/red/css/tjxy.css"/>
+</head>
+<body>
+    <div class="wrap">
+    [#include "../include/页头顶栏.html"/]
+        <div class="container">
+            <div class="sit height_auto m-t-md">
+                <ul>
+                    <li>
+                        <a id="sy" href="/">首页</a>
+                    </li>
+                    <li>></li>
+                    <li>
+                        <span>信用统计</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="content">
+                <h2>信用统计</h2>
+                <div class="search-input">
+                    <select name="" id="">
+                        <option value="">金融行业</option>
+                        <option value="">汽车行业</option>
+                        <option value="">医疗行业</option>
+                        <option value="">旅游行业</option>
+                        <option value="">交通法规</option>
+                    </select>
+                    <input type="text" placeholder="请输入名称">
+                    <button class="btn search-btn"></button>
+                </div>
+                <div>
+                    <ul id="credit_1">
+                        [@cms_content_list channelId='867' count='9' titLen='12' orderBy='2' channelOption='2'
+                        dateFormat='yyyy-MM-dd']
+                        [#list tag_list as a]
+
+                        <li class="col-md-4 ">
+                            <div class="credit-list">
+                                <a class="guide" href="${a.url}" title="${a.title}" target="_blank">
+                                    <div class="credit-img">
+                                        <img src="${a.typeImg!site.defImg}" alt="">
+                                    </div>
+                                    <p>
+                                        [@text_cut s=a.title len=titLen append='...'/]
+                                    </p>
+                                </a>
+                                <div class="credit-time"><span>[${a.date?string(dateFormat)}]</span></div>
+                            </div>
+
+                        </li>
+
+                        [/#list]
+                        [/@cms_content_list]
+                    </ul>
+                    <ul id="credit_2">
+                        [@cms_content_list channelId='867' count='18' titLen='12' orderBy='2' channelOption='2'
+                        dateFormat='yyyy-MM-dd']
+                        [#list tag_list as a]
+                        [#if a_index>8]
+                        <li class="col-md-4 ">
+                            <div class="credit-list">
+                                <a class="guide" href="${a.url}" title="${a.title}" target="_blank">
+                                    <div class="credit-img">
+                                        <img src="${a.typeImg!site.defImg}" alt="">
+                                    </div>
+                                    <p>
+                                        [@text_cut s=a.title len=titLen append='...'/]
+                                    </p>
+                                </a>
+                                <div class="credit-time"><span>[${a.date?string(dateFormat)}]</span></div>
+                            </div>
+
+                        </li>
+                        [/#if]
+                        [/#list]
+                        [/@cms_content_list]
+                    </ul>
+                    <ul id="credit_3">
+                        [@cms_content_list channelId='867' count='27' titLen='12' orderBy='2' channelOption='2'
+                        dateFormat='yyyy-MM-dd']
+                        [#list tag_list as a]
+                        [#if a_index>17]
+                        <li class="col-md-4 ">
+                            <div class="credit-list">
+                                <a class="guide" href="${a.url}" title="${a.title}" target="_blank">
+                                    <div class="credit-img">
+                                        <img src="${a.typeImg!site.defImg}" alt="">
+                                    </div>
+                                    <p>
+                                        [@text_cut s=a.title len=titLen append='...'/]
+                                    </p>
+                                </a>
+                                <div class="credit-time"><span>[${a.date?string(dateFormat)}]</span></div>
+                            </div>
+
+                        </li>
+                        [/#if]
+                        [/#list]
+                        [/@cms_content_list]
+                    </ul>
+                </div>
+
+            </div>
+            <div class="bot_bot">
+                <ul class="pagination">
+                    <li><a href="#">首页</a></li>
+                    <li class="active"><a href="#">1</a></li>
+                    <!--<li><a href="#">2</a></li>-->
+                    <!--<li><a href="#">3</a></li>-->
+                    <li><a href="#">末页</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    [#include "../include/页脚信息栏.html"/]
+</body>
+<script>
+//  分页
+    $(".pagination li").click(function(){
+       $(this).addClass("active").siblings().removeClass("active");
+       var num=$(this).text();
+       $("#credit_"+num).show().siblings().hide();
+//       if(num=="首页"){
+//           $("#credit_1").show().siblings().hide();
+//           $(this).removeClass("active").parent().find("li").eq(1).addClass("active").siblings().removeClass("active");
+//       }
+//        if(num=="末页"){
+//            $("#credit_3").show().siblings().hide();
+//            $(this).removeClass("active").parent().find("li").eq(3).addClass("active").siblings().removeClass("active");
+//        }
+    });
+
+</script>
+</html>

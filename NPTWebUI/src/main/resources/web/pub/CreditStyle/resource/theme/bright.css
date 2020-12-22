@@ -1,0 +1,190 @@
+/**
+ *作者: xuqinyuan
+ *时间: 2016/9/29 10:21
+ *备注:
+ */
+
+body {
+    background-color: #3d3d3d !important;
+}
+.header .brand{
+    line-height: 22px;
+    text-align: center;
+    color: #fff;
+    padding-left: 10px;
+}
+.container-fluid{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+/***
+Page header
+***/
+.header .navbar-inner {
+    filter: none !important;
+    background-image: none !important;
+    background-color: #212121 !important;
+}
+.header .btn-navbar {
+    background-color: #212121 !important;
+}
+.header .nav .dropdown-toggle:hover,
+.header .nav .dropdown.open .dropdown-toggle {
+    background-color: #383838 !important;
+}
+.header .nav li.dropdown .dropdown-toggle i {
+    color: #8a8a8a !important;
+}
+.header .nav > li.dropdown.user .dropdown-toggle .username {
+    color: #ddd;
+}
+/***
+Page sidebar
+***/
+.page-sidebar {
+    background-color: #3d3d3d;
+}
+ul.page-sidebar-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin: 0;
+    padding: 0;
+}
+ul.page-sidebar-menu > li > a {
+    border-top: 1px solid #5c5c5c !important;
+    color: #ffffff !important;
+}
+ul.page-sidebar-menu > li:last-child > a {
+    border-bottom: 1px solid transparent !important;
+}
+ul.page-sidebar-menu > li:last-child > a,
+ul.page-sidebar-menu > li.last > a {
+    border-bottom-color: transparent !important;
+}
+ul.page-sidebar-menu > li a i {
+    color: #969696;
+}
+ul.page-sidebar-menu > li.open > a,
+ul.page-sidebar-menu > li > a:hover,
+ul.page-sidebar-menu > li:hover > a {
+    background: #303030;
+}
+ul.page-sidebar-menu > li.active > a {
+    background: #666699 !important;
+    border-top-color: transparent !important;
+    color: #ffffff;
+}
+ul.page-sidebar-menu > li.active > a i {
+    color: #ffffff;
+}
+ul.page-sidebar-menu > li > ul.sub-menu {
+    background: #3D3D3D;
+    margin: 0;
+}
+ul.page-sidebar-menu > li > ul.sub-menu > li:first-child > a {
+    border-top: 0px !important;
+}
+ul.page-sidebar-menu > li > ul.sub-menu > li.active > a,
+ul.page-sidebar-menu > li > ul.sub-menu > li > a:hover{
+    color: #ffffff !important;
+    background: #575757 !important;
+}
+ul.page-sidebar-menu > li > ul.sub-menu > li > a:hover {
+    background: #575757 !important;
+}
+/* 3rd level sub menu */
+ul.page-sidebar-menu > li > ul.sub-menu li > ul.sub-menu > li.active > a,
+ul.page-sidebar-menu > li > ul.sub-menu li > ul.sub-menu > li > a:hover,
+ul.page-sidebar-menu > li > ul.sub-menu li.open > a {
+    color: #ffffff !important;
+    background: #575757 !important;
+}
+/* font color for all sub menu links*/
+ul.page-sidebar-menu li > ul.sub-menu > li > a {
+    color: #bdbdbd;
+}
+/* menu arrows */
+ul.page-sidebar-menu > li > a .arrow:before,
+ul.page-sidebar-menu > li > a .arrow.open:before {
+    color: #7d7d7d !important;
+}
+ul.page-sidebar-menu > li > ul.sub-menu a .arrow:before,
+ul.page-sidebar-menu > li > ul.sub-menu a .arrow.open:before {
+    color: #707070 !important;
+}
+ul.page-sidebar-menu > li > a > .arrow.open:before {
+    color: #8a8a8a !important;
+}
+ul.page-sidebar-menu > li.active > a .arrow:before,
+ul.page-sidebar-menu > li.active > a .arrow.open:before {
+    color: #ffffff !important;
+}
+/***
+Page content
+***/
+.page-content {
+    margin-top: 0px;
+    padding: 0px;
+    background-color: #FFF6F7;
+}
+
+/***
+Page breadcrumb
+***/
+.page-content .breadcrumb {
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    box-shadow: none;
+    padding-right: 0px;
+    padding-left: 8px;
+    margin-bottom: 10px;
+    border:0px !important;
+    background-color: #eee;
+}
+/***
+Sidebar toggler
+***/
+.sidebar-toggler {
+    background-image: url(../img/sidebar-toggler.jpg);
+    background-color: #242424;
+}
+
+/***
+container
+***/
+.portlet.box.boxTheme>.portlet-title {
+    background: #6699CC;
+    background-image:linear-gradient(rgba(255,255,255,.3) 0,rgba(102,153,204,.3) 100%);
+}
+.portlet.box.boxTheme {
+    border: 1px solid #6699CC;
+    border-top: 0;
+}
+.portlet.box.boxTheme > .portlet-title .caption > i{
+    color: #fff;
+}
+.treeDiv.scroller {
+    padding: 0px !important;
+    margin: 0px !important;
+    padding-right: 12px !important;
+    background: #F0F0F0;
+}
+
+/***
+Footer
+***/
+.footer .footer-inner {
+    color: #999999;
+}
+.footer .footer-tools .go-top {
+    background-color: #4f4f4f;
+}
+.footer .footer-tools .go-top:hover {
+    opacity: 0.7;
+    filter: alpha(opacity=70);
+}
+.footer .footer-tools .go-top i {
+    color: #8a8a8a;
+}

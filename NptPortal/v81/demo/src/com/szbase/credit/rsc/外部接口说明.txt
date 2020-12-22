@@ -1,0 +1,13 @@
+名词解释：
+	RSC: Remote Service Call  远程服务调用
+	LSP: Local Service Provider 本地服务提供者
+	EPSP: Enterprise Personal Service Platform   企业市民服务平台（一中心三平台中的两平台）
+	PCIP: Public Credit Information Platform  公共信用信息平台（征信的业务后台）
+	
+	Partners:合作伙伴，这里会涉及到12345服务热线平台
+	
+业务关系：
+
+	针对征信的一些业务数据，需要去PCIP中去获取
+	
+	针对企业市民等实名认证，需要通过ECSP的服务去完成

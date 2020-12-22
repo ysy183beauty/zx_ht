@@ -1,0 +1,124 @@
+li{list-style: none}
+.main{
+    width:90%;
+    margin:0 auto;
+    border: 1px solid #000;
+}
+.main-top{
+    margin-bottom: 30px;
+    color:#ccc;
+}
+.main-top-left{
+    float: left;
+    margin-right:50px;
+}
+.main-top-right{
+    float: right;
+    margin-right:30px;
+    margin-top:20px;
+}
+.table-content{
+    width:95%;
+    margin:0 auto;
+}
+.content-title{
+    position: relative;
+    margin-bottom:60px;
+}
+.title-score{
+    position:absolute;
+    top:0;
+    left:0;
+}
+.title-score>div{
+    margin-bottom:40px;
+}
+.title-score>div>span{
+    vertical-align: middle;
+}
+.level{
+    font-size: 50px;
+    color:red;
+    margin-right:30px;
+    vertical-align: middle;
+}
+.content-title h1{
+    text-align: center;
+    padding-top:50px;
+}
+.info-title{
+    overflow: hidden;
+}
+.info-title h5,.yjwd h5{
+    float: left;
+    background-color: #2f4554;
+    padding: 10px;
+    color: #fff;
+}
+.info-title>span{
+    float:left;
+    margin-left:50px;
+    margin-top:17px;
+}
+td,th{
+    text-align: center;
+    vertical-align: middle!important;
+}
+th{
+    background-color: #81a0a4;
+    color:#fff;
+}
+.baseInfo,.yjwd,.dataStatistics,.lostPromise{
+    margin-bottom:30px;
+}
+.baseInfo th,.yjwd th{
+    /*width:20%;*/
+}
+.child-th{
+    background-color: #c3d6da;
+    color: #000;
+}
+.lostPromise-canvas{
+    width:100%;
+    height:400px;
+    background-color: #fef8ef!important;
+}
+.lpyj li span{
+    color:#000066;
+    padding:10px 0;
+    font-size: 16px;;
+    font-weight: bold;
+}
+.li-title{
+    width:10%;
+    display: inline-block;
+}
+.li-div{
+    text-indent: 5em;
+    color:#990066;
+    font-size: 16px;
+    font-weight: bold;
+}
+.seal{
+    text-align: right;
+    margin-bottom: 30px;;
+}
+#star{
+    font-size:40px;
+    color:#990066;
+}
+/*详情*/
+#dataInfo_modal{
+    max-height:600px;
+    overflow-y: scroll;
+}
+#dataInfo_modal_table th{
+    background-color: transparent!important;
+    color:#000;
+    text-align: right;
+}
+#dataInfo_modal_table td{
+    text-align: left;
+    overflow: visible;
+    white-space: normal;
+}

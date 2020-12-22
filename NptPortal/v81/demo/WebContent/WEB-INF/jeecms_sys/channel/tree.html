@@ -1,0 +1,37 @@
+<#if isRoot>
+[{
+	"id": "",
+	"name": "<@s.m "channel.root"/>",
+	"isParent": true,
+	"target": "channelRightFrame",
+	"url": "v_list.do?root="
+	<#if list?size gt 0>,
+	"open": true,
+	"children": [
+	<#list list as channel>
+		{
+		"id": "${channel.id}",
+		"pId": "${channel.parent!}",
+		"name": "${channel.name}",
+		"isParent": <#if channel.child?size gt 0>true<#else>false</#if>,
+		"target": "channelRightFrame",
+		"url": "<#if channel.child?size gt 0>v_list.do?root=${channel.id}<#else>v_edit.do?id=${channel.id}</#if>"
+		}<#if channel_has_next>,</#if>
+	</#list>
+	]
+	</#if>
+}]
+<#else>
+	[
+	<#list list as channel>
+		{
+		"id": "${channel.id}",
+		"pId": "${channel.parent!}",
+		"name": "${channel.name}",
+		"isParent": <#if channel.child?size gt 0>true<#else>false</#if>,
+		"target": "channelRightFrame",
+		"url": "<#if channel.child?size gt 0>v_list.do?root=${channel.id}<#else>v_edit.do?id=${channel.id}</#if>"
+		}<#if channel_has_next>,</#if>
+	</#list>
+	]
+</#if>

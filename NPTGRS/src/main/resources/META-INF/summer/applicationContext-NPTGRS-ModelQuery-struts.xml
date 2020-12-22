@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:v="http://www.summer.org/schema/config"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.summer.org/schema/config http://www.summer.org/schema/config/summer-core.xsd">
+
+
+    <v:package name="/npt/grs/query/business" action-ref="npt.grs.query.business">
+        <v:menu name="business-query" title="企业信用查询" admin="true">
+            <v:action name="openIndex" result-success="nativeModel/grs_business_query_index.ftl"/>
+            <v:action name="authIndex" result-success="nativeModel/grs_business_query_detail.ftl"/>
+            <v:action name="authIndexAjax" result-success="customModel/grs_group_info_list.ftl"/>
+            <v:action name="authBlockMore" result-success="customModel/grs_block_info_list.ftl"/>
+            <v:action name="authBlockLasted" result-success="customModel/grs_block_info.ftl"/>
+            <v:action name="authLoadApplyFields" result-success="customModel/grs_resource_apply.ftl"/>
+            <v:action name="openIndexAjax" result-success="customModel/grs_main_field_list.ftl"/>
+            <v:action name="getGroupoolLinkedPoolData" result-success="customModel/grs_block_info_list.ftl"/>
+        </v:menu>
+        <v:menu name="business-report" title="企业信用报告" admin="true">
+            <v:action name="reportIndex" result-success="nativeModel/grs_businessReport_query_index.ftl"/>
+            <v:action name="reportIndexAjax" result-success="customModel/grs_mainReport_field_list.ftl"/>
+        </v:menu>
+    </v:package>
+
+    <v:package name="/npt/grs/query/personal" action-ref="npt.grs.query.personal">
+        <v:menu name="personal-query" title="个人信用查询" admin="true">
+            <v:action name="openIndex" result-success="nativeModel/grs_personal_query_index.ftl"/>
+            <v:action name="authIndex" result-success="nativeModel/grs_personal_query_detail.ftl"/>
+            <v:action name="authIndexAjax" result-success="customModel/grs_group_info_list.ftl"/>
+            <v:action name="authBlockMore" result-success="customModel/grs_block_info_list.ftl"/>
+            <v:action name="authBlockLasted" result-success="customModel/grs_block_info.ftl"/>
+            <v:action name="authLoadApplyFields" result-success="customModel/grs_resource_apply.ftl"/>
+            <v:action name="openIndexAjax" result-success="customModel/grs_main_field_list.ftl"/>
+            <v:action name="getGroupoolLinkedPoolData" result-success="customModel/grs_block_info_list.ftl"/>
+        </v:menu>
+        <v:menu name="personal-report" title="个人信用报告" admin="true">
+            <v:action name="reportIndex" result-success="nativeModel/grs_personalReport_query_index.ftl"/>
+            <v:action name="reportIndexAjax" result-success="customModel/grs_mainReport_field_list.ftl"/>
+        </v:menu>
+    </v:package>
+
+    <v:package name="/npt/grs/query/nonlegal" action-ref="npt.grs.query.nonlegal">
+        <v:menu name="nonlegal-query" title="非企法人信用查询" admin="true">
+            <v:action name="openIndex" result-success="nativeModel/grs_nonlegal_query_index.ftl"/>
+            <v:action name="authIndex" result-success="nativeModel/grs_nonlegal_query_detail.ftl"/>
+            <v:action name="authIndexAjax" result-success="customModel/grs_group_info_list.ftl"/>
+            <v:action name="authBlockMore" result-success="customModel/grs_block_info_list.ftl"/>
+            <v:action name="authBlockLasted" result-success="customModel/grs_block_info.ftl"/>
+            <v:action name="authLoadApplyFields" result-success="customModel/grs_resource_apply.ftl"/>
+            <v:action name="openIndexAjax" result-success="customModel/grs_main_field_list.ftl"/>
+            <v:action name="getGroupoolLinkedPoolData" result-success="customModel/grs_block_info_list.ftl"/>
+        </v:menu>
+        <v:menu name="nonlegal-report" title="非企法人信用报告" admin="true">
+            <v:action name="reportIndex" result-success="nativeModel/grs_nonlegalReport_query_index.ftl"/>
+            <v:action name="reportIndexAjax" result-success="customModel/grs_mainReport_field_list.ftl"/>
+        </v:menu>
+    </v:package>
+
+    <v:package name="/npt/grs/query/custom" action-ref="npt.grs.query.custom">
+        <v:menu name="customModel-query" title="专题模型查询" admin="true">
+            <v:action name="index" result-success="nativeModel/grs_topic_query_index.ftl"/>
+            <v:action name="poolIndex" result-success="customModel/grs_custom_query_list.ftl"/>
+            <v:action name="poolIndexAjax" result-success="customModel/grs_main_field_list.ftl"/>
+            <v:action name="openIndex" result-success="customModel/grs_custom_query_index.ftl"/>
+            <v:action name="authIndex" result-success="customModel/grs_group_info_list.ftl"/>
+            <v:action name="poolDetail" result-success="customModel/grs_group_info_list.ftl"/>
+            <v:action name="rnAuthLoader" result-success="customModel/grs_group_info_list.ftl"/>
+            <v:action name="authIndexAjax" result-success="customModel/grs_group_info_list.ftl"/>
+            <v:action name="authBlockMore" result-success="customModel/grs_block_info_list.ftl"/>
+            <v:action name="authBlockLasted" result-success="customModel/grs_block_info.ftl"/>
+            <v:action name="authLoadApplyFields" result-success="customModel/grs_resource_apply.ftl"/>
+            <v:action name="openIndexAjax" result-success="customModel/grs_main_field_list.ftl"/>
+            <v:action name="getGroupoolLinkedPoolData" result-success="customModel/grs_block_info_list.ftl"/>
+        </v:menu>
+    </v:package>
+
+    <v:package name="/npt/grs/query/bsmap" action-ref="npt.grs.query.bsmap">
+        <v:menu name="businessMap-query" title="企业图谱" admin="true">
+            <v:action name="mapIndex" result-success="nativeModel/grs_business_map_index.ftl"/>
+            <v:action name="mapDetail" result-success="nativeModel/grs_business_map_detail.ftl"/>
+            <v:action name="mapDetailD3" result-success="nativeModel/grs_business_map_detail_d3.ftl"/>
+            <v:action name="search" result-success="nativeModel/grs_business_map_field_list.ftl"/>
+            <v:action name="nodeDetail" result-success="nativeModel/grs_business_map_canvasInfo.ftl"/>
+
+        </v:menu>
+    </v:package>
+
+    <v:package name="/npt/grs/query/search" action-ref="npt.grs.globalSearch">
+        <v:menu name="globalSearch" title="异议受理" admin="true">
+            <v:action name="globalSearch" result-success="globalSearch/globalSearch_index.ftl"/>
+            <v:action name="resultList" result-success="globalSearch/globalSearch_list.ftl"/>
+        </v:menu>
+
+        <v:action name="showAppeal" result-success="appealProcess/appeal_handle_apply.ftl"/>
+    </v:package>
+</beans>

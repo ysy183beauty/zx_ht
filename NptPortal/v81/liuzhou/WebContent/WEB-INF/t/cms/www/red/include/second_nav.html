@@ -1,0 +1,71 @@
+<style>
+    a:link,a:hover,a:visited,a:active {  color: #fff;  text-decoration: none;  }
+    /*body {  height: 100%; width: 100%; margin: 0; padding: 0;  background: #f1f1f5; }*/
+    /*.all {  position: fixed;  width: 0px;  overflow: visible;  }*/
+    .secondNav-box {  display: inline-block;  float: left;  clear: both;  }
+    .card {
+        width:100px;
+        position: relative;
+        left: -70px;
+        padding: 15px 16px 15px 64px;
+        margin: 8px;
+        x-box-shadow: 0 0 8px 0px rgba(0, 0, 0, 0.5);
+        box-shadow: 8px 0 8px -8px rgba(0, 0, 0, 0.5);
+        background: #fff;
+        transition: all 0.3s ease-in-out 0.1s;       /* 過渡*/
+    }
+    .card:hover {
+        position: relative;
+        left:0;
+        margin-left: -12px;
+        box-shadow:
+                0 -8px 8px -8px rgba(0, 0, 0, 0.5),
+                0 8px 8px -8px rgba(0, 0, 0, 0.5);
+        transition: all 0.3s ease-in-out;
+    }
+    .card-content {
+        color: #fff;
+        font-family: 'Droid Sans', sans-serif;
+        font-size: 16px;
+        font-weight: bold;
+        /*white-space: nowrap;*/
+    }
+    .bg-01 { background: #539770; }
+    .bg-02 { background: #4B7D74; }
+    .bg-03 { background: #8DC2BC; }
+    .bg-04 { background: #EDD6B4; }
+    .bg-05 { background: #BE7467; }
+    .bg-06 { background: #E2AE63; }
+
+</style>
+<div class="col-sm-3">
+    <!--<div class="height_auto nav-md">-->
+        <!--<div class="left_nav">-->
+            <!--<span>信用名片</span>-->
+            <!--<ul>-->
+                <!--<li>-->
+                    <!--<a id="card" href="/xymp/index.jhtml" >名片广场</a>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<a id="mycard" href="/wdmp/index.jhtml">我的名片</a>-->
+                <!--</li>-->
+
+            <!--</ul>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div class='all'>-->
+        <div class='secondNav-box'>
+            <a href='#'>
+                <div class='card bg-01'><span class='card-content'>名片广场</span></div>
+            </a>
+        </div>
+        <div class='secondNav-box'>
+            <a href='#'>
+                <div class='card bg-02'><span class='card-content'>我的名片</span></div>
+            </a>
+        </div>
+
+
+
+    <!--</div>-->
+</div>

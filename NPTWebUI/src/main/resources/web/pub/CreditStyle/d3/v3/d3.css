@@ -1,0 +1,122 @@
+#d3-top{
+    /*overflow: hidden;*/
+    margin-top:20px;
+    margin-bottom:30px;
+}
+#d3-top>div{
+    border:1px solid #ccc;
+    height:100%;
+}
+.tab table{
+    height:100%;
+}
+#svg-info{
+    width:50%!important;
+    height:100%;
+    background-color:rgba(0,102,153,0.5);
+}
+.span3  {
+    width:32%!important;
+    margin-left:0.7%!important;
+}
+.bubbleChart{
+    min-width: 100px;
+    max-width: 100%;
+    height: 100%;
+    margin: 0 auto;
+}
+.bubbleChart svg{
+    background: #000000;
+}
+/*仪表盘*/
+.xypj {
+    font: 16px arial;
+    background-color: #515151;
+    position:relative;
+}
+.xypj:after{
+    content:"";
+    clear:both;
+}
+.clear{
+    clear:both;
+    border:0!important;
+}
+.xypj svg{
+    width:100%;
+    height:100%;
+
+}
+.unselectable {
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* css formats for the gauge */
+.gauge .domain {
+    stroke-width: 2px;
+    stroke: #fff;
+}
+
+.gauge .tick line {
+    stroke: #fff;
+    stroke-width: 2px;
+}
+
+.gauge line {
+    stroke: #fff;
+}
+
+.gauge .arc, .gauge .cursor {
+    opacity: 0;
+}
+
+.gauge .major {
+    fill: #fff;
+    font-size: 20px;
+    font-family: 'Play', verdana, sans-serif;
+    font-weight: normal;
+}
+
+.gauge .indicator {
+    stroke: #EE3311;
+    fill: #000;
+    stroke-width: 4px;
+}
+
+/* css formats for the segment display */
+.segdisplay .on {
+    fill: #00FFFF;
+
+}
+
+.segdisplay .off {
+    fill: #00FFFF;
+    opacity: 0.15;
+}
+.d3-name{
+    width:100%;
+    height:30px;
+    line-height: 30px;
+    text-align: center;
+    background-color:#3C8DBC;
+    color:#fff;
+    margin-top:0px;
+    font-size:18px;
+}
+.xypj .d3-name{
+    margin-top:-5px;
+}
+.score{
+    width:100%;
+    height:16%;
+    position:absolute;
+    bottom:0px;
+    text-align: center;
+}
+.score img{
+    height:100%;
+}

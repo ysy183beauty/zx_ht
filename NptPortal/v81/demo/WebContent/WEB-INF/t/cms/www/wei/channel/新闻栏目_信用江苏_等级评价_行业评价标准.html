@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+    <title>行业评价标准</title>
+    [#include "../include/页头顶栏_LINK.html"/]
+    <link rel="stylesheet" href="${resSys}/www/red/css/iec.css"/>
+</head>
+<body>
+    <div class="wrap">
+        [#include "../include/页头顶栏.html"/]
+        <div id="container" class="">
+
+            <div class="sit height_auto m-t-md">
+                <ul>
+                    <li>
+                        <a id="sy" href="/">首页</a>
+                    </li>
+                    <li>&gt;</li>
+                    <li>
+                        <a >等级评价</a>
+                    </li>
+
+                </ul>
+            </div>
+            <div class="row">
+                <div class="search_list col-md-3" >
+                    <div class="height_auto nav-md">
+                        <div class="left_nav">
+                            <span>行业部门评价</span>
+                            <ul>
+                                <li class="level1 " onclick="openPager('/hypjbz/index.jhtml')"><a class="active">行业评价标准</a></li>
+                                <li class="level1" onclick="openPager('/hypjjg/index.jhtml')"><a >行业评价结果</a></li>
+                            </ul>
+                            <span>第三方评价</span>
+                            <ul>
+                                <li class="level1" onclick="openPager('/hypjbg/index.jhtml')"><a >评价报告</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-9 right-pager">
+                    <h1>重点行业等级评价标准</h1>
+                    <div class="select-box">
+                        <div class="select-btn btn_1 active-img" onclick="change(1)">
+                            <img src="${resSys}/www/red/img/iec/u4.png" alt="">
+                            <p>环保</p>
+                        </div>
+                        <div class="select-btn btn_2" onclick="change(2)">
+                            <img src="${resSys}/www/red/img/iec/u84.png" alt="">
+                            <p>质监</p>
+                        </div>
+                        <div class="select-btn btn_3" onclick="change(3)">
+                            <img src="${resSys}/www/red/img/iec/u91.png" alt="">
+                            <p>税务</p>
+                        </div>
+                        <div class="select-btn btn_4" onclick="change(4)">
+                            <img src="${resSys}/www/red/img/iec/u98.png" alt="">
+                            <p>海关</p>
+                        </div>
+                        <div class="select-btn btn_5" onclick="change(5)">
+                            <img src="${resSys}/www/red/img/iec/u105.png" alt="">
+                            <p>安监</p>
+                        </div>
+                    </div>
+                    <div class="select-content">
+                        <div class="box_1">
+                            <h3>江苏省企业环保信用评价标准及评价办法</h3>
+                            <div class="select-data">
+                                <img src="${resSys}/www/red/img/iec/u114.png" alt="">
+                            </div>
+                        </div>
+                        <div class="box_2">
+                            <h3>江苏省企业质监信用评价标准及评价办法</h3>
+                            <div class="select-data">
+                                <img src="${resSys}/www/red/img/iec/u114.png" alt="">
+                            </div>
+                        </div>
+                        <div class="box_3">
+                            <h3>江苏省企业税务信用评价标准及评价办法</h3>
+                            <div class="select-data">
+                                <img src="${resSys}/www/red/img/iec/u114.png" alt="">
+                            </div>
+                        </div>
+                        <div class="box_4">
+                            <h3>江苏省企业海关信用评价标准及评价办法</h3>
+                            <div class="select-data">
+                                <img src="${resSys}/www/red/img/iec/u114.png" alt="">
+                            </div>
+                        </div>
+                        <div class="box_5">
+                            <h3>江苏省企业安监信用评价标准及评价办法</h3>
+                            <div class="select-data">
+                                <img src="${resSys}/www/red/img/iec/u114.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    [#include "../include/页脚信息栏.html"/]
+</body>
+<script>
+//
+    function change(n){
+        $(".btn_"+n).stop().addClass("active-img").siblings().removeClass("active-img");
+        $(".box_"+n).stop().css("display","block").siblings().css("display","none");
+    }
+    function openPager(url){
+        window.location=url;
+    }
+</script>
+</html>

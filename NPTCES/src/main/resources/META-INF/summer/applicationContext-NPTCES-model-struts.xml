@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:v="http://www.summer.org/schema/config"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.summer.org/schema/config http://www.summer.org/schema/config/summer-core.xsd">
+
+    <v:package name="/npt/ces/model/cw" action-ref="npt.ces.model.cw">
+        <v:menu name="cw-model-manager" title="预警模型管理" admin="true">
+            <v:action name="index" result-success="ces/model/cw/grs_model_index.ftl"/>
+            <v:action name="refreshModels" result-success="ces/model/cw/grs_model_list.ftl"/>
+            <v:action name="listModelGroups" result-success="ces/model/cw/grs_model_group_list.ftl"/>
+            <v:action name="configBaseModelGroup" result-success="ces/model/cw/grs_model_groupool_list.ftl"/>
+            <v:action name="listCpt" result-success="ces/model/cpt/list.ftl"/>
+
+            <v:action name="preTreat"/>
+
+            <v:group name="cw-model-edit" title="编辑">
+                <v:action name="editModelPropsPage" result-success="ces/model/cw/model_props_edit.ftl"/>
+                <v:action name="editDimensionPropsPage" result-success="ces/model/cw/dimension_props_edit.ftl"/>
+                <v:action name="editSubDmsPropsPage" result-success="ces/model/cw/sub_dms_edit.ftl"/>
+                <v:action name="editModelProps"/>
+                <v:action name="editDimensionProps"/>
+                <v:action name="editSubDmsProps"/>
+                <v:action name="addCptPage" result-success="ces/model/cpt/addPage.ftl"/>
+                <v:action name="addCpt"/>
+                <v:action name="editCptPage" result-success="ces/model/cpt/editPage.ftl"/>
+                <v:action name="editCpt"/>
+                <v:action name="deleteCpt"/>
+            </v:group>
+            <!--
+            <v:action name="configBaseModelGroupool" result-success="ces/model/cw/grs_model_groupool_edit.ftl"/>
+            <v:action name="listOrg"/>
+            <v:action name="listOrgDataTypes"/>
+            <v:action name="listDataTypeFields" result-success="ces/model/cw/grs_model_groupool_field_list.ftl"/>
+            <v:action name="listPossibleLinkablePools" result-success="ces/model/cw/grs_model_groupool_link.ftl"/>
+            <v:action name="listPoolLinks" result-success="ces/model/cw/grs_model_groupool_linkList.ftl"/>
+            <v:action name="listDSGroups" result-success="ces/model/cw/grs_model_groupool_listDSGroups.ftl"/>
+            <v:action name="listDSPools" result-success="ces/model/cw/grs_model_groupool_listDSPools.ftl"/>
+            <v:action name="listDSDataFields" result-success="ces/model/cw/grs_model_groupool_listDSDataField.ftl"/>
+            -->
+        </v:menu>
+    </v:package>
+
+</beans>

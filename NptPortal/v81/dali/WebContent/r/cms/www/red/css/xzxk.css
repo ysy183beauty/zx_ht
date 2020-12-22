@@ -1,0 +1,121 @@
+
+*{padding:0;margin:0;list-style:none}
+
+.con_top{
+     width:100%;
+     padding:20px 0;
+     border-bottom:1px solid #a1a1a1;
+    border-top: 1px solid #a1a1a1;
+    margin:20px 0;
+ }
+
+.top_title{
+    height:40px;
+    background-color: #e8f2fe ;
+    padding:10px 0;
+    position:relative;
+}
+.top_title span{
+    margin-left:20px;
+}
+.top_con{
+    background-color: #fff;
+}
+.top_con ul li:first-child span:first-child{
+    margin-left:0px;
+}
+.top_con li{
+    padding:20px;
+}
+.top_con li input[type=text] {
+    padding: 5px;
+}
+.gover{
+    margin-bottom:10px;
+}
+.gover span{
+    display:inline-block;
+    height:30px;
+    line-height:30px;
+    text-align: right;
+}
+.top_con li:first-child{
+    position: relative;
+}
+.top_con li:first-child span:last-child{
+    position:absolute;
+    right:0px;
+    color:#0099ff;
+}
+.top_con li:nth-child(2) span b{
+    padding:0 10px;
+    border-right:2px solid #000;
+}
+.top_con li:nth-child(2) span b:last-child{
+    border-right:0px!important;
+}
+.top_con li:nth-child(2) span:nth-child(3){
+    font-weight: bold;
+    margin-left: 30px;
+}
+.top_con li:nth-child(2) span:nth-child(4){
+    font-weight: bold;
+    margin-left: 80px;
+}
+.top_con li:nth-child(2) span:nth-child(5),.top_con li:nth-child(2) span:nth-child(6){
+    margin: 0 40px;
+    font-size:12px;
+}
+.top_con li:nth-child(3) input{
+    padding:5px;
+}
+.top_con li:last-child{
+    width:40%;
+    margin:0 auto;
+}
+.top_con li input[type=button]{
+    width:75px;
+    height:25px;
+    margin:0 10%;
+    color:#666;
+}
+.con-bottom{
+    width:100%;
+    margin-bottom:50px;
+}
+.bot_title{
+    margin:0 auto;
+    padding:20px 0;
+    font-weight: bold;
+    margin-bottom: 20px;
+    font-size: 20px;
+    color: #0f80f8
+}
+/*.bot_con{*/
+    /*!*width:90%;*!*/
+    /*!*margin:0 auto;*!*/
+    /*!*text-align: center;*!*/
+    /*background-color:#fff;*/
+/*}*/
+.bot_bot{
+    /*width:90%;*/
+    margin:0 auto;
+    padding:30px 0;
+    font-size:12px;
+    direction: rtl;
+}
+.bot_bot span:first-child{
+    font-weight: bold;
+}
+.bot_bot input{
+    width:20px;
+}
+/*典型事例*/
+.te_btn input[type="text"]{
+    margin-right:130px;
+}
+.te_btn input[type="submit"]{
+     width: 75px;
+     margin: 0 30px;
+     color: #666;
+ }

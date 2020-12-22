@@ -1,0 +1,43 @@
+
+.secondNav-box a:link,.secondNav-box a:hover,.secondNav-box a:visited,.secondNav-box a:active {  color: #fff;  text-decoration: none;  }
+.secondNav-box {
+    display: inline-block;
+    float: left;
+    clear: both;
+    overflow: hidden;
+}
+.card {
+    width:90px;
+    position: relative;
+    left: -55px;
+    padding: 15px 16px 15px 50px;
+    margin: 8px;
+    x-box-shadow: 0 0 8px 0px rgba(0, 0, 0, 0.5);
+    box-shadow: 8px 0 8px -8px rgba(0, 0, 0, 0.5);
+    background: #fff;
+    transition: all 0.3s ease-in-out 0.1s;       /* 過渡*/
+    border-radius:5px;
+}
+.card:hover {
+    position: relative;
+    left:0;
+    margin-left: -12px;
+    box-shadow:
+            0 -8px 8px -8px rgba(0, 0, 0, 0.5),
+            0 8px 8px -8px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease-in-out;
+}
+.card-content {
+    color: #fff;
+    font-family: 'Droid Sans', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    /*white-space: nowrap;*/
+}
+/*.bg-01 { background: #539770; }*/
+/*.bg-02 { background: #4B7D74; }*/
+.bg-03 { background: #8DC2BC; }
+.bg-04 { background: #EDD6B4; }
+.bg-05,.bg-01,.bg-02 { background: #008bc9; }
+.bg-06 { background: #E2AE63; }
+

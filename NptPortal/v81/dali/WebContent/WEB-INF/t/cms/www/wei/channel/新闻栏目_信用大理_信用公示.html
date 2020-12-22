@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=8;"/>
+    <title id="title">${channel.title!channel.name} - ${site.name}</title>
+</head>
+<body>
+[#include "../include/页头顶栏.html"/]
+
+
+<!--内容开始-->
+<div class="main">
+    <div class="w">
+        <div class="w">
+            <div class="pull-left w240">
+                <div class="height_auto m-t-md">
+                    <div class="left_nav down">
+                        <span>信用公示</span>
+                        <ul>
+                            <li>
+                                <a id="sgs" href="/xysgs/index.jhtml">信用双公示</a>
+                                <dl>
+                                    <dd>
+                                        <a id="xzxk" href="/credit/pub/index.do">行政许可</a>
+                                    </dd>
+                                    <dd>
+                                        <a id="xzcf" href="/xzcf/index.jhtml">行政处罚</a>
+                                    </dd>
+                                </dl>
+                            </li>
+                            <li>
+                                <a id="xxgsdm">信用代码公示</a>
+                                <dl>
+                                    <dd>
+                                        <a id="gsj" href="/gsj/index.jhtml">大理市市场监督管理局</a>
+                                    </dd>
+                                    <dd>
+                                        <a id="mzj" href="/mzj/index.jhtml">大理市民政局</a>
+                                    </dd>
+                                    <dd>
+                                        <a id="bb" href="/bb/index.jhtml">大理市编办</a>
+                                    </dd>
+                                </dl>
+                            </li>
+                            <li>
+                                <a id="hhb">红黑榜</a>
+                                <dl>
+                                    <dd>
+                                        <a id="red" href="/red/index.jhtml">红榜</a>
+                                    </dd>
+                                    <dd>
+                                        <a id="black" href="/black/index.jhtml">黑榜</a>
+                                    </dd>
+                                </dl>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="w">
+                <div class="w740 pull-right">
+                    <div class="m-t-md">
+                        <div class="g_tit">
+                            <span>${channel.title!channel.name}</span>
+                        </div>
+                        <div class="zx_tab height_auto">
+                            [@cms_content_page channelId=channel.id count=channel.pageSize titLen='23'
+                            sysPage='1' pageClass='page text-center m-t-lg' styleList='zx-1' ctgForm='1'
+                            ctgClass='orange' bottomLine='1' showTitleStyle='2'
+                            dateFormat='yyyy-MM-dd' count='10' datePosition='2' dateClass='gray'
+                            channelOption='2' tpl='2' orderBy='2' /]
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+[#include "../include/页脚信息栏.html"/]
+<script type="text/javascript">
+
+    function setSelect(url) {
+
+        if(url.indexOf('xzcf')>-1){
+            $("#xzcf").addClass("active");
+        }else if(url.indexOf('black')>-1){
+            $("#black").addClass("active");
+        }else if(url.indexOf('red')>-1){
+            $("#red").addClass("active");
+        }else if(url.indexOf('mzj')>-1){
+            $("#mzj").addClass("active");
+        }else if(url.indexOf('xzxk')>-1){
+            $("#xzxk").addClass("active");
+        }else if(url.indexOf('gsj')>-1){
+            $("#gsj").addClass("active");
+        }else if(url.indexOf('bb')>-1){
+            $("#bb").addClass("active");
+        }
+    }
+    $(function(){
+
+        setSelect(window.location.pathname);
+        //window.location.hash="#sy";
+    });
+
+</script>
+</body>
+</html>

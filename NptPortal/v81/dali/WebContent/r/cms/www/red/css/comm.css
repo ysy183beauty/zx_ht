@@ -1,0 +1,122 @@
+
+
+.w {
+	width: 354px;
+}
+
+dt {
+	font-weight: normal;
+}
+
+dl,
+ul {
+	margin: 0px;
+}
+
+.w370 {
+	width: 372px;
+}
+
+.w280 {
+	width: 280px;
+}
+.w282{
+	width: 282px;
+}
+.w320 {
+	width: 320px;
+}
+.w325{
+	width: 326px;
+}
+.w343 {
+	width: 343px;
+}
+.w353{
+	width: 353px;
+}
+.w710{
+	width: 710px;
+}
+.w345{
+	width: 345px;
+}
+.w240{
+	width: 170px;
+}
+.w740{
+	width: 740px;
+}
+.w698{
+	width: 698px;
+}
+.w_100{
+	width: 100% !important;
+}
+.w310{
+	width: 310px;
+	margin: 0px auto;
+}
+.w260{
+	width: 260px;
+	margin: 0px auto;
+}
+.border_n{
+	border: none !important;
+}
+.sit li{
+	display: block;
+	float: left;
+	color: #444;
+}
+.color_blue{
+	color: #2E71B8;
+}
+.sit li a{
+	color: #444;
+}
+.table{
+	border: 1px solid #ddd;
+}
+.table thead th{
+	height: 40px;
+	background: #f4f4f4;
+	font-weight: normal;
+	color: #444;
+}
+.table-bordered tbody td{
+	height: 42px;
+	vertical-align: middle !important;
+	border-top: 1px dashed #ddd !important;
+}
+.foot {
+	width: 100%;
+	height: auto;
+	overflow: hidden;
+	padding: 50px 0px;
+	background: #333;
+	margin-top: 50px;
+	left: 0px;
+	bottom: 0px;
+}
+
+.foot p {
+	color: #fff;
+	font-size: 14px;
+}
+
+.foot ul {
+	display: inline-block;
+}
+
+.foot ul li {
+	display: block;
+	float: left;
+	color: #bbb;
+	line-height: 20px;
+	margin: 0px 10px;
+}
+.foot ul li img{
+	float: left;
+	margin-right:5px ;
+}

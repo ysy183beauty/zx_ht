@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+    <title>首页 - 信用柳州</title>
+    <meta http-equiv="keywords" content="信用柳州"/>
+    <meta http-equiv="description" content="信用柳州"/>
+    [#include "../include/页头顶栏_LINK.html"/]
+    <style>
+        .search-input .index-search-tip{
+            left:65px;
+            top:23px;
+        }
+        #bus{
+            position:absolute;
+            top: inherit;
+            right: 244px;
+            width: 52%;
+            background: #0b6ba8;
+        }
+        .subscript{
+            width:9px;
+            position: absolute;
+            bottom: -6px;
+            left: 0px;
+        }
+        .btn-yellow:hover{
+            color:#fff!important;
+            background-color: #ca4f2c;
+        }
+        .yzm-input{
+            float:left;
+            width:46%;
+        }
+0    </style>
+</head>
+<body>
+<div class="wrap">
+    <div class='body'>
+        <div class="all">
+            [#include "../include/页头顶栏.html"/]
+            <div class="content">
+                <div class="content-first">
+                    <div class="con_bix1_lb fl ft14">
+                        <ul>
+                            [@cms_content_list channelId='473'  count='10' titLen='13' orderBy='2' dateFormat='yyyy-MM-dd']
+                            [#list tag_list as a]
+                            [#if a_index<5]
+                            <li>
+                                <a href="${a.url}" title="${a.title}" target="_blank">
+                                    <img src="${a.typeImg!site.defImg}" />
+                                </a>
+                                <p>
+                                    <a href="${a.url}" title="${a.title}" target="_blank">[@text_cut s=a.title len=titLen append='...'/]</a>
+                                </p>
+
+                            </li>
+                            [/#if]
+                            [/#list]
+                            [/@cms_content_list]
+
+                        </ul>
+                        <div class="radios">
+                            <span></span><span></span><span></span><span></span><span></span>
+                        </div>
+                    </div>
+                    <div class="infoSearch">
+                        <h3>信用信息查询</h3>
+                        <div class="search-nav">
+                            <ul>
+                                <li id="bus" class="search-active" onclick="searchShow('bus')">企业基础信息
+                                    <img class="subscript" src="${resSys}/www/red/img/lz/index/subscript.png" alt="">
+                                </li>
+                                <li id="people" onclick="searchShow('people')">重点人群</li>
+                                <!--<li id="person" onclick="searchShow('person')">个人自身</li>-->
+                                <!--<li id="busSelf" onclick="searchShow('busSelf')">企业自身</li>-->
+                            </ul>
+                        </div>
+                        <div id="index-search" class="search-input">
+                            <ul id="bus-input" class="input-content">
+                                <li >
+                                    <div class="col-xs-2 index-search-img" >
+                                        <img src="${resSys}/www/red/img/lz/index/user.png" alt="">
+                                    </div>
+
+                                    <input class="col-xs-9 bus-info" type="text" onclick="clearMsg(this)" placeholder="请输入您要查询的企业名称或统一信用代码">
+                                    <div  class="info-tip index-search-tip">
+                                        <p class="search-count " id="">搜索关键词不得少于２个字符</p>
+                                        <span class="corner-main">◆</span>
+                                        <span class="corner-bottom">◆</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="col-xs-2 index-search-img" >
+                                        <img src="${resSys}/www/red/img/lz/index/password.png" alt="">
+                                    </div>
+
+                                    <input type="text" placeholder="请输入验证码" autocomplete="false" class="yzm-input bus-code"
+                                                   maxlength="6" name="captcha"  onfocus="clearMsg(this)">
+                                    <!--<img id="index-search-idxCaptcha" class='idxCaptcha col-xs-3' onclick="this.src='/captcha.svl?d='+new Date()" src='/captcha.svl'>-->
+                                    <div id="index-busCodeTip" class="code-tip index-search-tip">
+                                        <p class="search-count " id="index-bus-codeTip">请输入验证码</p>
+                                        <span class="corner-main">◆</span>
+                                        <span class="corner-bottom">◆</span>
+                                    </div>
+                                </li>
+                                <li class="input-button" style="padding-left: 16.666%;text-align: left;">
+                                    <input type="button" class="btn btn-primary" onclick="searchInfo('bus-input')" value="查询">
+                                    <input type="button" class="btn btn-yellow" onclick="clearInput('bus-input')" value="重置">
+                                </li>
+                            </ul>
+                            <ul id="people-input" class="input-content">
+                                <li >
+                                    <div class="col-xs-2 index-search-img">
+                                        <img src="${resSys}/www/red/img/lz/index/user.png" alt="">
+                                    </div>
+
+                                    <input class="col-xs-9 bus-info" type="text" onclick="clearMsg(this)" placeholder="请输入您要查询的重点人群姓名">
+                                    <div class="info-tip index-search-tip">
+                                        <p class="search-count " id="indexTip">搜索关键词不得少于２个字符</p>
+                                        <span class="corner-main">◆</span>
+                                        <span class="corner-bottom">◆</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="col-xs-2 index-search-img">
+                                        <img  src="${resSys}/www/red/img/lz/index/password.png" alt="">
+                                    </div>
+
+
+                                    <input type="text" placeholder="请输入验证码" autocomplete="false" class="yzm-input bus-code"
+                                           maxlength="6" name="captcha"  onfocus="clearMsg(this)">
+                                    <div id="index-peopleCodeTip" class="index-search-tip code-tip">
+                                        <p id="index-people-codeTip" class="search-count codeTip" >请输入验证码</p>
+                                        <span class="corner-main">◆</span>
+                                        <span class="corner-bottom">◆</span>
+                                    </div>
+
+                                </li>
+                                <li class="input-button" style="padding-left: 16.666%;text-align: left;">
+                                    <input type="button" class="btn btn-primary" onclick="searchInfo('people-input')" value="查询">
+                                    <input type="button" class="btn btn-yellow" onclick="clearInput('bus-input')" value="重置">
+                                </li>
+                            </ul>
+
+                            <!--<div id="person-input" class="input-content">-->
+                                <!--[#if user??]-->
+                                    <!--[#if user_authed ??]-->
+                                       <!--<div>-->
+                                           <!--已经实名认证-->
+                                       <!--</div>-->
+                                    <!--[#else]-->
+                                        <!--<div>请先实名认证！</div>-->
+
+                                    <!--[/#if]-->
+                                <!--[#else]-->
+                                        <!--<div>请先登录！</div>-->
+                                <!--[/#if]-->
+                            <!--</div>-->
+                        </div>
+                        <div class="search-help">
+                            <div >查询帮助：</div>
+                            <div >本系统显示均为平台归集后主体信用信息，仅供参考。如有异议，以行政管理部门实发文书为准。</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-secend">
+                    <div class="marqueeBox">
+                        <div class="marquee">
+                            <ul>
+                                <li>
+                                    <a href="http://www.creditchina.gov.cn/channel_news/15/0" target="_blank">
+                                        <img src="${resSys}/www/red/img/lz/index/u180_22.png" alt="">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="http://www.pbccrc.org.cn/" target="_blank">
+                                        <img src="${resSys}/www/red/img/lz/index/u180_24.png" alt="">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="http://www.creditchina.gov.cn/newsdetail/22267" target="_blank">
+                                        <img src="${resSys}/www/red/img/lz/index/u180_26.png" alt="">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="http://www.creditchina.gov.cn/newsdetail/23497" target="_blank">
+                                        <img src="${resSys}/www/red/img/lz/index/u180_28.png" alt="">
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="second-info">
+                        <div class="second-left col-xs-6">
+                            <ul class="left-title">
+                                <li id="title-cf" class="second-active" onmouseover="secondShow('cf')"><span>行政处罚信息</span></li>
+                                <li id="title-xk" onmouseover="secondShow('xk')"><span>行政许可信息</span></li>
+                                <li id="title-xydm" onmouseover="secondShow('xydm')"><span>社会信用代码</span></li>
+                                <li class="second-more"><a id="left-more" href="/credit/pub/index.do?word=1">更多&gt;&gt;</a></li>
+                            </ul>
+                            <div class="left-content">
+                                <ul id="cf">
+                                </ul>
+                                <ul id="xk">
+
+                                </ul>
+                                <ul id="xydm">
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="second-right col-xs-6">
+                            <ul class="left-title">
+                                <li id="title-case" class="second-active" onmouseover="secondShow('case')"><span>典型案例</span></li>
+                                <li id="title-red" onmouseover="secondShow('red')"><span>守信红榜</span></li>
+                                <li id="title-black" onmouseover="secondShow('black')"><span>失信黑榜</span></li>
+                                <li class="second-more"><a id="right-more" href="/credit/pub/index.do?word=5">更多&gt;&gt;</a></li>
+                            </ul>
+                            <div class="left-content">
+                                <ul id="case">
+                                    [@cms_content_list channelId='725' count='7' titLen='25' orderBy='2' channelOption='1'
+                                    dateFormat='yyyy-MM-dd']
+                                    [#list tag_list as a]
+                                    [#if a_index<7]
+                                    <li>
+                                        <a href="${a.url}" title="${a.title}" target="_blank" class="col-xs-9">
+                                            <div class='fang'></div>
+                                            [@text_cut s=a.title len=titLen append='...'/]
+                                        </a>
+                                        <span class="col-xs-3">[${a.date?string(dateFormat)}]</span>
+                                    </li>
+                                    [/#if]
+                                    [/#list]
+                                    [/@cms_content_list]
+                                </ul>
+                                <ul id="red">
+
+                                </ul>
+                                <ul id="black">
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-third">
+                    <div class="third-title">
+                        <ul>
+                            <li id="xyfw" class="third-active" onclick="thirdShow('xyfw')">
+                            [#if user??]
+                                <a href="/credit/srv/index.do">
+                            [#else]
+                                <a href="javascript:showEHAOTONGLogin();">
+                            [/#if]
+                                    <div>
+                                        <img src="${resSys}/www/red/img/lz/index/u180_31.png" alt="">
+                                        <span>信用服务</span>
+                                    </div>
+                                </a>
+
+                            </li>
+                            <li id="xyts" onclick="thirdShow('xyts')">
+                            [#if user??]
+                                <a href="/credit/srv/index.do?word=2">
+                            [#else]
+                                <a href="javascript:showEHAOTONGLogin();">
+                            [/#if]
+                                    <div>
+                                        <img src="${resSys}/www/red/img/lz/index/u180_32.png" alt="">
+                                        <span>信用投诉</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li id="xyss" onclick="thirdShow('xyss')">
+                            [#if user??]
+                                <a href="/credit/srv/index.do?word=1">
+                            [#else]
+                                <a href="javascript:showEHAOTONGLogin();">
+                            [/#if]
+                                    <div>
+                                        <img src="${resSys}/www/red/img/lz/index/u180_34.png" alt="">
+                                        <span>信用申诉</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li id="xywd" onclick="thirdShow('xywd')">
+                            [#if user??]
+                                <a href="/credit/srv/index.do?word=3">
+                            [#else]
+                                <a href="javascript:showEHAOTONGLogin();">
+                            [/#if]
+                                    <div>
+                                        <img src="${resSys}/www/red/img/lz/index/u180_35.png" alt="">
+                                        <span>信用问答</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li id="plaza" onclick="thirdShow('plaza')">
+                                <a href="/credit/card/plaza.do">
+                                    <div>
+                                        <img src="${resSys}/www/red/img/lz/index/u180_33.png" alt="">
+                                        <span>信用名片</span>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="third-content">
+                        <div class="col-xs-4 third-listBox">
+                            <div class="lan">
+                                <div class="lan1">
+                                    <span>政策法规</span>
+                                </div>
+
+                                [@cms_channel_list parentId='482']
+                                [#list tag_list as c2]
+                                [#if c2_index<1]
+                                <a class='lanshang' href="${c2.url}">
+                                    更多>>
+                                </a>
+                                [/#if]
+                                [/#list]
+                                [/@cms_channel_list]
+
+                            </div>
+                            <div class="sec-left-le-ul news-ul">
+                                <ul>
+                                    [@cms_content_list channelId='451' count='7' titLen='15' orderBy='2' channelOption='1'
+                                    dateFormat='yyyy-MM-dd']
+                                    [#list tag_list as a]
+                                    [#if a_index<7]
+                                    <li>
+                                        <a href="${a.url}" title="${a.title}" target="_blank" class="third-text">
+                                            <div class='fang'></div>
+                                            [@text_cut s=a.title len=titLen append='...'/]</a>
+                                        <span>[${a.date?string(dateFormat)}]</span>
+                                    </li>
+                                    [/#if]
+                                    [/#list]
+                                    [/@cms_content_list]
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-xs-4 third-listBox">
+                            <div class="lan">
+                                <div class="lan1">
+                                    <span>信用知识</span>
+                                </div>
+                                [@cms_channel_list parentId='104']
+                                [#list tag_list as c2]
+                                [#if c2_index<1]
+                                <a class='lanshang' href="${c2.url}">
+                                    更多>>
+                                </a>
+                                [/#if]
+                                [/#list]
+                                [/@cms_channel_list]
+
+                            </div>
+                            <div class="sec-left-le-ul news-ul">
+                                <ul>
+                                    [@cms_content_list channelId='453' count='7' titLen='15' orderBy='2' channelOption='1'
+                                    dateFormat='yyyy-MM-dd']
+                                    [#list tag_list as a]
+                                    [#if a_index<7]
+                                    <li>
+                                        <a href="${a.url}" title="${a.title}" target="_blank" class="third-text">
+                                            <div class='fang'></div>
+                                            [@text_cut s=a.title len=titLen append='...'/]</a>
+                                        <span>[${a.date?string(dateFormat)}]</span>
+                                    </li>
+                                    [/#if]
+                                    [/#list]
+                                    [/@cms_content_list]
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-xs-4 third-left">
+                            <div class="third-left-title">信用专题</div>
+                            <div class="third-left-img">
+                                <!--<a href="/xyzt/index.jhtml?word=1" class="first-img" >-->
+                                    <!--<img src="${resSys}/www/red/img/lz/index/首页-3_62.png" alt="">-->
+                                <!--</a>-->
+                                <!--<a href="/xyzt/index.jhtml" class="second-img">-->
+                                    <!--<img  src="${resSys}/www/red/img/lz/index/首页-3_64.png" alt="">-->
+                                <!--</a>-->
+                                <!--<a href="/xyzt/index.jhtml?word=2" class="third-img">-->
+                                    <!--<img src="${resSys}/www/red/img/lz/index/首页-3_69.png" alt="">-->
+                                <!--</a>-->
+                                <!--<a href="/xyzt/index.jhtml" class="last-img" >-->
+                                    <!--<img src="${resSys}/www/red/img/lz/index/more.jpg" alt="">-->
+                                <!--</a>-->
+                                <a href="/xyzt/index.jhtml?word=1" class="thirdBtn-text" >
+                                    工程建设
+                                </a>
+                                <a href="/xyzt/index.jhtml" class="thirdBtn-text">
+                                    食品安全
+                                </a>
+                                <a href="/xyzt/index.jhtml?word=2" class="thirdBtn-text">
+                                    信用监管
+                                </a>
+                                <a href="/xyzt/index.jhtml" class="thirdBtn-text" >
+                                    更多 +
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <img src="${resSys}/www/red/img/lz/index/friendlink.png" />
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="friendlink mt10">
+        <div class="friend">
+            <select onchange="$(this).val() ? window.open($(this ).val()) : ''" name="change" class="change">
+                <option value="">省直部门门户网站</option>
+                <option value="http://www.gxdrc.gov.cn/">省发展和改革委员会</option>
+                <option value="http://gxfy.chinacourt.org/">省法院</option>
+                <option value="http://www.gxbb.gov.cn/">省编办</option>
+                <option value="http://www.gxgxw.gov.cn/">省经济和信息化委员会</option>
+                <option value="http://www.gxedu.gov.cn/">省教育厅</option>
+                <option value="http://www.gxta.gov.cn/default.htm">省旅游发展委员会</option>
+                <option value="http://www.gxfao.gov.cn/">省外事办公室</option>
+                <option value="http://www.gxaudit.gov.cn/">省审计厅</option>
+                <option value="http://www.gxws.gov.cn/">省卫生和计划生育委员会</option>
+                <option value="http://www.gxwht.gov.cn/">省文化厅</option>
+                <option value="http://guangxi.mofcom.gov.cn/">自治区商务厅</option>
+                <option value="http://www.gxly.cn/">省林业厅</option>
+                <option value="http://www.gxny.gov.cn/">省农业厅</option>
+                <option value="http://www.gxwater.gov.cn/Web/HomeDragDefault.aspx">省水利厅</option>
+                <option value="http://www.gxdot.gov.cn/defaultroot/portal.jsp">省交通运输厅</option>
+                <option value="http://www.gxepb.gov.cn/">省环境保护厅</option>
+                <option value="http://www.gxcic.net/">省住房和城乡建设厅</option>
+                <option value="http://www.gxdlr.gov.cn/">省国土厅</option>
+                <option value="http://www.gx.lss.gov.cn/">省人力资源和社会保障厅</option>
+                <option value="http://www.gxcz.gov.cn/gxzzzzqczt/index.html">省财政厅</option>
+                <option value="http://www.gxsf.gov.cn/">省司法厅</option>
+                <option value="http://www.gxmzt.gov.cn/">省民政厅</option>
+                <option value="http://www.gxjjw.gov.cn/">省监察厅</option>
+                <option value="http://www.gazx.gov.cn/gxgat/">省公安厅</option>
+                <option value="http://www.gxmw.gov.cn/">省民族事务委员会</option>
+                <option value="http://www.gxsti.net/">省科学技术厅</option>
+                <option value="http://www.gxgxw.gov.cn/">省工业与信息化委员会</option>
+            </select>
+            <select onchange="$(this).val() ? window.open($(this ).val()) : ''" name="change" class="change">
+                <option value="">地市信用网站</option>
+                <option value="http://www.nncredit.gov.cn/">南宁</option>
+                <option value="http://www.glsxyw.com/">桂林</option>
+                <option value="http://credityl.gov.cn/">玉林</option>
+                <option value="http://www.ggxy.gov.cn/">贵港</option>
+            </select>
+            <select onchange="$(this).val() ? window.open($(this ).val()) : ''" name="change" class="change">
+                <option value="">各省信用网站</option>
+                <option value="http://www.creditbj.gov.cn">北京</option>
+                <option value="http://www.credittj.gov.cn">天津</option>
+                <option value="http://www.credithebei.gov.cn">河北</option>
+                <option value="http://www.creditsx.gov.cn">山西</option>
+                <option value="http://www.nmgcredit.gov.cn">内蒙古</option>
+                <option value="http://www.lncredit.gov.cn">辽宁</option>
+                <option value="http://www.jilincredit.gov.cn">吉林</option>
+                <option value="http://www.hljcredit.gov.cn">黑龙江</option>
+                <option value="http://www.shcredit.gov.cn">上海</option>
+                <option value="http://www.jscredit.gov.cn">江苏</option>
+                <option value="http://www.zjcredit.gov.cn">浙江</option>
+                <option value="http://www.creditah.gov.cn">安徽</option>
+                <option value="http://www.fjcredit.gov.cn">福建</option>
+                <option value="http://www.creditjx.gov.cn">江西</option>
+                <option value="http://www.creditsd.gov.cn">山东</option>
+                <option value="http://www.xyhn.gov.cn">河南</option>
+                <option value="http://www.hbcredit.gov.cn">湖北</option>
+                <option value="http://www.credithunan.gov.cn">湖南</option>
+                <option value="http://www.gdcredit.gov.cn">广东</option>
+                <option value="http://xy.gxi.gov.cn">广西</option>
+                <option value="http://xyhn.hainan.gov.cn">海南</option>
+                <option value="http://www.xycq.gov.cn">重庆</option>
+                <option value="http://www.sccredit.gov.cn">四川</option>
+                <option value="http://www.gzcx.org.cn">贵州</option>
+                <option value="http://www.yncredit.gov.cn">云南</option>
+                <option value="http://www.creditxizang.gov.cn">西藏</option>
+                <option value="http://www.sxcredit.gov.cn">陕西</option>
+                <option value="http://www.gscredit.gov.cn">甘肃</option>
+                <option value="http://www.nxcredit.gov.cn">宁夏</option>
+                <option value="http://www.qhcredit.gov.cn">青海</option>
+                <option value="http://credit.xjbt.gov.cn">新疆生产建设兵团</option>
+            </select>
+            <select onchange="$(this).val() ? window.open($(this ).val()) : ''" name="change" class="change">
+                <option value="">热点链接</option>
+                <option value="http://www.gov.cn/">中华人民共和国中央人民政府</option>
+                <option value="http://www.creditchina.gov.cn/">信用中国</option>
+                <option value="http://www.gxzf.gov.cn/">广西壮族自治区人民政府</option>
+                <option value="http://www.gxnews.com.cn/">广西新闻网</option>
+            </select>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p class='zhuban'>主办单位 : 柳州市发展和改革委员会</p>
+    <p class='beian'>承办单位：柳州市信息化建设管理中心</p>
+    <p class='beian'>备案号 ：</p>
+    <div class='denglu'>
+        <!--<span><img src="${resSys}/www/red/img/aaaa/16.png" alt="">征信备案</span>
+        <span><img src="${resSys}/www/red/img/aaaa/17.png" alt="">党政机关</span>-->
+    </div>
+</footer>
+
+<script src="/res/common/js/jquery.js" type="text/javascript"></script>
+<script src="/${res}/js/sy-lunbo.js"></script>
+<!--动态数据加载-->
+<script type="text/javascript">
+    $(function () {
+        loadCfList();
+        loadXkList();
+        loadUccList();
+        loadRedList();
+        loadBlackList();
+//        loadUser();
+    });
+    function loadUser(){
+        $.ajax({
+            url:"/credit/query/basicInfo.do",
+            data:{},
+            success:function(data){
+                console.log(data);
+            }
+        });
+    }
+    function loadXkList() {
+        $.ajax({
+            url: "credit/pub/2pub/divIndex.do",
+            data: {},
+            timeout: 30000,
+            success: function (data) {
+                $("#xk").html(data);
+                $("#xk>#ap").hide();
+//                secondShow('xk')
+            }
+        });
+    }
+    function loadCfList() {
+        $.ajax({
+            url: "credit/pub/2pub/divIndex.do",
+            data: {},
+            timeout: 30000,
+            success: function (data) {
+                $("#cf").html(data);
+                $("#cf>#al").hide();
+//                secondShow('xk')
+            }
+        });
+    }
+    function loadRedList() {
+        $.ajax({
+            url: "/credit/pub/rbl/divIndex.do",
+            data: {},
+            timeout: 30000,
+            success: function (data) {
+                $("#red").html(data);
+                $("#red>#黑名单").hide();
+
+            }
+        });
+    }
+    function loadBlackList() {
+        $.ajax({
+            url: "/credit/pub/rbl/divIndex.do",
+            data: {},
+            timeout: 30000,
+            success: function (data) {
+                $("#black").html(data);
+                $("#black>#红名单").hide();
+
+            }
+        });
+    }
+
+    function loadUccList() {
+        $.ajax({
+            url: "/credit/pub/ucc/divIndex.do",
+            data: {},
+            timeout: 30000,
+            success: function (data) {
+                $("#xydm").html(data);
+            }
+        });
+    }
+</script>
+<script type="text/javascript">
+//    内容切换
+    function searchShow(d){
+        $("#"+d).addClass("search-active").siblings().removeClass("search-active");
+        $("#"+d+"-input").css("display","block").siblings().css("display","none");
+    }
+    function secondShow(d){
+        $("#title-"+d).stop().addClass("second-active").siblings().removeClass("second-active");
+        $("#"+d).stop().css("display","block").siblings().css("display","none");
+        if(d == "cf"){
+            $("#left-more").attr("href","/credit/pub/index.do?word=1");
+        }
+        else if(d == "xk"){
+            $("#left-more").attr("href","/credit/pub/index.do?word=0");
+        }
+        else if(d == "xydm"){
+            $("#left-more").attr("href","/credit/pub/index.do?word=4");
+        }
+        else if(d == "case"){
+            $("#right-more").attr("href","/credit/pub/index.do?word=5");
+        }
+        else if(d == "red"){
+            $("#right-more").attr("href","/credit/pub/index.do?word=2");
+        }
+        else if(d == "black"){
+            $("#right-more").attr("href","/credit/pub/index.do?word=3");
+        }
+    }
+
+    function thirdShow(d){
+        $("#"+d).addClass("third-active").siblings().removeClass("third-active");
+    }
+//添加更多链接
+
+
+    var baseUrl = "/credit/credit_company/baseCompanyList";
+
+    //    企业查询
+    function clearInput(id){
+        $("#"+id+">li>input[type='text']").val(" ");
+    }
+    function clearMsg(e) {
+        $(e).siblings(".index-search-tip").css("display", "none");
+    }
+//    var indexIdxCaptcha=$("#index-search-idxCaptcha");
+    $("#index-search .bus-code").focus(function(){
+        idxCaptchaHtml.attr("id","index-search-idxCaptcha").removeClass("col-xs-2").addClass("col-xs-3");
+        $(".idxCaptcha").remove();
+        $(this).after(idxCaptchaHtml);
+        $("#index-search-idxCaptcha").click();
+    });
+    function searchInfo(d) {
+        var captValue = $("#" + d + " .bus-code").val();
+//        console.log(captValue);
+        var keyWord = $("#" + d + " .bus-info").val();
+//        console.log(keyWord);
+        if (keyWord && keyWord.length > 1 && captValue.length > 0) {
+            if (d == "bus-input") {
+                $.ajax({
+                    async: false,//同步请求
+                    url: encodeURI("/credit/query/validate.do"),
+                    data: {
+                        keyword: keyWord,
+                        captcha: captValue
+                    },
+                    success: function (data) {
+                        if (0 == data.code) {
+                            window.open("/credit/query/bs/bsSearch.do?keyword=" + keyWord + "&&index=true");
+                        } else {
+                            $("#index-bus-codeTip").text(data.title);
+                            $("#index-busCodeTip").show();
+                        }
+//                        $(".idxCaptcha").click();
+                    },
+                    error: function (data) {
+                        console.log(data);
+                    }
+                });
+            }
+//            功能正常，目前不需要
+            else if (d == "people-input") {
+                $.ajax({
+                    async: false,//同步请求
+                    url: encodeURI("/credit/query/validate.do"),
+                    data: {
+                        keyword: keyWord,
+                        captcha: captValue
+                    },
+                    success: function (data) {
+                        if (0 == data.code) {
+                            window.open(encodeURI("/credit/query/kc/fuzzySearch.do?keyword=" + keyWord));
+                        } else {
+                            $("#index-people-codeTip").text(data.title);
+                            $("#index-peopleCodeTip").show();
+                        }
+//                        $(".idxCaptcha").click();
+                    },
+                    error: function (data) {
+                        console.log(data);
+                    }
+                });
+            }
+//            else if (id == "site") {
+//                window.open(encodeURI("/znss/index.jhtml?keyword=" + keyWord));
+//            }
+        }
+
+        if (keyWord.length < 2) {
+            $("#" + d + " .info-tip").css("display", "block");
+        }
+        if (captValue.length < 1) {
+            $("#" + d + " .code-tip .search-count ").text("请输入验证码");
+            $("#" + d + " .code-tip").css("display", "block");
+        }
+        $("#"+d+" .bus-code").val("");
+    }
+
+//    $('.chaxun div').eq(0).addClass('act');
+//    $('.chaxun div').click(function () {
+//        $(this).addClass('act');
+//        $(this).siblings().removeClass('act');
+//    });
+//    $('.black1').hide();
+//
+//    $('.red').click(function () {
+//        $('.red1').show();
+//        $('.black1').hide();
+//
+//
+//        $(this).parent().next().css({
+//            'left': 0,
+//            'bottom': '-1px',
+//        })
+//    })
+//    $('.black').click(function () {
+//        $('.red1').hide();
+//        $('.black1').show()
+//
+//
+//        $(this).parent().next().css({
+//            'left': '60px',
+//            'bottom': '-1px',
+//        })
+//    })
+
+
+</script>
+<!--<script type="text/javascript">-->
+
+    <!--$('.chaxun div').click(function () {-->
+
+        <!--var id = $(this).attr("id");-->
+        <!--if (id == "company") {-->
+            <!--$("#queryCondition").attr("placeholder", "请输入企业名称，法定代表人姓名，工商注册号，组织机构代码");-->
+        <!--}-->
+        <!--else if (id == "person") {-->
+            <!--$("#queryCondition").attr("placeholder", "请输入个人姓名");-->
+        <!--}-->
+        <!--else if (id == "site") {-->
+            <!--$("#queryCondition").attr("placeholder", "请输入搜索关键字");-->
+        <!--}-->
+    <!--});-->
+
+
+<!--</script>-->
+
+</body>
+</html>

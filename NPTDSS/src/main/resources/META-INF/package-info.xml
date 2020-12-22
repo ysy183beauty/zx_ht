@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<summer>
+<name>${project.artifactId}</name>
+<title>数据共享系统</title>
+<version>${project.version}</version>
+<level>${platform.module.level}</level>
+<built.by>${user.name}</built.by>
+<built.jdk>${java.version}</built.jdk>
+<built.runtime>${java.runtime.name} ${java.runtime.version}</built.runtime>
+<built.vm>${java.vm.name} ${java.vm.version}</built.vm>
+<built.os>${os.name} ${os.version}</built.os>
+<built.pc>${env.COMPUTERNAME}</built.pc>
+<built.time>${summer.build.timestamp}</built.time>
+</summer>

@@ -1,0 +1,285 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>${channel.title!channel.name} - ${site.name}</title>
+<meta http-equiv="X-UA-Compatible" content="IE=8;"/>
+<meta http-equiv="keywords" content="${channel.keywords!}" />
+<meta http-equiv="description" content="${channel.description!}" />
+<!--[if gte IE 9]>
+  <style type="text/css">
+    .gradient {
+       filter: none;
+    }
+  </style>
+<![endif]-->
+
+<script type="text/javascript" src="/${res}/js/swfupload.js"></script>
+
+
+
+</head>
+<body style="background: white">
+	<!--top_begin-->
+	[#include "../include/页头导航栏.html"/]
+	<!--top_end-->
+<script type="text/javascript" src="/${res}/js/ecsp.js"></script>
+<script type="text/javascript" src="/${res}/js/jquery.ecsp.common.js"></script>
+<script type="text/javascript" src="/${res}/js/jquery.ecsp.corsrequest.js"></script>
+	<!--container-->
+	<div class="container">
+	<div class=" mt100"> 
+		<div class="header w">普通实名制认证</div>
+		<div class="txt ml20">常熟市公共信息服务平台通过个人提交身份信息，由人工比对来验证您的身份，仅限于户主本人操作，请您如实填写以下信息。</div>
+		<div class="step mt20 ml50">
+			<a href="javascript:void(0)" class="first current w250" id="step1">
+				<i></i>信息填写<b></b>
+			</a>
+			<a href="javascript:void(0)" class="w250" id="step2">
+				<i></i>信息确认<b></b>
+			</a>
+			<a href="javascript:void(0)" class="w250 last" id="step4">
+				<i></i>完成提交<b></b>
+			</a>
+		</div>
+		 <form id="sfzform" name="sfzform"  method="post" >
+		<div class="step1 mt20 w600 fl ml200"   >
+			<div class="w fl">
+				<p><i class="red mr10">*</i>登陆名</p>
+				<input type="text"  id="loginname" disabled="disabled"/>
+			</div>
+			<div class="w fl mt20">
+				<p><i class="red mr10">*</i>真实姓名</p>
+				<input type="text"  id="relname" name="relname"/>
+			</div>
+			<div class="w fl mt20">
+				<p>证件类型</p>
+				<input type="text"  id="zjlx" disabled="disabled" value="二代身份证"/>
+			</div>
+			<div class="w fl mt20">
+				<p><i class="red mr10">*</i>身份证号码</p>
+				<input type="text"  id="sfznum" name="sfznum"/>
+			</div>
+			<div class="w fl mt20">
+				<p><i class="red mr10">*</i>身份证照片正面</p>
+				 <object   id="spanButtonPlaceholderF"></object>
+				 <div class="pic">
+				 	 <img   id="IDCARDPICTUREF" alt="选择图像上传" title="选择图像上传" src="/r/cms/www/red/img/newEdition/no_image.png" />
+				 </div>
+				  <input type="hidden"  id="Fphoto" name="Fphoto"/>   
+			</div>
+			<div class="w fl mt20">
+				<p><i class="red mr10">*</i>身份证照片反面</p>
+				 <object   id="spanButtonPlaceholderB"></object>
+				 <div class="pic">
+				 	 <img   id="IDCARDPICTUREB" alt="选择图像上传" title="选择图像上传" src="/r/cms/www/red/img/newEdition/no_image.png" />
+				 </div>
+				
+				 <input type="hidden"  id="Bphoto" name="Bphoto"/>   
+			<!--
+				<div class="pic fl" id="backpic"> <img src="/r/cms/www/red/img/newEdition/no_image.png" ></div>
+				<input type="file" id="backimg" onchange="showHead(this,'backpic')" id="BPICTURE" name="BPICTURE"/>
+	         -->
+			</div>
+			<div class="w fl mt20 ml170">
+				注：证件必须是二代身份证原件电子版，可以是扫描件或数码拍摄照片，仅支持jpg、bmp、jpeg、png、gif的图片格式。请确认照片上信息的清晰以确保通过认证。
+			</div>
+			<div class="w fl mt20" id="sendmsgcode">
+				<p><i class="red mr10" >*</i>手机号码</p>
+				<input type="text" id="phonenum" name="phonenum" readonly="readonly" disabled="disabled"/>
+				<input type="button" value="发送验证码" class="sendbtn ml10" onclick="sendmsg4(this)"/>
+			</div>
+			<div class="w fl mt20">
+				<p><i class="red mr10">*</i>短信验证码</p>
+				<input type="text" class="pcode" id="dxcode" name="dxcode"/>
+				<font class="red ml170 mt5 block fl" >注：如果该号码不是您当前使用的手机号码，请携带身份证和市民卡到市民卡服务网点更改。</font>
+			</div>
+			<div class="w fl mt20" >
+				<p>验证码</p>
+				<input type="text" id="input1" id="safecode" name="safecode"/>
+				<b>*</b>
+				<input type="button" id="checkCode" class="code" onClick="createCode()"/>
+				<span onClick="createCode()">点击更换</span>
+			</div>
+			<div class="w fl ml100 mt20">
+			    <input name="accessTicket" id="accessTicket" type="hidden" value=""  />
+				<input name="txt" type="checkbox" value="" class="box" checked="checked"/>
+				<font class="block fl ml20">我已阅读并同意<a href="/fwxy/index.jhtml" target="_blank"> 《用户服务协议》</a></font>
+			</div>
+			<div class="w fl mt30 mb30">
+				<button type="submit" class="ml170 nextbtn"  >下一步</button>
+				<a href="/smrz/index.jhtml" class="ml50 prebtn"  id="sfzpre">上一步</a>
+			</div>
+		</div>
+		</form>
+		
+		<div class="step2 mt20 w700 fl ml200 none">
+			<div class="w fl" id="checkname">
+				<p>真实姓名</p>
+				<span>123</span>
+			</div>
+			<div class="w fl mt20" id="checksfznum">
+				<p>身份证号码</p>
+				<span>320555555555555555</span>
+			</div>
+			<div class="w fl mt20">
+				<p><i class="red mr10">*</i>身份证照片正面</p>
+				<div class="pic fl" id="frontpic2"><img id="IDCARDPICTUREF_CHECK" src="/r/cms/www/red/img/newEdition/no_image.png" ></div>
+				
+			</div>
+			<div class="w fl mt20">
+				<p><i class="red mr10">*</i>身份证照片反面</p>
+				<div class="pic fl" id="backpic2"><img id="IDCARDPICTUREB_CHECK" src="/r/cms/www/red/img/newEdition/no_image.png" ></div>
+				
+			</div>
+			<div class="w fl mt30 red none" >
+				<div class="sfzerror"  id="sfzerror"></div>
+			</div>
+			<div class="w fl mt30 mb30" >
+				<input type="button" value="确定" class="combtn ml170" onClick="submitsfz()" id="combtn2"/>
+				<input type="button" value="返回修改" class="backbtn ml20" id="backbtn2"/>
+			</div>
+		</div>
+		 
+		<div class="step4 mt20 w600 fl ml200 none">
+			<div class="w fl result">恭喜您，已经成功绑定身份证：<font id="ycth2"></font>
+			 <br>您现在已经成为普通实名认证用户</br>
+			<a href="/index.jhtml"  onclick="returnIndex(this)" style="margin-left:200px;" id="returnindex">返回首页</a>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+<script type="text/javascript">
+$(document).ready(function(){
+	createCode();
+	$("#loginname").val(loginname);
+	$("#phonenum").val(mobilenum);
+	$("#accessTicket").val(accessTicket);
+})
+
+function selectimg(path){
+	alert(path);
+}
+
+
+</script>
+<script type="text/javascript">
+
+      var swfuF;
+      var swfuB;
+      $(document).ready(function(){
+       	swfuF = new SWFUpload({
+      		upload_url: "/credit/User_RNAuth/UploadImage",
+      		file_size_limit : "1 MB",	// 1MB
+      		file_types : "*.jpg;*.bmp;*.jpeg;*.png;*.gif",
+      		file_types_description : "图片文件",
+      		file_upload_limit : 0,
+      		prevent_swf_caching : false,
+      		file_queue_error_handler : fileQueueError,
+      		file_dialog_complete_handler : fileDialogComplete,
+      		upload_error_handler : uploadError,
+      		upload_success_handler : uploadSuccessF,
+      		button_placeholder_id : "spanButtonPlaceholderF",
+      		button_width: 142,
+      		button_height: 112,
+      		button_window_mode: SWFUpload.WINDOW_MODE.TRANSPARENT,
+      		button_cursor: SWFUpload.CURSOR.HAND,
+      		custom_settings : {
+      			upload_target : "divFileProgressContainerF"
+      		},
+      		flash_url : "/${res}/img/swfupload.swf",         
+      		use_query_string : true, 
+      		debug: false
+      	});
+       	swfuB = new SWFUpload({
+          		upload_url: "/credit/User_RNAuth/UploadImage",
+          		file_size_limit : "1 MB",	// 1MB
+          		file_types : "*.jpg;*.bmp;*.jpeg;*.png;*.gif",
+          		file_types_description : "图片文件",
+          		file_upload_limit : 0,
+          		prevent_swf_caching : false,
+          		file_queue_error_handler : fileQueueError,
+          		file_dialog_complete_handler : fileDialogComplete,
+          		upload_error_handler : uploadError,
+          		upload_success_handler : uploadSuccessB,
+          		button_placeholder_id : "spanButtonPlaceholderB",
+          		button_width: 142,
+          		button_height: 112,
+          		button_window_mode: SWFUpload.WINDOW_MODE.TRANSPARENT,
+          		button_cursor: SWFUpload.CURSOR.HAND,
+          		custom_settings : {
+          			upload_target : "divFileProgressContainerB"
+          		},
+          		flash_url : "/${res}/img/swfupload.swf",
+           
+          		use_query_string : true, 
+          		debug: false
+          	});	
+       
+      });
+       	function fileQueueError(file, error, message) {
+       	        if (error == -110) {
+       	        	$.ecsp.alert("图片大小不能超过1M！");      	     
+       	            return false;
+       	        }else if(error == -130){
+       	        	$.ecsp.alert("图片格式不支持！");
+       	            return false;
+       	        }
+       	}    
+       	function preLoad() {
+       		if (!this.support.loading) {
+       			$.ecsp.alert("未安装Flash Player或Flash Player版本过低.");
+       			return false;
+       		}
+       	}
+       	function fileDialogComplete(numFilesSelected, numFilesQueued) {
+       		try {
+       			if (numFilesQueued > 0) {
+       				this.startUpload();
+       				//this.startResizedUpload(this.getFile(0).ID, 100, 100, SWFUpload.RESIZE_ENCODING.JPEG, 100);
+       			}
+       		} catch (ex) {
+       			this.debug(ex);
+       		}
+       	}
+       	function uploadSuccessB(file, serverData2) {
+       		try {
+       			var result=$.parseJSON(serverData2);
+       			var serverData = result.fileURL;
+       			var fileName = result.fileName;
+       			if (fileName) {
+       				$("#IDCARDPICTUREB").attr("src",  serverData);
+       				$("#IDCARDPICTUREB_CHECK").attr("src", serverData);
+       				$("#Bphoto").val(serverData);
+       				$("#Bphoto").parent().find("label").remove();
+       			}else{
+       				$.ecsp.alert("图片上传失败");
+       			}
+       		} catch (ex) {
+       			this.debug(ex);
+       		}
+       	}
+       	function uploadSuccessF(file, serverData2) {
+       		try {
+       			var result=$.parseJSON(serverData2);
+       			var serverData = result.fileURL;
+       			var fileName = result.fileName;
+       			if (fileName) {
+       				$("#IDCARDPICTUREF").attr("src",serverData);
+       				$("#IDCARDPICTUREF_CHECK").attr("src",serverData);
+       				$("#Fphoto").val(serverData);
+       				$("#Fphoto").parent().find("label").remove();
+       			}else{
+       				$.ecsp.alert("图片上传失败");
+       			}
+       		} catch (ex) {
+       			this.debug(ex);
+       		}
+       	}
+       	function uploadError(file, errorCode, message) {
+       		$.ecsp.alert("头像上传失败.")
+       	}
+      
+</script>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>${channel.title!channel.name} - ${site.name}</title>
+<meta http-equiv="keywords" content="${channel.keywords!}" />
+<meta http-equiv="description" content="${channel.description!}" />
+<!--[if gte IE 9]>
+  <style type="text/css">
+    .gradient {
+       filter: none;
+    }
+  </style>
+<![endif]-->
+
+
+
+
+
+</head>
+<body style="background: white">
+	<!--top_begin-->
+	[#include "../include/页头导航栏.html"/]
+	<!--top_end-->
+	
+	<!--container-->
+	<div class="container">
+	<div class=" mt100"> 
+		<div class="header w">市民卡认证</div>
+		<div class="txt ml20">市民卡认证需要您输入市民卡虞城通号，并通过短信验证码来进行。验证通过后，您就可以获得普通实名认证身份。</div>
+		<div class="step mt20 ml50">
+			<a href="javascript:void(0)" class="first current w250" id="step1">
+				<i></i>身份验证<b></b>
+			</a>
+			<a href="javascript:void(0)" class="w250" id="step2">
+				<i></i>确认信息<b></b>
+			</a>
+			<a href="javascript:void(0)" class="w250 last" id="step4">
+				<i></i>绑定成功<b></b>
+			</a>
+		</div>
+		
+		<div class="step1 mt20 w600 fl ml200 " >
+			<form  id="smkvalidate" name="smkvalidate" novalidate="novalidate"  method="post" action="" class="block fl">
+			<div class="w fl" id="yctshow">
+				<p><i class="red mr10">*</i>虞城通号</p>
+				<input type="text"  id="ycnum" name="ycnum"/>
+			</div>
+			<div class="w fl mt20" >
+				<p>市民卡卡面号位置样例</p>
+				<div><img alt="" src="/r/cms/www/red/img/newEdition/cityCard.png"/></div>
+			</div>
+			<div class="w fl mt20" id="sfzshow">
+				<p><i class="red mr10">*</i>身份证号</p>
+				<input type="text"  id="sfz" name="sfz"/>
+			</div>
+			<div class="w fl mt30 mb30">
+				<button type="submit"  class="nextbtn ml170"  >下一步</button>
+				<a href="/smrz/index.jhtml" class="ml50 prebtn"  id="smpre">上一步</a>
+			</div>
+			</form>
+		</div>
+		
+		<div class="step2 mt20 w700 fl ml200 none">
+			<div class="w fl">
+				<p>虞城通号</p>
+				<input type="text" disabled="disabled" id="ycnum2"/>
+			</div>
+			
+			<div class="w fl mt20">
+				<p>持卡人</p>
+				<input type="text" disabled="disabled" id="ckr"/>
+			</div>
+			<div class="w fl mt20" id="sendmsgcode">
+				<p>手机号码</p>
+				<input type="text" disabled="disabled" id="phonenum"/>
+				<input type="button" value="发送验证码" class="sendbtn ml10" onclick="sendmsg3(this)"/>
+			</div>
+			<form  id="smkvalidate2" name="smkvalidate2" novalidate="novalidate"  method="post" action="">
+			<div class="w fl mt20">
+				<p><i class="red mr10">*</i>短信验证码</p>
+				<input type="text" class="pcode" id="dxcode" name="dxcode"/>
+				<label class="red ml150 mt5" >注：如果该号码不是您当前使用的手机号码，请携带身份证和市民卡到市民卡服务网点更改。</label>
+			</div>
+			<div class="w fl mt20">
+				<p>市民卡卡面号位置样例</p>
+				<div><img alt="" src="/r/cms/www/red/img/newEdition/cityCard.png"/></div>
+			</div>
+			<div class="w fl mt20 ml100">
+				<input name="txt" type="checkbox" value="" class="box" checked="checked"/>
+				<font>我已阅读并同意<a href="/fwxy/index.jhtml" target="_blank"> 《用户服务协议》</a></font>
+			</div>
+			<div class="w fl mt30 mb30" id="submitshow">
+				<button type="sumbit"  class=" ml170 nextbtn2 fl" >完成</button>
+				<input type="button" value="返回修改" class="backbtn ml20 fl btn" id="backbtn"/>
+			</div>
+			</form>
+		</div>
+		
+		<div class="step4 mt20 w600 fl ml200 none">
+			<div class="w fl result">恭喜您，已经成功绑定市民卡：<font id="ycth"></font> <br/>
+				您现在已经成为普通实名认证用户，而且可以通过市民卡进行登录 <br/>
+					您的账户安全级别还可以继续提升，赶快到安全设置中试试吧<br/>
+					<br/>
+					<a href="/index.jhtml" onclick="returnIndex(this)" style="margin-left:200px;" id="returnindex">返回首页</a>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

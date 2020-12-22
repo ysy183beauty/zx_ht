@@ -1,0 +1,26 @@
+.tableInfo{
+    margin:50px auto;
+}
+.tableInfo thead {
+    background-color: rgb(58, 114, 174);
+    color: #fff;
+}
+.tableInfo th {
+    text-align: center;
+    padding: 10px 0;
+    width:10%;
+}
+.tableInfo td{
+    height:40px;
+    width:90%;
+}
+/*table tr{*/
+    /*cursor:pointer;*/
+/*}*/
+.tableInfo td a{
+    color:#3499ff;
+}
+.warn{
+    margin-left:10px;
+    color:#c67605;
+}

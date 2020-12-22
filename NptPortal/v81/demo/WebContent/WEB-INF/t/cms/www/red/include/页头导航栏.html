@@ -1,0 +1,80 @@
+<link rel="stylesheet" href="/${res}/css/base.css"  type="text/css" />
+<link rel="stylesheet" href="/${res}/css/modal.css"  type="text/css" />
+<style type="text/css">
+.head
+{
+  border-bottom: 1px solid #e3e3e3;
+  background: white;
+  margin: 0 auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
+}
+.head .w150
+{
+	line-height: 100px;
+}
+</style>
+<script type="text/javascript" src="${resSys}/Js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="/${res}/js/common.js" ></script>
+<script type="text/javascript" src="/${res}/js/user.js" ></script>  
+<script type="text/javascript" src="/${res}/js/rules.js" ></script>
+<script type="text/javascript" src="/${res}/js/jquery.validate.js" ></script>
+<script type="text/javascript" src="/${res}/js/formValidatorClass.js" ></script>
+<script type="text/javascript" src="${resSys}/Js/jquery.tabso_yeso.js"></script>
+<script type="text/javascript" src="/${res}/js/jquery.leanModal.min.js"></script>
+
+<div class="head w h100 fl">
+	<div class="w1000 h">
+		<div class="fl"><a href="/index.jhtml"><img src="/${res}/img/newEdition/logo.png" class="mt20"></a></div>
+		 [#if user??]
+		<div class="fr h w150">
+			 <ul id="sddm">
+			 	<li class="sd"></li>
+	            <li >
+	               <a href="javascript:void(0)" target="_self"  title="${user.login}" >${user.login}</a>
+	            </li>
+	        </ul>	 
+		</div>
+		[/#if]
+	</div>
+</div>
+<script type="text/javascript">
+	
+	$("#loginout").click(function(){
+		   $.ajax({
+				url : "/credit/User_Center/loginout",
+				type : "POST",
+				success : function(data) {
+					window.location.reload();
+					},
+				timeout : 6000
+			});
+	});
+var  accessTicket , mobilenum,loginname,name,sex,birthday,marry,level;
+[#if user??]
+    level = '${user.level}' ;
+	accessTicket = '${user.accessTicket}';
+	mobilenum = '${user.mobilenum}';
+	loginname = '${user.login}';
+	name = '${user.name}';
+	if('${user.sex}'=='01') sex='男';
+	else if('${user.sex}'=='02') sex='女'; 
+	else sex='未知';
+	
+	if('${user.birthday}'!=''){
+	birthday = new Date(${user.birthday});
+	birthday = birthday.getFullYear()+"-"+(birthday.getMonth()+1)+"-"+birthday.getDate();
+	}
+	if('${user.marry}'!='')
+	marry = '${user.marry}';
+	else
+		marry = '未知';
+[#else]
+	
+	window.location="/";
+[/#if]
+
+</script>
+

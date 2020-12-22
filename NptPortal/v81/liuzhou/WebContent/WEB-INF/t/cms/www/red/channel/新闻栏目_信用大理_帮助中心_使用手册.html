@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+    <title>${channel.title!channel.name} - ${site.name}</title>
+    [#include "../include/页头顶栏_LINK.html"/]
+    <style type="text/css">
+        .nav-md{
+            box-shadow: 2px 2px #ccc;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    [#include "../include/页头顶栏.html"/]
+    <!--内容开始-->
+    <div class="w row" style="min-height: 500px">
+        <div class="sit height_auto m-t-md">
+            <ul>
+                <li>
+                    <a id="sy" href="/">首页</a>
+                </li>
+                <li>&gt;</li>
+                <li>
+                    <a href="/yhxy/index.jhtml">帮助中心</a>
+                </li>
+                <li>&gt;</li>
+                <li>
+                    ${channel.title!channel.name}
+                </li>
+            </ul>
+        </div>
+        <div class="row">
+            <div class="col-sm-3" style="margin-top:20px;">
+                <div class="height_auto nav-md">
+                    <div class="left_nav">
+                        <span>帮助中心</span>
+                        <ul>
+                            <li>
+                                <a id="yhxy" href="/yhxy/index.jhtml" >用户协议</a>
+                            </li>
+                            <li>
+                                <a id="zclc" href="/zclc/index.jhtml">用户注册流程</a>
+                            </li>
+                            <li>
+                                <a id="grsmlc" href="/grsmlc/index.jhtml">个人实名注册</a>
+                            </li>
+                            <li>
+                                <a id="qysmlc" href="/qysmlc/index.jhtml">企业实名注册</a>
+                            </li>
+                            <li>
+                                <a id="sysc" class="active" href="/sysc/index.jhtml">使用手册</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-9">
+                <div class="">
+                    <div class="m-t-md">
+                        <div class="g_tit">
+                            <span>${channel.title!channel.name}</span>
+                        </div>
+                        <div class="zx_tab height_auto">
+                            <div class="bd m-t-xs">
+                                <ul>
+                                    <li style="border-bottom: 1px dashed #ccc;">
+                                        <dl><dt>
+                                            <a href="/r/cms/download/信用大理网使用手册.doc" title="信用大理网使用手册" target="_blank">信用大理网使用手册    </a></dt><dd>2016-01-29</dd></dl>
+                                    </li>
+                                    <div style="clear:both"></div>
+                                </ul>
+                                <div class="clear"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+[#include "../include/页脚信息栏.html"/]
+</body>
+</html>

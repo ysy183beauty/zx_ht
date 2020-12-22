@@ -1,0 +1,283 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>用户注册 - ${site.name}</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+    <meta http-equiv="keywords" content=""/>
+    <meta http-equiv="description" content="$"/>
+    [#include "../include/页头顶栏_LINK.html"/]
+    <!--<script type="text/javascript" src="${resSys}/www/red/js/jquery-1.9.1.min.js"></script>-->
+    <style>
+        .m-l-md{
+            margin-left:113px!important;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+[#include "../include/页头顶栏.html"/]
+
+<!--内容开始-->
+<div class="main">
+    <div class="w">
+        <div class="sit height_auto m-t-md">
+            <ul>
+                <li>
+                    <a id="sy" href="/">首页</a>
+                </li>
+                <li>></li>
+                <li>
+                    <a href="">用户注册</a>
+                </li>
+            </ul>
+        </div>
+        <div class="w" style="height: auto;">
+            <div style="width: 650px;  margin-left: auto;
+    margin-right: auto;  " class="center">
+                <div class="modal-header" style="height: 60px;">
+                    <h3 class="modal-title pull-left" style="height: 45px;line-height: 45px;
+    border-bottom: 2px solid #2E71B8;font-size: 18px;color: #2E71B8;padding: 0px 10px;">用户注册</h3>
+                </div>
+                <div class="modal-body">
+                    <div id="msg" class="text-center" style="font-size: 18px;"></div>
+                    <form class="form-horizontal" id="registerform"  action="/register.jspx" method="post">
+                        <div class="form-group">
+                            <div class="col-md-2 control-label left_text">用户名<font>*</font></div>
+                            <div class="col-md-10">
+                                <div class="col-md-7">
+                                    <input id="username"  name="username" type="text" placeholder="2-14个字符：英文、数字或中文"
+                                           class="form-control"  onfocus="clearMsg(this)" value="${registerUserName!}">
+                                </div>
+                                <div class="col-md-3" style="width: 180px;color: red;" id="usernameMsg">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-2 control-label left_text">密码<font>*</font></div>
+                            <div class="col-md-10" id="showpasswd">
+                                <div class="col-md-7">
+                                    <input type="password" placeholder="6-20个字符（区分大小写）" maxlength="20" id="password"
+                                           name="loginPassword"  onfocus="clearMsg(this)" value=""
+                                           onkeyup="value=value.replace(/\s/g,'')" onpaste="return false;"
+                                           oncontextmenu="return false;" value="${registerPassWord!}"
+                                           oncopy="return false;" oncut="return false;" class="form-control">
+                                </div>
+                                <div class="col-md-3" style="width: 180px;color: red;" id="passwordMsg">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-2 control-label left_text">确认密码<font>*</font></div>
+                            <div class="col-md-10" id="repwd">
+                                <div class="col-md-7">
+                                    <input type="password" placeholder="再次输入密码" oncut="return false;" id="checkpassword" value=""
+                                           oncontextmenu="return false;" oncopy="return false;" onpaste="return false;" value="${registerPassWord!}"
+                                           onfocus="clearMsg(this)" name="checkpassword" maxlength="20" class="form-control">
+                                 </div>
+                                <div class="col-md-3" style="width: 180px;color: red;" id="checkpasswordMsg">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-2 control-label left_text">邮箱<font>*</font></div>
+                            <div class="col-md-10" id="showemail">
+                                <div class="col-md-7">
+                                    <input type="email" id="email" name="email" placeholder="请输入您的邮箱账号"
+                                           class="form-control"  onfocus="clearMsg(this)" value="${registerEmail!}">
+                                </div>
+                                <div class="col-md-3" style="width: 180px;color: red;"  id="emailMsg">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-2 control-label left_text">验证码<font>*</font></div>
+                            <div class="col-md-10" id="showcode">
+                                <div class="col-md-7">
+                                    <input type="text" placeholder="图片验证码" class="form-control pull-left yz_input"
+                                           maxlength="6" name="captcha" id="captcha"  onfocus="clearMsg(this)">
+                                    <div id="yz" class="pull-left"
+                                         style="margin-left: -20px;width: 15px;line-height: 34px;height: 34px;"></div>
+                                    <div class="pull-left yzm_img m-l-sm">
+                                        <img style="cursor: pointer;" onclick="this.src='/captcha.svl?d='+new Date()" alt="" src="${base}/captcha.svl">
+                                    </div>
+                                </div>
+                                <div class="col-md-3" style="width: 180px;color: red;" id="captchaMsg">
+                                </div>
+                            </div>
+                        </div>
+                        <div  class="form-group">
+                            <div class="col-sm-2"></div>
+                            <div class="col-sm-7" >
+                                <div class="col-sm-4">
+                                    <input type="radio" name="type" value="person" checked="checked"/> 个人用户
+                                </div>
+                                <div class="col-sm-4">
+                                    <input type="radio" name="type" value="company" /> 企业用户
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="p-xxs">
+                                <div class="m-l-md col-md-5" style="padding-right:0px;">
+                                    <input type="checkbox" style="float: left;width: 12px;line-height: 24px;height: 24px;margin:0px;" id="xieyi"  onfocus="clearMsg(this)"
+                                           checked="checked"/>
+                                    <div style="float: left;cursor: pointer;line-height: 24px;height: 24px;" onClick="isChecked()" >我已经阅读并同意</div>
+                                    <a class="reign_a" href="/yhxy/index.jhtml" style="color: #337ab7;line-height: 24px;height: 24px;" target="_blank">《用户服务协议》</a>
+                                </div>
+                                <div id="xieyiMsg"  class="col-md-3" style="color: red;"></div>
+                            </div>
+                        </div>
+                        <div class="form-group text-center" style="display: none" id="formmMsgTitle">
+                            <div id="formMsg" ></div>
+                        </div>
+                        [#if errors??]
+                            [#list errors as error]
+                                <div id="submiterror" class="form-group text-center" style="color: red;">${error_index+1}、${error}</div>
+                            [/#list]
+                        [/#if]
+                        <div class="form-group text-center" style="display: none"  id="loading">
+                            <img style="margin-left: -100px;" src="${base}/r/cms/www/red/img/loading.gif">
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-8" style="margin-left:50px;">
+                                <div>
+                                    <button type="button" onClick="registerUser();" class="btn_sytle" id="btnsub">立即注册
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<!--内容结束-->
+
+[#include "../include/页脚信息栏.html"/]
+
+</body>
+<script type="text/javascript">
+    $(function () {
+        //createCode();
+    });
+    function isChecked() {
+        if ($("#xieyi").prop("checked")) {
+            $("#xieyi").prop("checked", false);
+        } else {
+            $("#xieyi").prop("checked", true);
+        }
+    }
+    function clearMsg(ele){
+        $("#"+$(ele).attr("id")+"Msg").html("");
+        $("#formMsg").html("");
+        $("#submiterror").hide();
+    }
+
+    function registerUser() {
+
+        var flag = 0;
+        var check = $("#xieyi").prop("checked");
+        if (!check) {
+            $("#xieyiMsg").html("请同意相关协议，否则不允许注册！");
+            flag=flag*1+1;
+        }
+        var captcha = $("#captcha").val();
+        if (!captcha) {
+            $("#captchaMsg").html("图片验证码不能为空！");
+           flag=flag*1+1;
+        }
+
+        var username = $("#username").val();
+        if (!username) {
+            $("#usernameMsg").html("用户名不能为空！");
+            flag=flag*1+1;
+        }
+        var email = $("#email").val();
+        if (!email) {
+            $("#emailMsg").html("电子邮件不能为空！");
+            flag=flag*1+1;
+        } else {
+            var reg = /[a-zA-Z0-9]{1,10}@[a-zA-Z0-9]{1,5}\.[a-zA-Z0-9]{1,5}/;
+            if (!reg.test(email)) {
+                $("#emailMsg").html("请正确填写邮箱！");
+                flag=flag*1+1;
+            }
+        }
+        var password1 = $("#password").val();
+        if (!password1) {
+            $("#passwordMsg").html("密码不能为空！");
+            flag=flag*1+1;
+        }else if(password1.length<6){
+            $("#passwordMsg").html("密码长度不小于6！");
+            flag=flag*1+1;
+        }
+        var password2 = $("#checkpassword").val();
+        if(!password2){
+            $("#checkpasswordMsg").html("确认密码不能为空！");
+            flag=flag*1+1;
+        }else{
+            if (password2 != password1) {
+                $("#checkpasswordMsg").html("两次密码不相等！");
+                flag=flag*1+1;
+            }
+        }
+        if(flag>0){
+            return;
+        }
+        $("#loading").show();
+        $.ajax({
+            url: encodeURI("/username_unique.jspx"),
+            dataType: 'json',
+            data: {
+                username: username
+            },
+            success: function (data) {
+                if (data == true) {
+                    checkEmail(email);
+                }else{
+                    $("#usernameMsg").html("用户名已存在！");
+                    $("#loading").hide();
+                }
+            },
+            error: function (response) {
+                var s = response;
+                $("#formMsg").html(s.statusText);
+                $("#formMsgTitle").show();
+                $("#loading").hide();
+            },
+            timeout: 60000
+        });
+    }
+
+    function checkEmail(email) {
+        $.ajax({
+            url: encodeURI("/email_unique.jspx"),
+            dataType: 'json',
+            data: {
+                email: email
+            },
+            success: function (data) {
+                if (data == true) {
+                    $("#loading").show();
+                    $("#registerform").submit();
+                }else{
+                    $("#emailMsg").html("电子邮件已存在！");
+                    $("#loading").hide();
+                }
+            },
+            error: function (response) {
+                var s = response;
+                $("#formMsg").html(s.statusText);
+                $("#formMsgTitle").show();
+                $("#loading").hide();
+            },
+            timeout: 60000
+        });
+    }
+</script>
+</html>

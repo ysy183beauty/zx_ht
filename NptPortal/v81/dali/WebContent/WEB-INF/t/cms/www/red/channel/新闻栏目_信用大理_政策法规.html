@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=10"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+        <title id="title">${channel.title!channel.name} - ${site.name}</title>
+		[#include "../include/页头顶栏_LINK.html"/]
+	</head>
+	<body>
+	<div class="wrap">
+    [#include "../include/页头顶栏.html"/]
+		<div class="main">
+			<div class="w">
+				<div class="sit height_auto m-t-md">
+					<ul>
+						<li>
+							<a href="/">首页</a>
+						</li>
+						<li>></li>
+						<li>
+							<a href="">政策法规</a>
+						</li>
+					</ul>
+				</div>
+				<div class="w">
+					<div class="pull-left w710">
+						<div class="height_auto m-t-md">
+							<div class="height_auto">
+                                [@cms_content_list channelId='485'  count='2' titLen='13' orderBy='2' dateFormat='yyyy-MM-dd']
+                                [#list tag_list as a]
+                                [#if a_index<3]
+                                <div class="w345 pull-left news_block" style="margin-right:10px;">
+                                    <img src="${a.typeImg!site.defImg}" width="345" height="115">
+                                    <a href="${a.url}" title="${a.title}" target="_blank">
+                                        [@text_cut s=a.title len=titLen append='...'/]
+                                    </a>
+                                    <p>[@text_cut s=a.desc len=62 append='...'/]</p>
+                                </div>
+                                [#else]
+                                <div class="w345 pull-left news_block">
+									<img src="${a.typeImg!site.defImg}" width="345" height="115">
+                                    <a href="${a.url}" title="${a.title}" target="_blank">
+                                        [@text_cut s=a.title len=titLen append='...'/]
+                                    </a>
+                                    <p>[@text_cut s=a.desc len=62 append='...'/]</p>
+                                </div>
+                                [/#if]
+                                [/#list]
+                                [/@cms_content_list]
+                            </div>
+                                    [@cms_content_page channelId=channel.id count=channel.pageSize titLen='23'
+                                    sysPage='1'  styleList='zx-3' ctgForm='1' pageClass='page text-center m-t-lg'
+                                     ctgClass='orange'bottomLine='1' showTitleStyle='2' dateFormat='yyyy-MM-dd'
+                                     count='6' datePosition='2' dateClass='gray' channelOption='2' tpl='2'
+                                     orderBy='2' append='...'/]
+						</div>
+					</div>
+					<div class="w275 pull-right">
+						<div class="height_auto m-t-md">
+                            <a href="/credit/pub/index.do"><img src="${resSys}/www/red/img/images/sgs.jpg" class="img-responsive"></a>
+							<div class="hot_news m-t-md">
+								<div class="hot_news_tit">
+									热门关注
+								</div>
+								<div class="tab_box border_n">
+									<div class="bd">
+										<ul>
+                                            [@cms_content_list count='8' orderBy='9' titLen='14' append='...' dateFormat='MM-dd' channelOption='1']
+                                            [#list tag_list as a]
+                                            <li>
+                                                <dl>
+                                                    <dt class="pull-left"><a href="${a.url}" title="${a.title}" target="_blank">[@text_cut s=a.title len=titLen append=append/]</a></dt>
+                                                    <dd class="pull-right">${a.date?string(dateFormat)}</dd>
+                                                </dl>
+                                            </li>
+                                            [/#list]
+                                            [/@cms_content_list]
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="height_auto m-t-md">
+								<ul>
+                                    <li> <a href="/credit/srv/srvGover.do"><img src="${resSys}/www/red/img/images/xyfwjg.jpg"></a></li>
+                                    <li class="m-t-sm"> <a href="/credit/srv/index.do?word=1"><img src="${resSys}/www/red/img/images/yycl.jpg"></a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+    [#include "../include/页脚信息栏.html"/]
+	</body>
+</html>

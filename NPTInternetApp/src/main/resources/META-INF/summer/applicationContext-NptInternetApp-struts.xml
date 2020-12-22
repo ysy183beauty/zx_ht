@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:v="http://www.summer.org/schema/config"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.summer.org/schema/config http://www.summer.org/schema/config/summer-core.xsd">
+
+	<v:package name="/npt/global" action-ref="npt.global">
+		<v:action name="index" result-success="global/globalIndex.ftl"/>
+		<v:action name="businessIndex" result-success="global/business_index.ftl"/>
+		<v:action name="businessSearch" result-success="global/business_search.ftl"/>
+		<v:action name="personIndex" result-success="global/person_index.ftl"/>
+		<v:action name="personSearch" result-success="global/person_search.ftl"/>
+		<v:action name="redBlackIndex" result-success="blackRed/redBlack_index.ftl"/>
+		<v:action name="modelIndex" result-success="global/model_index.ftl"/>
+		<v:action name="paginationModelMainDataIndex" result-success="global/model_list.ftl"/>
+		<v:action name="paginationModelMainDataAjax" result-success="global/model_info.ftl"/>
+		<v:action name="paginationPoolDataIndex" result-success="global/model_list.ftl"/>
+		<v:action name="paginationPoolDataAjax" result-success="global/model_info.ftl"/>
+		<v:action name="getBaseModelGroupBlocks" result-success="model/detail.ftl"/>
+	</v:package>
+
+	<v:package name="/npt/internet/sync" action-ref="npt.internet.sync">
+		<v:action name="syncDataProvider"/>
+		<v:action name="syncBaseModel"/>
+		<v:action name="syncBaseModelData"/>
+	</v:package>
+
+	<v:package name="/npt/internet/blackred" action-ref="npt.internet.blackred">
+		<v:action name="getWebModelTree" result-success="blackRed/redBlack_index.ftl"/>
+		<v:action name="paginationPoolDataIndex" result-success="blackRed/redBlack_list.ftl"/>
+		<v:action name="paginationPoolDataAjax" result-success="blackRed/redBlack_info.ftl"/>
+		<v:action name="paginationModelMainDataIndex" result-success="model/index.ftl"/>
+		<v:action name="paginationModelMainDataAjax" result-success="model/list.ftl"/>
+		<v:action name="listModelDetailBlocks" result-success="model/detail.ftl"/>
+		<v:action name="getBlackPoolList" result-success="blackRed/redBlack_blockList.ftl"/>
+		<v:action name="getRedPoolList" result-success="blackRed/redBlack_blockList.ftl"/>
+		<v:action name="handleFrame" result-success="handle.ftl"/>
+	</v:package>
+</beans>

@@ -1,0 +1,194 @@
+/**
+ *作者: xuqinyuan
+ *时间: 2016/9/29 10:21
+ *备注: 默认样式
+ */
+
+body {
+    background-color: #EFF5F9 !important;
+}
+.container-fluid{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+/***
+Page header
+***/
+.header .navbar-inner {
+    background:#3c8dbc;
+}
+.header .brand{
+    background:#367fa9;
+    line-height: 22px;
+    text-align: center;
+    color: #fff;
+    padding-left: 20px;
+}
+.header .btn-navbar {
+    background-color: #3c8dbc!important;
+}
+.header .nav .dropdown-toggle:hover,
+.header .nav .dropdown.open .dropdown-toggle {
+    background-color: #337ab7 !important;
+}
+.header .nav li.dropdown .dropdown-toggle i {
+    color: #fff !important;
+}
+.header .nav > li.dropdown.user .dropdown-toggle .username {
+    color: #fff;
+}
+/***
+Page sidebar
+***/
+.page-sidebar {
+    background-color: #EFF5F9;
+}
+ul.page-sidebar-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin: 0;
+    padding: 0;
+}
+
+ul.page-sidebar-menu > li > a {
+    border-left: 3px solid transparent !important;
+    color: #fff ;
+    font-weight: 500;
+    background: #3C8DBC;
+    border-bottom:1px solid #fff;
+}
+ul.page-sidebar-menu > li:last-child > a {
+    border-bottom: 1px solid transparent !important;
+}
+ul.page-sidebar-menu > li:last-child > a,
+ul.page-sidebar-menu > li.last > a {
+    border-bottom-color: transparent !important;
+}
+ul.page-sidebar-menu > li a i {
+    color: #ffffff;
+}
+ul.page-sidebar-menu > li.open > a,
+ul.page-sidebar-menu > li > a:hover,
+ul.page-sidebar-menu > li:hover > a ,
+ul.page-sidebar-menu > li:hover > a>i,
+ul.page-sidebar-menu > li:hover > a .arrow:before,
+ul.page-sidebar-menu > li.active > a {
+    background: #0E53A7 !important;
+    border-left-color: #fc0009 !important;
+    color: #ffffff;
+}
+ul.page-sidebar-menu > li.active > a i {
+    color: #ffffff;
+}
+ul.page-sidebar-menu > li > ul.sub-menu {
+    background: #EFF5F9;
+    margin: 0;
+}
+ul.page-sidebar-menu > li > ul.sub-menu > li:first-child > a {
+    border-top: 0px !important;
+}
+ul.page-sidebar-menu > li > ul.sub-menu > li.active > a,
+ul.page-sidebar-menu > li > ul.sub-menu > li > a:hover,
+ul.page-sidebar-menu > li > ul.sub-menu > li.active > a i,
+ul.page-sidebar-menu > li > ul.sub-menu > li > a:hover i{
+    color: blue !important;
+    font-weight: 500;
+}
+ul.page-sidebar-menu > li > ul.sub-menu > li > a:hover {
+    /*background: #575757 !important;*/
+}
+/* 3rd level sub menu */
+ul.page-sidebar-menu > li > ul.sub-menu li > ul.sub-menu > li.active > a,
+ul.page-sidebar-menu > li > ul.sub-menu li > ul.sub-menu > li > a:hover,
+ul.page-sidebar-menu > li > ul.sub-menu li.open > a {
+    color: #ffffff !important;
+    background: #575757 !important;
+}
+/* font color for all sub menu links*/
+ul.page-sidebar-menu li > ul.sub-menu > li > a ,
+ul.page-sidebar-menu li > ul.sub-menu > li > a i {
+    color: black;
+}
+/* menu arrows */
+ul.page-sidebar-menu > li > a .arrow:before,
+ul.page-sidebar-menu > li > a .arrow.open:before {
+    color: #fff ;
+}
+ul.page-sidebar-menu > li > ul.sub-menu a .arrow:before,
+ul.page-sidebar-menu > li > ul.sub-menu a .arrow.open:before {
+    color: #707070 !important;
+}
+ul.page-sidebar-menu > li > a > .arrow.open:before {
+    color: #8a8a8a !important;
+}
+ul.page-sidebar-menu > li.active > a .arrow:before,
+ul.page-sidebar-menu > li.active > a .arrow.open:before {
+    color: #ffffff !important;
+}
+/***
+Page content
+***/
+.page-content {
+    margin-top: 0px;
+    padding: 0px;
+    background-color: #fff;
+}
+/***
+Page breadcrumb
+***/
+.page-content .breadcrumb {
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    box-shadow: none;
+    padding-right: 0px;
+    padding-left: 8px;
+    margin-bottom: 10px;
+    border-bottom:1px solid #ccc;
+    background-color: #F9F9F9;
+}
+/***
+Sidebar toggler
+***/
+.sidebar-toggler {
+    background-image: url(../img/sidebar-toggler.jpg);
+    background-color: #242424;
+}
+
+/***
+container
+***/
+.portlet.box.boxTheme .portlet-title {
+    background: #7295a7;
+}
+.portlet.box.boxTheme {
+    border: 1px solid #7295a7;
+    border-top: 0;
+}
+.portlet.box.boxTheme > .portlet-title .caption > i{
+    color: #fff;
+}
+.treeDiv.scroller {
+    padding: 0px !important;
+    margin: 0px !important;
+    padding-right: 12px !important;
+    background: #F0F0F0;
+}
+
+/***
+Footer
+***/
+.footer .footer-inner {
+    color: #999999;
+}
+.footer .footer-tools .go-top {
+    background-color: #4f4f4f;
+}
+.footer .footer-tools .go-top:hover {
+    opacity: 0.7;
+    filter: alpha(opacity=70);
+}
+.footer .footer-tools .go-top i {
+    color: #8a8a8a;
+}

@@ -1,0 +1,79 @@
+*{padding:0;margin:0;list-style:none}
+
+
+
+.con_main{
+    width:90%;
+    margin:0 auto;
+}
+.con_main h2{
+    padding:30px 0;
+    margin-top: 0;
+}
+.search{
+    margin-bottom: 30px;
+}
+.search input[type=text]{
+    width: 400px;
+    padding:5px;
+}
+.search input[type=submit]{
+    width: 60px;
+    background-color: #0099ff;
+    color:#fff;
+    border-radius: 3px;
+    margin-left:20px;
+}
+.gongshi{
+    width:80%;
+    border-bottom:1px solid #ccc;
+    margin-bottom: 20px;
+}
+.gongshi input:first-child{
+    width: 100px;
+    height:40px;
+    background-color: #0099ff;
+    color:#fff;
+    border-radius: 3px;
+}
+.gongshi input:last-child{
+    width: 100px;
+    height:40px;
+    background-color: #c9c9c9;
+    color:#fff;
+    border-radius: 3px;
+    margin-left:50px;
+}
+.tab_box_hd li{
+    max-width:120px;
+}
+table{
+    text-align: center;
+    margin-top:20px;
+}
+table thead{
+    background-color: #3A72AE!important;
+    color:#fff;;
+}
+table thead th{
+    padding:10px 5px;
+    text-align: center;
+}
+table tr:nth-child(2n){
+    background-color:#ece9e6;
+}
+table tr td{
+    padding:10px 0;
+}
+.bot_bot{
+    width:100%;
+    padding:30px 0;
+    font-size:12px;
+    direction: rtl;
+}
+.bot_bot span:first-child{
+    font-weight: bold;
+}
+.bot_bot input{
+    width:20px;
+}

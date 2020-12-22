@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="1437.0" y="8.5">com.npt.msg.service.NptMailChannel</node>
+    <node x="1437.0" y="248.5">com.npt.msg.service.NptMsgChannel</node>
+    <node x="1413.5" y="488.5">com.npt.msg.service.NptWechatChannel</node>
+    <node x="50.5" y="463.0">com.npt.msg.service.impl.NptWechatChannelImpl</node>
+    <node x="94.5" y="-17.0">com.npt.msg.service.impl.NptMailChannelImpl</node>
+    <node x="72.5" y="197.0">com.npt.msg.service.NptMsgOSBase</node>
+    <node x="1859.5" y="583.0">com.npt.msg.service.impl.NptShortMsgChannelImpl</node>
+    <node x="1999.0" y="248.5">com.npt.msg.service.NptShortMsgChannel</node>
+    <node x="754.0" y="223.0">com.npt.msg.service.NptMsgOS</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.npt.msg.service.NptMailChannel" target="com.npt.msg.service.NptMsgChannel">
+      <point x="0.0" y="31.5" />
+      <point x="0.0" y="-31.5" />
+    </edge>
+    <edge source="com.npt.msg.service.impl.NptShortMsgChannelImpl" target="com.npt.msg.service.NptShortMsgChannel">
+      <point x="0.0" y="-57.0" />
+      <point x="0.0" y="31.5" />
+    </edge>
+    <edge source="com.npt.msg.service.NptMsgChannel" target="com.npt.msg.service.NptMsgOS">
+      <point x="-163.0" y="0.0" />
+      <point x="286.0" y="0.0" />
+    </edge>
+    <edge source="com.npt.msg.service.impl.NptMailChannelImpl" target="com.npt.msg.service.NptMailChannel">
+      <point x="265.5" y="0.0" />
+      <point x="-163.0" y="0.0" />
+    </edge>
+    <edge source="com.npt.msg.service.NptMsgOSBase" target="com.npt.msg.service.NptMsgOS">
+      <point x="287.5" y="0.0" />
+      <point x="-286.0" y="0.0" />
+    </edge>
+    <edge source="com.npt.msg.service.NptWechatChannel" target="com.npt.msg.service.NptMsgChannel">
+      <point x="0.0" y="-31.5" />
+      <point x="0.0" y="31.5" />
+    </edge>
+    <edge source="com.npt.msg.service.impl.NptShortMsgChannelImpl" target="com.npt.msg.service.NptMsgOSBase">
+      <point x="-340.5" y="0.0" />
+      <point x="0.0" y="640.0" />
+      <point x="0.0" y="280.0" />
+      <point x="-287.5" y="0.0" />
+    </edge>
+    <edge source="com.npt.msg.service.NptShortMsgChannel" target="com.npt.msg.service.NptMsgChannel">
+      <point x="-201.0" y="0.0" />
+      <point x="163.0" y="0.0" />
+    </edge>
+    <edge source="com.npt.msg.service.impl.NptMailChannelImpl" target="com.npt.msg.service.NptMsgOSBase">
+      <point x="0.0" y="57.0" />
+      <point x="0.0" y="-83.0" />
+    </edge>
+    <edge source="com.npt.msg.service.impl.NptWechatChannelImpl" target="com.npt.msg.service.NptMsgOSBase">
+      <point x="0.0" y="-57.0" />
+      <point x="0.0" y="83.0" />
+    </edge>
+    <edge source="com.npt.msg.service.impl.NptWechatChannelImpl" target="com.npt.msg.service.NptWechatChannel">
+      <point x="309.5" y="0.0" />
+      <point x="-186.5" y="0.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="1270.5" y="340.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

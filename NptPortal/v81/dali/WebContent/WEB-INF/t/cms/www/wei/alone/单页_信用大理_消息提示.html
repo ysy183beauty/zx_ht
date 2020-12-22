@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>消息提示 - ${site.name}</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+    <meta http-equiv="keywords" content=""/>
+    <meta http-equiv="description" content=""/>
+    [#include "../include/页头顶栏_LINK.html"/]
+    <style>
+        body{
+            height:auto!important;
+        }
+        .center{
+            margin-top:40vw;
+        }
+    </style>
+    <!--<script type="text/javascript" src="${resSys}/www/red/js/jquery-1.9.1.min.js"></script>-->
+</head>
+<body>
+<div class="">
+
+    <!--内容开始-->
+
+
+    <div class="center">
+        <!--<div class="modal-header" style="height: 60px;">-->
+        <!--[#if registerSuccess??]-->
+        <!--<h3 class="modal-title pull-left" style="height: 45px;line-height: 45px;-->
+        <!--border-bottom: 2px solid #2E71B8;font-size: 18px;color: #2E71B8;padding: 0px 10px;">注册成功</h3>-->
+        <!--[/#if]-->
+        <!--[#if weixinMsg??]-->
+        <!--<h3 class="modal-title pull-left" style="height: 45px;line-height: 45px;-->
+        <!--border-bottom: 2px solid #2E71B8;font-size: 18px;color: #2E71B8;padding: 0px 10px;">消息提示</h3>-->
+        <!--[/#if]-->
+        <!--</div>-->
+        <div class="modal-body">
+            <div id="msg" class="text-center" style="font-size: 18px;height: 256px;background-color:#f2f9f6;padding-top:88px;">
+                [#if registerSuccess??]
+                您已经<label style='color:#28ff28'>注册成功</label>
+                <p>5秒后即将跳转<a href='/login.jspx' style='color: #337ab7;'>登录</a>页面</p>
+                [#elseif weixinMsg??]
+                <label style="color: red;">${weixinMsg!}</label>
+                [#else]
+                [#if args??]
+                [@s.mat code=message args=args text=message/]
+                [#else]
+                [@s.mt code=message text=message/]
+                [/#if]
+                <div id="goindex" style="display: none;">
+                    5秒后即将跳转<a href='/' style='color: #337ab7;'>首页</a>
+                </div>
+                [/#if]
+
+            </div>
+        </div>
+    </div>
+
+</div>
+<!--内容结束-->
+
+</body>
+<script type="text/javascript">
+    $(function () {
+        setInterval("goLogin();",1000);
+    });
+    var goIndexCount=5;
+    function goLogin() {
+        goIndexCount=goIndexCount*1-1;
+        if(goIndexCount<=0){
+            [#if registerSuccess??]
+            location.href="/login.jspx";
+            [#elseif weixinMsg??]
+            location.href="/logout.jspx";
+            [#else]
+            location.href="/";
+            [/#if]
+        }else{
+            [#if registerSuccess??]
+            $("#msg").html("您已经<label style='color:#28ff28'>注册成功</label><p>"+goIndexCount+"秒后即将跳<a href='/login.jspx' style='color: #337ab7;'>登录</a>页面</p>");
+            [#else]
+            $("#goindex").html(goIndexCount+"秒后即将跳转<a href='/' style='color: #337ab7;'>首页</a>")
+                [/#if]
+
+        }
+    }
+</script>
+
+</html>

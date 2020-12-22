@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>信用报告 - ${site.name}</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+    <meta http-equiv="keywords" content=""/>
+    <meta http-equiv="description" content=""/>
+    [#include "../include/页头顶栏_LINK.html"/]
+    <link rel="stylesheet" href="${resSys}/www/red/css/qyxycx.css"/>
+    <link rel="stylesheet" href="${resSys}/www/red/css/xycx.css"/>
+    <link rel="stylesheet" href="${resSys}/www/red/css/nav.css"/>
+    <link rel="stylesheet" href="${resSys}/www/red/css/tableDate.css"/>
+    <style type="text/css">
+        .nav-md{
+            box-shadow: 2px 2px #ccc;
+        }
+        .container{
+           max-width:1000px!important;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+[#include "../include/页头顶栏.html"/]
+    <div class="load_main">
+        <img src="/r/cms/www/red/img/load.gif">
+    </div>
+<!--内容开始-->
+<div class="main">
+    <div class="container">
+        <div class="sit height_auto m-t-md">
+            <ul>
+                <li>
+                    <a id="sy" href="/">首页</a>
+                </li>
+                <li>&gt;</li>
+                <li>
+                    <a href="/member/userInfo.jspx">用户中心</a>
+                </li>
+                <li>&gt;</li>
+                <li>
+                    账户信息
+                </li>
+            </ul>
+        </div>
+        <div class="row">
+            <div class="nav-col">
+                <ul class="nav nav-tabs">
+                    <li role="presentation" >
+                        <a href="/member/userInfo.jspx" >账户信息</a>
+                    </li>
+                    <li role="presentation" >
+                        <a href="/member/profile.jspx">实名认证</a>
+                    </li>
+                    <li role="presentation" >
+                        <a href="/member/pwd.jspx">密码修改</a>
+                    </li>
+                    <li role="presentation" >
+                        <a href="/xyxx/index.jhtml">信用信息</a>
+                    </li>
+                    <li role="presentation" >
+                        <a href="/xybg/index.jhtml" class="nav-active">信用报告</a>
+                    </li>
+                    <li role="presentation" >
+                        <a href="/lsxx/index.jhtml">历史信息</a>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="report">
+                <div class="report-yy">
+                    <button class="btn btn-warning" onclick="javascript:window.location='/credit/srv/index.do?word=1'"><i class="glyphicon glyphicon-pencil"></i>异议</button>
+                </div>
+                <div class="height_auto m-t-md" style="width:100%;margin:0 auto;" id="userContent">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<!--内容结束-->
+
+[#include "../include/页脚信息栏.html"/]
+
+</body>
+<script type="text/javascript">
+    $(function () {
+        queryNavi('/credit/query/ps/getReport.do',null,'#userContent');
+    });
+
+    function queryNavi(url,param,domId){
+        $(".load_main").css("display","block");
+        $.ajax({
+            url: url,
+            data: param,
+            timeout: 30000,
+            success: function (data) {
+                $(domId).html(data);
+                load();
+//                $.scrollTo("#searchContent", 500);
+            },
+            error:function () {
+                $(domId).html("数据请求失败！");
+                load();
+            },
+            timeout:function(){
+                $(domId).html("数据请求超时！");
+                load();
+            }
+        });
+    }
+    function load(){
+        $(".load_main").hide();
+    }
+</script>
+</html>

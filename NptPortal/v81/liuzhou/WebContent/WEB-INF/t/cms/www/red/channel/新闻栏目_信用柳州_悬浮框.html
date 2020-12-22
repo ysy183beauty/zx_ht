@@ -1,0 +1,592 @@
+<div class="nav-content-box">
+    <div id="idxCaptchaInner" style="display: none">
+        <img class='idxCaptcha ' onclick="this.src='/captcha.svl?d='+new Date()" src='/captcha.svl'>
+    </div>
+    <div id="zx">
+        <div class="col-xs-8 ">
+            <div class="gonggao-title">
+                <h3 class="col-xs-11">新闻资讯</h3>
+                [@cms_channel_list parentId='100']
+                [#list tag_list as c2]
+                [#if c2_index<1]
+                <a href="${c2.url}">
+                    更多>>
+                </a>
+                [/#if]
+                [/#list]
+                [/@cms_channel_list]
+            </div>
+
+            <div class="news" id="news">
+                [@cms_content_list channelId='472' count='3' titLen='30' orderBy='2' channelOption='1'
+                dateFormat='yyyy-MM-dd']
+                [#list tag_list as a]
+                [#if a_index<2]
+                <div>
+                    <a href="${a.url}" title="${a.title}" target="_blank" class="col-xs-4">
+                        <img class="news-img" src="${a.typeImg!site.defImg}">
+                    </a>
+                    <div class="col-xs-8">
+                        <h4><a href="${a.url}">${a.title}</a></h4>
+                        <p><img class="biao" src="${resSys}/www/red/img/aaaa/20.png" alt="">
+                            [${a.date?string(dateFormat)}]</p>
+                        <p>
+                            <a href="${a.url}" target="_blank" class='p2'>
+                                [@text_cut s=a.desc len=80 append='...'/]
+                            </a>
+                        </p>
+
+                    </div>
+                </div>
+
+                [/#if]
+                [/#list]
+                [/@cms_content_list]
+            </div>
+
+
+        </div>
+        <div class="col-xs-4">
+            <div class="gonggao">
+                <div class="gonggao-title">
+                    <h3 class="col-xs-10">公告栏</h3>
+                    [@cms_channel_list parentId='100']
+                    [#list tag_list as c2]
+                    [#if c2_index<1]
+                    <a href="${c2.url}">
+                        更多>>
+                    </a>
+                    [/#if]
+                    [/#list]
+                    [/@cms_channel_list]
+                </div>
+                <ul>
+                    [@cms_content_list channelId='447' count='8' titLen='14' orderBy='2' append='...'
+                    dateFormat='MM-dd' channelOption='1']
+                    [#list tag_list as a]
+                    <li><a href="${a.url}" title="${a.title}" target="_blank">
+                        · [@text_cut s=a.title len=titLen append=append/]
+                    </a>
+                        <span>${a.date?string(dateFormat)}</span>
+                    </li>
+                    [/#list]
+                    [/@cms_content_list]
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="gs">
+        <div class="col-xs-4">
+            <div class="gonggao half">
+                <div class="gonggao-title">
+                    <div class="col-xs-10 ">
+                        <span class="black-title">黑榜</span>
+                    </div>
+
+                    <a href="/credit/pub/index.do?word=3">
+                        更多>>
+                    </a>
+
+                </div>
+                <div>
+                    <div class="rbl-half rbl-img" >
+                        <img class="" src="${resSys}/www/red/img/lz/index/u279.png" alt="">
+                    </div>
+                    <ul id="nav-black" class="rbl-half">
+
+                    </ul>
+                </div>
+
+            </div>
+            <div class="gonggao half">
+                <div class="gonggao-title">
+                    <div class="col-xs-10 ">
+                        <span class="red-title">红榜</span>
+                    </div>
+
+                    <a href="/credit/pub/index.do?word=2">
+                        更多>>
+                    </a>
+                </div>
+                <div>
+                    <div class="rbl-half rbl-img">
+                        <img class="" src="${resSys}/www/red/img/lz/index/u289.png" alt="">
+                    </div>
+
+                    <ul id="nav-red" class="rbl-half">
+                        [@cms_content_list channelId='447' count='3' titLen='6' orderBy='2' append='...'
+                        dateFormat='MM-dd' channelOption='1']
+                        [#list tag_list as a]
+                        <li><a href="${a.url}" title="${a.title}" target="_blank">
+                            <div class='fang'></div>
+                            [@text_cut s=a.title len=titLen append=append/]
+                        </a>
+                            <span>${a.date?string(dateFormat)}</span>
+                        </li>
+                        [/#list]
+                        [/@cms_content_list]
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-xs-4">
+            <div class="gonggao half">
+                <div class="gonggao-title">
+                    <h3 class="col-xs-10">行政许可</h3>
+
+                    <a href="/credit/pub/index.do?word=0">
+                        更多>>
+                    </a>
+                </div>
+                <ul id="nav-xk">
+
+                </ul>
+            </div>
+            <div class="gonggao half">
+                <div class="gonggao-title">
+                    <h3 class="col-xs-10">行政处罚</h3>
+
+                    <a href="/credit/pub/index.do?word=1">
+                        更多>>
+                    </a>
+                </div>
+                <ul id="nav-cf">
+
+                </ul>
+            </div>
+        </div>
+        <div class="col-xs-4">
+            <div class="gonggao half">
+                <div class="gonggao-title">
+                    <h3 class="col-xs-10">统一信用代码</h3>
+
+                    <a href="/credit/pub/index.do?word=4">
+                        更多>>
+                    </a>
+                </div>
+                <ul id="nav-xydm">
+
+                </ul>
+            </div>
+            <div class="gonggao half">
+                <div class="gonggao-title">
+                    <h3 class="col-xs-10">典型案例</h3>
+                    <a href="/credit/pub/index.do?word=5">
+                        更多>>
+                    </a>
+                </div>
+                <ul>
+
+                    [@cms_content_list channelId='725' count='3' titLen='14' orderBy='2' append='...'
+                    dateFormat='MM-dd' channelOption='1']
+                    [#list tag_list as a]
+                    <li>
+                        <a href="${a.url}" title="${a.title}" target="_blank">
+                            <div class='fang'></div>
+                            [@text_cut s=a.title len=titLen append=append/]
+                        </a>
+                        <span>${a.date?string(dateFormat)}</span>
+                    </li>
+                    [/#list]
+                    [/@cms_content_list]
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="yj">
+        <div class="col-xs-4 border-right">
+            <div class="gonggao">
+                <div class="gonggao-title">
+                    <h3 class="col-xs-10">政策法规</h3>
+                    [@cms_channel_list parentId='482']
+                    [#list tag_list as c2]
+                    [#if c2_index<1]
+                    <a href="${c2.url}">
+                        更多>>
+                    </a>
+                    [/#if]
+                    [/#list]
+                    [/@cms_channel_list]
+                </div>
+                <ul>
+                    [@cms_content_list channelId='451' count='8' titLen='14' orderBy='2' append='...'
+                    dateFormat='MM-dd' channelOption='1']
+                    [#list tag_list as a]
+                    <li><a href="${a.url}" title="${a.title}" target="_blank">
+                        · [@text_cut s=a.title len=titLen append=append/]
+                    </a>
+                        <span>${a.date?string(dateFormat)}</span>
+                    </li>
+                    [/#list]
+                    [/@cms_content_list]
+                </ul>
+            </div>
+        </div>
+        <div class="col-xs-4 border-right">
+            <div class="gonggao">
+                <div class="gonggao-title">
+                    <h3 class="col-xs-10">信用知识</h3>
+                    [@cms_channel_list parentId='104']
+                    [#list tag_list as c2]
+                    [#if c2_index<1]
+                    <a href="${c2.url}">
+                        更多>>
+                    </a>
+                    [/#if]
+                    [/#list]
+                    [/@cms_channel_list]
+                </div>
+                <ul>
+                    [@cms_content_list channelId='453' count='8' titLen='14' orderBy='2' append='...'
+                    dateFormat='MM-dd' channelOption='1']
+                    [#list tag_list as a]
+                    <li><a href="${a.url}" title="${a.title}" target="_blank">
+                        · [@text_cut s=a.title len=titLen append=append/]
+                    </a>
+                        <span>${a.date?string(dateFormat)}</span>
+                    </li>
+                    [/#list]
+                    [/@cms_content_list]
+                </ul>
+            </div>
+        </div>
+        <div class="col-xs-4">
+            <div class="gonggao">
+                <div class="gonggao-title">
+                    <h3 class="col-xs-10">专家视角</h3>
+
+                    <a href="/zjsj/index.jhtml">
+                        更多>>
+                    </a>
+
+                </div>
+                <ul>
+                    [@cms_content_list channelId='769' count='8' titLen='14' orderBy='2' append='...'
+                    dateFormat='MM-dd' channelOption='1']
+                    [#list tag_list as a]
+                    <li><a href="${a.url}" title="${a.title}" target="_blank">
+                        · [@text_cut s=a.title len=titLen append=append/]
+                    </a>
+                        <span>${a.date?string(dateFormat)}</span>
+                    </li>
+                    [/#list]
+                    [/@cms_content_list]
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="cx"  >
+        <div class="nav-search">
+            <div class="nav-cx">
+                <ul>
+                    <li id="nav-bus" class="cx-active" onclick="cxsearchShow('bus')">
+                        企业基础信息
+                        <div class="u564"><img src="${resSys}/www/red/img/lz/index/信用查询-2_03.png" alt=""></div>
+                    </li>
+                    <li id="nav-people" onclick="cxsearchShow('people')">
+                        重点人群
+                        <div class="u564"><img src="${resSys}/www/red/img/lz/index/信用查询-2_03.png" alt=""></div>
+                    </li>
+                    <!--<li id="nav-person" onclick="cxsearchShow('person')">-->
+                        <!--个人自身-->
+                        <!--<div class="u564"><img src="${resSys}/www/red/img/lz/index/u564.png" alt=""></div>-->
+                    <!--</li>-->
+                    <!--<li id="nav-busSelf" onclick="cxsearchShow('busSelf')">-->
+                        <!--企业自身-->
+                        <!--<div class="u564"><img src="${resSys}/www/red/img/lz/index/u564.png" alt=""></div>-->
+                    <!--</li>-->
+                </ul>
+            </div>
+            <div id="nav-search" class="search-input">
+                <ul id="nav-bus-input" class="input-content nav-bus-input">
+                    <li class="xfBox-li">
+                        <div class="col-xs-2 cx-img" >
+                            <img src="${resSys}/www/red/img/lz/index/user.png" alt="">
+                        </div>
+
+                        <input class="col-xs-10 cx-input bus-info" type="text" onfocus="clearMsg(this)" placeholder="请输入您要查询的企业名称或统一信用代码">
+                        <div  class="info-tip index-search-tip">
+                            <p class="search-count " id="">搜索关键词不得少于２个字符</p>
+                            <span class="corner-main">◆</span>
+                            <span class="corner-bottom">◆</span>
+                        </div>
+                    </li>
+                    <li class="xfBox-li">
+                        <div class="col-xs-2 cx-img" >
+                            <img src="${resSys}/www/red/img/lz/index/password.png" alt="">
+                        </div>
+
+                        <input type="text" placeholder="图片验证码" autocomplete="false" class="col-xs-7 cx-input bus-code"
+                               maxlength="6" name="captcha"  onfocus="clearMsg(this)">
+
+                        <div id="nav-busCodeTip" class="code-tip index-search-tip">
+                            <p class="search-count " id="nav-bus-codeTip">请输入验证码</p>
+                            <span class="corner-main">◆</span>
+                            <span class="corner-bottom">◆</span>
+                        </div>
+
+                    </li>
+                    <li class="input-button navSearch-input-botton" >
+                        <input type="button" class="btn btn-primary" onclick="searchNavInfo('nav-bus-input')" value="查询">
+                        <input type="button" class="btn btn-success" onclick="clearInput('nav-bus-input')" value="重置">
+                    </li>
+                </ul>
+                <ul id="nav-people-input" class="input-content nav-bus-input" >
+                    <li class="xfBox-li">
+                        <div class="col-xs-2 cx-img" >
+                            <img src="${resSys}/www/red/img/lz/index/user.png" alt="">
+                        </div>
+                        <input class="col-xs-10 cx-input bus-info" type="text" onfocus="clearMsg(this)" placeholder="请输入您要查询的重点人群姓名">
+                        <div  class="info-tip index-search-tip">
+                            <p class="search-count " id="">搜索关键词不得少于２个字符</p>
+                            <span class="corner-main">◆</span>
+                            <span class="corner-bottom">◆</span>
+                        </div>
+                    </li>
+                    <li class="xfBox-li">
+                        <div class="col-xs-2 cx-img" >
+                            <img src="${resSys}/www/red/img/lz/index/password.png" alt="">
+                        </div>
+                        <input type="text" placeholder="图片验证码" autocomplete="false" class="col-xs-7 cx-input bus-code"
+                               maxlength="6" name="captcha"  onfocus="clearMsg(this)">
+                        <div id="nav-peopleCodeTip" class="code-tip index-search-tip">
+                            <p class="search-count " id="nav-people-codeTip">请输入验证码</p>
+                            <span class="corner-main">◆</span>
+                            <span class="corner-bottom">◆</span>
+                        </div>
+
+                    </li>
+                    <li class="input-button navSearch-input-botton">
+                        <input type="button" class="btn btn-primary" onclick="searchNavInfo('nav-people-input')" value="查询">
+                        <input type="button" class="btn btn-success" onclick="clearInput('nav-people-input')" value="重置">
+                    </li>
+                </ul>
+            </div>
+            <div class="search-help nav-search-help">
+                <div >查询帮助：</div>
+                <div >本系统显示均为平台归集后主体信用信息，仅供参考。如有异议，以行政管理部门实发文书为准。</div>
+            </div>
+            <img src="${resSys}/www/red/img/lz/index/信用查询-3_07.png" class="background-left" alt="">
+            <img src="${resSys}/www/red/img/lz/index/信用查询-3_10.png" class="background-right" alt="">
+        </div>
+
+    </div>
+    <div id="fw" >
+        <div class="col-xs-8">
+            <img class="xyfw-img" src="${resSys}/www/red/img/lz/index/nav-xyfw.png" alt="">
+        </div>
+        <div class="clo-xs-4 fw-box">
+            <div id="yy" class="col-xs-6">
+                <a href="[#if user??]/credit/srv/index.do?word=1[#else]javascript:showEHAOTONGLogin();[/#if]">
+                    <div class="fw-img">
+                        <img src="${resSys}/www/red/img/lz/index/u600.png" alt="">
+                    </div>
+                    <div class="fw-title">信用申诉</div>
+                </a>
+            </div>
+            <div id="suggestion" class="col-xs-6">
+                <a href="[#if user??]/credit/srv/index.do?word=2[#else]javascript:showEHAOTONGLogin();[/#if]">
+                    <div class="fw-img" >
+                        <img src="${resSys}/www/red/img/lz/index/u595.png" alt="">
+                    </div>
+                    <div class="fw-title">信用投诉</div>
+                </a>
+            </div>
+            <div id="qa" class="col-xs-6">
+                <a href="[#if user??]/credit/srv/index.do?word=3[#else]javascript:showEHAOTONGLogin();[/#if]">
+                    <div class="fw-img">
+                        <img src="${resSys}/www/red/img/lz/index/u586.png" alt="">
+                    </div>
+                    <div class="fw-title">信用答问</div>
+                </a>
+            </div>
+            <div id="my" class="col-xs-6">
+                <a href="[#if user??]/credit/srv/index.do?word=4[#else]javascript:showEHAOTONGLogin();[/#if]">
+                    <div class="fw-img">
+                        <img src="${resSys}/www/red/img/lz/index/u611.png" alt="">
+                    </div>
+                    <div class="fw-title">我的消息</div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!--<div id="mp">-->
+        <!--<img src="${resSys}/www/red/img/lz/index/u672.jpg" class="col-xs-5" alt="">-->
+        <!--<div class="col-xs-7">-->
+            <!--<p>&nbsp;&nbsp; &nbsp;&nbsp; 个人征信所涉及到的信用记录，以后更会成为我们的第二种身份证，就算现在离开身份证我们都会觉得寸步难行，而在欧美等征信业发达的国家，没有另一张“身份证”同样也会觉得举步维艰，这个“身份证”就是个人的“信用记录”。</p>-->
+            <!--<p>&nbsp;&nbsp; &nbsp;&nbsp; 人们一旦丧失了征信，不仅是个人品格的缺陷，更给自己未来的发展造成了困扰。 当今社会，大家找工作就业最重要的一点就是诚信与否，对工作行业的诚信，对同事的诚信，对业务的诚信„„无一不关系到前途与命运。缺失征信，档案里那跟着一个人一辈子的记录，就想永远躲不掉的阴影，试问，连对自己的曾经起过帮助作用的机构都做不到诚信的人，如何能够任用，又如何能在社会上立足。</p>-->
+        <!--</div>-->
+    <!--</div>-->
+    <div id="zt">
+        <div>
+            <div class="zt-box food-safe">
+                <a href="/xyzt/index.jhtml">
+                    <img src="${resSys}/www/red/img/lz/xyzt/信用专题-3_10.png" alt="">
+                    <span>食品安全</span>
+                </a>
+
+            </div>
+            <div  class="zt-box construction">
+                <a href="/xyzt/index.jhtml?word=1">
+                    <img src="${resSys}/www/red/img/lz/xyzt/信用专题-3_12.png" alt="">
+                    <span>工程建设</span>
+                </a>
+
+            </div>
+            <div class="zt-box xyjg">
+                <a href="/xyzt/index.jhtml?word=2">
+                    <img src="${resSys}/www/red/img/lz/xyzt/信用专题-3_14.png" alt="">
+                    <span>被执行人信用监管</span>
+                </a>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!--加载信用公示页面-->
+<script type="text/javascript">
+    $(function () {
+       navBlack();
+       navRed();
+       navUccList();
+        navXkList();
+        navCfList()
+    });
+    function navXkList() {
+        $.ajax({
+            url: "/credit/pub/2pub/divIndex.do",
+            data: {},
+            timeout: 30000,
+            success: function (data) {
+                $("#nav-xk").html(data);
+                $("#nav-xk>#ap").hide();
+//                secondShow('xk')
+            }
+        });
+    }
+    function navCfList() {
+        $.ajax({
+            url: "/credit/pub/2pub/divIndex.do",
+            data: {},
+            timeout: 30000,
+            success: function (data) {
+                $("#nav-cf").html(data);
+                $("#nav-cf>#al").hide();
+//                secondShow('xk')
+            }
+        });
+    }
+    function navBlack(){
+        $.ajax({
+            url: "/credit/pub/rbl/divIndex.do",
+            data: {type:"black"},
+            timeout: 30000,
+            success: function (data) {
+                $("#nav-black").html(data);
+                $("#nav-black>#红名单").hide();
+            }
+        });
+    }
+    function navRed(){
+        $.ajax({
+            url: "/credit/pub/rbl/divIndex.do",
+            data: {type:"red"},
+            timeout: 30000,
+            success: function (data) {
+                $("#nav-red").html(data);
+                $("#nav-red>#黑名单").hide();
+            }
+        });
+    }
+    function navUccList() {
+        $.ajax({
+            url: "/credit/pub/ucc/divIndex.do",
+            data: {},
+            timeout: 30000,
+            success: function (data) {
+                $("#nav-xydm").html(data);
+                $("#nav-xydm>li>span").hide();
+                $("#nav-xydm>li>a").removeClass("col-xs-6").addClass("nav-text");
+            }
+        });
+    }
+</script>
+<!--查询框-->
+<script type="text/javascript">
+    function clearInput(id){
+        $("#"+id+">li>input[type='text']").val("");
+    }
+    function clearMsg(e) {
+        $(e).siblings(".index-search-tip").css("display", "none");
+    }
+//    获取验证码
+    var idxCaptchaHtml=$("#idxCaptchaInner").find(".idxCaptcha");
+    $("#nav-search .bus-code").focus(function(){
+        idxCaptchaHtml.attr("id","nav-search-idxCaptcha").addClass("col-xs-2");
+        $(".idxCaptcha").remove();
+        $(this).after(idxCaptchaHtml);
+        $("#nav-search-idxCaptcha").click();
+    });
+    function searchNavInfo(d) {
+        var captValue=$("#"+d+" .bus-code").val();
+        var keyWord = $("#"+d+" .bus-info").val();
+        if (keyWord && keyWord.length > 1 && captValue.length > 0) {
+            if (d == "nav-bus-input") {
+                $.ajax({
+                    url: encodeURI("/credit/query/validate.do"),
+                    data: {
+                        keyword: keyWord,
+                        captcha: captValue
+                    },
+                    success: function (data) {
+                        if (0 == data.code) {
+                            window.open(encodeURI("/credit/query/bs/bsSearch.do?keyword=" + keyWord + "&&index=true"));
+                        } else {
+                            $("#nav-bus-codeTip").text(data.title);
+                            $("#nav-busCodeTip").show();
+                        }
+//                        console.log($("#" + d + " #idxCaptcha"));
+//                        $(".idxCaptcha").click();
+                    },
+                    error: function (data) {
+                        console.log(data);
+                    }
+                });
+            }
+//            功能正常，目前不需要
+            else if (d == "nav-people-input") {
+                $.ajax({
+                    url: encodeURI("/credit/query/validate.do"),
+                    data:{
+                        keyword:keyWord,
+                        captcha:captValue
+                    },
+                    success: function (data) {
+                        if(0 == data.code) {
+                            window.open(encodeURI("/credit/query/kc/fuzzySearch.do?keyword=" + keyWord));
+                        }else {
+                            $("#nav-people-codeTip").text(data.title);
+                            $("#nav-peopleCodeTip").show();
+                        }
+//                        $(".idxCaptcha").click();
+                    },
+                    error:function(data){
+                        console.log(data);
+                    }
+                });
+            }
+            else if (id == "site") {
+                window.open(encodeURI("/znss/index.jhtml?keyword=" + keyWord));
+            }
+        }
+        if( keyWord.length< 2) {
+            $("#"+d+" .info-tip").css("display", "block");
+        }
+        if(captValue.length < 1){
+            $("#"+d+" .code-tip .search-count ").text("请输入验证码");
+            $("#"+d+" .code-tip").css("display", "block");
+        }
+        $("#"+d+" .bus-code").val("");
+    }
+</script>

@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+    <link href="/r/cms/www/resources/css/jquery-ui-themes.css" type="text/css" rel="stylesheet"/>
+    <link href="/r/cms/www/resources/css/axure_rp_page.css" type="text/css" rel="stylesheet"/>
+    <link href="/r/cms/www/resources/css/index.css" type="text/css" rel="stylesheet"/>
+    <link href="/r/cms/www/red/css/bootstrap.css" type="text/css" rel="stylesheet"/>
+    <link href="/r/cms/www/data/styles.css" type="text/css" rel="stylesheet"/>
+    <link href="/r/cms/www/files/信用服务/styles.css" type="text/css" rel="stylesheet"/>
+    <meta name="viewport" content="width=device-width,maximum-scale=1,user-scalable=no" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+    <title id="title">${channel.title!channel.name} - ${site.name}</title>
+    [#include "../include/页头顶栏_LINK.html"/]
+</head>
+
+<body>
+<div class="wrap">
+
+<!--内容开始-->
+<div class="main">
+    <div class="wx-list">
+        <div>
+        <h3>政策法规</h3>
+    </div>
+
+        <div class="s-ri">
+            <ul class="s-ri-ul showData">
+                [@cms_content_list channelId='482' count='' titLen='14' orderBy='2' append='...'
+                dateFormat='MM-dd' channelOption='1']
+                [#list tag_list as a]
+                <li>
+                    <a href="${a.url}" title="${a.title}" target="_blank" class="col-xs-9">
+                        · [@text_cut s=a.title len=titLen append=append/]
+                    </a>
+                    <span class="col-xs-3">${a.date?string(dateFormat)}</span>
+                </li>
+                [/#list]
+                [/@cms_content_list]
+
+
+            </ul>
+
+        </div>
+    </div>
+    <!--<div class="wx-more">-->
+        <!--<div class="more" onclick="makeMore()">查看更多</div>-->
+    <!--</div>-->
+</div>
+
+
+
+
+</div>
+
+
+<script type="text/javascript">
+
+//    function setSelect(url) {
+//
+//        if(url.indexOf('bsdt')>-1){
+//            $("#bsdt").css("color","#FFFFFF");
+//            $("#gndt").css("color","#000");
+//            $("#tzgg").css("color","#000");
+//            $("#bsdt").parent().addClass("on")
+//        }else if(url.indexOf('gndt')>-1){
+//            $("#gndt").css("color","#FFFFFF");
+//            $("#bsdt").css("color","#000");
+//            $("#tzgg").css("color","#000");
+//            $("#gndt").parent().addClass("on")
+//        }else if(url.indexOf('tzgg')>-1){
+//            $("#tzgg").css("color","#FFFFFF");
+//            $("#gndt").css("color","#000");
+//            $("#bsdt").css("color","#000");
+//            $("#tzgg").parent().addClass("on")
+//        }
+//    }
+//    $(function(){
+//
+//        setSelect(window.location.pathname);
+//        //window.location.hash="#sy";
+//    });
+
+
+
+    function showList(){
+        $(".showList").toggle();
+    }
+//    function makeMore() {
+//        $(".s-ri-ul").css("height","auto");
+//        $(".more").hide();
+//    }
+//    $(document).ready(function(e) {
+//        var unslider04 = $('#b04').unslider({
+//                dots: false
+//            }),
+//            data04 = unslider04.data('unslider');
+//
+//        $('.unslider-arrow04').click(function() {
+//            var fn = this.className.split(' ')[1];
+//            data04[fn]();
+//        });
+//    });
+//    $(".wx-list-title li").click(function(){
+//        $(this).stop().addClass("active").siblings().removeClass("active");
+//        $(".s-ri-ul").eq($(this).index()).addClass("showData").siblings().removeClass("showData");
+//    });
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,2131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WorkBook xmlVersion="20170715" releaseVersion="8.0.0">
+<TableDataMap>
+<TableData name="ds1" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="rpbs"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[Credeit]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select '${rpbs}' rpbs from dual]]></Query>
+</TableData>
+<TableData name="rkxx" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="rkbs"/>
+<O>
+<![CDATA[532901014000057299]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[Credeit]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select xm,mzmc,xb,csrq,sfzh,mlxz from nce_rk_hjxx_gongaj where rybh=${rkbs}]]></Query>
+</TableData>
+</TableDataMap>
+<ReportWebAttr>
+<ServerPrinter/>
+<WebPageContent>
+<ToolBars>
+<ToolBarManager>
+<Location>
+<Embed position="1"/>
+</Location>
+<ToolBar>
+<Widget class="com.fr.report.web.button.page.First">
+<WidgetAttr description="">
+<PrivilegeControl/>
+</WidgetAttr>
+<Text>
+<![CDATA[${i18n('ReportServerP-First')}]]></Text>
+<IconName>
+<![CDATA[first]]></IconName>
+</Widget>
+<Widget class="com.fr.report.web.button.page.Previous">
+<WidgetAttr description="">
+<PrivilegeControl/>
+</WidgetAttr>
+<Text>
+<![CDATA[${i18n('ReportServerP-Previous')}]]></Text>
+<IconName>
+<![CDATA[previous]]></IconName>
+</Widget>
+<Widget class="com.fr.report.web.button.page.PageNavi">
+<WidgetAttr description="">
+<PrivilegeControl/>
+</WidgetAttr>
+</Widget>
+<Widget class="com.fr.report.web.button.page.Next">
+<WidgetAttr description="">
+<PrivilegeControl/>
+</WidgetAttr>
+<Text>
+<![CDATA[${i18n('ReportServerP-Next')}]]></Text>
+<IconName>
+<![CDATA[next]]></IconName>
+</Widget>
+<Widget class="com.fr.report.web.button.page.Last">
+<WidgetAttr description="">
+<PrivilegeControl/>
+</WidgetAttr>
+<Text>
+<![CDATA[${i18n('ReportServerP-Last')}]]></Text>
+<IconName>
+<![CDATA[last]]></IconName>
+</Widget>
+<Widget class="com.fr.form.ui.CustomToolBarButton">
+<WidgetAttr description="">
+<PrivilegeControl/>
+</WidgetAttr>
+<Text>
+<![CDATA[导出]]></Text>
+<IconName>
+<![CDATA[export]]></IconName>
+<JavaScript class="com.fr.js.JavaScriptImpl">
+<Parameters/>
+<Content>
+<![CDATA[(function ($) {
+    $.getUrlParam = function (name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]A*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return decodeURI(r[2]A); return null;
+    }
+})(jQuery);
+window.location.href='/npt/web/finereport/log/exportReportToPDF.action?rptype='+$.getUrlParam('rptype')+'&rpbs=${rpbs}&template='+$.getUrlParam('reportlet')+'&id='+$.getUrlParam('id');]]></Content>
+</JavaScript>
+</Widget>
+</ToolBar>
+</ToolBarManager>
+</ToolBars>
+<WebPage isPage="false" isShowAsImage="false" isAutoScale="false" isTDHeavy="false"/>
+</WebPageContent>
+</ReportWebAttr>
+<Report class="com.fr.report.worksheet.WorkSheet" name="sheet1">
+<ReportPageAttr>
+<HR/>
+<FR/>
+<HC/>
+<FC/>
+</ReportPageAttr>
+<ColumnPrivilegeControl/>
+<RowPrivilegeControl/>
+<RowHeight defaultValue="723900">
+<![CDATA[590400,590400,590400,590400,723900,1143000,723900,723900,723900,723900,723900,723900,723900,1429789,723900,990600,990600,1676400,723900,1428480,723900,1428480,723900,722880,722880,722880,722880,722880,1428480,723900,1529541,1463040,723900,1429789,723900,1143000,1428480,723900,723900,1428480,1396538,723900,723900,723900,1428480,722880,723900,1428480,723900,723900,723900,723900,723900,1428480,723900,723900,723900,723900,722880,723900,1428480,723900,723900,723900,723900,1428480,723900,723900,1428480,723900,723900,723900,723900,723900,1428480,723900,722880,722880,723900,731520,1428480,1529541,723900]]></RowHeight>
+<ColumnWidth defaultValue="2743200">
+<![CDATA[2023200,2023200,2023200,2023200,2023200,2023200,2023200,2023200,2023200,2023200,2023200,2023200,2743200]]></ColumnWidth>
+<CellElementList>
+<C c="0" r="0" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="0" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="0" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="0" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="0" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="0" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="0" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="0" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="0" cs="4" s="0">
+<O>
+<![CDATA[大理州公共信用信息中心]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="1" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="1" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="1" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="1" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="1" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="1" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="1" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="1" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="1" cs="4" s="0">
+<O>
+<![CDATA[联系电话: 883xxxxx]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="2" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="2" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="2" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="2" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="2" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="2" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="2" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="2" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="2" cs="4" s="0">
+<O>
+<![CDATA[邮箱: ]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="3" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="3" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="3" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="3" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="3" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="3" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="3" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="3" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="3" cs="4" s="0">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[="报告编号: dlgrxybg_" + FORMAT(NOW() + "", "yyyyMMddHHmmss")]]></Attributes>
+</O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="4" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="4" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="4" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="4" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="4" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="4" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="4" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="4" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="4" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="4" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="4" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="4" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="5" cs="12" s="1">
+<O>
+<![CDATA[个人信用报告]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="6" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="6" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="6" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="6" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="6" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="6" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="6" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="6" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="6" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="6" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="6" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="6" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="7" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="7" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="7" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="7" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="7" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="7" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="7" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="7" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="7" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="7" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="7" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="7" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="8" cs="12" s="0">
+<O>
+<![CDATA[重要声明：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="9" cs="12">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[="1、本报告生成时间为" + FORMAT(NOW() + "", "yyyy年MM月dd日 HH时mm分ss秒") + "，你所看到的内容为截止时间点的数据快照。"]]></Attributes>
+</O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="10" cs="12" s="0">
+<O>
+<![CDATA[2、大理州企业信用报告信息来源于有关政府部门已提供的信息。该报告仅供参考。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="11" cs="12" s="0">
+<O>
+<![CDATA[3、您有权对本报告中的内容提出异议，如有异议，可联系数据提供单位，也可在异议处理模块提出异议。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="12" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="12" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="12" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="12" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="12" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="12" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="12" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="12" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="12" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="12" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="12" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="12" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="13" cs="12" s="2">
+<O>
+<![CDATA[基础信息]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="14" cs="12" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="15" cs="2" s="3">
+<O>
+<![CDATA[姓名：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="15" cs="4" s="4">
+<O t="DSColumn">
+<Attributes dsName="rkxx" columnName="XM"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters>
+<Parameter>
+<Attributes name="rkbs"/>
+<O>
+<![CDATA[532901014000057298]]></O>
+</Parameter>
+</Parameters>
+</O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="15" cs="2" s="3">
+<O>
+<![CDATA[名族：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="15" cs="4" s="4">
+<O t="DSColumn">
+<Attributes dsName="rkxx" columnName="MZMC"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters>
+<Parameter>
+<Attributes name="rkbs"/>
+<O>
+<![CDATA[532901014000057298]]></O>
+</Parameter>
+</Parameters>
+</O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="16" cs="2" s="3">
+<O>
+<![CDATA[性别：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="16" cs="4" s="4">
+<O t="DSColumn">
+<Attributes dsName="rkxx" columnName="XB"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters>
+<Parameter>
+<Attributes name="rkbs"/>
+<O>
+<![CDATA[532901014000057298]]></O>
+</Parameter>
+</Parameters>
+</O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="16" cs="2" s="3">
+<O>
+<![CDATA[出生年月：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="16" cs="4" s="4">
+<O t="DSColumn">
+<Attributes dsName="rkxx" columnName="CSRQ"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters>
+<Parameter>
+<Attributes name="rkbs"/>
+<O>
+<![CDATA[532901014000057298]]></O>
+</Parameter>
+</Parameters>
+</O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="17" cs="2" s="3">
+<O>
+<![CDATA[身份证地址：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="17" cs="4" s="4">
+<O t="DSColumn">
+<Attributes dsName="rkxx" columnName="MLXZ"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters>
+<Parameter>
+<Attributes name="rkbs"/>
+<O>
+<![CDATA[532901014000057298]]></O>
+</Parameter>
+</Parameters>
+</O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="17" cs="2" s="3">
+<O>
+<![CDATA[身份证号：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="17" cs="4" s="4">
+<O t="DSColumn">
+<Attributes dsName="rkxx" columnName="SFZH"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters>
+<Parameter>
+<Attributes name="rkbs"/>
+<O>
+<![CDATA[532901014000057298]]></O>
+</Parameter>
+</Parameters>
+</O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="18" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="18" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="18" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="18" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="18" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="18" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="18" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="18" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="18" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="18" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="18" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="18" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="19" cs="12" s="2">
+<O>
+<![CDATA[信贷记录]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="20" cs="12" s="5">
+<O>
+<![CDATA[这部分包含您的信用卡、贷款和其他信贷记录，金额类数据均以人民币计算，精确到元。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="21" cs="2" s="6">
+<O>
+<![CDATA[信息概要]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="21" cs="10" s="0">
+<O>
+<![CDATA[逾期记录可能影响对您的信用评价。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="22" cs="4" s="7">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="22" s="7">
+<O>
+<![CDATA[信用卡]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="22" cs="2" s="7">
+<O>
+<![CDATA[住房贷款]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="22" cs="2" s="7">
+<O>
+<![CDATA[其他贷款]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="22" s="8">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="22" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="22" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="23" cs="4" s="4">
+<O>
+<![CDATA[账户数]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="23" s="7">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="23" cs="2" s="7">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="23" cs="2" s="7">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="23" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="23" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="23" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="24" cs="4" s="4">
+<O>
+<![CDATA[未结清、未销户账户数]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="24" s="7">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="24" cs="2" s="7">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="24" cs="2" s="7">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="24" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="24" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="24" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="25" cs="4" s="4">
+<O>
+<![CDATA[发生过逾期的账户数]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="25" s="7">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="25" cs="2" s="7">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="25" cs="2" s="7">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="25" cs="3" rs="3" s="9">
+<O>
+<![CDATA[发生过逾期的信用卡账户，指曾经“未按时还最低还款额”的贷记卡账户和“透支超过60天”的准贷记卡账户。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="26" cs="4" s="4">
+<O>
+<![CDATA[发生过90天以上逾期的账户数]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="26" s="7">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="26" cs="2" s="7">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="26" cs="2" s="7">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="27" cs="4" s="4">
+<O>
+<![CDATA[为他人担保笔数]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="27" s="7">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="27" cs="2" s="7">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="27" cs="2" s="7">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="28" cs="12" s="6">
+<O>
+<![CDATA[信用卡]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="29" cs="12" s="10">
+<O>
+<![CDATA[发生过逾期的贷记卡账户明细如下：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="30" cs="12" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="31" cs="12" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="32" cs="12" s="10">
+<O>
+<![CDATA[透支超过60天的准贷记卡账户明细如下：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="33" cs="12" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="34" cs="12" s="10">
+<O>
+<![CDATA[从未逾期过的贷记卡及透支未超过60天的准贷记卡账户明细如下：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="35" cs="12" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="36" cs="12" s="11">
+<O>
+<![CDATA[住房贷款]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="37" cs="12" s="10">
+<O>
+<![CDATA[从未逾期过的账户明细如下：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="38" cs="12" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="39" cs="12" s="12">
+<O>
+<![CDATA[公共记录]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="40" cs="12" s="13">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="44" cs="12" s="11">
+<O>
+<![CDATA[欠税记录]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="45" cs="2" s="0">
+<O>
+<![CDATA[主管税务机关：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="45" cs="3" s="0">
+<O>
+<![CDATA[大理州xx税务局]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="45" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="45" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="45" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="45" cs="2" s="0">
+<O>
+<![CDATA[欠税统计时间：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="45" cs="2" s="0">
+<O>
+<![CDATA[2016年8月份]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="46" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="46" cs="2" s="14">
+<O>
+<![CDATA[欠税总额：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="46" cs="3" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="46" cs="2" s="14">
+<O>
+<![CDATA[纳税人识别号：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="46" cs="4" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="47" cs="12" s="11">
+<O>
+<![CDATA[民事判决记录]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="48" cs="2" s="0">
+<O>
+<![CDATA[立案法院：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="48" cs="3" s="0">
+<O>
+<![CDATA[大理州xx法院]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="48" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="48" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="48" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="48" cs="2" s="0">
+<O>
+<![CDATA[案号：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="48" cs="2" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="49" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="49" cs="2" s="14">
+<O>
+<![CDATA[案由：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="49" cs="3" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="49" cs="2" s="14">
+<O>
+<![CDATA[结案方式：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="49" cs="4" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="50" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="50" cs="2" s="14">
+<O>
+<![CDATA[立案时间：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="50" cs="3" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="50" cs="2" s="14">
+<O>
+<![CDATA[判决/调解结果：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="50" cs="4" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="51" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="51" cs="2" s="14">
+<O>
+<![CDATA[诉讼标的：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="51" cs="3" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="51" cs="2" s="14">
+<O>
+<![CDATA[判决/调节生效时间：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="51" cs="4" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="52" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="52" cs="2" s="14">
+<O>
+<![CDATA[诉讼标的金额：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="52" cs="3" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="52" cs="2" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="52" cs="4" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="53" cs="12" s="11">
+<O>
+<![CDATA[强制执行记录]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="54" cs="2" s="0">
+<O>
+<![CDATA[执行法院：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="54" cs="3" s="0">
+<O>
+<![CDATA[大理州xx法院]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="54" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="54" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="54" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="54" cs="2" s="0">
+<O>
+<![CDATA[案号：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="54" cs="2" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="55" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="55" cs="2" s="14">
+<O>
+<![CDATA[执行案由： ]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="55" cs="3" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="55" cs="2" s="14">
+<O>
+<![CDATA[执行方式：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="55" cs="4" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="56" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="56" cs="2" s="14">
+<O>
+<![CDATA[立案时间：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="56" cs="3" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="56" cs="2" s="14">
+<O>
+<![CDATA[案件状态：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="56" cs="4" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="57" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="57" cs="2" s="14">
+<O>
+<![CDATA[申请执行标的：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="57" cs="3" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="57" cs="2" s="14">
+<O>
+<![CDATA[已执行标的：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="57" cs="4" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="58" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="58" cs="2" s="14">
+<O>
+<![CDATA[申请执行标金额：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="58" cs="3" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="58" cs="2" s="14">
+<O>
+<![CDATA[已执行标的金额：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="58" cs="4" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="59" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="59" cs="2" s="0">
+<O>
+<![CDATA[结案时间：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="59" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="59" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="59" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="59" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="59" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="59" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="59" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="59" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="59" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="60" cs="12" s="11">
+<O>
+<![CDATA[行政处罚记录]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="61" cs="2" s="0">
+<O>
+<![CDATA[处罚机构：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="61" cs="3" s="0">
+<O>
+<![CDATA[大理州xx法院]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="61" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="61" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="61" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="61" cs="2" s="0">
+<O>
+<![CDATA[文书编号：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="61" cs="2" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="62" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="62" cs="2" s="14">
+<O>
+<![CDATA[处罚内容：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="62" cs="3" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="62" cs="2" s="14">
+<O>
+<![CDATA[是否行政复议：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="62" cs="4" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="63" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="63" cs="2" s="14">
+<O>
+<![CDATA[处罚金额：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="63" cs="3" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="63" cs="2" s="14">
+<O>
+<![CDATA[行政复议结果：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="63" cs="4" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="64" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="64" cs="2" s="14">
+<O>
+<![CDATA[处罚生效时间：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="64" cs="3" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="64" cs="2" s="14">
+<O>
+<![CDATA[行政复议结果：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="64" cs="4" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="65" cs="12" s="11">
+<O>
+<![CDATA[电信欠费记录]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="66" cs="2" s="0">
+<O>
+<![CDATA[电信运营商：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="66" cs="2" s="0">
+<O>
+<![CDATA[中国移动]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="66" cs="2" s="0">
+<O>
+<![CDATA[业务类型：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="66" cs="2" s="0">
+<O>
+<![CDATA[固定电话]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="66" cs="2" s="0">
+<O>
+<![CDATA[记账年月：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="66" cs="2" s="0">
+<O>
+<![CDATA[2016年8月]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="67" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="67" cs="2" s="14">
+<O>
+<![CDATA[处罚内容：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="67" cs="3" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="67" cs="2" s="14">
+<O>
+<![CDATA[是否行政复议：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="67" cs="4" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="68" cs="12" s="2">
+<O>
+<![CDATA[荣誉信息]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="69" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="69" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="69" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="69" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="69" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="69" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="69" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="69" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="69" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="69" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="69" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="69" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="70" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="70" s="7">
+<O>
+<![CDATA[序号]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="70" s="7">
+<O>
+<![CDATA[类别]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="70" cs="6" s="7">
+<O>
+<![CDATA[主要内容]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="70" cs="2" s="7">
+<O>
+<![CDATA[时间]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="70" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="71" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="71" s="7">
+<O t="I">
+<![CDATA[1]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="71" s="7">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="71" cs="6" s="7">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="71" cs="2" s="7">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="71" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="72" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="72" s="7">
+<O t="I">
+<![CDATA[2]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="72" s="7">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="72" cs="6" s="7">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="72" cs="2" s="7">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="72" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="73" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="73" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="73" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="73" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="73" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="73" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="73" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="73" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="73" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="73" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="73" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="73" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="74" cs="12" s="2">
+<O>
+<![CDATA[查询记录]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="75" cs="12" s="13">
+<O>
+<![CDATA[这部分包含您的信用报告最近两年内被查询的记录。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="76" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="76" s="13">
+<O>
+<![CDATA[编号]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="76" cs="2" s="13">
+<O>
+<![CDATA[查询日期]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="76" cs="2" s="13">
+<O>
+<![CDATA[查询操作员]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="76" cs="5" s="13">
+<O>
+<![CDATA[查询原因]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="76" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="77" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="77" s="13">
+<O t="I">
+<![CDATA[1]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="77" cs="2" s="13">
+<O>
+<![CDATA[2015年9月5日]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="77" cs="2" s="13">
+<O>
+<![CDATA[本人]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="77" cs="5" s="13">
+<O>
+<![CDATA[本人查询]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="77" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="78" cs="12" s="0">
+<O>
+<![CDATA[此外，2015年您通过互联网共进行了0次查询。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="79" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="79" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="79" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="79" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="79" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="79" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="79" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="79" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="79" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="79" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="79" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="79" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="80" cs="12" s="15">
+<O>
+<![CDATA[说明]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="81" cs="12" s="0">
+<O>
+<![CDATA[1、除查询记录之外，本报告中的信息是依据截至报告时间个人征信系统记录的信息生成，本平台不确保其真实性和准确性，但承诺在信息汇总、加工、整合的全过程中保持客观、中立的地位。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="82" cs="12" s="0">
+<O>
+<![CDATA[2、您有权对本报告中的内容提出异议，如有异议，可联系数据提供单位，也可在异议处理模块提出异议。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+</CellElementList>
+<ReportAttrSet>
+<ReportSettings headerHeight="0" footerHeight="0">
+<PaperSetting>
+<Margin top="986400" left="2743200" bottom="986400" right="2743200"/>
+</PaperSetting>
+<Background name="ImageBackground" specifiedImageWidth="-1.0" specifiedImageHeight="-1.0" layout="2">
+<IM>
+<![CDATA[m?n8;PjSMNN@eZdZ=N;/.2!M/Ws;LbA1^G!Pr(;&n&?'(-'B$:;&#:4OKi=6l]A>[-`FqY_)I
+l<3#liYg8+f$CkPmd0J%e^nkP%.6*9YPimGkp`qg*`Un(6a66le@("Q^9T@U`eu*\oW5cG[Y
+X"$Sp/?jEh_<A$P)R'98>$k?D9^RKW.j#Pb8)f)VQY%dU0MtVV;Wn!)C8q,GskLJZGNZ[Df'
+qu0r>\"F_3L8%L'/7\(pP88Z>h*0SEr<lFg_rr+*PSHo+12r:9^?d-@kacO1d.P_]A3eS.&\`
+[Pg#Y4,;6Mt/Z#6OrEO'CpCc";4qJ;IG+CGQT+_43UZN"g83<!=1LEPU"3S-4ProoGQO(lPY
+l)S/M0`C<[IXa,[QVMLk+f0sS8pt[g;OuA*>ubj:(pCkpl0&cRRk2KGC3?Ns<:!neVMopUJ$
+AQMhU\VJj3kV$oBFCt?6$)YFkV:g>u7"*8#p8E;55;.T.ZIJP((_cV<r@rnRY1K96^(<h;"+
+K/]AS;"2C^^.RjS>GWj,$MG/0AYc_WDW8XG9b%aLD4Y=*anb"gGIlh"K&k"Y7OQN%S>d?$e46
+:8mM[JX^b5X>55lIJ/O@WIcQ]A*stu_Fk5%3RGNRgmMZ.<6%P2`^7ELnX(DrEtH(M+r`"m*Rt
+U9<&\AW&Y54PMsufil:]ARN"M2SJa_r,Z*9'nHcsMUaA'.)<_G;f2d*iA9M^]AoXhNfI9/"QNE
+W:o1TV]Au5V,H85j[CeuprK^'gUC!fSMu7F^rIk!8`4`'U&IYk@"T4q5MLkD;cHUNNYr(nU(S
+RdF+8b;#%'AXM'6pAJY2L5HqSdX]AK9iV6DMl68?pRRZ.uEn+Y&e#(;$IV#S"=C-]A-IrNDL41
+*M[f>r!(k,W.DH"!"%0;A'?%&<"^da>?9tgBMN]ATLPhi$C"E0=B+*^gJVgQ<<V;o8uKVBRQ(
+itHgh@CAD-QkF4hOs9tj+Z]AmFt@ONNPlD=-7f=HL<G(YpG"N.<=W$\cTu/3,uAbQP@(PhN"V
+j[('s,2mXuK]AC5Vk)6Vrj8c>O36NT$iHjg^o!8Zq3EEp;=#/%1S5QR`*17#]ApG#i[KjY^jO'
+hpeIB^cjl%.iW4p%+eT_F@U2oJRg<82!S1#=54)*TZc/ME4arKa>#H>1OdVlj,b2?GQ8>A,X
+O,'0$=@bGu:p1\NjY1\q$sT:Wj<<-4PkW1#o;mOe^t!^WtaBYEI`B[k5pujaEC1KGoK^-I"%
+bEqZp(94X<JW0mACP*5(K\S4`5DII7j;@sT-dpJB9)+uD7eK)FZG),@$?Z&VMGI&ErIiBY((
+jCrM4t-0/0ei*D0jQGaCsC6\j)$=:`jVRqRn'Yi'lu.*]A3WV@bY<Z-`87<U/F3cUVc9jqX\C
+ppnJ$g9h)+_XP&tDgq#J'MSFb&h\K:sJ*([YJkk=8C<P=MM(E"l]ALb[F`dQEtf/rUH*(^G39
+G3&:K;+<u+%m-e`3`7A+(_nP'8]ABiV?Y\K\.Da@\>%'isKQ*fm3*]AA`2/t%#1(]Ae%cZsrp]Ai
+>Y;IH+[O$Pu]A/iign'aa,Eh@s$pO3@t]A@La;cd`]A^XAdS@EB7"@?7:;(=+(>bZ5\T32>dfME
+2F]AF7[`Jn]AHmKUR"[*D[9USSMf`cm-u&]AL,]A4CmAb6!W87R%WK=oa7!Q'(D/"bLQbe"<u/\9
+5uSi#\Sn%[<@?$i96&rW%nT5s)=g-<Zar(\QlLOUF`*9G,.j$5=7^fT^2HJ@>uV"[3q/h*7q
+6-MM^)gbDSHUV^6p.1Wm9bH8Sjhq_1KmY2,Os&'U!;s%AUAYbu^#m5?,UF1N;Im[&6HO"_an
+>W61WDADDb,0ud$7Uo87c6m0Wj$AMaJmWPOkPAoPel/+"giOPb=]A`"TAVd6RIH.mc,?S.&UE
+h&c4qp=<P72DPnd9LNFgmKVN,^8j#Q,cse&+[.8&4cr^&n$Oojhd![7O.J9rP$r\fcj&;!5L
+"A0&lqNR(>nWUY>#JBa9*"Q]Ab_N3lX^Fs0u%%0HG6\s4/*MVENYYlZpu4u87^0OLnnK@lU`c
+JNa'l:Z']AI%SAYWh-\-)h0"bk%ds*/jFgBi-n"Z/HHpE40Qss]ApO&KbA:XjZ\af^b)S60@do
+ZKH*qhq4;/!s1,H<_nMYfpkgJ+=N7!ioVRJs0b1alg;kCU91s;p>p5dCK"UAg`?6>]A#/e*(Q
+K<,7S+><SS1NbRi2D[V%4pW`0ioK!Y%2Ik"DJcZbIbY26=hI]AH&]A8dp4p<sAm(!fGa6)R6/#
+R7F%!h6]AMQ1^3l"iYM4/p8ZLGRs$[;\<?851.3322o&hnC8-g\P7)o/71$f-R%4$(c)0`@XA
+(-ch>`5P9JuD^>5J7_g4&Uq=TV()"p-8%70!SIE"p%IJ."UDbGII:<=Cjq,d[),n!t=AY/m9
+(77/2ckfD7@A$Y\Nk;;"0Qcjl.:>98R(q;EYDLDm#*eG@5XrnJK$s(Q?Wpsk*'iiE+iOqoCg
+M)\Nri0<HN>BJ9FEmGNgRF2\`%,A%D!0&Pqun\sa&3cdX,&kLfLISkE2XS!QLgdHBBthlYZ'
+Vjpk[NT<ORc;n`*SOl?7>T3?#Fl4Mem64D^R(F4`('u!Ae-)GhNA6]Ai#t1BQ/;l=3mZ2(G)D
+(HX-Up#Ej`e%hcQZKb*8UQB,mP4$FWJ41U"-kg\e9.bHHlT&//iNYs'C*EQ=:u1DXTi()/J:
+LkE\U/^LgQK+g!O*!LVfokfZa0"CT12I(8pV7u!el:s6B&j_:OBifeG:H*?E$2/\BN!A$tBL
+r1AXJLHB%Q)kh*L]AleoR#O6^"_S%qlU;L3.C+iOMeV$mQ@IA/^4Qk0`/gr[a$j<#5p1?Nh/X
+`?,F\:VQ0loG/9JJ,`_+=:<]A+Z"qX0ZnpkM^9L)($L%_H-L&"QMT2/HgCB3p=AE4Ucm^E7ni
+MI=7:=kNK=WP;)#BtC]AJLPDjHT-Y`&GBM3-$2+uPY#(]AK#B-(cB.oe09CgY$2[fBa+-\X.A8
+?Hlf;cr(P\J1.Yq[MHY#l9&Gr@-m,+Nn@To'PE3uER@Y]AX204q;UfRl%3&9FON'A4ul#J&CJ
+ba5JAG*>#i7&*%Lo4KPL*cp!X<d4HMS7cRc!TV!_IcRDHWEsF#S03CVIh`Y%]Ab4k/j:_W'un
+<%B9?c*q^#t)S?j[i[.YD@(9=#lN%g-+@OU9-SDaP/[-Ej\#=5Z^b#ljZ/hngu5nH#K-@158
+#[!4gHfap?YeiVh&7gU"l>RrJK>@nY/XJ<NA]A;[9Q4b,WuP@5H(99E$NUa`!k.I5'LBh:pC"
+Hfg@V*D1Rt%#<JX0MRchd's(r6?A;?ghqKO40lTYB:rdTRDd<</Q&$jgsOH'3Q^W(;BJ$(@;
+4%OPkS8mI)Vhu]A,MnnVhk2:n="qFhRGL"<YkK=2IY_WdU(_L[_+:okj@tVOu^I8@`I;Z]AT*$
+`Ho$f&rF7.aienN-*NRC!Y""llk&4q?-u;E?gt1_/;?h@bomZ97=;%WPFbbHa^B['>2AB2R`
+2u<<L$.0h?;rF/H)2:fa]As=r+`-+:Er5sW^e#L'OXLgc%u\#1[YsR#a1PjJ&]A:mYB&36)V+E
+M=f(cK[4jcL]A(^?[)o$t3T39!Da!5+O8B$F'<6H>4)7.17<%)0?k3L%BH%Wi>/-S6VbTXY`?
+\B9'qB`Gl#1Lt]A&);F*)c)c->H!Pb#[5SuSW'?mQ&gL\_\n8_ROOq$.25b*AE<;+p+gLlQg2
+d-Nm?f@]Aj)hlC01RhYM7b_J!>hXO(4_=nDRgf(%C)srI'YJ=1[^ibBLiY3)6m.8MeVTd%2rD
+!OW64BZ!?6;[IR='<#M>^[#'Zgjsr.1a.e8JR5V$\E$;AI3'6`Lg":nYCDP`dV=!ImAr1O/1
+\fE'9d(5"#iQ;Joru@T&Bam7rfFO@0f98`$G9[7OFsj5Q?gA8[Q2cW_P*UAGRZ`&!^!^<#+l
+Z$mqM:=%rJH4mWY\-#?u!8iQ")j'j*g9\Wlm[>P&j`IF%7'a5cmVN/(*,=W%%gWUBe",TF1X
+<(\*+WIX*5k:Qe]AMTS[JXXY'iW:JbsYZ%a%"ZMSu[lDG/[*Qt`A4IO.c\ec>5l#9CHIQiMl<
+TLEEF3BjhXJ[TO#\j`;d?/Z6J6^H/%hc3#PX3GHcRP4WQO[sG>u#C%9dY=0qBj?(ISom!MA,
+[^Ol)8AM\3u!aolrS!I=cXlsa&=h[$Ep]Aa^[%?'T#m<.%`[A:0ITHW3[<pU+eq:q<sSeU6jM
+XUhtKAtBg6Y-e5W;PkqLt5\'Mcld^'E`r*f<&hhYljA3;WfO=8C@pOhFYAiY&`?9]ADF5(hU2
+B08CY^p^N^mif/j?r!rT8l9&>]A+U36g=,&+p)SO>5iJ6_.\?G-do7qXsQN.opOk#9o4\+s1W
+%G3?@3CV2ZS@;-aR2<nOCo;h*'QmLHLhPPo"1e<W]A^ND>OGAa)$4='BZO<eEY6NujShNmgoV
+Y4Rq.6N?OPg=X+]AK7j#\=f&Jt>6b64q3$7+*`:?/hQ\F7CQ2!09V6(.?2<fnc)^mt=M@;u0F
+p3@*BR:j'ArA5:!m)P$gYj\2n-etQeTLA)Wh>k*N5f8LPBHPhe?V78acRU2+rVOOg]Aeq`jCT
+=B%"o6j3L6o1+>a!0.,VYd@Z+A^SIA7/TAG-Ca0'nPdJ"EX$/E&MtUHYrZ&^n2VNN?.\&k+*
+B`CIoXQ-SHA7=]Ak8/IFmDPg4$_;"2:/GXsZ&onO)8ufnTlY\!&s-UKEuB0LP2eK;#@[<(1o@
+k!k8Cp76>O,HK"R.N-5e>pW@9qHiNec8Yp?c6JDQ]A3(82k!q=J7-6;6m9d5m?0Mt'\j*TMP*
+:AiaHJ9BU7C+VAH*VbD(k:d`"2T8hcPX=]A)<mZJ:IS(\e#fqN3,QTI]AHd]AlJgQh=,4aJYbDa
+`pMY35+nOKGUW#($Ng]ABtlIJ&oF!?B\)a`\*YJa"VDeFpN(n*Or?+g3r+31Ob,(eZ70U=oGp
+GrXS$[%h!K`,`%B2JYr9P\s8gd(C]AVC/GEdmL#>o=UtocOpJq]AW484##l(m*>\ui<:FOKn*Q
+5KMFU;dO2W6U&"np8p<5kp`YLO6[OV&(`u:.RCm%rj@1?]AWCj=pNpqiU;7EbD]A]A9QnkIpsN3
+V1PAS(etknDQYmdEYctl74YjXlZCcn*;4q<5GVP-c=94aRH]A,LTC.%dl^@<42gC1j\mO-!2V
+CAjIaYI3>ARg4qJs8sKVdcSQu0eL9OQ*Z@@Vk87"q+CMtq=LIJuQ5W`nCm8%l"u/M,TVbG]Ak
+:V2GcO=ped`-4=&bNo,[rfr5$)LlI1qU\k>[aEjVI-XgZB9=N"b:)NQll)EEAJHf?[do]Alt$
+_b?TY3Soj5:pVVQr_+l9-LYpIdeH)E6XKcf_`@hG9EL?D1,Z#L`'2,I8t:s6IF/O@dq4JasB
+kI"?#!t"g]AtX-K1k[NPfE(oA8YZZ(l9%,M8eugXNpZo[+F81A10S;O?;mDY,,V#(c,g<qkal
+RZk;pI*4\iO)=>a]Au\Q<.`=G,D;OqWTT<uF$-@M7N[f-n[7X(+.Y+VH"/Sf_FmuE'f0o.lV"
+N5I:_.sj3*o10nV69r5!^bj)\n8;*=:0:eL3oo#4rh"g8Q=(TJOW`1WV@P%CBB*VjgP-[n#(
+S0gC^2W9rsQG%^=H=ZfsMPiOW3Aq3<L9'G*24LcY3\(+^-lko.Fr8QqZn(:d^AYe"OT9OB5H
+WO$!P!;rLI5+aiYT@@3s7_@!+]A>eC?<7pgn"8d`/Yc'N[\;j>]AEn+4>WF"pYp(/MkLAGaWU-
+Q]A4$L)gdSciP"orE*@r3,H,IN2E3nqW[jUeQl\4/tQ#q=iGb]A02H["8%%klcp^f[$Q-*g/d:
+/**RkC?CmbDB^*OG5,l-h7mHgm+gP]A*YKU-hU8j=Tf+1;jIDFnp,=;(M@&ouH(2bD[YNWX9Y
+\5-OVpBPH(SM]Aleh;S94@[`O-mr(8>,4sER>6&,$6KOU[C5I35n<^?4mJMB6>WK).L(5r@%;
+pF(_uK:I_ODYS4=G;FI]AfbIW+XZS=_1EZ/pn*@Fs9>CNs,2lc!c^D9>R;@AddC+=]A!+$BNO,
+tY?rjuJOAL*G<ppdk`;N9NnM<G+_E9DFS?r-_#$$O,c_Jb3%BO<,qP'p:U2Y#0?jXfIV,U59
+Jf54!E"fTHo+T9)F!Op:V/cN[_]AS9\ZU`9ro,F.goFR!J^3s#E*n(*1/`;bh3*Cad3>fV9q0
+(d3LjLV7]A/18[;s1I#\b_2lR+9!t@)cS(UUm-/F>@#X!uTCW2d30.4tS3.c>?7tR7e$JI./;
+ZCNjHE#"'[&.DnYAA*&-\b\OIHtbOOFUk2H3d7qa;8:4_0]A<\?gDYcmTb\`.C3N?YaM"mpO.
+>.sgc,7+b\G[kBqE_8*P>mMW+e;_HNF:PD]A0X4MK(.b]AF$,@9cLeVdF,:&YF*&U2Bcn`6e)[
+m5g_?C%"JP"o:G)qV)),q9Stk%2J/&BcS^6jRAY&cN1,kYEBK[\fmq?glL["MEX`XEuIGeH3
+>la;A8D,/u;\7]AkS9FFWi.+2Aj$>/.!?.q\]Acon91&8H^0kn5+i/TIS;jQ^Fs9Wb<pP?aN=o
++EVa'-d)pC]Aoj-H*?tGZ71]A<1o"!k#OE3R</JV?S%^!.ih?;^T]A_74pX]A=Q?X"9t*N^&9q">
+5-Fb*QN'_dZ?ET(7B9,0kr69@g:1dF:;SZsdgHVs'#p@S2<EX7XY!2:Lu&Mi:VO7!<Jj8g!(
+C4P-IsR6E-g<B1]AZjMlqsgOSQ5q6H`<+PeP3-Pr>G#WeE5bsN,'C47/[iMdC2rM^Z-XXuL5[
+Zc.AD?]A3]Ag2*oKn+,G3\E]AuP!u\&G2.9RJ6<SU`c?^)&mF)#lAC;Zs?QaAeO-m/Y_CMT4Nbb
+g/1@#p6C2`;[c*O.!_NegBT&F!o8Ig9.J*p!5;0Kf9LP&Mm^1PT6a'j5d!(W61dg)?uZau+b
+ZDUI2ea06rB$t@H>@I[H?@_?$S^:m\Kq(l)WGZ:^(]A)0t\c!?&#VFXKAX[KY1iXAF*5Z4eB$
+hF0p`oAiaFd6b0D;7]AL=N*C+Ar[-SoR,E\4:H3d!g;V2En-LQD9_ji2lj8E:X9ih<T:%G^!#
+_h:hg?-,t*G`+<sDH8Zr8[k6pE$-.EFMq<spK%sJ_$7B<uI86EDkgs8ASdo;(YI=,hXI>kV^
+kK7WUl:U)!JB:ID)]A3elTni":DOYp(4Z*mB8$?2Ye/"kGbNrg4^V39[$8$:b$Y/k^1JXN]A*b
+s@mV67Z*Th3SHTY;a?1LB-3Z.JKBZ&,O"`Ja:m\N"=o+<?bM"b?!EZSJJ\uPj1LcftVnB:]AA
+DLNWf(B\J7h4^fej&jgAjSU("`j,I3UkT_;9."FMp.&=f4SNkrKQI'Yn[AX&5aZ61=$4Smr(
+(^3*;TZ^%pjC?%GHD4N8-Y[o[0\:m!K^i`LK7SN37=aS"dtqL(?DYEpRTBh^eXULI)F`42pO
+_Q1K!U&p>0ChE:m^rLNkLCF;jN2Ni?]AN@q<8E/S^`mpm[U9<1[-Q?cNtMQA3B2MPOUTp1@6;
+;jC#/O5&II8/[h^UljCOm<`+GtF_\[Ms9U[8G-Z68?,@N+5A;D3^,_8:7ACPPmsr?"kh=SdM
+im8t9[P-cHq83WaKfX([TqeEQY7T#j_5pXVqWJ^dToih;01dMqCjDEn/GElN=%+]AGQ+A1TNt
+.a^#:LR^$Bs!":c[=3F5qX*gqq6U1n^scAFW)(+9^(mY2_)G(Kg&(a#]A5k";O,a0d@&qQ*Gt
+`1Xh#5>Z#l*?"O3^R:J$t[Zf0%R[H'R[r`H9K&95Xa`<tXsbr^\)N<\;+50W@\'SZ^+A[4Pb
+[#_#u+?j"Sd0mgR)>53"phaj?uK3tCSp@Tp:?HF/X2E>JHr,O@NRdH3,UKq'Sgp,<P]Ad6ca9
+kGR5[NiuKphNl,g@ulJ5K_hZ?M8;/h58R<*/\>chSbBA@YRfeJq/0raREP6V\]At-g\UB/"u]A
+dpP4SX+^2MrWGF7oW%IJcYYd@D2_`LV@D:1dS?aW`a,a?Y_okn+'[MCs3B^&[LIbp"eO/Ydf
+Fbd!_q7,pNO%BkY/6,bo$9I3[_hgQ'B-FIDV-Zo%+O#at<L%sYl1@:n>C%#k_C>nabR;p!J/
+,c,q9o/)%u9<I;6tKN"AJM;:TKi_g5Z0r:8KYQWt4:p6MI#J(_X-;;E5i+fP]A(\q4YZuc!*0
+mA(QRNcaj1eB9V^-`mdJ*gcq'=&W+jqkOc)Cne1UZY+O"SK#d?(kEigtNh^BoWe:[Xa/`/Xh
+i6s!SgSWb'm,kkk#?UY;)N[sQ$\A':IZRp[auYaC_pMu-2juhdeO61F>*WcSVn\BS)YU%6Xi
+9.)q[DV9c&"8kuW$B?B]A>+`<`BdhL'A'e:;PJ@FUJ0p91@`gEi.ZJ.;E96O=O?>u--+=V,?/
+i$3R0:e48a.,?)hpQd<+iT.AVQNX^oI$-O'/(76ZX'MSRJ:u\#O3fo-6([p?h?Nsn`I@E59a
+\`"'I?pLFs)5pDHR%p0%Rp%?k6M8]AqGEec,n,/0=J[_o9,893E!W;)J`HH9<;e79YOe%.ot^
+SMZ\#3f+KN7N]AXroQGhsY3&C/^og,AjkB/'ca*JPX*=Ztu-o2!HEI>.*H-Gdoj6_EVk$\G)M
+r2k;=s8HD`3*k[ID7\;A%O6h&,)ih1U2O;9)+<Hd4J'gg7pq9*4;oq)Ye^jHWItj;FuP4Y@n
+iZ_P0O:.3;ANR=F>[:)@;^l2_&niW=WXZeihj>5HioeOsTA_.".e)cKi#oQJQV]AbSE_3/?m)
+`mPQs:^_-VhB1[M;Lqlo`EtD")"6804c"4IeCh!pg(bR__3MGId%Wu6`8'Lom9Y$\jrN:O;a
+jXDdrJUQ3'QM_9HH+PW[#HV%M]A)I.6B$8.:b*6p`Qg)D`5!la$&YU==P>Y73kP[=H,F]A<;)+
+hJ(QS9R*JWUoXNlk(Sf2aBp,F@Tl7HAJ`<Q`d9oJ&_`PQuZW@L(l-]A!W!`e(,S;c*j)l4<b#
+[!nnA811g6Hf9B,Xo'_DdOL_M1OdTm=gh]A1);fIJiDeLQrPa$l.*AYR1;:P*_RHd(h<Z@*W\
+t%@n<RN6eq.u^f'?nI?dE3:o'KoN%HY6>HN?H&%6`4Z8(N4H9UN2/VdPtm1c`g>L1[Ug=*34
+"QLi$IaBX:RogY'<6.l&S]A+5L[>Lf"f:,"SA'?nBcp]A/6SSjk,9p(MA1:-Cc;s,A19DV4CVK
+E4,7aUl<TWGOJ&QnL#176jFY(qR.Z?4G,g+N,)ltgL(>PHb+ap7PjM5M2sjtl&<el)]AR*d7Z
+l]A4]AV^U%>s*Uo'cKS*a@o'plY#/?CBUNBtOU<%,HUEg!K2$/4HC3e06U-i[B/jMm_H8E9<Fh
+=$NWjH,!sOb0n9Q&JTXMNql\Ok__SXkbqaLR.f%LI+![:HNX9\^f/a0a2@m0mV4#;LLXpd0d
+pc:==0$jGq_\W.@D%:>HiYP@&XD3TG29#kI<;i^kOYbA$05.D.j*WYRgLeq['m9amKc'eR=`
+qEV?1S$ud2,0%PGC((c%XcBumC64=Ug>ig:jRPV.lI"+Fl4_Y$AouDgl1&qWc8kU,H?N%2Vr
+*P[2MQFN@flM;7,;0pc)ct\S_AU'b"ZgJ)rJ[mWO1siD$no$B"63[J6KiPm/+hG%fZpUh]AjD
+ukPh([?;KR1&)P&2T"d&u]A:Q)'*m?o^qYPnp>,.^BIp/V^0DN$?qWm(sU?c.hrt\o?,5=+]A$
+J$q6a']Ap?FUZhU=N=eiK6@+,UQ.RgOA#56f=i5,4lmDRJ.u5dq=6i44T4mEO^PkOeS528rT[
+<&Ph#dsq!Foj?Nl@MTDnf*qf#TN$>-R?%Db92d8.SCXjQ#Br;S:tIj4YHl$D_6.-uGWY^[8_
+>BKgdn8H_I07n\3Y5a]AgbsL@hL&Gp((;qq`@o-8=a.R4#3!P'?E=BE:Lu[A:lsCcDJTqB)*5
+jW]A/;RpMcQJfF@6klcXpsA-'GeVALgq":+HAb>#''R%')!sgZ9Y*L4G.k_Ka$uTiYfZj-nL0
+ad'Z.ZK>N4"#$i1d0dnT/@h?]A\/7JS<+:Al%`&$W:+J(k]AK6RUj$jmC%(j'U+a.TXZN^;8$E
+=<0^iYZe)Ihn&oI?4U>%H87IE=gHhYTTN'f*6HB+HHJo;I,PPlbULBY<6?7^_1a.&C$lP+IY
+S$#LNqe$gs6FfD`HCrq2s#-o?`md)A:5K>N4b#$i2'/VCol3!O@2$4Gi1FDVT0TWfQ!6.c*k
+iV8`E=eO+aSj=.tnI,a4iYciTE465_$fW"FD%O`1N^4Y;3!P'?E=BGP5KpOmrA_h)Wo*gWHX
+c@M'/te_r?Y,qq#6[H?siqi]A`e:_q;7qHUVSLc?Nht?+Fekp!l=H.@!;<`#l\OtIL?'gNW-Z
+MhkTM@K7Af^IhDT_FT$@ODpm1#'bpAV:tWMgr[k^5Y5N]Ah4j%"IB7'@4KlcNph[UMF29>e"E
+V]AV7~
+]]></IM>
+</Background>
+</ReportSettings>
+<Header reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Footer>
+</ReportAttrSet>
+<PrivilegeControl/>
+</Report>
+<ReportParameterAttr>
+<Attributes showWindow="true" delayPlaying="true" windowPosition="1" align="0"/>
+<PWTitle>
+<![CDATA[参数]]></PWTitle>
+</ReportParameterAttr>
+<StyleList>
+<Style imageLayout="1">
+<FRFont name="Songti SC" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="Songti SC" style="1" size="136" foreground="-65536"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="Songti SC" style="1" size="120" foreground="-1"/>
+<Background name="ColorBackground" color="-8355712"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="4" imageLayout="1">
+<FRFont name="Songti SC" style="0" size="72"/>
+<Background name="ColorBackground" color="-4144960"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+<Left style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="2" imageLayout="1">
+<FRFont name="Songti SC" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1" color="-16777216"/>
+<Bottom style="1" color="-16777216"/>
+<Left style="1" color="-16777216"/>
+<Right style="1" color="-16777216"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="Songti SC" style="0" size="72"/>
+<Background name="ColorBackground" color="-4144960"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="2" imageLayout="1">
+<FRFont name="Songti SC" style="1" size="104"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="Songti SC" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+<Left style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="Songti SC" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Left style="1"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="Songti SC" style="0" size="72"/>
+<Background name="ColorBackground" color="-4144960"/>
+<Border>
+<Left style="1"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="Songti SC" style="1" size="80"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style imageLayout="1">
+<FRFont name="Songti SC" style="1" size="104"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="Songti SC" style="0" size="120" foreground="-1"/>
+<Background name="ColorBackground" color="-8355712"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="Songti SC" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="2" imageLayout="1">
+<FRFont name="Songti SC" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="Songti SC" style="1" size="104"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+</StyleList>
+<DesignerVersion DesignerVersion="IAA"/>
+<PreviewType PreviewType="0"/>
+<TemplateID/>
+</WorkBook>

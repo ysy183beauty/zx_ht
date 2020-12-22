@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>jeecms-left</title>
+<#include "/jeecms_sys/head.html"/>
+<link href="/thirdparty/zTree/css/zTreeStyle/zTreeStyle.css" rel="stylesheet"/>
+<script src="/thirdparty/zTree/js/jquery.ztree.all.min.js"></script>
+<link href="/thirdparty/alertify.js/themes/alertify.core.css" rel="stylesheet">
+<link href="/thirdparty/alertify.js/themes/alertify.bootstrap.css" rel="stylesheet">
+<script src="/thirdparty/alertify.js/lib/alertify.js"></script>
+<script type="text/javascript">
+$(function(){
+//	$("#browser").treeview({
+//		url: "v_tree.do"
+//	});
+    var setting = {
+        async: {
+            enable: true,
+            url: getUrl,
+            autoParam: ["root"],
+//            dataFilter: filter
+        },
+        data: {
+            simpleData: {
+                enable: true
+            }
+        },
+        edit: {
+            enable: true,
+            showRemoveBtn: false,
+            showRenameBtn: false
+        },
+        callback: {
+            beforeDrop: beforeDrop,
+            onClick: onClick
+
+        }
+    };
+    function getUrl(treeId, treeNode) {
+        var param = "root=" + (treeNode == undefined ? "" : treeNode.id);
+        return "v_tree.do?" + param;
+    }
+    function beforeDrop(treeId, treeNodes, targetNode, moveType) {
+        alertify.set({ labels: {
+            ok     : "确定",
+            cancel : "取消"
+        } });
+        alertify.confirm("是否移动\""+treeNodes[0].name+"\"到\""+targetNode.name+"\"栏目", function (e) {
+            if (e) {
+                // user clicked "ok"
+                $.fn.zTree.getZTreeObj(treeId).moveNode(targetNode, treeNodes[0], moveType, false)
+            } else {
+                // user clicked "cancel"
+            }
+        });
+        return false;
+    }
+    function onClick(event, treeId, treeNode) {
+		window.open(treeNode.url, treeNode.target);
+    }
+    $.fn.zTree.init($("#browser"), setting);
+	Cms.lmenu("lmenu");
+});
+</script>
+</head>
+<body>
+<div class="w230">
+	<div class="fresh">
+       <a class="sx" href="javascript:location.href=location.href"><@s.m "global.refresh"/></a>
+	</div>
+</div>
+<!--<ul id="browser" class="filetree"></ul>-->
+<ul id="browser" class="ztree"></ul>
+
+</body>
+</html>

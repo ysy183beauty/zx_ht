@@ -1,0 +1,253 @@
+.banner{
+    width:100%;
+    height:300px;
+    /*background:url("../img/xycx/banner-bg.png") center no-repeat;*/
+}
+.banner-con{
+    width:80%;
+    margin:0 auto;
+    padding-top:100px;
+}
+.banner-title{
+    margin-bottom:10px;
+    font-size:16px;
+}
+.banner-title span{
+    position:relative;
+    padding:0px 20px;
+    border-left:1px solid #0b6ba8;
+}
+.banner-title span a{
+    display: inline-block;
+    color:#0b6ba8;
+    padding:5px 20px;
+    font-size:18px;
+}
+.banner-title span:first-child {
+    border-left:none!important;
+}
+.banner-on{
+    background-color:#faa701;
+    color: #ffffff !important;
+}
+.index-arrow-down {
+    position: absolute;
+    top: 24px;
+    left: 0;
+    display: none;
+    width: 100%;
+    height: 7px;
+    background: url('../img/xycx/index-arrow-down.png') no-repeat bottom center;
+}
+.banner-input{
+    position:relative;
+}
+.box-input{
+    display: inline-block;
+    width:60%;
+    height:50px;
+    background-color:#fff;
+    border:1px solid #ccc;
+
+}
+.box-input input{
+    padding:13px;
+    width:100%;
+    border:0;
+    outline:none;
+}
+.banner-input button{
+    margin-left:-5px;
+    width:10%;
+    height:50px;
+    background: #009ce7 url('../img/xycx/banner-search.png') no-repeat center;
+}
+.banner-input button[disabled],.banner-input button[disabled]:hover{
+    background-color:#ccc;
+    border-color:#ccc;
+}
+.banner-input button:active{
+    background: #009ce7 url('../img/xycx/banner-search.png') no-repeat center!important;
+}
+.banner-input button:hover{
+    background-color:#2ab4f7;
+}
+.banner-con-ul{
+    height: 158px;
+    margin:20px auto;
+}
+.banner-con-ul li{
+    display: inline-block;
+    width: 24.5%;
+    text-align: center;
+}
+.banner-con-ul li div{
+    width: 155px;
+    margin: 0 auto;
+    text-align: center
+}
+.banner-con-ul li div p{
+    margin-top: 12px;
+    margin-bottom: 12px;
+    font-size: 20px;
+    color: #333;
+}
+.content-icon {
+    display: block;
+    width: 71px;
+    height: 71px;
+    margin: 0 auto;
+    background: url('../img/xycx/spriteSearch.png') no-repeat;
+}
+.content-icon1 {
+    background-position: -156px -104px;
+}
+.content-icon2 {
+    background-position: -156px -176px;
+}
+.content-icon3 {
+    background-position: -229px -104px;
+}
+.content-icon4 {
+    background-position: -229px -176px;
+}
+/*模态框*/
+#myModalLabel{
+    font-size:20px;
+    text-align: center;
+}
+.modal-header .close span {
+    font-size: 30px!important;
+    color: #ccc!important;
+}
+#xieyi{
+    text-align: center;
+    color:#57a8ed;
+}
+#xieyi-text{
+    vertical-align: middle;
+}
+#xieyi>span{
+    vertical-align: middle;
+}
+#sumbit-btn[disabled]{
+    background-color:#ccc;
+    border-color:#ccc;
+}
+.modal-footer div{
+    text-align: center;
+    margin-bottom:10px;
+}
+.modal-body{
+    max-height:400px;
+    overflow: auto;
+    font-size:12px;
+}
+.modal-body-info{
+    line-height:16px;
+    padding-left:2em;
+}
+.modal-dialog{
+    width:800px!important;
+}
+/*异议申请*/
+#appealDiv{
+    top:-100px!important;
+}
+#myModal-list{
+    font-size:18px;
+}
+.portlet{
+    margin-bottom: 10px;
+}
+.portlet.boxTheme {
+    border: 1px solid #7295a7;
+    border-top: 0;
+}
+.portlet.boxTheme .portlet-title {
+    background: #7295a7;
+}
+.portlet .portlet-title {
+    margin-bottom: 0px;
+}
+.portlet> .portlet-title {
+    padding: 5px 10px 5px 10px;
+    border-bottom: 1px solid #eee;
+    color: #fff !important;
+}
+caption{
+    text-align: center!important;
+}
+.checkbox{
+    margin-left:10px;
+}
+.checkbox input[type="checkbox"]{
+    opacity:1!important;
+    margin-top:2px;
+    margin-left:-12px!important;
+}
+.controls .checkbox {
+    float: left;
+    margin-top:10px!important;
+}
+
+.checker span {
+    width: 19px;
+    height: 19px;
+    display: -moz-inline-box;
+    display: inline-block;
+    zoom: 1;
+    text-align: center;
+    background-position: 0 -260px;
+}
+td .controls {
+    margin-left: 0;
+    overflow: hidden;
+    width: auto;
+
+    white-space: normal;
+}
+.controls label{
+    font-weight:normal!important;
+}
+.allChose{
+    text-align: center;
+    vertical-align: middle;
+}
+.tableYiyi thead tr th{
+    vertical-align: middle;
+    font-weight:bold;
+}
+.addDiv{
+    float:right;
+    width:50%;
+}
+.addInput{
+    width:100%;
+}
+.advice-info{
+    margin-top:10px;
+    margin-bottom:20px;
+}
+.advice-info>span{
+    display: block;
+    float: left;
+    margin-top: 30px;
+}
+.filestyle{
+    margin:0 0 20px 35px;
+}
+.alert-sumbit{
+    position:fixed;
+    top:200px;
+    left:50%;
+    width:220px;
+    margin-left:-110px;
+    height:50px;
+    z-index: 3000;
+    display: none;
+}
+.apply{
+    margin-left:35px;
+    margin-bottom:10px;
+}

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemesh>
+    <!-- 页面装饰的模板 -->
+  	<mapping path="/" decorator="/WEB-INF/decorator/decorator.jsp"/>
+  	
+  	<!-- 不进行装饰的url -->
+	<mapping path="/login.action" exclue="true"/>
+	<mapping path="/security/**" exclue="true"/>
+	<mapping path="/weixin/public/**" exclue="true"/>
+	<mapping path="/org/**" exclue="true"/>
+	<mapping path="/code/**" exclue="true"/>
+	<mapping path="/platform/**" exclue="true"/>
+	<mapping path="/ckeditor/**" exclue="true"/>
+	<mapping path="/r/*" exclue="true"/>
+	<mapping path="/*/*/enter*.action"/>
+	<mapping path="/*/*/add*.action"/>
+	<mapping path="/*/*/edit*.action"/>
+	<mapping path="/404.action" exclue="true"/>
+	<mapping path="/500.action" exclue="true"/>
+</sitemesh>

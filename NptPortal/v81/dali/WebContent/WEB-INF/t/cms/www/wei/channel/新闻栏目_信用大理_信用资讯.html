@@ -1,0 +1,189 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+    <link href="/r/cms/www/resources/css/jquery-ui-themes.css" type="text/css" rel="stylesheet"/>
+    <link href="/r/cms/www/resources/css/axure_rp_page.css" type="text/css" rel="stylesheet"/>
+    <link href="/r/cms/www/resources/css/index.css" type="text/css" rel="stylesheet"/>
+    <link href="/r/cms/www/red/css/bootstrap.css" type="text/css" rel="stylesheet"/>
+    <link href="/r/cms/www/data/styles.css" type="text/css" rel="stylesheet"/>
+    <link href="/r/cms/www/files/信用服务/styles.css" type="text/css" rel="stylesheet"/>
+    <meta name="viewport" content="width=device-width,maximum-scale=1,user-scalable=no" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+    <title id="title">${channel.title!channel.name} - ${site.name}</title>
+    [#include "../include/页头顶栏_LINK.html"/]
+    <style>
+        .s-ri{
+            float: none!important;
+            width: 100%!important;
+        }
+        .wx-more {
+            width: 100%;
+            height: 30px;
+            margin-top: 10px;
+        }
+        .load_main {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 5px;
+            display: none;
+        }
+        .ri-ul dt{
+            float:left;
+            width:70%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .ri-ul dd{
+            float:right;
+            width:30%;
+            color:#ccc;
+        }
+        .ri-ul li:hover{
+            background: #ffffcc !important;
+        }
+        .nav{
+            width:100%!important;
+        }
+    </style>
+</head>
+
+<body>
+<div class="">
+
+    <!--内容开始-->
+    <div class="main">
+        <div class="wx-list">
+            <div>
+                <h3>信用资讯</h3>
+            </div>
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">本州动态</a></li>
+                <li role="presentation"><a href="#country" onclick="makeMore('country')" aria-controls="country" role="tab" data-toggle="tab">国内动态</a></li>
+                <li role="presentation"><a href="#inform" onclick="makeMore('inform')" aria-controls="inform" role="tab" data-toggle="tab">通知公告</a></li>
+            </ul>
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="home">
+                    <div class="s-ri">
+                        <ul id="home-showData" class="ri-ul showData">
+
+                        </ul>
+                    </div>
+                    <div class="wx-more" id="homeMore">
+                        <div class="load_main">
+                            <img src="/r/cms/www/red/img/load.gif">
+                        </div>
+                        <div class="more" onclick="makeMore('home')">查看更多</div>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="country">
+                    <div class="s-ri">
+                        <ul id="country-showData" class="ri-ul showData">
+
+                        </ul>
+                    </div>
+                    <div class="wx-more" id="countryMore">
+                        <div class="load_main">
+                            <img src="/r/cms/www/red/img/load.gif">
+                        </div>
+                        <div class="more" onclick="makeMore('country')">查看更多</div>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="inform">
+                    <div class="s-ri">
+                        <ul id="inform-showData" class="ri-ul showData">
+
+                        </ul>
+                    </div>
+                    <div class="wx-more" id="informMore">
+                        <div class="load_main">
+                            <img src="/r/cms/www/red/img/load.gif">
+                        </div>
+                        <div class="more" onclick="makeMore('inform')">查看更多</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+</div>
+
+
+<script type="text/javascript">
+    $(function(){
+        makeMore('home');
+    });
+    function showList(){
+        $(".showList").toggle();
+    }
+    id="homeMore";
+    var page1=0;
+    var page2=0;
+    var page3=0
+    function makeMore(tab) {
+        $(".load_main").show();
+        if(tab == 'home'){
+            id="homeMore";
+            $.ajax({
+                url: "/xyzxfy/index_"+(page1+1)+".jhtml?id=homeMore",
+                success: function (data) {
+                    $(".load_main").hide();
+                    page1 += 1;
+                    $("#home-showData").append(data);
+                }
+            });
+
+        }
+        else if(tab == 'country'){
+            id="countryMore";
+            $.ajax({
+                url: "/gnfy/index_"+(page2+1)+".jhtml?id=countryMore",
+                success: function (data) {
+                    $(".load_main").hide();
+                    page2 += 1;
+                    $("#country-showData").append(data);
+                }
+            });
+        }
+        else if(tab == 'inform'){
+            id="informMore";
+            $.ajax({
+                url: "/tzfy/index_"+(page3+1)+".jhtml?id=informMore",
+                success: function (data) {
+                    $(".load_main").hide();
+                    page3 += 1;
+                    $("#inform-showData").append(data);
+                }
+            });
+        }
+
+    }
+    //    $(document).ready(function(e) {
+    //        var unslider04 = $('#b04').unslider({
+    //                dots: false
+    //            }),
+    //            data04 = unslider04.data('unslider');
+    //
+    //        $('.unslider-arrow04').click(function() {
+    //            var fn = this.className.split(' ')[1];
+    //            data04[fn]();
+    //        });
+    //    });
+    //    $(".wx-list-title li").click(function(){
+    //        $(this).stop().addClass("active").siblings().removeClass("active");
+    //        $(".s-ri-ul").eq($(this).index()).addClass("showData").siblings().removeClass("showData");
+    //    });
+</script>
+
+
+
+</body>
+</html>

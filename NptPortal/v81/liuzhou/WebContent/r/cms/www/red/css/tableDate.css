@@ -1,0 +1,21 @@
+/*记得在table中添加样式table-striped、table-hover*/
+table thead {
+    background-color: rgb(58, 114, 174);
+    color: #fff;
+}
+table th {
+    text-align: center;
+    padding: 10px 0;
+}
+table td{
+    height:40px;
+}
+table tr{
+    cursor:pointer;
+}
+table td a{
+    color:#3499ff;
+}
+/*table tr:nth-child(2n){*/
+    /*background-color:#ece9e6;*/
+/*}*/

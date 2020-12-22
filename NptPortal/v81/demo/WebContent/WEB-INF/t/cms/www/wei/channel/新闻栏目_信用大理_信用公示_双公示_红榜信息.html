@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>红榜信息</title>
+    <link rel="stylesheet" href="${resSys}/www/red/css/hhb.css"/>
+    <script type="text/javascript">
+        function move(url){
+
+            $.ajax({
+                url: url,
+                data: {},
+                timeout: 30000,
+                success: function (data) {
+                    $("#con_right").html(data);
+                    console.log("11")
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+
+<!--<div id="container">-->
+    <!--<div class="title">-->
+        <!--<span><a href="">当前位置</a> ：<a href="">首页</a> > <a href="/xysgs/index.jhtml">信用公示 </a> > <a href=""> 红黑榜</a> > <a href="">红榜信息</a></span>-->
+    <!--</div>-->
+    <!--<div class="content">-->
+        <div class="con_left">
+            <a class="blue" onclick="test('/red/index.jhtml')">红榜信息</a>
+            <a class="white" onclick="test('/black/index.jhtml')">黑榜信息</a>
+        </div>
+        <div class="con_right" id="con_right">
+            <div class="search">
+                <input type="text" placeholder="请输入单位名称"/>
+                <input type="submit" value="搜索"/>
+            </div>
+            <ul>
+                <li>
+                    <div class="ul_tit"> >>工商局 </div>
+                    <div>
+                        <img src="${resSys}/www/red/img//hhb/u28.png" alt=""/>
+                        <a onclick="test('/shtzxy/index.jhtml')">守合同重信用企业公示名单</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="ul_tit">>>地税局 </div>
+                    <div>
+                        <img src="${resSys}/www/red/img//hhb/u28.png" alt=""/>
+                        <a href="">纳税信用A级纳税人名单</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="ul_tit">  >>住房城乡建设局 </div>
+                    <div>
+                        <img src="${resSys}/www/red/img//hhb/u28.png" alt=""/>
+                        <a href="">荣誉信用</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="ul_tit">   >>质监局 </div>
+                    <div>
+                        <img src="${resSys}/www/red/img//hhb/u28.png" alt=""/>
+                        <a class="a_first" href="">企业标准情况信息表</a>
+                        <img src="${resSys}/www/red/img//hhb/u28.png" alt=""/>
+                        <a href="">名牌产品信息</a>
+                    </div>
+                </li>
+            </ul>
+            <div class="bot_bot">
+                <span>页次：</span><span>1/1页 <span> [首页]</span><span>[上一页]</span><span>[下一页]</span>
+                转
+                <input type="text"/>
+                页
+            </div>
+        </div>
+
+    <!--</div>-->
+<!--</div>-->
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:v="http://www.summer.org/schema/config"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.summer.org/schema/config http://www.summer.org/schema/config/summer-core.xsd">
+
+    <v:package name="/npt/grs/scheduler/outside/creditService" action-ref="npt.grs.scheduler.outside.creditService">
+        <v:menu name="cs-other-manager" title="信用咨询及投诉受理" admin="true">
+            <v:action name="index" result-success="appealProcess/creditService/index.ftl"/>
+            <v:action name="list" result-success="appealProcess/creditService/list.ftl"/>
+            <v:group name="edit" title="修改">
+                <v:action name="editPage" result-success="appealProcess/creditService/edit.ftl"/>
+                <v:action name="edit"/>
+                <v:action name="downloadAttach"/>
+            </v:group>
+        </v:menu>
+        <v:menu name="cs-appeal-manager" title="门户异议受理" admin="true">
+            <v:action name="appealIndex" result-success="appealProcess/creditService/index.ftl"/>
+            <v:action name="list" result-success="appealProcess/creditService/list.ftl"/>
+            <v:group name="edit" title="修改">
+                <v:action name="editPage" result-success="appealProcess/creditService/edit.ftl"/>
+                <v:action name="edit"/>
+                <v:action name="downloadAttach"/>
+            </v:group>
+        </v:menu>
+        <v:action name="sync"/>
+        <v:action name="syncResponse"/>
+    </v:package>
+
+    <v:package name="/npt/grs/scheduler/outside/creditApply" action-ref="npt.grs.scheduler.outside.creditApply">
+        <v:menu name="creditApply-log" title="门户用户申请记录" admin="true">
+            <v:action name="index" result-success="appealProcess/creditApplyInfo/index.ftl"/>
+            <v:action name="list" result-success="appealProcess/creditApplyInfo/list.ftl"/>
+        </v:menu>
+        <v:action name="sync"/>
+        <v:action name="syncResponse"/>
+    </v:package>
+
+    <v:package name="/npt/grs/scheduler/outside/creditCmsUser" action-ref="npt.grs.scheduler.outside.creditCmsUser">
+        <v:menu name="user-verify" title="实名认证" admin="true">
+            <v:action name="index" result-success="appealProcess/cmsUser/index.ftl"/>
+            <v:action name="list" result-success="appealProcess/cmsUser/list.ftl"/>
+            <v:group name="edit" title="修改">
+                <v:action name="editPage" result-success="appealProcess/cmsUser/edit.ftl"/>
+                <v:action name="edit"/>
+            </v:group>
+        </v:menu>
+        <v:action name="sync"/>
+        <v:action name="syncResponse"/>
+    </v:package>
+</beans>

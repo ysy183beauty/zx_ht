@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<something-else-entirely>
+	<proxool>
+		<alias>proxoolPool</alias>
+		<!-- 
+		<driver-url>jdbc:oracle:thin:@loalhost:1521:orcl</driver-url>
+		<driver-class>oracle.jdbc.driver.OracleDriver</driver-class>
+		<driver-properties>
+		   <property name="user" value="creditweb"/>
+		   <property name="password" value="creditweb"/>
+		</driver-properties>
+		<driver-url>jdbc:mysql://123.57.73.240:3306/hotel</driver-url>
+		   <property name="password" value="kangban"/>
+		 -->
+		<driver-class>com.mysql.jdbc.Driver</driver-class>
+		<driver-url>jdbc:mysql://192.168.20.41:3306/learn</driver-url>
+		<driver-properties>
+		   <property name="user" value="root"/>
+		   <property name="password" value="root"/>
+		</driver-properties>
+		<!-- 最少保持的空闲连接数 （默认5个）-->
+		<prototype-count>3</prototype-count>
+		<!-- 设置连接池内生成的最大连接数/在连接池中所有数据库连接的最大数目（默认15个）。
+		             再有请求时，就排在队列中等候，最大的等待请求数由maximum-new-connections决定-->
+		<simultaneous-build-throttle>100</simultaneous-build-throttle>
+		<maximum-connection-count>30</maximum-connection-count>
+		<!-- 设置连接池内生成的最小连接数/在连接池中可用的数据库连接的最少数目（默认5个）-->
+		<minimum-connection-count>5</minimum-connection-count>
+		<!-- 
+		<house-keeping-test-sql>select CURRENT_DATE</house-keeping-test-sql>
+		 -->
+		<maximum-active-time>120000</maximum-active-time>
+		<!-- proxool自动侦察各个连接状态的时间间隔(毫秒),侦察到空闲的连接就马上回收,超时的销毁 （默认30秒）-->
+		<house-keeping-sleep-time>30000</house-keeping-sleep-time>
+		<!-- 日志统计跟踪类型。 参数“ERROR”或 “INFO” -->
+		<statistics-log-level>INFO</statistics-log-level>
+		<trace>true</trace>
+		<verbose>true</verbose>
+	</proxool>
+</something-else-entirely>

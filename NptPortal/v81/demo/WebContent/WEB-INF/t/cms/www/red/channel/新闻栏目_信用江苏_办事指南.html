@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+    <title>办事指南</title>
+    [#include "../include/页头顶栏_LINK.html"/]
+    <link href="${resSys}/www/red/css/bszn.css" type="text/css" rel="stylesheet"/>
+    <script type="text/javascript" src="${resSys}/www/red/js/bszn/move.js"></script>
+    <script type="text/javascript" src="${resSys}/www/red/js/bszn/tuozhuai.js"></script>
+    <style>
+        .nav> li.active> a {
+             color: #1a7ed0!important;
+        }
+        .nav > li >a{
+            color:#000;
+        }
+        #myTab{
+            background:#e6e4e4;
+        }
+        #myTab li{
+            margin-bottom:0;
+        }
+        .footer{
+            margin-bottom:0px!important;
+        }
+    </style>
+</head>
+<body >
+<div class="wrap">
+    [#include "../include/页头顶栏.html"]
+    <div class="content">
+        <div class="sit height_auto m-t-md">
+            <ul>
+                <li>
+                    <a id="sy" href="/">首页</a>
+                </li>
+                <li>></li>
+                <li>
+                    <span>办事指南</span>
+                </li>
+            </ul>
+        </div>
+        <div class="top_div">
+            <img src="${resSys}/www/red/img/bszn/xyfw.png" alt=""/>
+        </div>
+        <div class="drag_div" id="drag_div">
+            <div class="one">
+                <p class="img_100 margin_bottom_15">
+                    <a href="/yhxy/index.jhtml" target="_blank">
+                        <img src="${resSys}/www/red/img/bszn/bzzx.jpg">
+                    </a>
+
+                </p>
+                <p class="text_center">帮助中心</p>
+            </div>
+
+            <div class="three">
+                <p class="img_100 margin_bottom_15">
+                    <a href="/credit/srv/index.do" target="_blank">
+                        <img src="${resSys}/www/red/img/bszn/fwjg.jpg">
+                    </a>
+
+                </p>
+                <p class="text_center">服务机构</p>
+            </div>
+
+            <div class="five">
+                <p class="img_100 margin_bottom_15">
+                    <a href="/credit/srv/index.do?word=5" target="_blank">
+                        <img src="${resSys}/www/red/img/bszn/xycn.jpg">
+                    </a>
+                </p>
+                <p class="text_center">信用承诺</p>
+            </div>
+            <div class="six">
+                <p class="img_100 margin_bottom_15">
+                    <a href="/credit/srv/index.do?word=2" target="_blank">
+                        <img src="${resSys}/www/red/img/bszn/xyts.jpg">
+                    </a>
+                </p>
+                <p class="text_center">信用投诉</p>
+            </div>
+            <div class="seven">
+                <p class="img_100 margin_bottom_15">
+                    <a href="/bsdt/index.jhtml" target="_blank">
+                        <img src="${resSys}/www/red/img/bszn/xyzx.jpg">
+                    </a>
+
+                </p>
+                <p class="text_center">信用资讯</p>
+            </div>
+            <div class="eight">
+                <p class="img_100 margin_bottom_15">
+                    <a href="/credit/srv/index.do?word=1" target="_blank">
+                        <img src="${resSys}/www/red/img/bszn/yycl.jpg">
+                    </a>
+                </p>
+                <p class="text_center">异议处理</p>
+            </div>
+            <div class="nine">
+                <p class="img_100 margin_bottom_15">
+                    <a href="/credit/pub/index.do">
+                        <img src="${resSys}/www/red/img/bszn/xygs.png">
+                    </a>
+                </p>
+                <p class="text_center">信用公示</p>
+            </div>
+            <div class="ten">
+                <p class="img_100 margin_bottom_15">
+                    <a href="/xyfx/index.jhtml">
+                        <img src="${resSys}/www/red/img/bszn/xyfx.png">
+                    </a>
+                </p>
+                <p class="text_center">信用分析</p>
+            </div>
+        </div>
+        <div class="bottom-div">
+            <div class="tabs">
+                <ul id="myTab" class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#cxlc" data-toggle="tab">
+                            查询流程
+                        </a>
+                    </li>
+                    <li><a href="#frcxml" data-toggle="tab">法人查询目录</a></li>
+                    <li><a href="#yycl" data-toggle="tab">异议处理</a></li>
+                    <li><a href="#zrrcxml" data-toggle="tab">自然人查询目录</a></li>
+                </ul>
+                <div id="myTabContent" class="tab-content">
+                    <div class="tab-pane fade in active" id="cxlc">
+                        <img src="${resSys}/www/red/img/bszn/cxlc1.jpg" alt="">
+                        <img src="${resSys}/www/red/img/bszn/cxlc2.jpg" alt="">
+                    </div>
+                    <div class="tab-pane fade" id="frcxml">
+                        <img src="${resSys}/www/red/img/bszn/frxx1.jpg" alt="">
+                        <img src="${resSys}/www/red/img/bszn/frxx2.jpg" alt="">
+                    </div>
+                    <div class="tab-pane fade" id="yycl">
+                        <img src="${resSys}/www/red/img/bszn/yicl1.jpg" alt="">
+                        <img src="${resSys}/www/red/img/bszn/yicl2.jpg" alt="">
+                    </div>
+                    <div class="tab-pane fade" id="zrrcxml">
+                        <img src="${resSys}/www/red/img/bszn/zrr1.jpg" alt="">
+                        <img src="${resSys}/www/red/img/bszn/zrr2.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+[#include "../include/页脚信息栏.html"/]
+</body>
+</html>

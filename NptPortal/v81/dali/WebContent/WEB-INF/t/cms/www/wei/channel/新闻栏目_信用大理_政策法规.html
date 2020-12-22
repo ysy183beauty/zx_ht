@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+	<link href="/r/cms/www/resources/css/jquery-ui-themes.css" type="text/css" rel="stylesheet"/>
+	<link href="/r/cms/www/resources/css/axure_rp_page.css" type="text/css" rel="stylesheet"/>
+	<link href="/r/cms/www/resources/css/index.css" type="text/css" rel="stylesheet"/>
+	<link href="/r/cms/www/red/css/bootstrap.css" type="text/css" rel="stylesheet"/>
+	<link href="/r/cms/www/data/styles.css" type="text/css" rel="stylesheet"/>
+	<link href="/r/cms/www/files/信用服务/styles.css" type="text/css" rel="stylesheet"/>
+	<meta name="viewport" content="width=device-width,maximum-scale=1,user-scalable=no" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=10"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+	<title id="title">${channel.title!channel.name} - ${site.name}</title>
+	[#include "../include/页头顶栏_LINK.html"/]
+	<style>
+		.s-ri{
+			float: none!important;
+			width: 100%!important;
+		}
+		.wx-more {
+			width: 100%;
+			height: 30px;
+			margin-top: 10px;
+		}
+		.load_main {
+			width: 100%;
+			text-align: center;
+			margin-bottom: 5px;
+			display: none;
+		}
+		.ri-ul dt{
+			float:left;
+			width:50%;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
+		.ri-ul dd{
+			float:right;
+			width:45%;
+			color:#ccc;
+		}
+		.ri-ul li:hover{
+			background: #ffffcc !important;
+		}
+		.news_list dd span{
+			overflow:hidden;
+		}
+		.news_list>ul{
+			border-top:0!important;
+		}
+	</style>
+</head>
+
+<body>
+<div class="">
+
+	<!--内容开始-->
+	<div class="main">
+		<div class="wx-list">
+			<div>
+				<h3>政策法规</h3>
+			</div>
+
+			<div class="s-ri">
+				<ul class="ri-ul showData">
+					[@cms_content_page channelId=451 count=channel.pageSize titLen='23'
+					sysPage='3'  styleList='zx-weixin' ctgForm='1' pageClass='page text-center m-t-lg'
+					ctgClass='orange' bottomLine='1' showTitleStyle='2' dateFormat='yyyy-MM-dd'
+					count='10' datePosition='2' dateClass='gray' channelOption='2' tpl='2'
+					orderBy='2' append='...'/]
+
+				</ul>
+
+			</div>
+		</div>
+		<div class="wx-more">
+			<div class="load_main">
+				<img src="/r/cms/www/red/img/load.gif">
+			</div>
+			<div class="more" onclick="makeMore()">查看更多</div>
+		</div>
+	</div>
+
+
+
+
+</div>
+
+
+<script type="text/javascript">
+
+    function showList(){
+        $(".showList").toggle();
+    }
+    var page = 1;
+    function makeMore() {
+        $(".load_main").show();
+        $.ajax({
+            url: "/zcfgfy/index_"+(page+1)+".jhtml",
+            success: function (data) {
+                $(".load_main").hide();
+                page += 1;
+                $(".showData").append(data);
+            }
+        });
+
+    }
+    //    $(document).ready(function(e) {
+    //        var unslider04 = $('#b04').unslider({
+    //                dots: false
+    //            }),
+    //            data04 = unslider04.data('unslider');
+    //
+    //        $('.unslider-arrow04').click(function() {
+    //            var fn = this.className.split(' ')[1];
+    //            data04[fn]();
+    //        });
+    //    });
+    //    $(".wx-list-title li").click(function(){
+    //        $(this).stop().addClass("active").siblings().removeClass("active");
+    //        $(".s-ri-ul").eq($(this).index()).addClass("showData").siblings().removeClass("showData");
+    //    });
+</script>
+
+
+
+</body>
+</html>

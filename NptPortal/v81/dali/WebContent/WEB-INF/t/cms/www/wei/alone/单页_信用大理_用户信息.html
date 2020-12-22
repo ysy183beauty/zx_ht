@@ -1,0 +1,252 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>用户信息 - ${site.name}</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+    <meta http-equiv="keywords" content=""/>
+    <meta http-equiv="description" content=""/>
+    [#include "../include/页头顶栏_LINK.html"/]
+    <style type="text/css">
+        .nav-md{
+            box-shadow: 2px 2px #ccc;
+        }
+        .container{
+           max-width:1000px!important;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+[#include "../include/页头顶栏.html"/]
+
+<!--内容开始-->
+<div class="main">
+    <div class="container">
+        <div class="sit height_auto m-t-md">
+            <ul>
+                <li>
+                    <a id="sy" href="/">首页</a>
+                </li>
+                <li>&gt;</li>
+                <li>
+                    <a href="/member/userInfo.jspx">用户中心</a>
+                </li>
+                <li>&gt;</li>
+                <li>
+                    用户信息
+                </li>
+            </ul>
+        </div>
+        <div class="row">
+
+            <div class="nav-col">
+                <ul class="nav nav-tabs">
+                    <li role="presentation" >
+                        <a href="/member/userInfo.jspx" class="nav-active" >账户信息</a>
+                    </li>
+                    <li role="presentation" >
+                        <a href="/member/profile.jspx">实名认证</a>
+                    </li>
+                    <li role="presentation" >
+                        <a href="/member/pwd.jspx">密码修改</a>
+                    </li>
+                    <li role="presentation" >
+                        <a href="/xyxx/index.jhtml">信用信息</a>
+                    </li>
+                    <li role="presentation" >
+                        <a href="/xybg/index.jhtml" >信用报告</a>
+                    </li>
+                    <li role="presentation" >
+                        <a href="/lsxx/index.jhtml">历史信息</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="">
+                <div class="height_auto m-t-md" style="width:80%;margin:0 auto;">
+                    [#if user?? && ext??]
+                    <div class="tablist modal-header " style="font-size: 18px;height:55px!important;margin-bottom:0px!important;">
+                        <ul>
+                            <li id="register" class="active" style="cursor: pointer;font-size: 18px;" onClick="changeInfo('register')">用户注册信息</li>
+                            <!--<li id="certification" style="cursor: pointer;" onClick="changeInfo('certification')">实名认证信息</li>-->
+                        </ul>
+                    </div>
+                    <div class="modal-body">
+
+                        <form class="form-horizontal" id="registerform" name="registerform" novalidate="novalidate">
+                            <div class="form-group">
+                                <div class="col-sm-3 control-label left_text">登录名</div>
+                                <div class="row col-sm-9">
+                                    <div class="col-sm-10">
+                                        <input id="loginName" value="${user.username!}" disabled="disabled" type="text" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div  class="col-sm-3 control-label left_text">邮箱</div>
+                                <div class="col-sm-9 row">
+                                    <div class="col-sm-10">
+                                        <input value="${user.email!}" disabled="disabled" type="text" class="form-control"  onfocus="clearMsg(this)">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-3 control-label left_text">状态</div>
+                                <div class="col-sm-9 row" >
+                                    <div class="col-sm-10">
+                                        <input type="email" value="${ext.flagValue!}" disabled="disabled" class="form-control">
+
+                                    </div>
+                                </div>
+                            </div>
+                            [#if ext.flag??]
+                            [#if ext.flag =='4']
+                            <div class="form-group">
+                                <div class="col-md-3 control-label left_text">认证失败原因</div>
+                                <div class="col-md-9" >
+                                    <div class="col-md-7">
+                                        <textarea type="text" rows="5" disabled="disabled" class="form-control">${ext.failComment!}</textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            [/#if]
+                            [/#if]
+                        </form>
+                        <form class="form-horizontal" id="certificationform" name="registerform"  style="display: none;">
+                            <div class="form-group">
+                                <div class="col-md-3 control-label left_text">用户类别</div>
+                                <div class="col-md-9">
+                                    <div class="col-md-7">
+                                        <input id="type" type="text" value="${ext.typeValue}" class="form-control" disabled="disabled" ></input>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                [#if ext.type??]
+                                [#if ext.type='person']
+                                <div id="loginUserNameTitle" class="col-md-3 control-label left_text">个人姓名</div>
+                                [#elseif ext.type='company']
+                                <div id="loginUserNameTitle" class="col-md-3 control-label left_text">公司名称</div>
+                                [#else]
+                                <div id="loginUserNameTitle" class="col-md-3 control-label left_text">个人姓名</div>
+                                [/#if]
+                                [#else]
+                                <div id="loginUserNameTitle" class="col-md-3 control-label left_text">个人姓名</div>
+                                [/#if]
+                                <div class="col-md-9">
+                                    <div class="col-md-7">
+                                        <input id="username" value="${user.realname!}"  disabled="disabled" type="text" class="form-control"  onfocus="clearMsg(this)">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                [#if ext.type??]
+                                [#if ext.type='person']
+                                <div id="idCardTitle" class="col-md-3 control-label left_text">身份证号码</div>
+                                [#else]
+                                <div id="idCardTitle" class="col-md-3 control-label left_text">工商注册号</div>
+                                [/#if]
+                                [#else]
+                                <div id="idCardTitle" class="col-md-3 control-label left_text">身份证号码</div>
+                                [/#if]
+                                <div class="col-md-9">
+                                    <div class="col-md-7">
+                                        <input id="idCard" value="${user.idCard!}" disabled="disabled" type="text" class="form-control"  onfocus="clearMsg(this)">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-3 control-label left_text">手机号码</div>
+                                <div class="col-md-9" id="showmobile">
+                                    <div class="col-md-7">
+                                        <input type="text"  value="${user.mobile!}" disabled="disabled" class="form-control" id="mobilenum" name="mobilenum"  >
+                                    </div>
+                                </div>
+                            </div>
+                            [#if ext.type??]
+                            [#if ext.type='person']
+                            <div class="form-group">
+                                <div class="col-md-3 control-label left_text">身份证正面照</div>
+                                <div class="col-md-9" >
+                                    <img id="img1" width="400" type="text"  >
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-3 control-label left_text">身份证反面照</div>
+                                <div class="col-md-9" >
+                                    <img id="img2" width="400" type="text" >
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-3 control-label left_text">手持身份证照</div>
+                                <div class="col-md-9" >
+                                    <img id="img3"  width="400" type="text" >
+                                </div>
+                            </div>
+                            [#else]
+                            <div class="form-group">
+                                <div class="col-md-3 control-label left_text">营业执照照片</div>
+                                <div class="col-md-9">
+                                    <img id="img1"  width="400">
+                                </div>
+                            </div>
+                            [/#if]
+                            [/#if]
+                        </form>
+                    </div>
+                    [/#if]
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<!--内容结束-->
+
+[#include "../include/页脚信息栏.html"/]
+
+</body>
+<script type="text/javascript">
+    $(function () {
+        fillUser();
+        showImg();
+    });
+
+    function fillUser(){
+        [#if user??]
+        loginName = '${user.loginName!}';
+        userName =  '${user.userName!}';
+        type =  '${user.type!}';
+        flag =  '${user.flag!}';
+        [#else]
+            location.href='/yhdl/index.jhtml';
+        [/#if]
+
+    }
+
+    function changeInfo(id) {
+        $("#register").removeClass("active");
+        $("#certification").removeClass("active");
+        $("#registerform").hide();
+        $("#certificationform").hide();
+
+        $("#"+id).show();
+        $("#"+id).addClass("active");
+        $("#"+id+"form").show();
+    }
+    function showImg() {
+        var img = "${ext.idCardImg!}";
+        var type = '${ext.type!}';
+        if (type == "person") {
+            var imgs = img.split(",");
+            $("#img1").attr("src", "/r/cms/www/red/upload/${ext.idCard!}" + imgs[0]);
+            $("#img2").attr("src", "/r/cms/www/red/upload/${ext.idCard!}" + imgs[1]);
+            $("#img3").attr("src", "/r/cms/www/red/upload/${ext.idCard!}" + imgs[2]);
+        } else if (type == "company") {
+            $("#img1").attr("src", "/r/cms/www/red/upload/${ext.idCard!}" + img);
+        }
+    }
+</script>
+</html>

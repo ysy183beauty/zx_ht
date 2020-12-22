@@ -1,0 +1,241 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8;"/>
+<title>${channel.title!channel.name} - ${site.name}</title>
+
+
+
+<link href="${resSys}/app/Css/base.css" rel="stylesheet" type="text/css"/>
+<link href="${resSys}/app/Css/header.css" rel="stylesheet" type="text/css" />
+<link href="${resSys}/app/Css/footer.css" rel="stylesheet" type="text/css" />
+<link href="${resSys}/app/Css/style.css" rel="stylesheet" type="text/css" />
+
+
+
+<script src="${resSys}/app/Js/jquery-1.9.1.min.js" type="text/javascript"></script>
+
+
+
+
+<!--<script src="${resSys}/app/Js/jquery-1.7.2.min.js"></script>-->
+<script src="${resSys}/app/Js/jquery.tabso_yeso.js"></script>
+<style type="text/css">
+.c1-bline{border-bottom:#999 1px dashed;border-top:1px; margin:auto 20px;}
+.f-left{float:left;}
+.f-right{float:right;}
+.img-vm{vertical-align:middle}
+.pagination{height:30px; line-height:30px; text-align:center; clear:both; margin-top:10px;}
+.orange{color:#FF9900;}
+.code{font-family:Arial,宋体;font-style:italic;color:green;border:0;padding:2px 0px;letter-spacing:3px;}
+.code:hover{cursor:pointer;}
+.rightTxt{width:738px;height: 193px; float: left;border:1px solid #E7E7E7;background: #FCFCFC}
+.rightTxt2{width:738px;height: 250px; float: left;border:1px solid #E7E7E7;background: #FCFCFC}
+.rightTxt .txt,.rightTxt2 .txt{width: 96%;font-size: 14px;margin:5px 0 0 10px;line-height: 25px;}
+.warp_right .tit h3{width:150px; height:31px; line-height:31px; background:url(/${res}/img/newEdition/all.png) repeat-x -122px -77px!important; color:white; text-align:center; font-weight:normal;font-size:16px;}
+
+
+</style>
+<!-- 
+<script type="text/javascript">
+	var code1 ; //在全局 定义验证码
+	var code2 ;
+	var code3 ;
+	function createCode1(){ 
+	code1 = new Array();
+	var codeLength = 4;//验证码的长度
+	var checkCode = document.getElementById("checkCode1");
+	checkCode.value = "";
+	
+	var selectChar = new Array(2,3,4,5,6,7,8,9,'A','B','C','D','E','F','G','H','J','K','L','M','N','P','Q','R','S','T','U','V','W','X','Y','Z');
+	
+	for(var i=0;i<codeLength;i++) {
+	   var charIndex = Math.floor(Math.random()*32);
+	   code1 +=selectChar[charIndex];
+	}
+	if(code1.length != codeLength){
+	   createCode1();
+	}
+	checkCode.value = code1;
+	}
+	
+	function validate () {
+	var inputCode = document.getElementById("input1").value.toUpperCase();
+	
+	if(inputCode.length <=0) {
+	   alert("该类信息暂不开放查询！");
+	   return false;
+	}
+	else if(inputCode == code1 ){
+	  alert("该类信息暂不开放查询！");
+	   return true;
+	}
+	else {
+	   alert("该类信息暂不开放查询！");
+	   
+	createCode1();
+	   return false;
+	}
+	}
+	
+	
+	function createCode2(){ 
+		code2 = new Array();
+		var codeLength = 4;//验证码的长度
+		var checkCode = document.getElementById("checkCode2");
+		checkCode.value = "";
+		
+		var selectChar = new Array(2,3,4,5,6,7,8,9,'A','B','C','D','E','F','G','H','J','K','L','M','N','P','Q','R','S','T','U','V','W','X','Y','Z');
+		
+		for(var i=0;i<codeLength;i++) {
+		   var charIndex = Math.floor(Math.random()*32);
+		   code2 +=selectChar[charIndex];
+		}
+		if(code2.length != codeLength){
+		   createCode2();
+		}
+		checkCode.value = code2;
+		}
+		
+		function validate2 () {
+		var inputCode = document.getElementById("input2").value.toUpperCase();
+		
+		if(inputCode.length <=0) {
+		   alert("该类信息暂不开放查询！");
+		   return false;
+		}
+		else if(inputCode == code2 ){
+		  alert("该类信息暂不开放查询！");
+		   return true;
+		}
+		else {
+		   alert("该类信息暂不开放查询！");
+		   
+		createCode2();
+		   return false;
+		}
+		}
+		
+		
+		
+		function createCode3(){ 
+			code3 = new Array();
+			var codeLength = 4;//验证码的长度
+			var checkCode = document.getElementById("checkCode3");
+			checkCode.value = "";
+			
+			var selectChar = new Array(2,3,4,5,6,7,8,9,'A','B','C','D','E','F','G','H','J','K','L','M','N','P','Q','R','S','T','U','V','W','X','Y','Z');
+			
+			for(var i=0;i<codeLength;i++) {
+			   var charIndex = Math.floor(Math.random()*32);
+			   code3 +=selectChar[charIndex];
+			}
+			if(code3.length != codeLength){
+			   createCode3();
+			}
+			checkCode.value = code3;
+			}
+			
+			function validate3 () {
+			var inputCode = document.getElementById("input3").value.toUpperCase();
+			
+			if(inputCode.length <=0) {
+			   alert("该类信息暂不开放查询！");
+			   return false;
+			}
+			else if(inputCode == code3 ){
+			  alert("该类信息暂不开放查询！");
+			   return true;
+			}
+			else {
+			   alert("该类信息暂不开放查询！");
+			   
+			createCode3();
+			   return false;
+			}
+			}
+	$(function() {
+		Cms.siteFlow("${base}", location.href, document.referrer);
+		createCode1();
+		createCode2();
+		createCode3();
+	});
+	
+	/*************重置**************/
+	function clearTxt(n)
+	{
+		if(n==1)
+			{
+				$("#qymc").val("");
+				$("#gszch").val("");
+				$("#zzjgdm").val("");
+				$("#input1").val("");
+			}
+		else if(n==2)
+			{
+				$("#xm").val("");
+				$("#sfz").val("");
+				$("#input2").val("");
+			}
+		else if(n==3)
+			{
+				$("#xm2").val("");
+				$("#sfzh").val("");
+				$("#zgzh").val("");
+				$("#input3").val("");
+			}
+	}
+</script> -->
+</head>
+<body>
+	 
+<div class="wrap head_bg">	
+	[#include "../include/页头顶栏.html"/]
+	
+
+	<!--内容开始-->
+	<div id="main">
+    <div class="main_left fl">
+    	<div class="list_menu">
+        	<h3>
+				${channel.nodeList[0].name}
+			</h3>
+        	<ul>
+            	[@cms_channel_list parentId=channel.parent.id] [#list tag_list as sub]
+				<li>
+					[#if sub.name==channel.name]
+					<a class="current" href='${sub.url}'> ${sub.name} </a>
+				[#else]
+					<a  href='${sub.url}'> ${sub.name} </a>
+				[/#if]
+				</li>
+				[/#list] [/@cms_channel_list]
+            </ul>
+        </div>
+    </div><!--main_left end-->
+    <div class="main_right fr">
+        <div class="list_article">
+        	<div class="location_box"><label class="fl">当前位置</label><span class="fl"> 
+	        	<a href="${base}/">首页
+			[#if channel.nodeList[0].name=channel.nodeList[1].name]
+				</a><span>></span>${channel.nodeList[0].name}
+			[#else]
+				[#list channel.nodeList as n]
+				</a><span>></span>${n.name}
+				[#if n_has_next] 
+				[/#if]
+				[/#list]
+			[/#if]
+			</span></div>
+        	
+        </div>
+    </div><!--main_right end-->
+    <div class="clear"></div>
+</div><!--main end-->
+
+	[#include "../include/页脚信息栏.html"/]
+</div>
+	
+</body>
+</html>

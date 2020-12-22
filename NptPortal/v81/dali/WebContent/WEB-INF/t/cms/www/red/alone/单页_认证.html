@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>${channel.title!channel.name} - ${site.name}</title>
+<meta http-equiv="keywords" content="${channel.keywords!}" />
+<meta http-equiv="description" content="${channel.description!}" />
+
+
+<script type="text/javascript" src="${resSys}/Js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="/${res}/js/common.js" ></script> 
+
+
+
+
+</head>
+<body style="background: white">
+	<!--top_begin-->
+	[#include "../include/页头导航栏.html"/]
+	<!--top_end-->
+	
+	<!--container-->
+	<div class="container">
+		<div class=" mt100"> 
+			<div class="txt">实名认证是由常熟市公共信息服务平台提供的一项身份识别服务，通过这项认证，您就相当于拥有了一张网络身份证明，增加您的信任度和使用平台服务的便利性。</div>
+		</div>
+		<div class="ml150 fl mb10">
+			<div class="step01 active fl"><p>1</p></div>
+			<div class="stepline active fl"></div>
+			<div class="step01 active focus  fl"><p>2</p></div>
+			<div class="stepline  fl"></div>
+			<div class="step01 fl"><p>3</p></div>
+		</div>
+		<div class="clear"></div>
+		<div class="fl ml150">
+			<div class="fl step-1">
+				<div><p>注册用户</p></div>
+				<div>a.身份未认证</div>
+				<div>b.有限的服务使用权限</div>
+			</div>
+			<div class="fl step-2 ml100">
+				<div><p>普通实名制认证</p></div>
+				<div>a.提高账户安全认证等级</div>
+				<div>b.扩展“服务中心”使用权限</div>
+				<div>c.实现在网上办事大厅办理事项的身份认证</div>
+				<div>
+					<a href="/sfz/index.jhtml" target="_blank">身份证认证</a>
+					<a href="/smk/index.jhtml" target="_blank">市民卡认证</a>
+				</div>
+			</div>
+			<div class="fl step-3 ml50">
+				<div><p class="unactive">高级实名制认证</p></div>
+				<div>a.享有最高级别的账户等级</div>
+				<div>b.拥有普通实名制用户的全部权利</div>
+				<div><a href="javascript:void(0)">柜面认证</a></div>
+			</div>
+		</div>
+	</div>
+</body>
+  
+</html>

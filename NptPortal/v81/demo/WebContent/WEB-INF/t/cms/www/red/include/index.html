@@ -1,0 +1,528 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8;"/>
+<title>首页 - ${site.name}</title>
+<meta http-equiv="keywords" content="信用大理" />
+<meta http-equiv="description" content="信用大理" />
+
+</head>
+<body>
+	<!--header_begin-->
+<div class="wrap head_bg">
+
+[#include "../include/页头顶栏.html"/]
+    <div class="main">
+        <div class="w">
+            <div class="search height_auto text-center">
+                <div class="m-t-md search_li">
+                    <ul id="queryType">
+                        <li class="active" id="company"><a><span>企业信用查询</span></a></li>
+                        <li  id="person"><a><span>重点人群信用查询</span></a></li>
+                        <li  id="site"><a><span>站内搜索</span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="height_auto">
+                <div class="m-t-md search_w">
+                    <input id="queryCondition" class="search_input" placeholder="请输入企业名称，法定代表人姓名，工商注册号，组织机构代码" />
+                    <button class="serch_btn" onClick="searchInfo();"><i class="fa fa-search"></i></button>
+                    <div class="index-search-tip">
+                        <p class="search-count " id="indexTip">搜索关键词不得少于２个字符</p>
+                        <span class="corner-main">◆</span>
+                        <span class="corner-bottom">◆</span>
+                    </div>
+                </div>
+            </div>
+            <div class="height_auto m-t-md">
+                <div class="pull-left slideTxtBox " style="width: 698px;">
+                    <div class="tab_box_hd hd bg">
+                        <ul>
+                            <li>本地动态</li>
+                            <li>国家动态</li>
+                        </ul>
+                    </div>
+                    <div class="bd">
+                        <ul>
+                            <div class="pull-left w698">
+                                [@cms_content_list channelId='472' count='3' titLen='30' orderBy='2' channelOption='1' dateFormat='yyyy-MM-dd']
+                                [#list tag_list as a]
+                                [#if a_index<3]
+                                <li>
+                                    <dl>
+                                        <dt class="pull-left m-r-sm">
+                                            <a href="${a.url}" title="${a.title}" target="_blank">
+                                                <img src="${a.typeImg!site.defImg}" width="180" height="114">
+                                            </a>
+                                        </dt>
+                                        <dd>
+                                            <a href="${a.url}" title="${a.title}" target="_blank">[@text_cut s=a.title len=titLen append='...'/]</a>
+                                            <P><em><i class="fa fa-clock-o"></i>[${a.date?string(dateFormat)}]</em></P>
+                                            <p><a href="${a.url}" target="_blank">[@text_cut s=a.desc len=62 append='...'/]</a></p>
+                                        </dd>
+                                    </dl>
+                                </li>
+                                [#else]
+                                <li>
+                                    <dl>
+                                        <dt>
+                                            <a href="${a.url}" title="${a.title}" target="_blank">
+                                                <img src="${a.typeImg!site.defImg}" width="180" height="114">
+                                            </a>
+                                        </dt>
+                                        <dd>
+                                            <a href="${a.url}" title="${a.title}" target="_blank">[@text_cut s=a.title len=titLen append='...'/]</a>
+                                            <P><em><i class="fa fa-clock-o"></i>[${a.date?string(dateFormat)}]</em></P>
+                                            <p><a href="${a.url}" target="_blank">[@text_cut s=a.desc len=62 append='...'/]</a></p>
+                                        </dd>
+                                    </dl>
+                                </li>
+                                [/#if]
+                                [/#list]
+                                [/@cms_content_list]
+                            </div>
+                        </ul>
+                        <ul>
+                            <div class="pull-left w698">
+                                [@cms_content_list channelId='473' count='3' titLen='30' orderBy='2' channelOption='1' dateFormat='yyyy-MM-dd']
+                                [#list tag_list as a]
+                                [#if a_index<3]
+                                <li>
+                                    <dl>
+                                        <dt class="pull-left m-r-sm">
+                                            <a href="${a.url}" title="${a.title}" target="_blank">
+                                                <img src="${a.typeImg!site.defImg}" width="180" height="114">
+                                            </a>
+                                        </dt>
+                                        <dd>
+                                            <a href="${a.url}" title="${a.title}" target="_blank">[@text_cut s=a.title len=titLen append='...'/]</a>
+                                            <P><em><i class="fa fa-clock-o"></i>[${a.date?string(dateFormat)}]</em></P>
+                                            <p><a href="${a.url}" target="_blank">[@text_cut s=a.desc len=62 append='...'/]</a></p>
+                                        </dd>
+                                    </dl>
+                                </li>
+                                [#else]
+                                <li>
+                                    <dl>
+                                        <dt>
+                                            <a href="${a.url}" title="${a.title}" target="_blank">
+                                                <img src="${a.typeImg!site.defImg}" width="180" height="114">
+                                            </a>
+                                        </dt>
+                                        <dd>
+                                            <a href="${a.url}" title="${a.title}" target="_blank">[@text_cut s=a.title len=titLen append='...'/]</a>
+                                            <P><em><i class="fa fa-clock-o"></i>[${a.date?string(dateFormat)}]</em></P>
+                                            <p><a href="${a.url}"  target="_blank">[@text_cut s=a.desc len=62 append='...'/]</a></p>
+                                        </dd>
+                                    </dl>
+                                </li>
+                                [/#if]
+                                [/#list]
+                                [/@cms_content_list]
+                            </div>
+                        </ul>
+                    </div>
+                    </div>
+                <div class="pull-right w280 ">
+                        <div class="tzgg">
+                            <div class="tzgg_tit">
+                                通知公告
+                            </div>
+                            <div class="tzgg_a" style="height: 420px; overflow: hidden;">
+                                <div id="box-list" style="display: block">
+                                    <ul >
+                                        [@cms_content_list channelId='447' count='10' titLen='14' orderBy='2' append='...' dateFormat='MM-dd' channelOption='1']
+                                        [#list tag_list as a]
+                                        <li>
+                                            <dl>
+                                                <dt class="pull-left"><a href="${a.url}" title="${a.title}" target="_blank">[@text_cut s=a.title len=titLen append=append/]</a></dt>
+                                                <dd class="pull-right">${a.date?string(dateFormat)}</dd>
+                                            </dl>
+                                        </li>
+                                        [/#list]
+                                        [/@cms_content_list]
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <script>
+                    $(".slideTxtBox").slide({
+                        trigger: "click"
+                    });
+                </script>
+            </div>
+            <div class="height_auto m-t-sm tab_box_s">
+                <div class="w325 tab_box first pull-left slideTxtBoxs" id="rbContent">
+
+                </div>
+                <script>
+                    $(".slideTxtBoxs").slide({
+                        trigger: "click"
+                    });
+                </script>
+                <div class="w370 tab_box pull-left" id="uccContent">
+
+                </div>
+                <div class="w282 pull-right block_s">
+                    <ul>
+                        <a href="javascript:alert('暂未开放');" class="pull-right" style="margin-left: 10px;">
+                            <li>
+                                <dl>
+                                    <dt class="s1" target="_blank"></dt>
+                                    <dd >被执行人</dd>
+                                </dl>
+                            </li>
+                        </a>
+                        <a href="javascript:alert('暂未开放');" class="pull-right">
+                            <li>
+                                <dl>
+                                    <dt class="s2" target="_blank"></dt>
+                                    <dd>被执行企业</dd>
+                                </dl>
+                            </li>
+                        </a>
+                         <a href="/credit/pub/2pub/alList.do" target="_blank" class="pull-right" style="margin-left: 10px">
+                            <li class="m-t-sm">
+                                <dl>
+                                    <dt class="s4"></dt>
+                                    <dd>行政许可</dd>
+                                </dl>
+                            </li>
+                         </a>
+                        <a href="/credit/pub/2pub/apList.do" target="_blank" class="pull-right">
+                            <li class="m-t-sm">
+                                <dl>
+                                    <dt class="s3"></dt>
+                                    <dd>行政处罚</dd>
+                                </dl>
+                            </li>
+                        </a>
+                    </ul>
+                </div>
+            </div>
+            <div class="height_auto m-t-sm">
+                <div class="pull-left"><img src="${resSys}/www/red/img/images/sss.jpg" width="708" height="138"></div>
+                <div class="pull-right">
+                    <div class="w280 tab_box tab_er">
+                        <span><img src="${resSys}/www/red/img/images/er.png"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="height_auto m-t-sm">
+                <div class="w325 tab_box pull-left">
+                    <div class="tab_box_hd hd bg">
+                        <div class="s2 pull-left">政策法规</div>
+                        <div class="more">
+                            <a href="/country/index.jhtml">更多>></a>
+                        </div>
+                    </div>
+                    <div class="bd">
+                        <ul>
+                            [@cms_content_list channelId='451' count='7' titLen='13' orderBy='2' channelOption='1' dateFormat='yyyy-MM-dd']
+                            [#list tag_list as a]
+                            [#if a_index<3]
+                            <li>
+                                <dl>
+                                    <dt>
+                                        <a href="${a.url}" title="${a.title}" target="_blank">[@text_cut s=a.title len=titLen append='...'/]</a>
+                                    </dt>
+                                    <dd>[${a.date?string(dateFormat)}]</dd>
+                                </dl>
+                            </li>
+                            [#else]
+                            <li>
+                                <dl>
+                                    <dt>
+                                        <a href="${a.url}" title="${a.title}" target="_blank">[@text_cut s=a.title len=titLen append='...'/]</a>
+                                    </dt>
+                                    <dd>[${a.date?string(dateFormat)}]</dd>                                        </dl>
+                            </li>
+                            [/#if]
+                            [/#list]
+                            [/@cms_content_list]
+                        </ul>
+                    </div>
+                </div>
+                <div class="w370 tab_box pull-left m-l-sm">
+                    <div class="tab_box_hd hd bg">
+                        <div class="s2 pull-left">信用知识</div>
+                        <div class="more">
+                            <a href="/xyzs/index.jhtml">更多>></a>
+                        </div>
+                    </div>
+                    <div class="bd">
+                        <ul>
+                            [@cms_content_list channelId='453' count='7' titLen='18' orderBy='2' channelOption='1' dateFormat='yyyy-MM-dd']
+                            [#list tag_list as a]
+                            [#if a_index<3]
+                            <li>
+                                <dl>
+                                    <dt>
+                                        <a href="${a.url}" title="${a.title}" target="_blank">[@text_cut s=a.title len=titLen append='...'/]</a>
+                                    </dt>
+                                    <dd>[${a.date?string(dateFormat)}]</dd>
+                                </dl>
+                            </li>
+                            [#else]
+                            <li>
+                                <dl>
+                                    <dt>
+                                        <a href="${a.url}" title="${a.title}" target="_blank">[@text_cut s=a.title len=titLen append='...'/]</a>
+                                    </dt>
+                                    <dd>[${a.date?string(dateFormat)}]</dd>                                        </dl>
+                            </li>
+                            [/#if]
+                            [/#list]
+                            [/@cms_content_list]
+                        </ul>
+                    </div>
+                </div>
+                <div class="pull-right w282">
+                    <ul>
+                        <li>
+                            <a href="/credit/srv/srvGover.do" target="_blank">
+                                <img src="${resSys}/www/red/img/images/xyfwjg.jpg" width="282" height="100">
+                            </a>
+                        </li>
+                        <li class="m-t-sm">
+                            <a href="javascript:alert('暂未开放')" target="_blank">
+                                <img src="${resSys}/www/red/img/images/xxly.jpg" width="282" height="100">
+                            </a>
+                        </li>
+                        <li class="m-t-sm">
+                            <a href="/credit/srv/index.do?word=1" target="_blank">
+                                <img src="${resSys}/www/red/img/images/yycl.jpg" width="282" height="100">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="height_auto m-t-sm">
+                <div class="tab_box sliderboxs">
+                    <div class="tab_box_hd ss hd">
+                        <ul>
+                            <li class="on">联席单位</li>
+                        </ul>
+                    </div>
+                    <div class="bd ss height_auto">
+                        <ul>
+                            <li>
+                                <span>发展改革委</span>
+                            </li>
+                            <li>
+                                <span>人民银行</span>
+                            </li>
+                            <li>
+                                <span>住房和城乡建设局</span>
+                            </li>
+                            <li>
+                                <span>质监局</span>
+                            </li>
+                            <li>
+                                <span>文化体育局</span>
+                            </li>
+                            <li>
+                                <span>外事办公室</span>
+                            </li>
+                            <li>
+                                <span>外汇管理局</span>
+                            </li>
+                            <li>
+                                <span>统计局</span>
+                            </li>
+                            <li>
+                                <span>司法局</span>
+                            </li>
+                            <li>
+                                <span>水利局</span>
+                            </li>
+                            <li>
+                                <span>科学技术局</span>
+                            </li>
+                            <li>
+                                <span>银监会</span>
+                            </li>
+                            <li>
+                                <span>新闻出版广电局</span>
+                            </li>
+                            <li>
+                                <span>文明办</span>
+                            </li>
+                            <li>
+                                <span>卫计委</span>
+                            </li>
+                            <li>
+                                <span>人民法院</span>
+                            </li>
+                            <li>
+                                <span>旅游发展委员会</span>
+                            </li>
+                            <li>
+                                <span>国税</span>
+                            </li>
+                            <li>
+                                <span>工信委</span>
+                            </li>
+                            <li>
+                                <span>出入境检验检疫局</span>
+                            </li>
+                            <li>
+                                <span>编办</span>
+                            </li>
+                            <li>
+                                <span>食品药品监管局</span>
+                            </li>
+                            <li>
+                                <span>审计局</span>
+                            </li>
+                            <li>
+                                <span>商务局</span>
+                            </li>
+                            <li>
+                                <span>人民检察院</span>
+                            </li>
+                            <li>
+                                <span>人力资源和社会保障局</span>
+                            </li>
+                            <li>
+                                <span>农业局</span>
+                            </li>
+                            <li>
+                                <span>民政局</span>
+                            </li>
+                            <li>
+                                <span>林业局</span>
+                            </li>
+                            <li>
+                                <span>教育局</span>
+                            </li>
+                            <li>
+                                <span>交通运输局</span>
+                            </li>
+                            <li>
+                                <span>环境保护局</span>
+                            </li>
+                            <li>
+                                <span>海关</span>
+                            </li>
+                            <li>
+                                <span>国土局</span>
+                            </li>
+                            <li>
+                                <span>公安局</span>
+                            </li>
+                            <li>
+                                <span>工商局</span>
+                            </li>
+                            <li>
+                                <span>地税局</span>
+                            </li>
+                            <li>
+                                <span>财政局</span>
+                            </li>
+                            <li>
+                                <span>安监局</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+	<!-- 页脚 -->
+	[#include "../include/页脚信息栏.html"/]
+	
+</div>
+
+</body>
+<!--<script type="text/javascript" src="${resSys}/www/red/js/jquery.js" ></script>-->
+<script type="text/javascript">
+    var baseUrl = "/credit/credit_company/baseCompanyList";
+    $(function(){
+        loadRBList();
+        loadUccList();
+    });
+    //通知栏滚动
+//    window.onscroll=function(){
+//    var area = document.getElementById("box-list");
+//    var iliHeight = 35;
+//    var speed = 50;
+//    var time;
+//    var delay= 2000;
+//    area.scrollTop=0;
+//    area.innerHTML+=area.innerHTML;
+//    function startScroll(){
+//        area.scrollTop++;
+//        console.log(area.scrollTop);
+//        time=setInterval("scrollUp()",speed);
+//    }
+//    function scrollUp(){
+//        if(area.scrollTop % iliHeight==0){
+//            console.log("4");
+//            clearInterval(time);
+//            setTimeout(startScroll,delay);
+//        }else{
+//            console.log("5");
+//            area.scrollTop++;
+//            if(area.scrollTop >= area.scrollHeight/2){
+//                area.scrollTop =0;
+//            }
+//        }
+//    }
+//    setTimeout(startScroll,delay);
+////    };
+
+    function loadRBList(){
+        $.ajax({
+            url: "/credit/pub/rbl/divIndex.do",
+            data: {},
+            timeout: 30000,
+            success: function (data) {
+                $("#rbContent").html(data);
+            }
+        });
+    }
+
+    function loadUccList() {
+        $.ajax({
+            url: "/credit/pub/ucc/divIndex.do",
+            data: {},
+            timeout: 30000,
+            success: function (data) {
+                $("#uccContent").html(data);
+            }
+        });
+    }
+
+
+    //    企业查询
+    function searchInfo() {
+        var id =  $('#queryType>li[class=active]').attr('id');
+        var keyWord = $('#queryCondition').val();
+        if(keyWord && keyWord.length >1){
+            if(id=="company"){
+                window.open("/credit/query/bs/fuzzySearch.do?keyword=" +keyWord);
+            }
+            else if(id=="person"){
+                window.open("/credit/query/kc/fuzzySearch.do?keyword=" +keyWord);
+            }
+            else if(id=="site"){
+                window.open("/znss/index.jhtml?keyword="+keyWord);
+            }
+        }
+        else{
+            $(".index-search-tip").css("display","block");
+        }
+
+    }
+
+    //重置企业查询条件
+    function reset() {
+        $('#companyName').val('');
+        $('#companyCode').val('');
+    }
+
+</script>
+</html>

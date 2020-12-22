@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:v="http://www.summer.org/schema/config"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.summer.org/schema/config http://www.summer.org/schema/config/summer-core.xsd">
+
+    <v:package name="/npt/grs/appeal" action-ref="npt.grs.appeal">
+        <v:action name="addAppeal"/>
+        <v:action name="downloadAttach"/>
+        <v:menu name="cdcAppeal" title="中心异议审核" admin="true">
+            <v:action name="cdcIndex" result-success="dataControl/appeal/cdc/index.ftl"/>
+            <v:action name="listCDCByCondition" result-success="dataControl/appeal/cdc/list.ftl"/>
+            <v:action name="appealByCDC"/>
+            <v:action name="showCDCAppeal" result-success="dataControl/appeal/cdc/waitAppeal.ftl"/>
+        </v:menu>
+        <v:menu name="prdAppeal" title="提供方异议审核" admin="true">
+            <v:action name="prdIndex" result-success="dataControl/appeal/prd/index.ftl"/>
+            <v:action name="listPRDByCondition" result-success="dataControl/appeal/prd/list.ftl"/>
+            <v:action name="appealByPRD"/>
+            <v:action name="showPRDAppeal" result-success="dataControl/appeal/prd/waitAppeal.ftl"/>
+        </v:menu>
+        <v:menu name="appeal-index" title="我的异议" admin="true">
+            <v:action name="index" result-success="dataControl/appeal/my/index.ftl"/>
+            <v:action name="list" result-success="dataControl/appeal/my/list.ftl"/>
+            <v:action name="showMyAppeal" result-success="dataControl/appeal/my/detail.ftl"/>
+        </v:menu>
+    </v:package>
+
+</beans>

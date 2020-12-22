@@ -1,0 +1,193 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>电话修改 - ${site.name}</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+    <meta http-equiv="keywords" content=""/>
+    <meta http-equiv="description" content=""/>
+    [#include "../include/页头顶栏_LINK.html"/]
+    <!--<script type="text/javascript" src="${resSys}/www/red/js/jquery-1.9.1.min.js"></script>-->
+    <style type="text/css">
+        .nav-md{
+            box-shadow: 2px 2px #ccc;
+        }
+        .container{
+            max-width:1000px!important;
+        }
+    </style>
+</head>
+<body>
+[#include "../include/页头顶栏.html"/]
+
+<!--内容开始-->
+<div class="main">
+    <div class="container">
+        <div class="sit height_auto m-t-md">
+            <ul>
+                <li>
+                    <a id="sy" href="/">首页</a>
+                </li>
+                <li>&gt;</li>
+                <li>
+                    <a href="/member/userInfo.jspx">用户中心</a>
+                </li>
+                <li>&gt;</li>
+                <li>
+                    电话修改
+                </li>
+            </ul>
+        </div>
+        <div class="row">
+            <div class="col-sm-3"  style="margin-top: 20px;">
+                <div class="height_auto nav-md">
+                    <div class="left_nav">
+                        <span>用户中心</span>
+                        <ul>
+                            <li>
+                                <a href="/member/userInfo.jspx">用户信息</a>
+                            </li>
+                            <li>
+                                <a href="/member/profile.jspx">实名认证</a>
+                            </li>
+                            <li>
+                                <a href="/member/pwd.jspx">密码修改</a>
+                            </li>
+
+                            <li style="display: none;">
+                                <a href="/member/changeMobile.jspx"  class="active">电话修改</a>
+                            </li>
+                            [#if user?? && user.type??]
+                            [#if user.type=='system']
+                            <li>
+                                <a href="/credit/sys/user/userList.do">用户管理</a>
+                            </li>
+                            [/#if]
+                            [/#if]
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-9">
+                <div class="height_auto m-t-md" style="width:80%;margin:0 auto;">
+                    <div class="modal-header" style="height: 60px;">
+                        <h3 class="modal-title pull-left" style="height: 45px;line-height: 45px;
+    border-bottom: 2px solid #2E71B8;font-size: 18px;color: #2E71B8;padding: 0px 10px;">修改电话</h3>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form-horizontal w_100" id="updateMobile" method="post">
+                            <div class="form-group">
+                                <div class="col-md-3 control-label left_text">旧电话号码</div>
+                                <div class="col-md-9">
+                                    <div class="col-md-8">
+                                        <input id="oldmobile" name="oldmobile" value="${oldmobile!}" type="text" placeholder="手机号码" class="form-control" onfocus="clearMsg(this)" disabled>
+                                    </div>
+                                    <div class="" id="oldphoneMsg" style="color: red;"></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-3 control-label left_text">新电话号码</div>
+                                <div class="col-md-9">
+                                    <div class="col-md-8">
+                                        <input id="mobile" name="mobile" value="${mobile!}" type="text" placeholder="手机号码" class="form-control" onfocus="clearMsg(this)">
+                                    </div>
+                                    <div class="" id="phone1Msg" style="color: red;"></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-3 control-label left_text">验证码</div>
+                                <div class="col-md-9">
+                                    <div class="col-md-8">
+                                        <input id="msgcode" name="msgcode" type="text" placeholder="验证码"
+                                               class="form-control pull-left" style="width:50%;" onfocus="clearMsg(this)">
+                                        <button type="button" class="jy_btn pull-right" style="width:40%;"
+                                                onClick="backPassword_sendMsg()">
+                                            点击发送
+                                        </button>
+                                    </div>
+                                    <div class="" id="yzmMsg" style="color: red;"></div>
+                                </div>
+                            </div>
+                            <div class="form-group text-center"  id="formMsgTitle">
+                                [#if message?? ]
+                                [#if message=='修改成功']
+                                <div style="color: #28ff28;">${message!}</div>
+                                [#else]
+                                <div style="color: red;">${message!}</div>
+                                [/#if]
+                                [/#if]
+                            </div>
+                            <div class="form-group text-center" style="display: none"  id="loading">
+                                <img style="margin-left: -100px;" src="${base}/r/cms/www/red/img/loading.gif">
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-11" style="text-align: center;">
+                                    <div class="col-md-10">
+                                        <div style="margin-left:38px;">
+                                            <button type="button" class="btn_sytle" onClick="changePhone();">修改</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!--内容结束-->
+
+[#include "../include/页脚信息栏.html"/]
+
+</body>
+<script type="text/javascript">
+    $(function () {
+        [#if user??]
+        [#else]
+        location.href='/yhdl/index.jhtml';
+        [/#if]
+    })
+
+    function changePhone() {
+        var phone = $("#mobile").val();
+        var oldphone = $("#oldmobile").val();
+        var yzm = $("#msgcode").val();
+        var flag=0;
+        if (!phone) {
+            $("#phone1Msg").html("手机号码不能为空！");
+            flag=flag*1+1;
+        } else {
+            var reg = /^1[0-9]{10}/;
+            if (!reg.test(phone)) {
+                $("#phone1Msg").html("请正确填写手机号！");
+                flag=flag*1+1;
+            }
+        }
+        if (!oldphone) {
+            $("#oldphoneMsg").html("旧手机号码不能为空！");
+            flag=flag*1+1;
+        }
+
+        if (!yzm) {
+            $("#yzmMsg").html("短信验证码不能为空！");
+            flag=flag*1+1;
+        }
+
+        if(flag>0){
+            return;
+        }else{
+            $("#loading").show();
+            $("#updateMobile").submit();
+        }
+    }
+    function clearMsg(ele){
+        $("#"+$(ele).attr("id")+"Msg").html("");
+        $("#formMsg").html("");
+    }
+</script>
+</html>

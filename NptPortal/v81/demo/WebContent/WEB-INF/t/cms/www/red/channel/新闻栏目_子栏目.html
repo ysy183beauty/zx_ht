@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8;"/>
+<title>${channel.title!channel.name} - ${site.name}</title>
+
+
+<style type="text/css">
+.c1-bline{border-bottom:#999 1px dashed;border-top:1px; margin:auto 20px;height: 15px;}
+.f-left{float:left;}
+.f-right{float:right;color: #afafaf}
+.f-left a:hover{color: #385DA3;}
+.img-vm{vertical-align:middle}
+.pagination{height:30px; line-height:30px; text-align:center; clear:both; margin-top:10px;}
+.orange{padding-right: 5px;color: #2c62b8;font-weight: bold;margin-left: 5px;}
+.warp_right .tit h3{width:150px; height:31px; line-height:31px; background:url(/${res}/img/newEdition/all.png) repeat-x -122px -77px!important; color:white; text-align:center; font-weight:normal;font-size:16px;}
+
+
+</style>
+
+
+</head>
+<body>
+	
+	 
+<div class="wrap head_bg">	
+[#include "../include/页头顶栏.html"/]
+	
+
+	<!--内容开始-->
+	<div id="main">
+    <div class="main_left fl">
+    	<div class="list_menu">
+        	<h3>
+				${channel.nodeList[0].name}
+			</h3>
+        	<ul>
+            	[@cms_channel_list parentId=channel.parent.id] [#list tag_list as sub]
+				<li>
+					[#if sub.name==channel.name]
+					<a class="current" href='${sub.url}'> ${sub.name} </a>
+				[#else]
+					<a  href='${sub.url}'> ${sub.name} </a>
+				[/#if]
+				</li>
+				[/#list] [/@cms_channel_list]
+            </ul>
+        </div>
+    </div><!--main_left end-->
+    <div class="main_right fr">
+        <div class="list_article">
+        	<div class="location_box"><label class="fl">当前位置</label><span class="fl"> 
+	        	<a href="${base}/">首页
+			[#if channel.nodeList[0].name=channel.nodeList[1].name]
+				</a><span>></span>${channel.nodeList[0].name}
+			[#else]
+				[#list channel.nodeList as n]
+				</a><span>></span>${n.name}
+				[#if n_has_next] 
+				[/#if]
+				[/#list]
+			[/#if]
+			</span></div>
+        	[@cms_content_page channelId=channel.id count=channel.pageSize
+			sysPage='1' pageClass='pagination' styleList='1-1' ctgForm='1'
+			ctgClass='orange' lineHeight='10' bottomLine='1' headMark='3'
+			dateFormat='yyyy-MM-dd' count='10' datePosition='2' dateClass='gray'
+			channelOption='2' tpl='2'  orderBy='2' /]
+        </div>
+    </div><!--main_right end-->
+    <div class="clear"></div>
+</div><!--main end-->
+
+	[#include "../include/页脚信息栏.html"/]
+</div>
+	
+
+</body>
+</html>

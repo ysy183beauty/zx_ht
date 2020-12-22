@@ -1,0 +1,279 @@
+
+<div class="row-fluid" style="margin-top:10px">
+	<div class="span6 responsive" data-tablet="span6" data-desktop="span6">
+		<div class="dashboard-stat purple">
+			<div class="visual"> <i class="icon-globe"></i> </div>
+			<div class="details">
+				<div class="number" id="zsjl">200,000</div>
+				<div class="desc">数据总量</div>
+			</div> <a class="more" href="#">
+			More<i class="m-icon-swapright m-icon-white"></i>
+		</a> </div>
+	</div>
+	<div class="span3 responsive" data-tablet="span6" data-desktop="span3">
+		<div class="dashboard-stat blue">
+			<div class="visual"> <i class="icon-comments"></i> </div>
+			<div class="details">
+				<div class="number" id="zzjgsl"> 59 </div>
+				<div class="desc"> 组织机构数量 </div>
+			</div> <a class="more" href="#">
+			More<i class="m-icon-swapright m-icon-white"></i>
+		</a> </div>
+	</div>
+	<div class="span3 responsive" data-tablet="span6" data-desktop="span3">
+		<div class="dashboard-stat green">
+			<div class="visual"> <i class="icon-shopping-cart"></i> </div>
+			<div class="details">
+				<div class="number" id="yhsl">49</div>
+				<div class="desc">用户数量</div>
+			</div> <a class="more" href="#">
+			More <i class="m-icon-swapright m-icon-white"></i>
+		</a> </div>
+	</div>
+</div>
+<div class="row-fluid">
+	<div class="span6">
+		<div class="portlet box boxTheme">
+			<div class="portlet-title">
+				<div class="caption"><i class="icon-reorder"></i> 各委办局下属机构数据量</div>
+			</div>
+			<div class="portlet-body">
+					<div id="main1" style="height:350px;"></div>
+			</div>
+		</div>
+	</div>
+	<div class="span6">
+		<div class="portlet box boxTheme">
+			<div class="portlet-title">
+				<div class="caption"><i class="icon-reorder"></i> 数据量占比</div>
+			</div>
+			<div class="portlet-body">
+				<div id="main2" style="height:350px;"></div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row-fluid">
+	<div class="span4">
+		<div class="portlet box purple">
+			<div class="portlet-title">
+				<div class="caption"><i class="icon-signal"></i> 数据增长率</div>
+			</div>
+			<div class="portlet-body">
+				<div class="easy-pie-chart" id="sjzzl">
+					<div class="number transactions" data-percent="55"><span>+55</span>%</div>
+					<!--<a class="title easy-pie-chart-reload" href="javascript:;"  >Reload  <i class="m-icon-swapright"></i></a> -->
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="span4">
+		<div class="portlet box blue">
+			<div class="portlet-title">
+				<div class="caption"><i class="icon-signal"></i> 实名用户增长率</div>
+			</div>
+			<div class="portlet-body">
+				<div class="easy-pie-chart" id="smyhzzl">
+					<div class="number visits" data-percent="15"><span>+15</span>%</div>
+					<!--<a class="title easy-pie-chart-reload" href="javascript:;"  >Reload <i class="m-icon-swapright"></i></a> -->
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="span4">
+		<div class="portlet box green">
+			<div class="portlet-title">
+				<div class="caption"><i class="icon-signal"></i> 点击量增长率</div>
+			</div>
+			<div class="portlet-body">
+				<div class="easy-pie-chart">
+					<div class="number bounce" data-percent="46"><span>+46</span>%</div>
+					<!--<a class="title easy-pie-chart-reload" href="javascript:;"  >Reload <i class="m-icon-swapright"></i></a> -->
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	$(function () {
+
+        /**
+         * 作者: 张磊
+         * 日期: 2017/04/05 下午08:19
+         * 备注:
+         */
+        $.ajax({
+            url: "/npt/sts/statistics/nptIndex.action",
+            timeout: 30000,
+            beforeSend:function(){
+                $(".loadDiv").show();
+            },
+            success: function (data) {
+                if (data.result /*&& getUrlParameter("new")*/) {
+                    var jsonData = JSON.parse(data.message);
+                    $("#zsjl").text(jsonData.zsjl.toLocaleString('en-US'));
+                    $("#zzjgsl").text(jsonData.zzjgsl.toLocaleString('en-US'));
+                    $("#yhsl").text(jsonData.yhsl.toLocaleString('en-US'));
+
+                    option2.series[0].data = jsonData.sjlzb;
+                    myChart2.setOption(option2);
+
+                    dataAxis = [];
+                    dataShadow = [];
+                    var yMax = 0;
+                    for (var i = 0, len = jsonData.xsjgsjl.length; i < len; i++) {
+                        dataAxis.push(jsonData.xsjgsjl[i].name);
+                        if (jsonData.xsjgsjl[i].value > yMax) {
+                            yMax = jsonData.xsjgsjl[i].value;
+                        }
+                    }
+                    for (var i = 0, len = jsonData.xsjgsjl.length; i < len; i++) {
+                        dataShadow.push(Math.floor(yMax / 5 + 1) * 5);
+                    }
+                    option.xAxis.data = dataAxis;
+                    option.series[0].data = dataShadow;
+                    option.series[1].data = jsonData.xsjgsjl;
+                    myChart.setOption(option);
+
+
+                    $("#sjzzl .number").data('easyPieChart').update('+' + jsonData.sjzzl);
+                    $("#sjzzl span").text('+' + jsonData.sjzzl);
+
+                    $("#smyhzzl .number").data('easyPieChart').update('+' + jsonData.smyhzzl);
+                    $("#smyhzzl span").text('+' + jsonData.smyhzzl);
+                }
+                $(".loadDiv").hide();
+            },
+            error:function () {
+                $(".loadDiv").hide();
+                returnInfo(false,"操作失败！");
+            }
+        });
+
+		myChart = echarts.init(document.getElementById('main1'));
+		dataAxis = ['公安局', '统计局', '民政局', '工商局', '国税局', '地税局', '环保局', '质监局', '妇联', '交通局', '发改委', '科技局', '司法局', '金融办', '海关', '红十字会', '安监局', '市委', '市委宣传部', '农业委员会'];
+		data = [20, 12, 11, 34, 20, 33, 31, 13, 42, 21, 19, 19, 21, 12, 13, 33, 18, 13, 15, 22];
+		var yMax = 50;
+		dataShadow = [];
+
+		for (var i = 0; i < data.length; i++) {
+			dataShadow.push(yMax);
+		}
+
+		option = {
+			tooltip : {
+				trigger: 'axis',
+				axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+					type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+				},
+				formatter: "{b} : {c1}<br/>"
+			},
+			xAxis: {
+				data: dataAxis
+			},
+			yAxis: {
+				axisLine: {
+					show: false
+				},
+				axisTick: {
+					show: false
+				},
+				axisLabel: {
+					textStyle: {
+						color: '#999'
+					}
+				}
+			},
+			dataZoom: [
+				{
+					type: 'inside'
+				}
+			],
+			series: [
+				{ // For shadow
+					type: 'bar',
+					itemStyle: {
+						normal: {color: 'rgba(0,0,0,0.05)'}
+					},
+					barGap:'-100%',
+					barCategoryGap:'50%',
+					data: dataShadow
+				},
+				{
+					type: 'bar',
+					itemStyle: {
+						normal: {
+							color: new echarts.graphic.LinearGradient(
+									0, 0, 0, 1,
+									[
+										{offset: 0, color: '#83bff6'},
+										{offset: 0.5, color: '#188df0'},
+										{offset: 1, color: '#188df0'}
+									]
+							)
+						},
+						emphasis: {
+							color: new echarts.graphic.LinearGradient(
+									0, 0, 0, 1,
+									[
+										{offset: 0, color: '#2378f7'},
+										{offset: 0.7, color: '#2378f7'},
+										{offset: 1, color: '#83bff6'}
+									]
+							)
+						}
+					},
+					data: data
+				}
+			]
+		};
+		myChart.setOption(option);
+
+		myChart2 = echarts.init(document.getElementById('main2'));
+		option2 = {
+			tooltip : {
+				trigger: 'item',
+				formatter: "{b} :{d}%<br/>"
+			},
+			series : [
+				{
+					name: '访问来源',
+					type: 'pie',
+					radius : '85%',
+					center: ['50%', '50%'],
+					data:[
+						{value:220,name:'公安局'},
+						{value:182,name:'统计局'},
+						{value:191,name:'民政局'},
+						{value:234,name:'工商局'},
+						{value:290,name:'国税局'},
+						{value:330,name: '地税局'},
+						{value:310,name:'环保局'},
+						{value:123,name:'质监局'},
+						{value:442,name:'妇联'},
+						{value:321,name:'交通局'},
+						{value:90,name:'发改委'},
+						{value:149,name:'科技局'},
+						{value:210,name:'司法局'},
+						{value:122,name:'金融办'},
+						{value:133,name:'海关'},
+						{value:334,name:'红十字会'},
+						{value:198,name:'安监局'},
+						{value:123,name:'市委'},
+						{value:125,name:'市委宣传部'},
+						{value:220,name:'农业委员会'}
+						],
+					itemStyle: {
+						emphasis: {
+							shadowBlur: 10,
+							shadowOffsetX: 0,
+							shadowColor: 'rgba(0, 0, 0, 0.5)'
+						}
+					}
+				}
+			]
+		};
+		myChart2.setOption(option2);
+
+	});
+</script>

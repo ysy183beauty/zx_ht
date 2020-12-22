@@ -1,0 +1,58 @@
+<script type="text/javascript">
+var dialog = "false";
+function imgClick()
+{
+	window.location.href = "${base}/logout.jspx?returnUrl=/";
+}
+</script>
+
+[#if user??]
+<div style="margin-bottom: -30px;">
+	<form id="jvForm" method="post">
+		
+		<table border="0" width="100%">
+			<tr>
+				<td width="10%">欢迎您:&nbsp;${user.username}&nbsp;&nbsp;</td>
+				<td width="10%" style="margin-top: -20px;"><img style="cursor:pointer;" onclick="imgClick()" src="${base}/r/cms/www/red/img/button_exit.jpg" /></td>
+				
+				<td width="80%" align="right"><div >
+			<a href="/">网站导航</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a
+				href="/lxwmsy/index.jhtml">联系我们</a>
+		</div></td>
+			</tr>
+		</table>
+	</form>
+</div>
+[#else]
+
+<div style="margin-bottom: -30px;"> 
+<!--	<form id="jvForm" action="${base}/rdplogin.jspx" method="post">-->
+<!--		<label>欢迎您！&nbsp;</label><label style="color:red; margin-right:10px;">&nbsp;</label>-->
+<!--		<input type="hidden" name="returnUrl" value="${location}" /> 用户名：<input-->
+<!--			type="text" id="username" name="username" class="required"-->
+<!--			title="用户名不能为空" /> &nbsp; 密码：<input type="password" id="password"-->
+<!--			name="password" class="required" title="密码不能为空" />-->
+			
+			
+<!--			 &nbsp; -->
+<!--			 -->
+<table width="100%">
+	<tr>
+
+		<td width="10%">欢迎您:&nbsp;游客&nbsp;&nbsp;</td>
+		<td width="10%" style="margin-top: -20px;"> <input
+			type="image" value="登录" onclick="return onLoginWindow('${base}');" src="${base}/r/cms/www/red/img/button_login.jpg"/></td>
+			
+				<td width="80%" align="right"><div >
+			<a href="/">网站导航</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a
+				href="/lxwmsy/index.jhtml">联系我们</a>
+		</div></td>
+	</tr>
+</table>
+			
+<!--			&nbsp;-->
+			
+			
+<!--	</form>-->
+</div>
+[/#if]

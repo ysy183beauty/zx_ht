@@ -1,0 +1,188 @@
+.container{
+    max-width:1000px;
+    margin-bottom:50px;
+}
+.content{
+    margin-top:20px;
+    border: 1px solid #000;
+}
+.con_top{
+    padding:0!important;
+    margin-bottom:0!important;
+}
+.title-top{
+    padding:10px 0;
+    border-bottom: 1px solid #333;
+    font-size:18px;
+}
+.search-title{
+    overflow:hidden;
+}
+.search-title-left{
+    background: url("../img/travel/travel_02.png") center left no-repeat;
+    font-size:18px;
+    color:#fff;
+    padding:5px;
+    padding-left:40px!important;
+}
+.travel-content .infoSearch{
+    margin-top:50px;
+}
+.search-title{
+    border-bottom: 1px solid #ccc;
+}
+.search-title-right{
+    color:#0066cc;
+    font-size:18px;
+}
+.search-title-right>span{
+    display:inline-block;
+    width:150px;
+    height:35px;
+    text-align: center;
+    cursor:pointer;
+}
+.title-on{
+    font-weight:bold;
+    border-bottom: 3px solid #0099cc;
+}
+.search-content{
+    margin-top:40px;
+    overflow:hidden;
+}
+.searchBar>div{
+    overflow:hidden;
+}
+.searchBar>div>div{
+    margin-bottom:10px;
+}
+.searchBar span{
+    text-align: right;
+    padding:5px 0;
+}
+.searchBar input[type="text"]{
+    padding:5px;
+}
+.button{
+    margin-top:40px;
+    text-align: center;
+}
+.button input[type="button"]{
+    width:75px;
+    margin:0 40px;
+}
+/*荣誉榜*/
+.content-box{
+    margin-bottom:30px;
+}
+.box-title{
+    font-size:18px;
+    overflow:hidden;
+}
+.box-title-left{
+    float:left;
+    border-left:5px solid #0099ff;
+    color:#0099ff;
+    padding:0px 5px;
+}
+.box-title-right{
+    float:right;
+}
+.box-title-right a{
+    color:#666;
+    text-decoration: underline;
+}
+.box-con{
+    margin-top:25px;
+    overflow:hidden;
+    color:#999;
+    padding-left:15px;
+}
+.box-con b{
+    color:#b69c9b;
+    font-weight:400;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+}
+.box-con>div{
+    margin-bottom:10px;
+}
+.box-con>div>div{
+    overflow:hidden;
+}
+.box-con>div>div>span{
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+}
+.introduction{
+    margin-top:10px;
+    line-height:30px;
+    word-break: break-all;
+    border-bottom:1px dashed #999;
+}
+.box-con .col-sm-2>div{
+    text-align: center;
+}
+.box-con .col-sm-2 img{
+    width:100%;
+    height:80px;
+}
+.box-con .col-sm-2 a{
+    display:inline-block;
+    color:#0099ff;
+    padding-top:5px;
+    padding-bottom:1px;
+    border-bottom: 1px solid #0099ff;
+}
+.info-img{
+    width:152px;
+    height:136px;
+    padding-left:0px!important;
+    padding-right:0px!important;
+}
+.info-img img{
+    width:100%;
+    height:100%;
+}
+.info{
+    width:270px!important;
+    height:140px;
+    overflow:hidden;
+    font-weight:normal!important;
+    padding-right:0px!important;
+}
+.info li{
+    line-height: 28px;
+    text-align: left;
+    overflow:hidden;
+}
+.info ul li a{
+    color:#999;
+}
+.info ul li a:hover{
+    color: deepskyblue;
+}
+.info ul li span{
+    float:right;
+}
+.con-bottom{
+    width:90%!important;
+    margin:0 auto;
+}
+.con_top {
+    border-bottom: 0!important;
+}
+.guide{
+    width:60%;
+    float: left;
+    white-space: nowrap;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    overflow:hidden;
+}
+.guide-time{
+    width:40%;
+    float:right;
+}

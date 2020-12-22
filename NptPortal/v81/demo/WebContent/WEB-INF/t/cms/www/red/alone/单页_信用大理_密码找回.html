@@ -1,0 +1,323 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>${channel.title!channel.name} - ${site.name}</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+    <meta http-equiv="keywords" content="${channel.keywords!}"/>
+    <meta http-equiv="description" content="${channel.description!}"/>
+    [#include "../include/页头顶栏_LINK.html"/]
+    <!--<script type="text/javascript" src="${resSys}/www/red/js/jquery-1.9.1.min.js"></script>-->
+    <script type="text/javascript" src="${resSys}/www/red/js/common.js"></script>
+    <style type="text/css">
+        .validation_steps {
+            color: #2c6db2;
+            height: 39px;
+            border-bottom: 2px solid #2E71B8;
+        }
+        .tablist li{
+            width:25%!important;
+        }
+        .box{
+            width:100%!important;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+[#include "../include/页头顶栏.html"/]
+
+<!--内容开始-->
+<div class="main">
+    <div class="w">
+        <div class="sit height_auto m-t-md">
+            <ul>
+                <li>
+                    <a id="sy" href="">首页</a>
+                </li>
+                <li>></li>
+                <li>
+                    <a href="">密码找回</a>
+                </li>
+            </ul>
+        </div>
+        <div class="w" style="height: auto;">
+            <div style="width: 650px;  margin-left: auto;
+    margin-right: auto;  " class="center">
+                <div class="modal-header" style="height: 60px;">
+                    <h3 class="modal-title pull-left" style="height: 45px;line-height: 45px;
+    border-bottom: 2px solid #2E71B8;font-size: 18px;color: #2E71B8;padding: 0px 10px;">密码找回</h3>
+                </div>
+                <div class="modal-body">
+                    <input id="name" style="display: none;">
+                    <div class="tablist m-b-lg">
+                        <ul>
+                            <li id="dlmbt" class="active">登录名</li>
+                            <li id="yzsfbt">验证身份</li>
+                            <li id="xgmmbt">修改密码</li>
+                            <li id="wcbt" >完成</li>
+                        </ul>
+                    </div>
+                    <form class="form-horizontal w_100">
+                        <div class="tab_0 tab_m" id="dygym">
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">登录名</label>
+                                <div class="col-md-10">
+                                    <div class="col-md-7">
+                                        <input type="text" id="checkUuid" placeholder="用户名/手机号" class="form-control">
+                                    </div>
+                                    <div class="col-md-3"></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">验证码</label>
+                                <div class="col-md-10">
+                                    <div class="col-md-7">
+                                        <input type="text" placeholder="验证码" style="width:143px;"
+                                               class="form-control pull-left yz_input">
+                                        <div class="pull-left yzm_img m-l-sm">
+                                            <input id="checkUsercCode" class="zcyzm" onclick="createUserCode()"
+                                                   onfocus=this.blur()></input>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3"></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-8 pull-left" style="margin-left: 13px;">
+                                    <button type="button" class="btn_sytle" onclick="backPassword_checkUser()">下一步
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab_1 tab_m" id="fsyzm">
+                            <p>您正在为帐号<span id="checkPhone1" class="color_blue"></span>找回密码,为了保护帐号安全，需要验证身份</p>
+                            <div class="box m-t-md">
+                                <div class="pull-left fa fa-mobile s1"></div>
+                                <div class="pull-left">通过密保手机<span id="checkPhone2" class="color_blue"></span>验证</div>
+                                <button type="button" class="pull-right btn_sytle btn-w-m"
+                                        onClick="xgmmNext('yzjym','yzsfbt')">验证
+                                </button>
+                            </div>
+                        </div>
+                        <div class="tab_2 tab_m" id="yzjym">
+                            <p style="margin-left: 20px;">短信验证码已发送至<span id="checkPhone3" class="color_blue"></span></p>
+                            <div class="form-group text-center">
+                                <div class="col-md-8">
+                                    <input id="sjyzm" type="text" placeholder="" class="form-control pull-left jy_input"
+                                           style="width: 220px;margin-left: 20px;">
+                                    <button type="button" class="jy_btn pull-left" onClick="backPassword_sendMsg()">
+                                        获取验证码
+                                    </button>
+                                    <button type="button" class="btn_sytle m-t-md" onClick="xgmmNext('srxmm','xgmmbt')">
+                                        下一步
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab_3 tab_m" id="srxmm">
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">新密码</label>
+                                    <div class="col-md-10">
+                                        <div class="col-md-7">
+                                            <input id="changepassword1" type="password" placeholder="6-20个字符（区分大小写）"
+                                                   class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">确认密码</label>
+                                    <div class="col-md-10">
+                                        <div class="col-md-7">
+                                            <input id="changepassword2" type="password" placeholder="再次输入密码"
+                                                   class="form-control">
+                                        </div>
+                                        <div class="col-md-3"></div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-8">
+                                        <button type="button" class="btn_sytle" onClick="backPassword_changePassword()"
+                                                style="margin-left: 10px;">下一步
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab_4 text-center tab_m" id="xgcg">
+                            <img src="${resSys}/www/red/img/images/ok.png">
+                            <p class="m-t-md">恭喜你，密码修改成功！</p>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--内容结束-->
+
+</div>
+[#include "../include/页脚信息栏.html"/]
+
+</body>
+<script type="text/javascript">
+    $(function () {
+        createUserCode();
+    });
+
+    function showChange() {
+        createUserCode();
+        $("#login").modal('hide');
+        $("#zh_password").modal('show');
+        xgmmNext('dygym', 'dlmbt');
+    }
+
+    function xgmmNext(id, titleId) {
+        //内容掩藏
+        $("#yzjym").hide();
+        $("#fsyzm").hide();
+        $("#dygym").hide();
+        $("#xgcg").hide();
+        $("#srxmm").hide();
+        $("#" + id).show();
+        $("#" + titleId).addClass("active");
+    }
+
+    function backPassword_checkUser() {
+        var uuidName = $("#checkUuid").val();
+        var reg = /^1[0-9]{10}/;
+        var type = '';
+        if (reg.test(uuidName)) {
+            type = 'phone';
+        } else {
+            type = 'loginName';
+        }
+        if (checkUsercCode != $('#checkUsercCode').val()) {
+            alert("输入的验证码不对");
+            return;
+        }
+        $.ajax({
+            url: encodeURI("/credit/sys/user/checkUser.do"),
+            dataType: 'json',
+            data: {
+                type: type,
+                value: uuidName
+            },
+            success: function (data) {
+                if (data) {
+                    var phone = data['phone'];
+                    $("#name").val(phone);
+                    if (phone) {
+                        $("#checkPhone1").html(phone);
+                        $("#checkPhone2").html(phone);
+                        $("#checkPhone3").html(phone);
+                        xgmmNext('fsyzm', 'yzsfbt');
+                    } else {
+                        alert("输入的用户名不正确")
+                    }
+                } else {
+                    alert("输入的用户名不正确")
+                }
+            },
+            error: function (response) {
+                var s = response;
+                alert(s.statusText);
+            },
+            timeout: 60000
+        });
+    }
+
+    function backPassword_sendMsg() {
+        var phone = $("#name").val();
+        $.ajax({
+            url: encodeURI("/credit/sys/user/sendMessage.do"),
+            dataType: 'json',
+            data: {phone: phone},
+            success: function (data) {
+                if (data) {
+                    alert("发送成功！")
+                } else {
+                    alert("发送失败！")
+                }
+            },
+            error: function (response) {
+                var s = response;
+                alert(s.statusText);
+            },
+            timeout: 60000
+        });
+    }
+
+    function backPassword_checkMsg() {
+        var yzm = $("#sjyzm").val();
+        var phone = $("#name").val();
+        $.ajax({
+            url: encodeURI("/credit/sys/user/checkMessage.do"),
+            dataType: 'json',
+            data: {
+                yzm: yzm,
+                phone: phone
+            },
+            success: function (data) {
+                if (data) {
+                    xgmmNext('srxmm', 'xgmmbt');
+                } else {
+                    alert("短信验证码校验失败！")
+                }
+            },
+            error: function (response) {
+                var s = response;
+                alert(s.statusText);
+            },
+            timeout: 60000
+        });
+    }
+
+    function backPassword_changePassword() {
+
+        var pwd1 = $('#changepassword2').val();
+        var pwd2 = $('#changepassword1').val();
+        var phone = $("#name").val();
+        if (pwd1 != pwd2) {
+            alert("两次输入的密码不一样！");
+            return;
+        }
+
+        $.ajax({
+            url: encodeURI("/credit/sys/user/getBackPassword.do"),
+            dataType: 'json',
+            data: {
+                pwd: pwd1,
+                phone: phone
+            },
+            success: function (data) {
+                if (data == true) {
+                    xgmmNext('xgcg', 'wcbt');
+                } else {
+                    alert("密码修改失败！")
+                }
+            },
+            error: function (response) {
+                var s = response;
+                alert(s.statusText);
+            },
+            timeout: 60000
+        });
+
+    }
+
+    function show_changePhone() {
+        $("#change_phone").modal('show');
+    }
+
+    function show_changePassword() {
+        $("#change_password").modal('show');
+    }
+</script>
+</html>

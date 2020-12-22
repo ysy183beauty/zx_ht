@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+    <title>信用旅游</title>
+    [#include "../include/页头顶栏_LINK.html"/]
+    <link rel="stylesheet" href="${resSys}/www/red/css/travel.css"/>
+    <link rel="stylesheet" href="${resSys}/www/red/css/qyxycx.css"/>
+</head>
+<body>
+<div class="wrap">
+    [#include "../include/页头顶栏.html"]
+    <div class="container">
+        <div class="sit height_auto m-t-md">
+            <ul>
+                <li>
+                    <a id="sy" href="/">首页</a>
+                </li>
+                <li>></li>
+                <li>
+                    <span>信用旅游</span>
+                </li>
+            </ul>
+        </div>
+        <div class="content">
+            <div class="title-top">
+                <img src="${resSys}/www/red/img/travel/travel_01.png" alt="">
+                信用旅游
+            </div>
+            <div class="travel-content">
+                <div class="infoSearch">
+                    <div class="search-title">
+                        <div class="search-title-left col-sm-4">信息查询</div>
+                        <div class="search-title-right col-sm-8">
+                            <span id="company" class="title-on " onclick="queryNavi('/credit/pub/travel/index.do?flag=1081',null,'#search-content')">旅游企业</span>
+                            <span id="person" onclick="queryNavi('/credit/pub/travel/index.do?flag=1082',null,'#search-content')">个人</span>
+                        </div>
+                    </div>
+                    <div class="search-content" id="search-content">
+                        <div class="searchBar">
+                            <div class="company">
+                                <div class="col-sm-6">
+                                    <span class="col-sm-5">企业名称：</span>
+                                    <input type="text" class="col-sm-5">
+                                </div>
+                                <div class="col-sm-6">
+                                    <span class="col-sm-5">统一信用代码：</span>
+                                    <input class="col-sm-5" type="text">
+                                </div>
+                            </div>
+                            <div class="person" style="display:none;">
+                                <div class="col-sm-6">
+                                    <span class="col-sm-5">姓名：</span>
+                                    <input class="col-sm-5" type="text">
+                                </div>
+                                <div class="col-sm-6">
+                                    <span class="col-sm-5">导游／领队证号：</span>
+                                    <input class="col-sm-5" type="text">
+                                </div>
+                                <div class="col-sm-6">
+                                    <span class="col-sm-5">所属旅行社/导游服务公司：</span>
+                                    <input class="col-sm-5" type="text">
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="button">
+                            <input type="button" value="查询">
+                            <input type="button" value="重置">
+                        </div>
+                    </div>
+                </div>
+                <div class="honorList">
+                    <div class="search-title">
+                        <div class="search-title-left col-sm-4">荣誉榜</div>
+                    </div>
+                    <div class="search-content">
+                        <div class="col-sm-12">
+                            <div class="content-box">
+                                <div class="box-title">
+                                    <div class="box-title-left">旅行社</div>
+                                    <div class="box-title-right"><a onclick="travelMore()">更多</a></div>
+                                </div>
+                                <div class="box-con" id="box-con">
+                                    <div class="col-sm-6">
+                                        <div>
+                                            <b class="col-sm-4">安居旅社</b>
+                                            <span class="box-address col-sm-8">地址:云南省大理市白族</span>
+                                        </div>
+                                        <div class="introduction ">
+                                            简介：
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div>
+                                            <b class="col-sm-4">安居旅社</b>
+                                            <span class="box-address col-sm-8">地址</span>
+                                        </div>
+                                        <div class="introduction ">
+                                            简介：
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div>
+                                            <b class="col-sm-4">安居旅社</b>
+                                            <span class="box-address col-sm-8">地址</span>
+                                        </div>
+                                        <div class="introduction ">
+                                            简介：
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div>
+                                            <b class="col-sm-4">安居旅社</b>
+                                            <span class="box-address col-sm-8">地址</span>
+                                        </div>
+                                        <div class="introduction ">
+                                            简介：
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="content-box">
+                                <div class="box-title">
+                                    <div class="box-title-left">景区景点</div>
+                                    <div class="box-title-right"><a href="http://dalitravel.gov.cn/041.html"
+                                                                    target="_blank">更多</a></div>
+                                </div>
+                                <div class="box-con">
+                                    <div class="col-sm-2">
+                                        <div>
+                                            <img src="${resSys}/www/red/img/travel/travel_jd_01.jpg" alt="">
+                                        </div>
+                                        <div>
+                                            <a href="http://dalitravel.gov.cn/005.html" target="_blank">大理古城</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div>
+                                            <img src="${resSys}/www/red/img/travel/travel_jd_02.jpg" alt="">
+                                        </div>
+                                        <div>
+                                            <a href="http://dalitravel.gov.cn/011.html" target="_blank">洱海</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div>
+                                            <img src="${resSys}/www/red/img/travel/travel_jd_03.jpg" alt="">
+                                        </div>
+                                        <div>
+                                            <a href="http://dalitravel.gov.cn/014.html" target="_blank">苍山</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div>
+                                            <img src="${resSys}/www/red/img/travel/travel_jd_04.jpg" alt="">
+                                        </div>
+                                        <div>
+                                            <a href="http://dalitravel.gov.cn/007.html" target="_blank">崇圣寺三塔</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div>
+                                            <img src="${resSys}/www/red/img/travel/travel_jd_05.jpg" alt="">
+                                        </div>
+                                        <div>
+                                            <a href="http://dalitravel.gov.cn/012.html" target="_blank">双廊</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div>
+                                            <img src="${resSys}/www/red/img/travel/travel_jd_06.jpg" alt="">
+                                        </div>
+                                        <div>
+                                            <a href="http://dalitravel.gov.cn/010.html" target="_blank">喜洲</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="content-box">
+                                <div class="box-title">
+                                    <div class="box-title-left">客栈/酒店</div>
+                                    <div class="box-title-right"><a href="http://www.dalitravel.gov.cn/zzdl.html"
+                                                                    target="_blank">更多</a></div>
+                                </div>
+                                <div class="box-con">
+                                    <div class="col-sm-2">
+                                        <div>
+                                            <img src="${resSys}/www/red/img/travel/travel_kz_01.jpg" alt="">
+                                        </div>
+                                        <div>
+                                            <a href="http://www.dalitravel.gov.cn/inns/bxys.htm" target="_blank">泊心云舍</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div>
+                                            <img src="${resSys}/www/red/img/travel/travel_kz_02.jpg" alt="">
+                                        </div>
+                                        <div>
+                                            <a href="http://www.dalitravel.gov.cn/news/60622.html"
+                                               target="_blank">风情海岸客栈</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div>
+                                            <img src="${resSys}/www/red/img/travel/travel_kz_03.jpg" alt="">
+                                        </div>
+                                        <div>
+                                            <a href="http://www.dalitravel.gov.cn/news/60604.html"
+                                               target="_blank">双廊澜庭别院</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div>
+                                            <img src="${resSys}/www/red/img/travel/travel_kz_04.jpg" alt="">
+                                        </div>
+                                        <div>
+                                            <a href="http://www.dalitravel.gov.cn/news/60608.html"
+                                               target="_blank">2海主题景观客栈</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div>
+                                            <img src="${resSys}/www/red/img/travel/travel_kz_05.JPG" alt="">
+                                        </div>
+                                        <div>
+                                            <a href="http://www.dalitravel.gov.cn/inns/hilton.htm" target="_blank">希尔顿酒店</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div>
+                                            <img src="${resSys}/www/red/img/travel/travel_kz_06.JPG" alt="">
+                                        </div>
+                                        <div>
+                                            <a href="http://www.dalitravel.gov.cn/inns/ehty.htm" target="_blank">洱海天域酒店</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="content-box">
+                                <div class="box-title">
+                                    <div class="box-title-left">优秀导游</div>
+                                    <div class="box-title-right"><a href="/yxdyxw/index.jhtml">更多</a></div>
+                                </div>
+                                <div class="box-con col-md-6">
+                                    <div class="info-img col-md-4">
+                                        <img src="${resSys}/www/red/img/travel/travel_03.png" alt="">
+                                    </div>
+                                    <div class="info col-md-8">
+                                        <ul id="guideInfo">
+                                            [@cms_content_list channelId='764' count='10' titLen='24' orderBy='1' channelOption='1'
+                                            dateFormat='yyyy-MM-dd']
+                                            [#list tag_list as a]
+                                            [#if a_index<10]
+                                            <li>
+                                                <div class="guide">
+                                                    <div class="fang"></div>
+                                                    [@text_cut s=a.title len=titLen append='...'/]
+                                                </div>
+                                                <div class="guide-time">
+                                                    <span>[${a.date?string(dateFormat)}]</span>
+                                                </div>
+
+                                            </li>
+                                            [/#if]
+                                            [/#list]
+                                            [/@cms_content_list]
+                                        </ul>
+                                    </div>
+
+                                </div>
+                                <div class="box-con col-md-6" style="padding-left:30px;">
+                                    <div class="info-img col-md-4">
+                                        <img src="${resSys}/www/red/img/travel/travel_04.jpg" alt="">
+                                    </div>
+                                    <div class="info col-md-8">
+                                        <ul id="guide-info">
+
+                                        </ul>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="exposure">
+                    <div class="search-title">
+                        <div class="search-title-left col-sm-4">曝光台</div>
+                    </div>
+                    <div class="search-content">
+                        <div class="col-sm-6">
+                            <div class="content-box">
+                                <div class="box-title">
+                                    <div class="box-title-left">失信企业</div>
+                                    <div class="box-title-right"><a href="/sxqyxw/index.jhtml">更多</a></div>
+                                </div>
+                                <div class="box-con ">
+                                    <div class="info-img col-md-4">
+                                        <img src="${resSys}/www/red/img/travel/travel_05.png" alt="">
+                                    </div>
+                                    <div class="info col-md-8">
+                                        <ul>
+                                            [@cms_content_list channelId='746' count='7' titLen='12' orderBy='2' channelOption='2'
+                                            dateFormat='yyyy-MM-dd']
+                                            [#list tag_list as a]
+                                            [#if a_index<7]
+                                            <li>
+                                                <a class="guide" href="${a.url}" title="${a.title}" target="_blank">
+                                                    <div class="fang"></div>
+                                                    [@text_cut s=a.title len=titLen append='...'/]</a>
+                                                <span>[${a.date?string(dateFormat)}]</span>
+                                            </li>
+                                            [/#if]
+                                            [/#list]
+                                            [/@cms_content_list]
+                                        </ul>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="content-box">
+                                <div class="box-title">
+                                    <div class="box-title-left">失信个人</div>
+                                    <div class="box-title-right"><a href="/sxgrxw/index.jhtml">更多</a></div>
+                                </div>
+                                <div class="box-con ">
+                                    <div class="info-img col-md-4">
+                                        <img src="${resSys}/www/red/img/travel/travel_06.png" alt="">
+                                    </div>
+                                    <div class="info col-md-8">
+                                        暂未发布内容！
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+[#include "../include/页脚信息栏.html"/]
+</body>
+<script type="application/javascript">
+    $(function(){
+        $.ajax({
+            url:"/credit/pub/travel/index.do?flag=1081",
+            success:function(data){
+                $("#search-content").html(data);
+            }
+        });
+       $.ajax({
+           url:"/credit/pub/travel/index.do?flag=1083",
+           success:function(data){
+               $("#box-con").html(data);
+           }
+       });
+       $("#guideInfo li").each(function () {
+//           console.log($(this).index());
+          if($(this).index() >4){
+//              console.log($(this).index());
+              $("#guide-info").append($(this));
+          }
+       });
+
+    });
+    $(".search-title-right span").bind("click", function () {
+        $(this).stop().addClass("title-on").siblings().removeClass("title-on");
+        $("." + $(this).attr("id")).stop().show().siblings().hide();
+    })
+    function queryNavi(url,param,domId){
+        $(".load_main").show();
+        $.ajax({
+            url: url,
+            data: param,
+            timeout: 30000,
+            success: function (data) {
+                $(domId).html(data);
+                load();
+            },
+            error:function () {
+                $(domId).html("数据请求失败！");
+                load();
+            },
+            timeout:function(){
+                $(domId).html("数据请求超时！");
+                load();
+            }
+        });
+    }
+
+    function load(){
+        window.setTimeout("$('.load_main').hide()",100);
+    }
+
+    function travelMore(){
+        $.ajax({
+            url: "/credit/pub/travel/list.do?flag=1083",
+            success:function(html){
+                var obj = window.open("about:blank");
+                obj.document.write(html);
+            }
+        });
+    }
+</script>
+</html>

@@ -1,0 +1,215 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" type="text/css" href="${base}/ap/css/slm.css" />
+		<object classid="clsid:707C7D52-85A8-4584-8954-573EFCE77488"
+			id="JITDSignOcx" width="0"
+			codebase="./JITDSign.cab#version=2,0,24,19" height="0"></object>
+		<script src="${base}/r/cms/jquery-1.9.1.min.js" type="text/javascript">
+</script>
+		<script>
+var loginType = 0;
+function selectedDiv(tag) {
+
+	var original_jsp = "";
+	var signed_data = "";
+	if (tag == "CA") {
+
+		document.getElementById("div1").className = "top_tab02";
+		document.getElementById("div2").className = "top_tab01";
+		document.getElementById("userName").disabled = "disabled";
+		document.getElementById("password").disabled = "disabled";
+		document.getElementById("checkCode").disabled = "disabled";
+
+	} else {
+		loginType = 1;
+		refreshCaptcha();
+		document.getElementById("div2").className = "top_tab02";
+		document.getElementById("div1").className = "top_tab01";
+		document.getElementById("userName").disabled = "";
+		document.getElementById("password").disabled = "";
+		document.getElementById("checkCode").disabled = "";
+
+	}
+	return false;
+}
+function login() {
+	var submitURL = '${base}/rdplogin_dialog.jspx';
+if (loginType == 0) {
+		if (loadCa()) {
+			original_jsp = document.getElementById("original_jsp").value;
+	signed_data = document.getElementById("signed_data").value;
+			$.post(submitURL, {
+				"original_jsp" : original_jsp,
+				"signed_data" : signed_data,
+				"loginType" : loginType,
+			}, function(data) {
+				data = eval("(" + data + ")");
+				if (data.success) {
+					window.parent.location.reload();
+				} else {
+					alert(data.error);
+					refreshCaptcha();
+				}
+			});
+			return false;
+		}
+	}
+	
+	var userName = document.getElementById("userName").value;
+	if ("" == userName) {
+		alert("用户名不能为空");
+		refreshCaptcha();
+		return false;
+	}
+	var password = document.getElementById("password").value;
+	if ("" == password) {
+		alert("密码不能为空");
+		refreshCaptcha();
+		return false;
+	}
+	var captcha = document.getElementById("checkCode").value;
+	if ("" == captcha) {
+		alert("验证码不能为空");
+		refreshCaptcha();
+		return false;
+	}
+	var isSuccess=true;
+	$.post(submitURL, {
+		"username" : userName,
+		"password" : password,
+		"captcha" : captcha,
+		"loginType" : loginType
+	}, function(data) {
+		data = eval("(" + data + ")");
+		if (data.success) {
+			window.parent.location.reload();
+		} else {
+			
+			alert(data.error);
+			document.getElementById("userName").value = "";
+			document.getElementById("password").value = "";
+			document.getElementById("checkCode").value = "";
+			document.getElementById("userName").focus();
+			refreshCaptcha();
+			return false;
+			
+		}
+	});
+	return false;
+}
+function refreshCaptcha() {
+	var o = document.getElementById("imgcaptcha").src = "${base}/captcha.svl?d="
+			+ new Date() * 1 + "";
+}
+function caValidate() {
+	var arrays = document.getElementById("loginType");
+	var loginType = 1;
+	for ( var i = 0; i < arrays.options.length; i++) {
+		if (arrays.options[i].selected) {
+			loginType = arrays.options[i].value;
+			break;
+		}
+	}
+	if (loginType == 0) {
+		if (!loadCa()) {
+			alert("sss");
+			return false;
+		}
+	} else {
+
+		var ss = $("#jvForm").validate();
+
+	}
+
+}
+function loadCa() {
+	var Auth_Content = '${original?default('
+	')}';
+	if (Auth_Content == "") {
+		alert("认证原文不能为空!");
+		return false;
+	} else {
+		//控制证书为一个时，不弹出证书选择框
+		JITDSignOcx.SetCertChooseType(1);
+		//JITDSignOcx.SetCert("SC","","","",DSign_Subject,"");
+		if (JITDSignOcx.GetErrorCode() != 0) {
+			//alert("错误码："+JITDSignOcx.GetErrorCode()+"　错误信息："+JITDSignOcx.GetErrorMessage(JITDSignOcx.GetErrorCode()));
+			return false;
+		} else {
+			var temp_DSign_Result = JITDSignOcx.DetachSignStr("", Auth_Content);
+			if (JITDSignOcx.GetErrorCode() != 0) {
+				//alert("错误码："+JITDSignOcx.GetErrorCode()+"　错误信息："+JITDSignOcx.GetErrorMessage(JITDSignOcx.GetErrorCode()));
+				alert("请插入USKEY");
+				return false;
+			}
+			document.getElementById("signed_data").value = temp_DSign_Result;
+		}
+	}
+	document.getElementById("original_jsp").value = Auth_Content;
+	return true;
+}
+</script>
+	</head>
+
+	<body>
+		<div class="login_bg">
+			<div class="top_bg" id="top_bg">
+				<a href="#" onclick="return selectedDiv('CA');">
+					<div class="top_tab02" id="div1">
+						CA认证登录
+					</div> </a>
+				<a href="#" onclick="return selectedDiv('');">
+					<div class="top_tab01" id="div2">
+						普通登录
+					</div> </a>
+			</div>
+			<form>
+				<table width="90%" border="0" cellspacing="0" cellpadding="0"
+					class="denglu_tab">
+					<tr>
+						<td>
+							&nbsp;&nbsp;&nbsp;&nbsp;用户名：
+						</td>
+						<td>
+							<input class="user_bg" id="userName" name="username" disabled />
+						</td>
+					</tr>
+					<tr>
+						<td>
+							&nbsp;&nbsp;&nbsp;&nbsp;密 &nbsp; 码：
+						</td>
+						<td>
+							<input class="psw_bg" name="password" id="password" disabled
+								type="password" />
+						</td>
+					</tr>
+					<tr>
+						<td>
+							&nbsp;&nbsp;&nbsp;&nbsp;验证码：
+						</td>
+						<td>
+							<input class="yanzheng_bg" name="captcha" id="checkCode" disabled />
+							<img src="${base}/captcha.svl?d=1397543655499"
+								onclick="refreshCaptcha();"
+								style="width: 65px; height: 30px; vertical-align: middle"
+								id="imgcaptcha" />
+						</td>
+					</tr>
+					<tr>
+						<td>
+							&nbsp;
+						</td>
+						<td>
+							<input type="image" src="${base}/ap/images/denglu.jpg"
+								class="denglu_anniu" onclick="return login();" />
+						</td>
+					</tr>
+				</table>
+				<input type="hidden" id="signed_data" name="signed_data" />
+				<input type="hidden" id="original_jsp" name="original_jsp" />
+			</form>
+		</div>
+	</body>
+</html>
+

@@ -1,0 +1,189 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+    <title>信用资讯</title>
+    [#include "../include/页头顶栏_LINK.html"/]
+    <link rel="stylesheet" href="${resSys}/www/red/css/research.css">
+</head>
+<body>
+<div class="wrap">
+    <div class="body">
+        [#include "../include/页头顶栏.html"/]
+        <!--内容开始-->
+        <div class="w content" >
+
+            <div class="research_banner" id="banner">
+                <div class="zx_slider">
+                    <div class="hd">
+                        <ul>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </div>
+                    <div class="bd xw">
+                        <ul>
+                            [@cms_content_list channelId='592'  count='3' titLen='13' orderBy='2' dateFormat='yyyy-MM-dd']
+                            [#list tag_list as a]
+                            [#if a_index<3]
+                            <li>
+                                <dl>
+                                    <dt class="zx-banner-img">
+                                        <a href="${a.url}" title="${a.title}" target="_blank">
+                                            <img src="${a.typeImg!site.defImg}" >
+                                        </a>
+                                    </dt>
+                                    <dd class="zx-banner-dd">
+                                            <span><a href="${a.url}" title="${a.title}" target="_blank">
+                                                [@text_cut s=a.title len=titLen append='...'/]</a>
+                                            </span>
+                                        <p><a href="${a.url}" target="_blank">[@text_cut s=a.desc len=62 append='...'/]</a></p>
+                                    </dd>
+                                </dl>
+                            </li>
+                            [#else]
+                            <li>
+                                <dl>
+                                    <dt>
+                                        <a href="${a.url}" title="${a.title}" target="_blank">
+                                            <img src="${a.typeImg!site.defImg}" class="zx-banner-img">
+                                        </a>
+                                    </dt>
+                                    <dd class="zx-banner-dd">
+                                            <span><a href="${a.url}" title="${a.title}" target="_blank">
+                                                [@text_cut s=a.title len=titLen append='...'/]</a>
+                                            </span>
+                                        <p><a href="${a.url}" target="_blank">[@text_cut s=a.desc len=62 append='...'/]</a></p>
+                                    </dd>
+                                </dl>
+                            </li>
+                            [/#if]
+                            [/#list]
+                            [/@cms_content_list]
+                        </ul>
+                    </div>
+                </div>
+                <script>
+                    $(".zx_slider").slide({
+                        mainCell: ".bd ul",
+                        autoPlay: true
+                    });
+                </script>
+            </div>
+            <div class="research-content">
+                <div class="research-info" id="zc">
+                    <div class="info-top">
+                        <div class="col-xs-3 info-img">
+                            <img src="${resSys}/www/red/img/lz/xyzx/信用资讯-2_09.png" alt="">
+                            <div class="info-span">本地动态</div>
+                        </div>
+                        <div class="col-xs-9 info-ul">
+                            <ul>
+                                [@cms_content_list channelId='472' count='7' titLen='30' orderBy='2' channelOption='1'
+                                dateFormat='yyyy-MM-dd']
+                                [#list tag_list as a]
+                                [#if a_index<2]
+                                <li class="info-li">
+                                    <a href="${a.url}" title="${a.title}" target="_blank" class="cms-title">
+                                        [@text_cut s=a.title len=titLen append='...'/]
+                                    </a>
+                                    <p><a href="${a.url}" target="_blank">[@text_cut s=a.desc len=62 append='...'/]</a></p>
+                                    <div class="cms-time">来源：${a.origin!'本站'}&nbsp;&nbsp;时间：${a.date?string(dateFormat)}</div>
+                                </li>
+                                [/#if]
+                                [/#list]
+                                [/@cms_content_list]
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="research-more">
+                        <a href="/bsdt/index.jhtml">查看更多>></a>
+                    </div>
+                </div>
+                <div class="research-info" id="zs">
+                    <div class="info-top">
+                        <div class="col-xs-3 info-img">
+                            <img src="${resSys}/www/red/img/lz/xyzx/信用资讯-2_12.png" alt="">
+                            <div class="info-span">国家动态</div>
+                        </div>
+                        <div class="col-xs-9 info-ul">
+                            <ul>
+                                [@cms_content_list channelId='473' count='7' titLen='30' orderBy='2' channelOption='1'
+                                dateFormat='yyyy-MM-dd']
+                                [#list tag_list as a]
+                                [#if a_index<2]
+                                <li class="info-li">
+                                    <a href="${a.url}" title="${a.title}" target="_blank" class="cms-title">
+                                        [@text_cut s=a.title len=titLen append='...'/]
+                                    </a>
+                                    <p><a href="${a.url}" target="_blank">[@text_cut s=a.desc len=62 append='...'/]</a></p>
+                                    <div class="cms-time">来源：${a.origin!'本站'}&nbsp;&nbsp;时间：${a.date?string(dateFormat)}</div>
+                                </li>
+                                [/#if]
+                                [/#list]
+                                [/@cms_content_list]
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="research-more">
+                        <a href="/gndt/index.jhtml">查看更多>></a>
+                    </div>
+                </div>
+                <div class="research-info " id="zj">
+                    <div class="info-top">
+                        <div class="col-xs-3 info-img">
+                            <img src="${resSys}/www/red/img/lz/xyzx/信用资讯-2_15.png" alt="">
+                            <div class="info-span">公告栏</div>
+                        </div>
+                        <div class="col-xs-9 info-ul">
+                            <ul>
+                                [@cms_content_list channelId='447' count='7' titLen='30' orderBy='2' channelOption='1'
+                                dateFormat='yyyy-MM-dd']
+                                [#list tag_list as a]
+                                [#if a_index<2]
+                                <li class="info-li">
+                                    <a href="${a.url}" title="${a.title}" target="_blank" class="cms-title">
+                                        [@text_cut s=a.title len=titLen append='...'/]
+                                    </a>
+                                    <p><a href="${a.url}" target="_blank">[@text_cut s=a.desc len=62 append='...'/]</a></p>
+                                    <div class="cms-time">来源：${a.origin!'本站'}&nbsp;&nbsp;时间：${a.date?string(dateFormat)}</div>
+                                </li>
+                                [/#if]
+                                [/#list]
+                                [/@cms_content_list]
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="research-more">
+                        <a href="/tzgg/index.jhtml">查看更多>></a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+[#include "../include/页脚信息栏.html"/]
+<script src="${resSys}/www/red/js/lunbo.js"></script>
+<script type="application/javascript">
+    //banner滚动
+    $("#banner").changePic({
+        figureBtnAct: "active", //切换按钮li样式
+        clickNode: $(".pageCtrl li"), //切换按钮li
+        loopNode: $(".banner-inner"), // 轮播box
+        loopCircle: "-1000px", //轮播运动切换的距离
+        sameNode: $(".banner-inner img"), // 轮播节点
+        attrData: "name", //自定义参数
+        leftBtn: $(".prev"), // 左右按钮
+        rightBtn: $(".next") //左右按钮
+    })
+</script>
+</body>
+</html>

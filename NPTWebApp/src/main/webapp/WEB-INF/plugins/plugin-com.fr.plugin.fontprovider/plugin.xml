@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><plugin>
+    <id>com.fr.plugin.fontprovider</id>
+    <name><![CDATA[字体扩展插件]]></name>
+    <active>yes</active>
+    <version>1.0</version>
+    <env-version>8.0</env-version>
+    <jartime>2016-2-16</jartime>
+    <vendor>finereport.neil</vendor>
+    <description><![CDATA[一些在windows上设计好的模板, 放到没有安装字体的linux里, 会出现行高列宽计算不正确, 导出打印字体错位等现象. 本插件自带常用字体, 支持扩展字体, 不需要安装到系统, 仅用于报表本身.]]></description>
+    <change-notes><![CDATA[无]]></change-notes>
+    <extra-core>
+        <FontProcessor class="com.fr.plugin.fontprovider.ExtraFontImpl"/>
+    </extra-core>
+</plugin>

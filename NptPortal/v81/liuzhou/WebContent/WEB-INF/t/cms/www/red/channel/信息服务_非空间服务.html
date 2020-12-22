@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8;"/>
+<title>非空间信息查询 - ${site.name}</title>
+<link href="/${res}/css/index02.css" rel="stylesheet" type="text/css" />
+<link href="/${res}/css/layout02.css" rel="stylesheet" type="text/css" />
+<script src="${resSys}/jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="${resSys}/front.js" type="text/javascript"></script>
+<script src="${base}/ap/js/unspace_query.js" type="text/javascript"></script>
+[#if user?? && user.rdpUserId??]
+	<script type="text/javascript">
+		var url = ["../ap/servol/findQyrktj.html", "../ap/servol/findRkjcxx.html", "../ap/servol/findFrxx.html", "../ap/servol/findHgjj.html"] ;
+	</script>
+[/#if]
+
+</head>
+<body>
+	<!--header_begin-->
+	[#include "../include/页头顶栏.html"/]
+	[#include "../include/页头导航栏.html"/]
+	<!--header_end-->
+	[#include "../include/position_tip_channel.html"/]
+	<div class="f-left w233 h577 indexborder queryMenue">
+		<div id="leftMenu" style="width:100%;">
+			<!--导航菜菜内容-->
+		</div>
+	</div>
+	<div class="f-right w760 h577 indexborder" style="background:white;">
+		<div class="frame_div_par parent_h parent_w hide">
+			<div class="frame_div" id="frame_div">
+				<!-- 所有查询页面 -->
+ 				[#if !user??]
+				<!-- 当非RDP平台用户登陆时显示 -->
+<!--				<div class="query_noauth">-->
+<!--					<span>请先使用中心平台账号<a href="javascript:loginDialog_open();">【登陆】</a>再使用查询功能</span>-->
+<!--				</div>-->
+				<script type="text/javascript">
+					window.location.href='${base}/rdplogin.jspx?returnUrl='+window.parent.location.href;
+				</script>	
+
+				
+				[#elseif user?? && !user.rdpUserId??]
+				<div class="query_noauth">
+					<span>当前登陆非中心平台账号,不能使用查询功能</span>
+				</div>
+				[/#if]
+			</div>
+		</div>
+	</div>
+	[#include "../include/页脚信息栏.html"/]
+</body>
+</html>

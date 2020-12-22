@@ -1,0 +1,71 @@
+table#plusQjz,#plusFz{
+    margin-left:0!important;
+}
+#plusQjz td input[type="text"],#plusFz td input[type="text"]{
+    width:83%!important;
+}
+.tableBox{
+    display:none;
+}
+.inputBox{
+    position:relative;
+}
+.box_a{
+    position:absolute;
+    top:30%;
+    left:48%;
+}
+.kg{
+    float:left;
+    width:17px;
+    margin-left:0!important;
+}
+.monkg{
+    float:left;
+    width:16px;
+    margin-left:0!important;
+}
+select.plus_width{
+    width: 282px!important;
+}
+input.plus_width{
+    width:270px!important;
+}
+.point-out{
+    clear:both;
+    font-size: 10px;
+    color:red;
+    margin-bottom:0px!important;
+}
+
+#standardModal .modal-body{
+    height:600px;
+    overflow-y:scroll ;
+}
+.ow{
+    float:left;
+}
+.pointFa input.qjz_input{
+    padding-right: 45px!important;
+    width: 315px;
+}
+.pointFa select.qjz_select{
+    height: 48px;
+    width: 370px!important;
+}
+.pointFa input.qz_height{
+    height:16px!important;
+}
+#percentBox{
+    position:relative;
+}
+#percent{
+    position:absolute;
+    top:5px;
+    left:240px;
+}
+#percent_wd{
+    position:absolute;
+    top:16px;
+    right:135px;
+}

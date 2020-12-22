@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title></title>
+<script src="/thirdparty/d3/d3.js"></script>
+<link href="/thirdparty/alertify.js/themes/alertify.core.css" rel="stylesheet">
+	<link href="/thirdparty/alertify.js/themes/alertify.bootstrap.css" rel="stylesheet">
+<link href="/r/cms/www/red/css/bootstrap.css" rel="stylesheet">
+    <script src="/r/cms/www/red/js/jquery-1.9.1.min.js"></script>
+    <script src="/r/cms/www/red/js/bootstrap.js"></script>
+
+<script src="/thirdparty/alertify.js/lib/alertify.js"></script>
+<#include "/jeecms_sys/head.html"/>
+<script type="text/javascript">
+function getTableForm() {
+	return document.getElementById('tableForm');
+}
+function optDelete() {
+	if(Pn.checkedCount('ids')<=0) {
+		$.alert("<@s.m 'global.prompt'/>","<@s.m 'error.checkRecord'/>");
+		return;
+	}
+	$.confirm(doDelete,"<@s.m 'global.confirm'/>","<@s.m 'global.confirm.delete'/>");
+}
+function doDelete(){
+	var f = getTableForm();
+	f.action="o_delete.do";
+	f.submit();
+}
+function optPriority() {
+	var f = getTableForm();
+	f.action="o_priority.do";
+	f.submit();
+}
+</script>
+	<style>
+		#flowModel{
+			top:0px;
+			left:20%;
+			width:800px;
+		}
+		.options label{
+			height:40px;
+			line-height: 40px;
+			position:relative;
+			margin-left:10px;
+		}
+		.options label span,.options label input{
+			vertical-align: middle;
+			margin-right:5px;
+		}
+		#canserve{
+			position:absolute;
+			right:20px;
+			top:5px;
+		}
+
+		#viz svg{
+			background: rgba(189,209,229,0.7);
+
+		}
+		.workflow rect{
+			fill: #DCEAFF;
+			filter: url(#dropshadow);
+		}
+		.workflow rect.publish {
+			fill: #B8D257;
+		}
+		.workflow rect.end {
+			fill: #CD5133;
+		}
+		.workflow polyline{
+			fill: #AAC73F;
+			filter: url(#dropshadow);
+		}
+		.workflow text{
+			fill: #567083;
+		}
+		.row-fluid{
+			overflow: hidden;
+		}
+		.btn-box{
+			padding:10px;
+			height:100%;
+		}
+		.btn-default{
+			background-color:#d1e1f0;
+			border:0;!important;
+		}
+		.btn-default:active, .btn-default.active{
+			color:#fff!important;
+			background:#ff8b18!important;
+		}
+		.box-left{
+			float:left;
+			padding:10px;
+			height:533px;
+			border:4px ridge #c0c0c0;
+			/*background:#d1e1f0;*/
+			background:url("/r/cms/www/red/img/bg-left.png") no-repeat;
+			background-size:100% 100%;
+		}
+		.box-right{
+			float:left;
+			padding:10px;
+			border:4px ridge #c0c0c0;
+			background:url("/r/cms/www/red/img/bg.jpg");
+            position: relative;
+		}
+        .btn-box button{
+            margin-top:300px;
+        }
+        .modal-dialog{
+            width:785px!important;
+            margin:0;
+        }
+
+        .title-left{
+            display: block;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .title-right{
+            font-weight: bold;
+            position:absolute;
+            top:20px;
+            left:20px;
+        }
+        .modal-body{
+            padding:15px 0!important;
+        }
+	</style>
+</head>
+<body>
+<div class="page-positon ove">
+  <div class="position-div"><@s.m "global.position"/>: <@s.m "cms.workflow.function"/> > <@s.m "global.list"/></div>
+</div>
+<div class="box-positon">
+	<form class="ropt">
+		<input class="add" type="submit" value="<@s.m "global.add"/>" onclick="this.form.action='v_add.do';"/>
+	</form>
+	<div class="clear"></div>
+</div>
+<div class="body-box">
+<form id="tableForm" method="post">
+<input type="hidden" name="pageNo" value="${pageNo!}"/>
+<@p.table value=pagination;cmsWorkflow,i,has_next><#rt/>
+	<@p.column title="<input type='checkbox' onclick='Pn.checkbox(\"ids\",this.checked)'/>" width="25" align="center">
+		<input type='checkbox' name='ids' value='${cmsWorkflow.id}' onclick="Pn.selectCheckBox('${cmsWorkflow.id}',this.checked)" /><#t/>
+	</@p.column><#t/>
+	<@p.column title="ID" align="center">${cmsWorkflow.id}<input type="hidden" name="wids" value="${cmsWorkflow.id}"/></@p.column><#t/>
+	<@p.column code="cms.workflow.name" align="center">${cmsWorkflow.name}</@p.column><#t/>
+	<!-- 
+	<@p.column code="cms.workflow.is_disable" align="center"><#if cmsWorkflow.disabled><span style="color:red"><@s.m "global.true"/></span><#else><@s.m "global.false"/></#if></@p.column><#t/>
+	 -->
+	<@p.column code="cms.workflow.priority" align="center"><input type="text" name="priority" value="${cmsWorkflow.priority}" style="width:70px"/></@p.column><#t/>
+	<@p.column code="global.operate" align="center">
+<button type="button" data-toggle="modal" data-target="#flowModel" class="btn btn-default">可视化编辑</button> |
+		<a href="v_edit.do?id=${cmsWorkflow.id}&pageNo=${pageNo!}" class="pn-opt"><@s.m "global.edit"/></a> | <#rt/>
+		<a href="o_delete.do?ids=${cmsWorkflow.id}&pageNo=${pageNo!}" onclick="if(!$.confirmToUrl(this.href)) {return false;}" class="pn-opt"><@s.m "global.delete"/></a><#t/>
+	</@p.column><#t/>
+</@p.table>
+<div>
+<input class="del-button" type="button" value="<@s.m "global.delete"/>" onclick="optDelete();"/ style="float:left;"><input class="bcplxx-button" type="submit" value="<@s.m "global.saveOrder"/>" onclick="optPriority();"/ style="float:left; margin-left:10px;">
+</div>
+</form>
+</div>
+
+<#include "/common/alert_message.html"/>
+<div id="flowModel" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">可视化编辑</h4>
+            </div>
+            <div class="modal-body">
+                <div class="">
+                    <div class="row-fluid">
+                            <div id="controls" class="box-left">
+                                <div class="btn-group-vertical btn-box">
+                                    <span class="title-left">工具栏</span>
+									<a id="move" type="button" class="btn btn-default"><i class="glyphicon glyphicon-hand-up"></i></a>
+									<a id="arrow" type="button" class="btn btn-default"><i class="glyphicon glyphicon-arrow-right"></i></a>
+									<a id="start" type="button" class="btn btn-default"><i class="glyphicon glyphicon-play"></i></a>
+									<a id="process" type="button" class="btn btn-default"><i class="glyphicon glyphicon-stop"></i></a>
+									<a type="button" class="btn btn-default"><i class="glyphicon glyphicon-user"></i></a>
+									<a type="button" class="btn btn-default"><i class="glyphicon glyphicon-cog"></i></a>
+									<a type="button" class="btn btn-default"><i class="glyphicon glyphicon-remove"></i></a>
+									<a type="button" class="btn btn-default"><i class="glyphicon glyphicon-edit"></i></a>
+									<a type="button" class="btn btn-default"><i class="glyphicon glyphicon-dashboard"></i></a>
+									<a type="button" class="btn btn-default"><i class="glyphicon glyphicon-eye-open"></i></a>
+									<a type="button" class="btn btn-default"><i class="glyphicon glyphicon-zoom-in"></i></a>
+									<a type="button" class="btn btn-default"><i class="glyphicon glyphicon-zoom-out"></i></a>
+                                </div>
+
+                            </div>
+                            <div id="viz" class="box-right">
+                                <span class="title-right">设计器</span>
+                                <svg style="width:664px;height:500px;border:1px lightgray solid;">
+                                    <filter id="dropshadow" height="130%">
+                                        <feGaussianBlur in="SourceAlpha" stdDeviation="3"></feGaussianBlur> <!-- stdDeviation is how much to blur -->
+                                        <feOffset dx="2" dy="2" result="offsetblur"></feOffset> <!-- how much to offset -->
+                                        <feMerge>
+                                            <feMergeNode></feMergeNode> <!-- this contains the offset blurred image -->
+                                            <feMergeNode in="SourceGraphic"></feMergeNode> <!-- this contains the element that the filter is applied to -->
+                                        </feMerge>
+                                    </filter>
+                                    <defs><marker id="Triangle" refX="12" refY="6" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="18" orient="auto"><path d="M 0 0 12 6 0 12 3 6"></path></marker></defs><g class="workflow" pointer-events="all" transform="translate(-74,1)"><g transform="translate(107,132)"><polyline points="0,0  0,30 30,15" stroke="black" stroke-width="0"></polyline></g></g><g class="workflow" pointer-events="all" transform="translate(-125,11)"><g transform="translate(288,139)"><rect x="-30" y="-15" width="60" height="30" stroke="black" stroke-width="0"></rect><text x="0" y="0" style="text-anchor: middle;">起草稿件</text></g></g><g class="workflow" pointer-events="all" transform="translate(-42,-47)"><g transform="translate(309,196)"><rect x="-30" y="-15" width="60" height="30" stroke="black" stroke-width="0"></rect><text x="0" y="0" style="text-anchor: middle;">审核</text></g></g><g class="workflow" pointer-events="all" transform="translate(34,4)"><g transform="translate(245,250)"><rect x="-30" y="-15" width="60" height="30" stroke="black" stroke-width="0" class="publish"></rect><text x="0" y="0" style="text-anchor: middle;">发布</text></g></g><g class="workflow" pointer-events="all" transform="translate(39,-10)"><g transform="translate(366,260)"><rect x="-15" y="-15" width="30" height="30" stroke="black" stroke-width="0" class="end"></rect><text x="0" y="0" style="text-anchor: middle;">结束</text></g></g><defs><marker id="Triangle" refX="12" refY="6" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="18" orient="auto"><path d="M 0 0 12 6 0 12 3 6"></path></marker></defs><g><line x1="60" y1="150" x2="135" y2="150" stroke="black" stroke-width="1" marker-end="url(#Triangle)"></line></g><g><line x1="192" y1="150" x2="237" y2="150" stroke="black" stroke-width="1" marker-end="url(#Triangle)"></line></g><g><line x1="272" y1="164" x2="272" y2="239" stroke="black" stroke-width="1" marker-end="url(#Triangle)"></line></g><g><line x1="308" y1="251" x2="390" y2="251" stroke="black" stroke-width="1" marker-end="url(#Triangle)"></line></g></svg>
+                            </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-success" data-dismiss="modal">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+
+    $("#controls a").click(function () {
+        $("#controls a").removeClass("active");
+        $(this).addClass("active");
+        arrow();
+        move();
+    });
+
+    var marker = d3.select("svg").append("defs")
+        .append("marker")
+        .attr("id", "Triangle")
+        .attr("refX", 12)
+        .attr("refY", 6)
+        .attr("markerUnits", 'userSpaceOnUse')
+        .attr("markerWidth", 12)
+        .attr("markerHeight", 18)
+        .attr("orient", 'auto')
+        .append('path')
+        .attr("d", 'M 0 0 12 6 0 12 3 6');
+
+    var baseSvg = d3.select("svg");
+
+    var wData = [0,0,0,0,0,0];
+    var width = 30;
+    var strokeWidth = 0;
+
+    function refreshSvg() {
+        baseSvg.selectAll("g.workflow").data(wData).enter().append("g").attr("class", "workflow")
+            .attr("pointer-events", "all").append("g")
+            .attr("transform", function (d) {
+                if (d.type === "start") {
+                    d3.select(this).append("polyline")
+                        .attr("points", "0,0  0," + width + " " + width + "," + width / 2)
+                        .attr("stroke", "black")
+                        .attr("stroke-width", strokeWidth);
+                    return "translate(" + (d.x - width / 2) + "," + (d.y - width / 2) + ")";
+                } else if (d.type === "process") {
+                    d3.select(this).append("rect").attr("x", -width).attr("y", -width / 2).attr("width", width * 2).attr("height", width).attr("stroke", "black").attr("stroke-width", strokeWidth);
+                    d3.select(this).append("text").style("text-anchor", "middle")
+                        .attr("x", 0)
+                        .attr("y", 0)
+                        .text(function (d) {
+                            return d.name;
+                        });
+                    return "translate(" + d.x + "," + d.y + ")";
+                }
+            });
+    }
+
+    baseSvg.on("click", function () {
+        var _event = d3.event;
+        if ($("#start").hasClass("active")) {
+            wData.push({
+                "x": _event.offsetX,
+                "y": _event.offsetY,
+                "type": "start"
+            });
+            refreshSvg();
+        } else if ($("#process").hasClass("active")) {
+            wData.push({
+                "x": _event.offsetX,
+                "y": _event.offsetY,
+                "type": "process",
+                "name": "节点"
+            });
+            refreshSvg();
+        }
+    });
+
+    function move() {
+        if ($("#move").hasClass("active")) {
+            function zoom() {
+                d3.select(this).attr("transform", "translate(" + d3.event.translate + ")");
+            }
+
+            function drag() {
+                console.log(d3.event)
+            }
+
+            baseSvg.selectAll("g.workflow")
+                .call(d3.behavior.zoom().on("zoom", zoom));
+
+
+        } else {
+            baseSvg.selectAll("g.workflow").on(".zoom", null);
+        }
+    }
+
+    function arrow() {
+        if ($("#arrow").hasClass("active")) {
+            var lineData = [];
+            var lineFunction = d3.svg.line()
+                .x(function (d) {
+                    return d.x;
+                })
+                .y(function (d) {
+                    return d.y;
+                })
+                .interpolate("basis");
+            baseSvg.selectAll("g.workflow")
+                .on("mousedown", function (d) {
+//                    console.log(d)
+                    lineData.push({"x": d3.event.offsetX, "y": d3.event.offsetY});
+                })
+                .on("mouseup", function (d) {
+                    lineData.push({"x": d3.event.offsetX, "y": d3.event.offsetY});
+                    if (lineData.length === 2) {
+                        gLine = baseSvg.append("g");
+                        gLine.append("line")
+                            .attr({
+                                "x1": lineData[0].x,
+                                "y1": lineData[0].y,
+                                "x2": lineData[1].x,
+                                "y2": lineData[1].y
+                            })
+                            .attr("stroke", "black")
+                            .attr("stroke-width", 1)
+                            .attr("marker-end", "url(#Triangle)");
+                    }
+                    lineData = [];
+                });
+
+        }
+    }
+</script>
+</body>
+</html>

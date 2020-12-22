@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:v="http://www.summer.org/schema/config"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.summer.org/schema/config http://www.summer.org/schema/config/summer-core.xsd">
+
+
+    <v:package name="/npt/grs/model" action-ref="npt.grs.model">
+        <v:menu name="model-manager" title="信息专题管理" admin="true">
+            <v:action name="index" result-success="modelManager/grs_model_index.ftl"/>
+            <v:action name="refreshModels" result-success="modelManager/grs_model_list.ftl"/>
+            <v:action name="listModelGroups" result-success="modelManager/grs_model_group_list.ftl"/>
+            <v:action name="setModelStatus"/>
+            <v:action name="getModalGroupsAndPool" result-success="modelManager/grs_model_groupool_copyModal.ftl"/>
+            <v:action name="setModelGroupStatus"/>
+            <v:action name="setGroupMainPool"/>
+            <v:action name="editModel"/>
+            <v:action name="editGroup"/>
+            <v:action name="configBaseModelGroup" result-success="modelManager/grs_model_groupool_list.ftl"/>
+            <v:action name="configBaseModelGroupool" result-success="modelManager/grs_model_groupool_edit.ftl"/>
+            <v:action name="listOrg"/>
+            <v:action name="listOrgDataTypes"/>
+            <v:action name="listDataTypeFields" result-success="modelManager/grs_model_groupool_field_list.ftl"/>
+            <v:action name="setModelGroupoolStatus"/>
+            <v:action name="listPossibleLinkablePools" result-success="modelManager/grs_model_groupool_link.ftl"/>
+            <v:action name="listPoolLinks" result-success="modelManager/grs_model_groupool_linkList.ftl"/>
+            <v:action name="setPoolLinkStatus"/>
+            <v:action name="deleteModel"/>
+            <v:action name="deleteModelGroup"/>
+            <v:action name="deleteModelGrouPool"/>
+            <v:action name="deletePoolLink"/>
+            <v:action name="optimizeQuery"/>
+
+            <v:action name="listDSGroups" result-success="modelManager/grs_model_groupool_listDSGroups.ftl"/>
+            <v:action name="listDSPools" result-success="modelManager/grs_model_groupool_listDSPools.ftl"/>
+            <v:action name="listDSDataFields" result-success="modelManager/grs_model_groupool_listDSDataField.ftl"/>
+
+            <v:group name="add" title="新增">
+                <v:action name="addModel" result-success="modelManager/grs_model_add.ftl"/>
+                <v:action name="addModelBaseInfo"/>
+                <v:action name="addGroupPage" result-success="modelManager/grs_model_group_add.ftl"/>
+                <v:action name="addModelGroup" result-success="modelManager/grs_model_group_data_list.ftl"/>
+                <v:action name="addPoolPage" result-success="modelManager/grs_model_groupool_add.ftl"/>
+                <v:action name="addGroupool" result-success="modelManager/grs_model_groupool_data_list.ftl"/>
+                <v:action name="updateGroupool"/>
+                <v:action name="addGroupoolLink" result-success="modelManager/grs_model_groupool_data_list.ftl"/>
+                <v:action name="addDSGroupoolLink" result-success="modelManager/grs_model_groupool_data_list.ftl"/>
+                <v:action name="sortGroup"/>
+                <v:action name="sortGrouPool"/>
+                <v:action name="copyModalGroupsPool"/>
+            </v:group>
+            <v:group name="edit" title="编辑">
+                <v:action name="updatePoolNote"/>
+            </v:group>
+        </v:menu>
+    </v:package>
+
+    <v:package name="/npt/grs/internet" action-ref="npt.grs.internet">
+        <v:menu name="internetModal-manager" title="互联网模型管理" admin="true">
+            <v:action name="index" result-success="nativeModel/grs_internet_model_index.ftl"/>
+            <v:action name="listPools" result-success="nativeModel/grs_internet_pool_list.ftl"/>
+            <v:action name="synchronizeBaseModel"/>
+            <v:action name="synchronizeDependency"/>
+            <v:action name="syncTest" result-success="nativeModel/grs_internet_model_sync_test.ftl"/>
+            <v:action name="synchronizeBaseModelData"/>
+            <v:action name="synchronizeSelectedPoolData"/>
+            <v:action name="updateRemoteServer"/>
+            <v:action name="editRemoteServer" result-success="nativeModel/grs_internet_ipPort_index.ftl"/>
+            <v:action name="ajaxTaskLoader"/>
+        </v:menu>
+    </v:package>
+
+</beans>

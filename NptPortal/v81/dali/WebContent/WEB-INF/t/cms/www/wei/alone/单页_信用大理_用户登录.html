@@ -1,0 +1,192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>用户登录</title>
+    <meta http-equiv="keywords" content=""/>
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+    <meta http-equiv="description" content="" />
+    [#include "../include/页头顶栏_LINK.html"/]
+    <!--<script type="text/javascript" src="${resSys}/www/red/js/jquery-1.9.1.min.js"></script>-->
+    <style>
+        #password{
+            padding-right:30px;
+        }
+        .banner-wx{
+            width:100%;
+            height:150px;
+        }
+        .banner-wx img{
+            width:100%;
+            height:100%;
+        }
+        .button{
+            width:90%;
+            margin:10px auto
+        }
+        .login-title{
+            background:#F0F0F0;
+        }
+        .login-title h2{
+            text-align: center;
+            padding:10px;
+            margin-top:0!important;
+            margin-bottom:0!important;
+        }
+        .msg{
+            /*font-size:10px;*/
+            color:red;
+            padding:10px 0;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+<div class="">
+    <!--内容开始-->
+    <div >
+        <div class="login-title">
+            <h2>登录</h2>
+        </div>
+
+        <div class="banner-wx">
+            <img src="/r/cms/www/resources/images/23.png" alt="">
+        </div>
+        <div class="center">
+
+            <div class="">
+                <form class="form-horizontal" action="/login.jspx" novalidate="novalidate" id="loginForm" method="post">
+                    <div class="" style="margin-top:30px;">
+                        <div class="">
+                            <input id="username" name="username" onfocus="clearErrorMsg(this)"  type="text" placeholder="请输入用户名" class="form-control">
+                        </div>
+                    </div>
+                    <div class="" >
+
+                        <div class="">
+                            <input id="password" name="password" onfocus="clearErrorMsg(this)" type="password" placeholder="请输入登录密码" class="form-control">
+                        </div>
+                        <div class="msg" id="usernameMsg"></div>
+                        <div class="msg" id="passwordMsg"></div>
+
+                    </div>
+                    [#if (errorTimes??&&errorTimes<=0)||(errorRemaining?? && errorRemaining<=0)]
+                    <div class="" >
+                        <div class="col-md-2  control-label left_text">验证码<font>*</font></div>
+                        <div class="col-md-10" >
+                            <div class="col-md-8">
+                                <input type="text" id="captcha" name="captcha" class="form-control pull-left yz_input" placeholder="验证码"/>
+                                <div id="yz" class="pull-left"
+                                     style="margin-left: -20px;width: 15px;line-height: 34px;height: 34px;"></div>
+                                <div class="pull-left yzm_img m-l-sm">
+                                    <img src="${base}/captcha.svl" onclick="this.src='${base}/captcha.svl?d='+new Date()*1" />
+                                </div>
+                            </div>
+                            <div class="col-md-4" style="font-size:10px;color:red;padding:10px 0;" id="captchaMsg">
+                            </div>
+                        </div>
+                    </div>
+                    [/#if]
+                    <div id="errorMsg" style="color: red;text-align: center;">
+                        [#if message??]
+
+                        [#if message=="true"]
+                        您必须登录后才能继续刚才的操作
+                        [#else]
+                        ${message}
+                        [/#if]
+                        <input type="hidden" name="message" value="${message}"/>
+
+                        [/#if]
+
+                        [#if processUrl??]<input type="hidden" name="processUrl" value="${processUrl}"/>[/#if]
+                        [#if returnUrl??]<input type="hidden" name="returnUrl" value="${returnUrl}"/>[#else]<input type="hidden" name="returnUrl" value="/"/>[/#if]
+                        [#if error??]
+                        <div class="error-message">
+                            [#if error=="org.apache.shiro.authc.IncorrectCredentialsException"]
+                            [@s.m "error.invalidPassword"/]
+                            [#elseif error=="org.apache.shiro.authc.UnknownAccountException"]
+                            [@s.m "error.usernameNotExist"/]
+                            [#elseif error=="com.jeecms.common.security.CaptchaErrorException"]
+                            [@s.m "error.invalidCaptcha"/]
+                            [#elseif error=="com.jeecms.common.security.DisabledException"]
+                            [@s.m "error.userDisabled"/]
+                            [#elseif error=="com.jeecms.common.security.InactiveException"]
+                            [@s.m "error.userInActive"/]
+                            [/#if]
+                        </div>
+                        [/#if]
+                        [#if success??]
+                        [#if success]
+                        注册成功！
+                        [/#if]
+
+                        [/#if]
+                    </div>
+                    <div class="text-center" style="display: none"  id="loading">
+                        <img src="${base}/r/cms/www/red/img/loading.gif">
+                    </div>
+                    <div >
+                        <div class="button" >
+                            <button type="button" class="btn-success btn-block btn" onclick="userLogin()">登录</button>
+                        </div>
+                        <div class="button">
+                            <a class="btn-danger btn-block btn" href="/wxzc/index.jhtml">注册</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!--内容结束-->
+
+
+</body>
+<script type="text/javascript">
+    function clearErrorMsg(ele){
+        $("#errorMsg").html("");
+        $("#registerMsg").hide();
+    }
+
+    function userLogin() {
+        $("#errorMsg").html("");
+        var username = $("#username").val();
+        var pwd = $("#password").val();
+        var flag =0;
+        if(!username){
+            $("#usernameMsg").html("用户名不能为空");
+            flag=1;
+        }
+        if(!pwd){
+            $("#passwordMsg").html("密码不能为空");
+            flag=flag+1;
+        }
+        if(flag>0){
+            return;
+        }else{
+            $("#loading").show();
+            $("#loginForm").submit();
+        }
+    }
+
+    var isShow=true;
+    function change(ele){
+        if (isShow) {//显示
+            $("#password").attr('type','text');
+            isShow=false;
+            $(ele).removeClass("glyphicon-eye-open");
+            $(ele).addClass("glyphicon-eye-close");
+        }else{
+            $("#password").attr('type','password');
+            isShow=true;
+            $(ele).removeClass("glyphicon-eye-close");
+            $(ele).addClass("glyphicon-eye-open");
+        }
+    }
+</script>
+</html>

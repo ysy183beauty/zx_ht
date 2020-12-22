@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>信用信息 - ${site.name}</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+    <meta http-equiv="keywords" content=""/>
+    <meta http-equiv="description" content=""/>
+    [#include "../include/页头顶栏_LINK.html"/]
+    <link rel="stylesheet" href="${resSys}/www/red/css/qyxycx.css"/>
+    <link rel="stylesheet" href="${resSys}/www/red/css/xycx.css"/>
+    <link rel="stylesheet" href="${resSys}/www/red/css/nav.css"/>
+    <link rel="stylesheet" href="${resSys}/www/red/css/tableDate.css"/>
+    <style type="text/css">
+        .nav-md{
+            box-shadow: 2px 2px #ccc;
+        }
+        .container{
+           max-width:1000px!important;
+        }
+
+    </style>
+</head>
+<body>
+<div class="wrap">
+[#include "../include/页头顶栏.html"/]
+    <div class="load_main">
+        <img src="/r/cms/www/red/img/load.gif">
+    </div>
+<!--内容开始-->
+<div class="main">
+    <div class="container">
+        <div class="sit height_auto m-t-md">
+            <ul>
+                <li>
+                    <a id="sy" href="/">首页</a>
+                </li>
+                <li>&gt;</li>
+                <li>
+                    <a href="/member/userInfo.jspx">用户中心</a>
+                </li>
+                <li>&gt;</li>
+                <li>
+                    账户信息
+                </li>
+            </ul>
+        </div>
+        <div class="row">
+            <div class="nav-col">
+                  <ul class="nav nav-tabs">
+                        <li role="presentation" >
+                        <a href="/member/userInfo.jspx" >账户信息</a>
+                        </li>
+                        <li role="presentation" >
+                        <a href="/member/profile.jspx">实名认证</a>
+                        </li>
+                        <li role="presentation" >
+                        <a href="/member/pwd.jspx">密码修改</a>
+                        </li>
+                        <li role="presentation" >
+                        <a href="/xyxx/index.jhtml" class="nav-active">信用信息</a>
+                        </li>
+                        <li role="presentation" >
+                        <a href="/xybg/index.jhtml" >信用报告</a>
+                        </li>
+                      <li role="presentation" >
+                          <a href="/lsxx/index.jhtml">历史信息</a>
+                      </li>
+                  </ul>
+
+            </div>
+            <div class="">
+                <div class="height_auto m-t-md" style="width:100%;margin:0 auto;" id="userContent">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<!--内容结束-->
+
+[#include "../include/页脚信息栏.html"/]
+
+</body>
+<script type="text/javascript">
+    $(function () {
+        fillUser();
+        queryNavi('/credit/query/ps/index.do',null,'#userContent');
+    });
+
+    function fillUser(){
+        [#if user??]
+        loginName = '${user.loginName!}';
+        userName =  '${user.userName!}';
+        type =  '${user.type!}';
+        flag =  '${user.flag!}';
+        [#else]
+            location.href='/yhdl/index.jhtml';
+        [/#if]
+
+    }
+
+    function changeInfo(id) {
+        $("#register").removeClass("active");
+        $("#certification").removeClass("active");
+        $("#registerform").hide();
+        $("#certificationform").hide();
+
+        $("#"+id).show();
+        $("#"+id).addClass("active");
+        $("#"+id+"form").show();
+    }
+
+    function queryNavi(url,param,domId){
+        $(".load_main").show();
+        $.ajax({
+            url: url,
+            data: param,
+            timeout: 30000,
+            success: function (data) {
+                $(domId).html(data);
+                load();
+//                $.scrollTo("#searchContent", 500);
+            },
+            error:function () {
+                $(domId).html("数据请求失败！");
+                load();
+            },
+            timeout:function(){
+                $(domId).html("数据请求超时！");
+                load();
+            }
+        });
+    }
+    function load(){
+        $(".load_main").hide();
+    }
+</script>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8;"/>
+<title>${channel.title!channel.name} - ${site.name}</title>
+<meta http-equiv="keywords" content="${channel.keywords!}" />
+<meta http-equiv="description" content="${channel.description!}" />
+
+
+<style ype="text/css">
+body{background: #385da3;}
+.white{background: white;}
+.w480{width:480px;}
+.w980{width: 980px}
+.w920{width: 920px}
+.main .index_right{ width:450px;}
+.dt ul li{line-height: 35px; font-size: 14px;width: 450px;float: left;background:url(/r/cms/app/Images/index/point.jpg) no-repeat left center;padding-left: 15PX;}
+.dt ul li a{ float:left; width:70%;}
+.dt ul li span{float:right; color:#d4d4d4;  font-size:12px;margin-left: 20px;margin-right: 10px;}
+.main .index_box  .no_scroll{height:196px; padding:10px;overflow:hidden;}
+
+.main  .no_scroll li {  overflow: hidden;  background: url(/r/cms/www/red/img/newEdition/all.png) no-repeat -390px 12px; font-size: 14px;line-height: 30px;margin-top: 7px;}
+.main .redList li {  background: none;}
+.redList  li span {  float: right;  color: #afafaf;}
+ul li dt {  width: 135px;  float: left;}
+dt img {  width: 125px;  height: 94px;}
+li dd a {  display: block;  font-size: 14px;  color: #2c62b8;margin:5px 0 5px 0;}
+.cxrw span{white-space:nowrap;overflow:hidden; text-overflow:ellipsis;width: 350px;}
+</style>
+
+</head>
+<body >
+<div class="wrap head_bg">
+	[#include "../include/页头顶栏_宣传周.html"/]
+	
+	<div class="main mt10 " >
+		<div class="w920 p20" style="  border: solid 1px #3b6dbd;">
+			<div class="box_skitter box_skitter_large fl">
+				<ul>
+					[@cms_content_list channelId='565' count='7' titLen='10' orderBy='4' channelOption='1' dateFormat='yyyy-MM-dd']
+					  [#list tag_list as a]
+					
+					   <li><a href="${a.url}" title="${a.title}" target="_blank"><img src="${a.titleImg!site.defImg}" class="cubeStop" alt="${a.title}" /></a><div class="label_text"><a href="${a.url}" target="_blank"><p>${a.description}</p></a></div></li>
+					
+					  [/#list]
+					[/@cms_content_list]
+				</ul>	
+			</div>
+			<div class="fr w450 dt" >
+				<ul >
+					[@cms_content_list channelId='565' count='7' titLen='18' orderBy='2' channelOption='1' dateFormat='yyyy-MM-dd']
+					  [#list tag_list as a]
+					  <li><a href="${a.url}" title="${a.title}" target="_blank">[@text_cut s=a.title len=titLen append=append/]</a><span class="date">[${a.date?string(dateFormat)}]</span></li>
+					  [/#list]
+					[/@cms_content_list]	
+				</ul>
+			</div>
+			<div class="clear"></div>
+	  </div>
+	  
+	  <div class="w960 p20 mt10">
+	  		
+	  <div class="credit_publicity  index_box index_right fl">
+        	<div class="hd">
+            	<a href="/zdwj/index.jhtml" class="more" target="_blank">更多>></a>
+            	<h3><i></i>制度文件</h3>
+            </div> 
+            <div class="no_scroll">
+                <ul>
+  
+					 [@cms_content_list channelId='568' count='5' titLen='20' orderBy='2' channelOption='1' dateFormat='yyyy-MM-dd']
+					  [#list tag_list as a]
+					  <li><span>[${a.date?string(dateFormat)}]</span><i></i><a href="${a.url}" title="${a.title}" target="_blank">[@text_cut s=a.title len=titLen append=append/]</a></li>
+					  [/#list]
+					  [/@cms_content_list]
+				 
+                </ul>
+            </div>
+        </div><!--credit_publicity end-->
+         <div class="credit_publicity  index_box index_right fr">
+        	<div class="hd">
+            	<a href="/hbgs/index.jhtml" class="more" target="_blank">更多>></a>
+            	<h3><i></i>红榜公示</h3>
+            </div> 
+            <div class="no_scroll redList sublist2">
+                <ul id="ul_red_list">
+              		 [@cms_content_list channelId='567' count='5' titLen='20' orderBy='2' channelOption='1' dateFormat='yyyy-MM-dd']
+					  [#list tag_list as a]
+					  <li><span>[${a.date?string(dateFormat)}]</span><i></i><a href="${a.url}" title="${a.title}" target="_blank">[@text_cut s=a.title len=titLen append=append/]</a></li>
+					  [/#list]
+					  [/@cms_content_list]
+                </ul>
+            </div>
+        </div><!--credit_publicity end-->
+	   		<div class="clear"></div>
+	  </div>
+
+		<div class="w960 p20">
+			<div class="credit_publicity  index_box index_right fl ">
+        	<div class="hd">
+            	<a href="/cxsj/index.jhtml" class="more" target="_blank">更多>></a>
+            	<h3><i></i>诚信人物</h3>
+            </div> 
+            <div class="no_scroll">
+                <ul class="cxrw">
+                  	[@cms_content_list channelId='490' count='5' titLen='15' orderBy='2' channelOption='0' ]
+			         [#list tag_list as a]
+			          <li><span>${a.description }</span><i></i><a href="${a.url}" title="${a.title}" target="_blank">${a.title}</a></li>
+					
+					[/#list]
+			      [/@cms_content_list]
+                </ul>
+            </div>
+        </div>
+        
+        <div class="credit_publicity  index_box index_right fr">
+        	<div class="hd">
+            	<a href="/dxal/index.jhtml" class="more" target="_blank">更多>></a>
+            	<h3><i></i>典型案例</h3>
+            </div> 
+            <div class="no_scroll redList sublist2">
+                <ul id="ul_black_list">
+                    [@cms_content_list channelId='566' count='5' titLen='20' orderBy='2' channelOption='1' dateFormat='yyyy-MM-dd']
+					  [#list tag_list as a]
+					  <li><span>[${a.date?string(dateFormat)}]</span><i></i><a href="${a.url}" title="${a.title}" target="_blank">[@text_cut s=a.title len=titLen append=append/]</a></li>
+					  [/#list]
+					  [/@cms_content_list]
+                </ul>
+            </div>
+        </div>
+        
+        <div class="clear mb50"></div>
+	</div>
+	
+		
+		</div>
+	
+</div>
+</body>
+</html>

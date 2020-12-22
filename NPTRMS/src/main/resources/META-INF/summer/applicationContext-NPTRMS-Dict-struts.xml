@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:v="http://www.summer.org/schema/config"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.summer.org/schema/config http://www.summer.org/schema/config/summer-core.xsd">
+
+
+    <v:package name="/npt/rms/dict" action-ref="npt.rms.dict">
+        <v:menu name="code-manager" title="码表管理" admin="true">
+            <v:action name="list" result-success="dict/rms_dict_list.ftl"/>
+            <v:group name="editCode" title="修改">
+                <v:action name="edit"/>
+            </v:group>
+        </v:menu>
+    </v:package>
+</beans>

@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>${channel.title!channel.name} - ${site.name}</title>
+<meta http-equiv="keywords" content="${channel.keywords!}" />
+<meta http-equiv="X-UA-Compatible" content="IE=8;"/>
+<meta http-equiv="description" content="${channel.description!}" />
+<!--[if gte IE 9]>
+  <style type="text/css">
+    .gradient {
+       filter: none;
+    }
+  </style>
+<![endif]-->
+<script type="text/javascript" src="/thirdparty/My97DatePicker/WdatePicker.js"></script>
+ <script type="text/javascript" src="/${res}/js/swfupload.js"></script>
+ <script type="text/javascript" src="/${res}/js/ecsp.js"></script>
+
+
+
+</head>
+<body style="background: white">
+	<!--top_begin-->
+	[#include "../include/页头导航栏.html"/]
+	<!--top_end-->
+	 <script type="text/javascript">
+        // 是否使用默认遮罩
+        var ECSP_UPLOAD_URL = 'http://qy.cszhcs.cn/EcspUpload';
+
+    </script>
+    <script type="text/javascript" src="/${res}/js/jquery.ecsp.common.js"></script>
+    <script type="text/javascript" src="/${res}/js/jquery.ecsp.corsrequest.js"></script>
+	<script type="text/javascript" src="/${res}/js/ent_authenticate_upload.js" ></script>  
+	<!--container-->
+	<div class="container">
+	<div class=" mt100"> 
+	<input name="user_id" id="user_id" type="hidden" value="409"/>
+		<form id="qyrzform" name="qyrzform"  method="post" >
+		<div class="header w">单位信息</div>
+		<div class="dwxx w fl pt20 pb20">
+			<table class="w " cellpadding="0" cellspacing="0">
+				<tbody>
+					<tr>
+						<td width="25%"><b>*</b>单位名称</td>
+						<td width="75%" colspan="2"><input type="text" id="dwmc" name="dwmc"/></td>
+					</tr>
+					<tr>
+						<td><b>*</b>组织机构代码证编号</td>
+						<td colspan="2"><input type="text" id="dwbh" name="dwbh"/></td>
+					</tr>
+		         	<tr>
+						<td><b>*</b>工商注册号</td>
+						<td colspan="2"><input type="text" id="gszch" name="gszch"/></td>
+					</tr>
+				
+					<tr>
+						<td ><b>*</b>组织机构代码证机构类型</td>
+						<td colspan="2"><select id="qytype">
+							<option selected="selected" value="企业单位">企业单位</option>
+							<option value="事业单位">事业单位 </option>
+							<option value="社会团体">社会团体</option>
+							<option value="机关">机关</option>
+							<option value="公会">公会</option>
+							<option value="民办非企业">民办非企业</option>		
+						</select></td>
+					</tr>
+					<tr>
+						<td><b>*</b>组织机构代码证有效期</td>
+						<td colspan="2">
+							<input type="text" id="startDate" name="startDate" class="Wdate" style="width:140px" onclick="WdatePicker({dateFmt:'yyyy-MM-dd'})"/>
+							<em>至</em>
+							<input type="text" id="endDate" name="endDate" class="Wdate" style="width:140px" onclick="WdatePicker({dateFmt:'yyyy-MM-dd'})"/>
+						</td>
+					</tr>
+					<tr>
+						<td><b>*</b>联系电话</td>
+						<td colspan="2"><input type="text" id="dwhm" name="dwhm"/></td>
+					</tr>
+					<tr>
+						<td><b>*</b>联系Email</td>
+						<td colspan="2"><input type="text" id="dwmail" name="dwmail"/></td>
+					</tr>
+					<tr>					
+						<td><b>*</b>组织机构代码证扫描件</td>
+						<td id="qualimges_div_1">
+							<br />
+							<object id="exper_addimage_1"></object>
+							<p id="fqg_upload_desc_1">注：彩色扫描件或数码照，图片大小不得超过5M。</p>
+						 </td>
+						 <td>
+							<input type="hidden" id="experImage_input_1" name="img1" value=""/>
+						</td>				
+					</tr>
+					<tr>
+						<td><b>*</b>组织机构代码证加盖公章的副本</td>
+						<td id="qualimges_div_2">
+							<br />
+							<object id="exper_addimage_2"></object>
+							<p id="fqg_upload_desc_1">注：彩色扫描件或数码照，图片大小不得超过5M。</p>
+						 </td><td>
+							<input type="hidden" id="experImage_input_2" name="img2" value=""/>
+						</td>
+					   	
+					</tr>
+					<tr>
+						<td>营业执照副本扫描件</td>
+						<td id="qualimges_div_3">
+							<br />
+							<object id="exper_addimage_3"></object>
+							<p id="fqg_upload_desc_3">注：彩色扫描件或数码照，图片大小不得超过5M。</p>
+						</td><td>
+							<input type="hidden" id="experImage_input_3" name="img3" value=""/>
+						</td>
+				
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		
+		<div class="header w fl">法人信息</div>
+		<div class="frxx w fl pt20">
+			<table class="w fl" cellpadding="0" cellspacing="0">
+		
+					<tbody>
+						<tr>
+							<td width="25%"><b>*</b>法人真实姓名</td>
+							<td width="75%" colspan="2"><input type="text" id="frmc" name="frmc"/></td>
+						</tr>
+						<tr>
+							
+							<td><b>*</b>身份证号码</td>
+							<td colspan="2"><input type="text" id="dwsfz" name="dwsfz"/></td>
+						</tr>
+						<tr>
+						<td>身份证扫描件正面</td>
+						<td id="qualimges_div_5">
+							<br />
+							<object id="exper_addimage_5" ></object>
+						
+						    <p id="fqg_upload_desc_5">注：彩色扫描件或数码照，图片大小不得超过5M。</p>
+						 </td><td>
+						    <input type="hidden" id="experImage_input_5" name="img5" value=""/>
+						</td>
+						</tr>
+						<tr>
+						<td>身份证扫描件背面</td>
+						<td id="qualimges_div_6">
+							<br />
+							<object id="exper_addimage_6"></object>
+							<p id="fqg_upload_desc_6">注：彩色扫描件或数码照，图片大小不得超过5M。</p>
+						</td><td>
+							<input type="hidden" id="experImage_input_6" name="img6" value=""/>
+						</td>
+						</tr>
+					</tbody>
+			</table>
+			
+		</div>
+				
+		<div class="header w fl">
+			<button type="submit" class="ml250 submitbtn fl"  >提交</button>
+			<button type="button"  class="ml50 cancelbtn btn fl" >取消</button>
+		</div>
+		</form>
+		<button id="returnindex" class="none" onclick="returnindex2()"></button>
+	</div>
+</div>
+
+</body>
+<script type="text/javascript">
+function returnindex2(){
+	window.open("/index.jhtml","_self");
+}
+</script>
+
+</html>

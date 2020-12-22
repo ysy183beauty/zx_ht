@@ -1,0 +1,17 @@
+[#--
+栏目翻页样式
+加载更多
+--]
+[#assign p=tag_pagination/]
+[#if p.lastPage]
+<script>
+    $(function () {
+        console.log(id);
+        if (id == undefined) {
+            $(".wx-more").remove();
+        } else {
+            $("#" + id).remove();
+        }
+    });
+</script>
+[/#if]

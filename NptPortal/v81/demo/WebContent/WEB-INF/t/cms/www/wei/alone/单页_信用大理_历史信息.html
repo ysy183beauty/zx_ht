@@ -1,0 +1,180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>历史信息 - ${site.name}</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+    <meta http-equiv="keywords" content=""/>
+    <meta http-equiv="description" content=""/>
+    [#include "../include/页头顶栏_LINK.html"/]
+    <link rel="stylesheet" href="${resSys}/www/red/css/qyxycx.css"/>
+    <link rel="stylesheet" href="${resSys}/www/red/css/xycx.css"/>
+    <link rel="stylesheet" href="${resSys}/www/red/css/nav.css"/>
+    <link rel="stylesheet" href="${resSys}/www/red/css/tableDate.css"/>
+    <style type="text/css">
+        .nav-md{
+            box-shadow: 2px 2px #ccc;
+        }
+        .container{
+           max-width:1000px!important;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+[#include "../include/页头顶栏.html"/]
+    <div class="load_main">
+        <img src="/r/cms/www/red/img/load.gif">
+    </div>
+<!--内容开始-->
+<div class="main">
+    <div class="container">
+        <div class="sit height_auto m-t-md">
+            <ul>
+                <li>
+                    <a id="sy" href="/">首页</a>
+                </li>
+                <li>&gt;</li>
+                <li>
+                    <a href="/member/userInfo.jspx">用户中心</a>
+                </li>
+                <li>&gt;</li>
+                <li>
+                    账户信息
+                </li>
+            </ul>
+        </div>
+        <div class="row">
+            <div class="nav-col">
+                <ul class="nav nav-tabs">
+                    <li role="presentation" >
+                        <a href="/member/userInfo.jspx" >账户信息</a>
+                    </li>
+                    <li role="presentation" >
+                        <a href="/member/profile.jspx">实名认证</a>
+                    </li>
+                    <li role="presentation" >
+                        <a href="/member/pwd.jspx">密码修改</a>
+                    </li>
+                    <li role="presentation" >
+                        <a href="/xyxx/index.jhtml">信用信息</a>
+                    </li>
+                    <li role="presentation" >
+                        <a href="/xybg/index.jhtml">信用报告</a>
+                    </li>
+                    <li role="presentation" >
+                        <a href="/lsxx/index.jhtml" class="nav-active">历史信息</a>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="report">
+
+                <div class="height_auto m-t-md" style="width:100%;margin:0 auto;" id="userContent">
+                    <div class="con_title">
+
+                    </div>
+                    <table  class=" table-striped table-bordered"   width="100%" style="border-collapse:collapse;">
+                        <thead>
+                        <th align='center'>序号</th>
+                        <th align='center'>申请提交时间</th>
+                        <th align='center'>申请状态</th>
+                        <th align='center'>回复时间</th>
+                        </thead>
+                        <tbody id="tbody">
+                        <tr>
+                            <td colspan="4">请提交申请</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div id="kkpager"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<!--内容结束-->
+
+[#include "../include/页脚信息栏.html"/]
+
+</body>
+<script type="text/javascript">
+    $(function () {
+        getApplyDataHistory(1,20);
+    });
+
+    function getApplyDataHistory(currPage,pageSize){
+        $(".load_main").show();
+        $.ajax({
+            url:"/credit/query/ps/getApplyInfo.do",
+            data:{pageNo:currPage,
+                pageSize:pageSize},
+            success:function (data) {
+                $("#tbody").empty();
+
+                if(data){
+                    var list=data.list;
+                    var len =list.length;
+                    var tr ="";
+                    for(var i=0;i < len ;i++){
+                        var one = list[i];
+                        tr=tr+"<tr><td align='center'>"+(i+1)+"</td><td align='center'>"+one['applyTime']
+                            +"</td><td align='center'>"
+                            +one['applyFlagValue']
+                            +"</td><td align='center'>"
+                            +checkUndefind(one['replyTime'])
+                            +"</td></tr>"
+                    }
+                    if(data.totalCount>pageSize){
+                        initPage(currPage,pageSize,data.totalCount,data.totalPage);
+                        console.log(data.totalCount+"--"+currPage+"--"+pageSize);
+                    }
+                    $("#tbody").html(tr);
+                }else{
+                    $("#tbody").html("<tr>暂无记录</tr>");
+                }
+                load();
+            },
+            error:function () {
+                $("#tbody").html("<tr>数据请求失败！</tr>");
+                load();
+            },
+            timeout:function(){
+                $("#tbody").html("<tr>数据请求超时！</tr>");
+                load();
+            }
+        })
+    }
+    function initPage(currPage,pageSize,sum,totalPage) {
+        //生成分页控件
+        kkpager.generPageHtml({
+            pagerid: "kkpager",
+            pno: currPage,
+            mode : 'click',
+            //总页码
+            total: totalPage,
+            //总数据条数
+            totalRecords: sum,
+            //链接算法
+            click: function (n) {
+                //获取第n页数据
+                getApplyDataHistory(n,pageSize);
+            }
+        },true);
+    }
+    //字段的值是否为undefined
+    function checkUndefind(value,replaceChar){
+        if(replaceChar==undefined){
+            replaceChar='-';
+        }
+        var re =  value==undefined?replaceChar:value;
+        return re
+    }
+    function load(){
+        $(".load_main").hide();
+    }
+</script>
+</html>

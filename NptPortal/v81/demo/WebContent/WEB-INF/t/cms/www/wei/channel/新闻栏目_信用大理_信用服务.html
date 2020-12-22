@@ -1,0 +1,34 @@
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+    <!--<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />-->
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=8;"/>-->
+    <!--<title id="title">${channel.title!channel.name} - ${site.name}</title>-->
+
+    <div class="srv_top">
+        <div class="">
+            <div class="">
+                <div class="height_auto">
+                    <div class="credit">
+                        <p class="text-center"><strong>信用服务机构</strong></p>
+                        [@cms_content_page channelId=465 count=channel.pageSize titLen='23'
+                        sysPage='1' pageClass='page text-center m-t-lg' styleList='zx-2' ctgForm='1'
+                        ctgClass='orange' bottomLine='1' showTitleStyle='2'
+                        dateFormat='yyyy-MM-dd' count='10' datePosition='2' dateClass='gray'
+                        channelOption='2' tpl='2'  orderBy='2' /]
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<script type="application/javascript">
+    $(function(){
+       _goPage=function(url){
+            $.get("/fwjg/"+url,function (data) {
+                $("#mainContent").html(data);
+            })
+       };
+    });
+</script>

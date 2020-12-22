@@ -1,0 +1,207 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8;"/>
+<title>${channel.title!channel.name} - ${site.name}</title>
+
+
+
+<style type="text/css">
+.c1-bline{border-bottom:#999 1px dashed;border-top:1px; margin:auto 20px;height: 15px;}
+.f-left{float:left;}
+.f-right{float:right;}
+.img-vm{vertical-align:middle}
+.pagination{height:30px; line-height:30px; text-align:center; clear:both; margin-top:10px;}
+.orange{color:#FF9900;}
+.code{
+
+font-family:Arial,宋体;
+font-style:italic;
+color:green;
+border:0;
+padding:2px 0px;
+letter-spacing:3px;
+
+
+}
+#checkCode:hover{cursor:pointer;}
+</style>
+<script type="text/javascript">
+	
+	$(function() {
+		Cms.siteFlow("${base}", location.href, document.referrer);
+		createCode();
+	});
+	
+</script>
+</head>
+<body onload="createCode()">
+		 
+<div class="wrap head_bg">	
+	[#include "../include/页头顶栏.html"/]
+	
+
+	<!--内容开始-->
+	<div id="main">
+    <div class="main_left fl">
+    	<div class="list_menu">
+        	<h3>
+				${channel.nodeList[0].name}
+			</h3>
+        	<ul>
+            	[@cms_channel_list parentId=channel.parent.id] [#list tag_list as sub]
+				<li>
+					[#if sub.name==channel.name]
+					<a class="current" href='${sub.url}'> ${sub.name} </a>
+				[#else]
+					<a  href='${sub.url}'> ${sub.name} </a>
+				[/#if]
+				</li>
+				[/#list] [/@cms_channel_list]
+            </ul>
+        </div>
+    </div><!--main_left end-->
+    <div class="main_right fr">
+        <div class="list_article">
+        	<div class="location_box"><label class="fl">当前位置</label><span class="fl"> 
+	        	<a href="${base}/">首页
+			[#if channel.nodeList[0].name=channel.nodeList[1].name]
+				</a><span>></span>${channel.nodeList[0].name}
+			[#else]
+				[#list channel.nodeList as n]
+				</a><span>></span>${n.name}
+				[#if n_has_next] 
+				[/#if]
+				[/#list]
+			[/#if]
+			</span></div>
+        	<div class="Content scroll" >
+				<h2 style="margin-top:0.0000pt;margin-right:0.0000pt;margin-bottom:0.0000pt;margin-left:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:none;text-align:left;"><span style="font-size: small;"><span style="font-family: 微软雅黑; font-weight: bold;">1.1</span><span style="font-family: 微软雅黑; font-weight: bold;">&nbsp;首页</span></span></h2>
+<p style="margin-right:0.0000pt;margin-left:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:widow-orphan;text-align:left;" class="MsoNormal"><span style="font-size: small;"><span style="font-family: 微软雅黑;">业务描述：大理信用征信首页，展示重要模块。</span></span></p>
+<p style="margin-right:0.0000pt;margin-left:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:widow-orphan;text-align:left;" class="MsoNormal"><span style="font-size: small;"><span style="font-family: 微软雅黑;">点击【首页】如图：</span></span></p>
+<p style="margin-right:0.0000pt;margin-left:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:widow-orphan;text-align:center;" class="p"><span style="font-size: small;"><br />
+<span style="font-family: 微软雅黑;"><img src="/${res}/img/newEdition/tp01.png" alt="" /> <br />
+</span></span></p>
+<p style="margin-right:0.0000pt;margin-left:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:widow-orphan;" class="p"><span style="font-size: small;"><span style="font-family: 微软雅黑;">操作：</span></span></p>
+<p style="margin-right:0.0000pt;margin-left:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:widow-orphan;" class="p"><span style="font-size: small;"><span style="font-family: 微软雅黑;">（1）打开首页模块即可</span></span></p>
+<p style="margin-right:0.0000pt;margin-left:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:widow-orphan;" class="p"><span style="font-size: small;"><span style="font-family: 微软雅黑;">模块说明：</span></span></p>
+<p style="margin-right: 0pt; text-indent: 24pt; margin-left: 40px;" class="p"><span style="font-size: small;"><span style="font-family: 微软雅黑;">（1）&nbsp;企业基础查询：输入用企业名称和工商注册号查询企业基本信息，支持模糊查询。</span></span></p>
+<p style="margin-right: 0pt; text-indent: 24pt; margin-left: 40px;" class="p"><span style="font-size: small;"><span style="font-family: 微软雅黑;">（2）&nbsp;本市（国内）动态：展示最新6条本市（国内）新闻。</span></span></p>
+<p style="margin-right: 0pt; text-indent: 24pt; margin-left: 40px;" class="p"><span style="font-size: small;"><span style="font-family: 微软雅黑;">（3）&nbsp;通知公告：将关于诚信的公示、通知、决定等文章发布在通知公告栏目下。</span></span></p>
+<p style="margin-right: 0pt; text-indent: 24pt; margin-left: 40px;" class="p"><span style="font-size: small;"><span style="font-family: 微软雅黑;">（4）&nbsp;信用公示：以滚动的方式呈现最新的6条公示信息。</span></span></p>
+<p style="margin-right: 0pt; text-indent: 24pt; margin-left: 40px;" class="p"><span style="font-size: small;"><span style="font-family: 微软雅黑;">（5）&nbsp;红黑榜单：展示最新发布的6条诚信红榜（黑榜）信息资源。</span></span></p>
+<p style="margin-right: 0pt; text-indent: 24pt; margin-left: 40px;" class="p"><span style="font-size: small;"><span style="font-family: 微软雅黑;">（6）&nbsp;政策法规：展示10条最新的国家发布的法律政治规定。</span></span></p>
+<p style="margin-right: 0pt; text-indent: 24pt; margin-left: 40px;" class="p"><span style="font-size: small;"><span style="font-family: 微软雅黑;">（7）&nbsp;成员单位：展示提供数据的各委办局名称，点击委办局名称则跳转至相关网站。</span></span></p>
+<p style="margin-right: 0pt; text-indent: 24pt; margin-left: 40px;" class="p"><span style="font-size: small;"><span style="font-family: 微软雅黑;">（8）&nbsp;友情链接：展示省级信用网站、省内信用网站和其他一些本市的友情链接。</span></span></p>
+<h1 style="margin-top:0.0000pt;margin-right:0.0000pt;margin-bottom:0.0000pt;margin-left:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:none;text-align:left;"><span style="font-size: small;"><span style="font-family: 微软雅黑; font-weight: bold;">2&nbsp;信用资讯&nbsp;</span></span></h1>
+<h2 style="margin-top:0.0000pt;margin-right:0.0000pt;margin-bottom:0.0000pt;margin-left:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:none;text-align:left;"><span style="font-size: small;"><span style="font-family: 微软雅黑; font-weight: bold;">2.1&nbsp;本市动态</span></span></h2>
+<p style="margin-right:0.0000pt;margin-left:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:widow-orphan;text-align:left;" class="MsoNormal"><span style="font-size: small;"><span style="font-family: 微软雅黑;">业务描述：对后台发布的常熟征信网站一些重要的本市动态进行展现，便于用户了解和查看。</span></span></p>
+<p style="margin-right:0.0000pt;margin-left:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:widow-orphan;text-align:left;" class="MsoNormal"><span style="font-size: small;"><span style="font-family: 微软雅黑;">如图：</span></span></p>
+<p style="margin-right:0.0000pt;margin-left:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:widow-orphan;text-align:left;" class="MsoNormal"><span style="font-size: small;"><span style="font-family: 微软雅黑;"><img src="/${res}/img/newEdition/tp02.png" alt="" /><br />
+</span></span></p>
+<h2 style="margin-top:0.0000pt;margin-right:0.0000pt;margin-bottom:0.0000pt;margin-left:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:none;text-align:left;"><span style="font-size: small;"><span style="font-family: 微软雅黑; font-weight: bold;">2.2&nbsp;国内动态</span></span></h2>
+<p style="margin-right:0.0000pt;margin-left:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:widow-orphan;text-align:left;" class="MsoNormal"><span style="font-size: small;"><span style="font-family: 微软雅黑;">业务描述：对后台发布的常熟征信网站一些重要的国内动态进行展现，便于用户了解和查看。</span></span></p>
+<p style="margin-right:0.0000pt;margin-left:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:widow-orphan;text-align:left;" class="MsoNormal"><span style="font-size: small;"><span style="font-family: 微软雅黑;">如图：</span></span></p>
+<p style="margin-right:0.0000pt;margin-left:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:widow-orphan;text-align:left;" class="MsoNormal"><span style="font-size: small;"><span style="font-family: 微软雅黑;">&nbsp;<img src="/${res}/img/newEdition/tp03.png" alt="" /></span></span></p>
+<p style="margin-right:0.0000pt;margin-left:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:widow-orphan;text-align:left;" class="MsoNormal"><span style="font-size: small;"><br />
+<span style="font-family: 微软雅黑;">&nbsp;</span></span></p>
+<h2 style="margin-top:0.0000pt;margin-right:0.0000pt;margin-bottom:0.0000pt;margin-left:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:none;text-align:left;"><span style="font-size: small;"><span style="font-family: 微软雅黑; font-weight: bold;">2.3&nbsp;通知公告</span></span></h2>
+<p style="margin-right:0.0000pt;margin-left:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:widow-orphan;text-align:left;" class="MsoNormal"><span style="font-size: small;"><span style="font-family: 微软雅黑;">业务描述：对后台发布的常熟征信网站一些重要的通知公告进行展现，便于用户了解和查看</span></span></p>
+<p style="margin-right:0.0000pt;margin-left:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:widow-orphan;text-align:left;" class="MsoNormal"><span style="font-size: small;"><span style="font-family: 微软雅黑;">如图：</span></span></p>
+<p style="margin-right:0.0000pt;margin-left:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:widow-orphan;text-align:left;" class="MsoNormal"><span style="font-size: small;"><span style="font-family: 微软雅黑;"><img src="/${res}/img/newEdition/tp04.png" alt="" /><br />
+</span></span></p>
+<h1 style="margin-top:0.0000pt;margin-right:0.0000pt;margin-bottom:0.0000pt;margin-left:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:none;text-align:left;"><span style="font-size: small;"><span style="font-family: 微软雅黑; font-weight: bold;">3&nbsp;信用公示&nbsp;</span></span></h1>
+<h2 style="margin-top:0.0000pt;margin-right:0.0000pt;margin-bottom:0.0000pt;margin-left:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:none;text-align:left;"><span style="font-size: small;"><span style="font-family: 微软雅黑; font-weight: bold;">3.1&nbsp;公示信息</span></span></h2>
+<p style="margin-right:0.0000pt;margin-left:21.6000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:widow-orphan;text-align:left;" class="MsoNormal"><span style="font-size: small;"><span style="font-family: 微软雅黑;">4&nbsp;业务描述：对常熟征信网站调用接口过来的一些重要的公示信息进行展现，便于用户了解和查看。</span></span></p>
+<p style="margin-right:0.0000pt;margin-left:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:widow-orphan;" class="p"><span style="font-size: small;"><span style="font-family: 微软雅黑;">点击【信用公示】》【公示信息】如图：</span></span></p>
+<p style="margin-right:0.0000pt;margin-left:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:widow-orphan;text-align:center;" class="p"><span style="font-size: small;"><br />
+<span style="font-family: 微软雅黑;"><img src="/${res}/img/newEdition/tp05.png" alt="" /> <br />
+</span></span></p>
+<h2 style="margin-top:0.0000pt;margin-right:0.0000pt;margin-bottom:0.0000pt;margin-left:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:none;text-align:left;"><span style="font-size: small;"><span style="font-family: 微软雅黑; font-weight: bold;">4.1&nbsp;红黑榜单&nbsp;</span></span></h2>
+<p style="margin-right:0.0000pt;margin-left:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:widow-orphan;text-align:left;" class="MsoNormal"><span style="font-size: small;"><span style="font-family: 微软雅黑;">业务描述：对常熟征信网站调用接口过来的一些重要的红黑榜信息进行展现，便于用户了解和查看。</span></span></p>
+<p style="margin-right:0.0000pt;margin-left:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:widow-orphan;" class="p"><span style="font-size: small;"><span style="font-family: 微软雅黑;">点击【信用公示】》【红榜信息】或者【黑榜信息】如图：</span></span></p>
+<p style="margin-right:0.0000pt;margin-left:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:widow-orphan;text-align:center;" class="p"><span style="font-size: small;"><img src="/${res}/img/newEdition/tp06.png" alt="" /><br />
+<span style="font-family: 微软雅黑;">&nbsp;</span></span></p>
+<h1 style="margin-top:0.0000pt;margin-right:0.0000pt;margin-bottom:0.0000pt;margin-left:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:none;text-align:left;"><span style="font-size: small;"><span style="font-family: 微软雅黑; font-weight: bold;">5&nbsp;信用查询</span></span></h1>
+<h2 style="margin-top:0.0000pt;margin-right:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:widow-orphan;"><span style="font-size: small;"><span style="font-family: 微软雅黑; font-weight: bold;">5.1企业基础信息查询</span></span></h2>
+<p style="margin-right:0.0000pt;margin-left:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:widow-orphan;text-align:left;" class="MsoNormal"><span style="font-size: small;"><span style="font-family: 微软雅黑;">业务描述：输入企业名称或者工商注册号&nbsp;可以该企业的基础信息。</span></span></p>
+<p style="margin-right:0.0000pt;margin-left:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:widow-orphan;" class="p"><span style="font-size: small;"><span style="font-family: 微软雅黑;">用户登录门户，点击【信用查询】》【企业基础信息查询】如图：</span></span></p>
+<p style="margin-right:0.0000pt;margin-left:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:widow-orphan;" class="p"><span style="font-size: small;"><br />
+<span style="font-family: 微软雅黑;">&nbsp;<img src="/${res}/img/newEdition/tp07.png" alt="" /></span></span></p>
+<h2 style="margin-top:0.0000pt;margin-right:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:widow-orphan;"><span style="font-size: small;"><span style="font-family: 微软雅黑; font-weight: bold;">5.2企业信用信息查询</span></span></h2>
+<p style="margin-right:0.0000pt;margin-left:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:widow-orphan;text-align:left;" class="MsoNormal"><span style="font-size: small;"><span style="font-family: 微软雅黑;">业务描述：企业用户登录并且实名认证之后，可以查询自己的信用信息。</span></span></p>
+<p style="margin-right:0.0000pt;margin-left:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:widow-orphan;" class="p"><span style="font-size: small;"><span style="font-family: 微软雅黑;">用户登录门户，点击【信用查询】》【企业信用信息查询】如图：</span></span></p>
+<p style="margin-right:0.0000pt;margin-left:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:widow-orphan;" class="p"><span style="font-size: small;"><span style="font-family: 微软雅黑;"><img src="/${res}/img/newEdition/tp08.png" alt="" /><br />
+</span></span></p>
+<h2 style="margin-top:0.0000pt;margin-right:0.0000pt;margin-bottom:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:widow-orphan;"><span style="font-size: small;"><span style="font-family: 微软雅黑; font-weight: bold;">5.3个人信用信息查询</span></span></h2>
+<p style="margin-right:0.0000pt;margin-left:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:widow-orphan;text-align:left;" class="MsoNormal"><span style="font-size: small;"><span style="font-family: 微软雅黑;">业务描述：个人用户已实名认证的用户登录门户，可以查看自己的信用记录。</span></span></p>
+<p style="margin-right:0.0000pt;margin-left:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:widow-orphan;" class="p"><span style="font-size: small;"><span style="font-family: 微软雅黑;">用户登录门户，点击【信用查询】》【个人信用信息查询】如图：</span></span></p>
+<p style="margin-right:0.0000pt;margin-left:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:widow-orphan;" class="p"><span style="font-size: small;"><span style="font-family: 微软雅黑;"><img src="/${res}/img/newEdition/tp09.png" alt="" /> </span></span></p>
+<p style="margin-right:0.0000pt;margin-left:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:widow-orphan;" class="p"><span style="font-size: small;"><span style="font-family: 微软雅黑;">操作：&nbsp;输入姓名、证件类型、证件号码点击查询查询出该人员信息。</span></span></p>
+<h1 style="margin-top:0.0000pt;margin-right:0.0000pt;margin-bottom:0.0000pt;margin-left:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:none;text-align:left;"><span style="font-size: small;"><span style="font-family: 微软雅黑; font-weight: bold;">6&nbsp;政策法规</span></span></h1>
+<h2 style="margin-top:0.0000pt;margin-right:0.0000pt;margin-bottom:0.0000pt;margin-left:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:none;text-align:left;"><span style="font-size: small;"><span style="font-family: 微软雅黑; font-weight: bold;">6.1&nbsp;国家</span></span></h2>
+<p style="margin-right:0.0000pt;margin-left:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:widow-orphan;text-align:left;" class="MsoNormal"><span style="font-size: small;"><span style="font-family: 微软雅黑;">业务描述：对后台发布的常熟征信网站一些重要的国家政策法规进行展现，便于用户了解和查看。</span></span></p>
+<p style="margin-right:0.0000pt;margin-left:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:widow-orphan;text-align:left;" class="MsoNormal"><span style="font-size: small;"><span style="font-family: 微软雅黑;">用户登录门户，点击【政策法规】》【国家】，如图：</span><span style="font-family: 微软雅黑;"><br />
+</span><img src="/${res}/img/newEdition/tp10.png" alt="" /> </span></p>
+<h2 style="margin-top:0.0000pt;margin-right:0.0000pt;margin-bottom:0.0000pt;margin-left:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:none;text-align:left;"><span style="font-size: small;"><span style="font-family: 微软雅黑; font-weight: bold;">6.2&nbsp;省级</span></span></h2>
+<p style="margin-right:0.0000pt;margin-left:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:widow-orphan;text-align:left;" class="MsoNormal"><span style="font-size: small;"><span style="font-family: 微软雅黑;">业务描述：对后台发布的常熟征信网站一些重要的省级的政策法规进行展现，便于用户了解和查看。</span></span></p>
+<p style="margin-right:0.0000pt;margin-left:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:widow-orphan;text-align:left;" class="MsoNormal"><span style="font-size: small;"><span style="font-family: 微软雅黑;">用户登录门户，点击【政策法规】》【省级】，如图：</span></span></p>
+<p style="margin-right:0.0000pt;margin-left:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:widow-orphan;text-align:left;" class="MsoNormal"><span style="font-size: small;"><br />
+<span style="font-family: 微软雅黑;">&nbsp;<img src="/${res}/img/newEdition/tp11.png" alt="" /> </span></span></p>
+<h2 style="margin-top:0.0000pt;margin-right:0.0000pt;margin-bottom:0.0000pt;margin-left:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:none;text-align:left;"><span style="font-size: small;"><span style="font-family: 微软雅黑; font-weight: bold;">6.3&nbsp;市级</span></span></h2>
+<p style="margin-right:0.0000pt;margin-left:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:widow-orphan;text-align:left;" class="MsoNormal"><span style="font-size: small;"><span style="font-family: 微软雅黑;">业务描述：对后台发布的常熟征信网站一些重要的市级的政策法规进行展现，便于用户了解和查看。</span></span></p>
+<p style="margin-right:0.0000pt;margin-left:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:widow-orphan;" class="p"><span style="font-size: small;"><span style="font-family: 微软雅黑;">点击【政策法规】》【市级】如图：</span></span></p>
+<p style="margin-right:0.0000pt;margin-left:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:widow-orphan;" class="p"><span style="font-size: small;"><img src="/${res}/img/newEdition/tp12.png" alt="" /> <span style="font-family: 微软雅黑;">&nbsp;</span></span></p>
+<p style="margin-right:0.0000pt;margin-left:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:widow-orphan;text-align:left;" class="MsoNormal"><span style="font-size: small;"><span style="font-family: 微软雅黑;">操作：</span></span></p>
+<p style="margin-right: 0pt; text-indent: 24pt; text-align: left; margin-left: 40px;" class="MsoNormal"><span style="font-size: small;"><span style="font-family: 微软雅黑;">（1）&nbsp;打开相应模块，切换到&ldquo;空间地理资源目录&rdquo;页签。</span></span></p>
+<p style="margin-right: 0pt; text-indent: 24pt; text-align: left; margin-left: 40px;" class="MsoNormal"><span style="font-size: small;"><span style="font-family: 微软雅黑;">（2）&nbsp;输入资源名称进行模糊查询（不输入任何值就查询所有资源）。</span></span></p>
+<h1 style="margin-top:0.0000pt;margin-right:0.0000pt;margin-bottom:0.0000pt;margin-left:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:none;text-align:left;"><span style="font-size: small;"><span style="font-family: 微软雅黑; font-weight: bold;">7&nbsp;信用知识</span></span></h1>
+<h2 style="margin-top:0.0000pt;margin-right:0.0000pt;margin-bottom:0.0000pt;margin-left:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:none;text-align:left;"><span style="font-size: small;"><span style="font-family: 微软雅黑; font-weight: bold;">7.1&nbsp;信用知识</span></span></h2>
+<p style="margin-right:0.0000pt;margin-left:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:widow-orphan;text-align:left;" class="MsoNormal"><span style="font-size: small;"><span style="font-family: 微软雅黑;">业务描述：对后台发布的常熟征信网站一些信用知识进行展现，便于用户了解和查看。</span></span></p>
+<p style="margin-right:0.0000pt;margin-left:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:widow-orphan;" class="p"><span style="font-size: small;"><span style="font-family: 微软雅黑;">用户登录门户，点击【信用知识】如图：</span></span></p>
+<p style="margin-right:0.0000pt;margin-left:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:widow-orphan;" class="p"><span style="font-size: small;"><br />
+<span style="font-family: 微软雅黑;">&nbsp;<img src="/${res}/img/newEdition/tp13.png" alt="" /> </span></span></p>
+<h1 style="margin-top:0.0000pt;margin-right:0.0000pt;margin-bottom:0.0000pt;margin-left:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:none;text-align:left;"><span style="font-size: small;"><span style="font-family: 微软雅黑; font-weight: bold;">8&nbsp;信用服务&nbsp;</span></span></h1>
+<h2 style="margin-top:0.0000pt;margin-right:0.0000pt;margin-bottom:0.0000pt;margin-left:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:none;text-align:left;"><span style="font-size: small;"><span style="font-family: 微软雅黑; font-weight: bold;">8.1&nbsp;机构服务</span></span></h2>
+<p style="margin-right:0.0000pt;margin-left:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:widow-orphan;text-align:left;" class="MsoNormal"><span style="font-size: small;"><span style="font-family: 微软雅黑;">业务描述：对后台发布的常熟征信网站一些机构服务进行展现，便于用户了解和查看。</span></span></p>
+<p style="margin-right:0.0000pt;margin-left:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:widow-orphan;" class="p"><span style="font-size: small;"><span style="font-family: 微软雅黑;">用户登录门户，点击【信用服务】》【机构服务】如图：</span></span></p>
+<p style="margin-right:0.0000pt;margin-left:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:widow-orphan;text-align:center;" class="p"><span style="font-size: small;"><span style="font-family: 微软雅黑;"><img src="/${res}/img/newEdition/tp14.png" alt="" /> </span></span></p>
+<h1 style="margin-top:0.0000pt;margin-right:0.0000pt;margin-bottom:0.0000pt;margin-left:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:none;text-align:left;"><span style="font-size: small;"><span style="font-family: 微软雅黑; font-weight: bold;">9&nbsp;专项内容</span></span></h1>
+<h2 style="margin-top:0.0000pt;margin-right:0.0000pt;margin-bottom:0.0000pt;margin-left:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:none;text-align:left;"><span style="font-size: small;"><span style="font-family: 微软雅黑; font-weight: bold;">9.1&nbsp;被执行人</span></span></h2>
+<p style="margin-right:0.0000pt;margin-left:21.6000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:widow-orphan;text-align:left;" class="MsoNormal"><span style="font-size: small;"><span style="font-family: 微软雅黑;">业务描述：对后台发布的常熟征信网站一些法院黑名单的人进行展现，便于用户了解和查看。</span></span></p>
+<p style="margin-right:0.0000pt;margin-left:21.6000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:widow-orphan;" class="p"><span style="font-size: small;"><span style="font-family: 微软雅黑;">用户登录门户，点击【专项内容】》【被执行人】如图：</span></span></p>
+<p style="margin-right:0.0000pt;margin-left:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:widow-orphan;text-align:justify;text-justify:inter-ideograph;" class="p"><span style="font-size: small;"><br />
+<span style="font-family: 微软雅黑;">&nbsp;<img src="/${res}/img/newEdition/tp15.png" alt="" /> </span></span></p>
+<h2 style="margin-top:0.0000pt;margin-right:0.0000pt;margin-bottom:0.0000pt;margin-left:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:none;text-align:left;"><span style="font-size: small;"><span style="font-family: 微软雅黑; font-weight: bold;">9.2&nbsp;被执行企业</span></span></h2>
+<p style="margin-right:0.0000pt;margin-left:21.6000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:widow-orphan;text-align:left;" class="MsoNormal"><span style="font-size: small;"><span style="font-family: 微软雅黑;">业务描述：对后台发布的常熟征信网站一些法院黑名单的企业进行展现，便于用户了解和查看。</span></span></p>
+<p style="margin-right:0.0000pt;margin-left:21.6000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:widow-orphan;" class="p"><span style="font-size: small;"><span style="font-family: 微软雅黑;">用户登录门户，点击【专项内容】》【被执行企业】如图</span></span></p>
+<p style="margin-right:0.0000pt;margin-left:21.6000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:widow-orphan;" class="p"><span style="font-size: small;"><br />
+<span style="font-family: 微软雅黑;">&nbsp;<img src="/${res}/img/newEdition/tp16.png" alt="" /> </span></span></p>
+<h2 style="margin-top:0.0000pt;margin-right:0.0000pt;margin-bottom:0.0000pt;margin-left:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:none;text-align:left;"><span style="font-size: small;"><span style="font-family: 微软雅黑; font-weight: bold;">9.3&nbsp;贯标企业</span></span></h2>
+<p style="margin-right:0.0000pt;margin-left:21.6000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:widow-orphan;text-align:left;" class="MsoNormal"><span style="font-size: small;"><span style="font-family: 微软雅黑;">业务描述：对后台发布的常熟征信网站一些贯标企业进行展现，便于用户了解和查看。</span></span></p>
+<p style="margin-right:0.0000pt;margin-left:21.6000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:widow-orphan;" class="p"><span style="font-size: small;"><span style="font-family: 微软雅黑;">用户登录门户，点击【专项内容】》【贯标企业】如图</span></span></p>
+<p style="margin-right: 0pt; text-indent: 24pt;" class="p"><span style="font-size: small;"><span style="font-family: 微软雅黑; font-weight: bold;">9.4&nbsp;工程建设</span></span></p>
+<p style="margin-right:0.0000pt;margin-left:21.6000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:widow-orphan;text-align:left;" class="MsoNormal"><span style="font-size: small;"><span style="font-family: 微软雅黑;">业务描述：跳转住建部查询相关信息，便于用户了解和查看</span></span></p>
+<p style="margin-right:0.0000pt;margin-left:21.6000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:widow-orphan;" class="p"><span style="font-size: small;"><span style="font-family: 微软雅黑;">用户登录门户，点击【专项内容】》【工程建设】如图</span></span></p>
+<p style="margin-right:0.0000pt;margin-left:21.6000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:widow-orphan;" class="p"><span style="font-size: small;"><span style="font-family: 微软雅黑;"><img src="/${res}/img/newEdition/tp18.png" alt="" /> </span></span></p>
+<h1 style="margin-top: 0pt; margin-right: 0pt; margin-bottom: 0pt; text-indent: 24pt;"><span style="font-size: small;"><span style="font-family: 微软雅黑; font-weight: bold;">10&nbsp;实名认证</span></span></h1>
+<p style="margin-right:0.0000pt;margin-left:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:widow-orphan;text-align:left;" class="MsoNormal"><span style="font-size: small;"><span style="font-family: 微软雅黑;">业务描述：已经注册的用户，可以继续实名认证，只有实名认的用户才能查看自己的信用记录，实名认证分企业实名认证和个人实名认证，企业实名认证了的用户可以查看企业信用记录，个人实名认证的用户可以查看个人信用记录。个人实名认证有身份证实名认证和市民卡实名认证，如图：</span></span></p>
+<p style="margin-right:0.0000pt;margin-left:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:widow-orphan;text-align:left;" class="MsoNormal"><span style="font-size: small;"><img src="/${res}/img/newEdition/tp19.png" alt="" /> </span></p>
+<p style="margin-right:0.0000pt;margin-left:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:widow-orphan;text-align:left;" class="MsoNormal"><span style="font-size: small;"><span style="font-family: 微软雅黑;">&nbsp;<img src="/${res}/img/newEdition/tp20.png" alt="" /> </span></span></p>
+<p style="margin-right:0.0000pt;margin-left:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:widow-orphan;text-align:left;" class="MsoNormal"><span style="font-size: small;"><br />
+</span></p>
+<p style="margin-right:0.0000pt;mso-para-margin-right:0.0000gd;text-indent:24.0000pt;mso-char-indent-count:2.0000;text-autospace:ideograph-numeric;mso-pagination:none;" class="MsoNormal"><span style="font-size: small;"><span style="font-family: 微软雅黑;">&nbsp;</span></span></p>
+<p><span style="font-size: large;"><span style="color: rgb(0, 0, 128);"><u><strong>&nbsp;</strong></u></span></span><span style="color: rgb(51, 102, 255);"><span style="font-size: larger;"><u><span style="color: rgb(0, 0, 128);"><a href="/u/cms/www/201601/01211618.doc"><span style="font-size: large;"><span style="color: rgb(0, 0, 128);"><u>使用手册下载</u></span></span></a></span></u></span></span></p>
+<p>&nbsp;</p>
+		</div>
+      </div>
+    </div><!--main_right end-->
+    <div class="clear"></div>
+</div><!--main end-->
+
+	[#include "../include/页脚信息栏.html"/]
+</div>
+	
+</body>
+</html>

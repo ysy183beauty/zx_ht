@@ -1,0 +1,6 @@
+基于J2EE的主程序
+
+打包命令: mvn clean package
+
+得到 target/NPTWebApp-web.war 用于测试环境 (192.168.0.112)
+得到 target/NPTWebApp-distribution.war 用于生产环境 (58.211.168.210)
